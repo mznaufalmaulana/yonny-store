@@ -54,107 +54,53 @@ class Menu extends React.Component {
                                 <div className="mt-f-box">
                                   <div className="mt-col-3">
                                     <div className="sub-dropcont">
-                                      <strong className="title">
-                                        <a
-                                          href="product-grid-view.html"
-                                          className="mt-subopener"
-                                        >
-                                          PRODUCTS
-                                        </a>
-                                      </strong>
+                                      <a
+                                        href="product-grid-view.html"
+                                        className="mt-subopener"
+                                      >
+                                        <strong className="title">
+                                          Living Room
+                                        </strong>
+                                      </a>
                                       <div className="sub-drop">
                                         <ul>
                                           <li>
                                             <a href="product-grid-view.html">
-                                              Product Grid View
+                                              Accessories
                                             </a>
                                           </li>
                                           <li>
-                                            <a href="product-list-view.html">
-                                              Product List View
-                                            </a>
+                                            <a href="#">TV Stands</a>
                                           </li>
                                           <li>
-                                            <a href="product-detail.html">
-                                              Product Detail
-                                            </a>
+                                            <a href="#">Console Tables</a>
+                                          </li>
+                                          <li>
+                                            <a href="#">Coffee Tables</a>
+                                          </li>
+                                          <li>
+                                            <a href="#">Side Tables</a>
+                                          </li>
+                                          <li>
+                                            <a href="#">Mirrors</a>
                                           </li>
                                         </ul>
                                       </div>
                                     </div>
                                     <div className="sub-dropcont">
-                                      <strong className="title">
-                                        <a href="#" className="mt-subopener">
-                                          404 Pages
-                                        </a>
-                                      </strong>
+                                      <a href="#" className="mt-subopener">
+                                        <strong className="title">
+                                          Dining Room
+                                        </strong>
+                                      </a>
                                       <div className="sub-drop">
                                         <ul>
                                           <li>
-                                            <a href="404-page.html">404 Page</a>
+                                            <a href="#">Accessoriese</a>
                                           </li>
                                           <li>
-                                            <a href="404-page2.html">
-                                              404 Page2
-                                            </a>
-                                          </li>
-                                        </ul>
-                                      </div>
-                                    </div>
-                                  </div>
-
-                                  <div className="mt-col-3">
-                                    <div className="sub-dropcont">
-                                      <strong className="title">
-                                        <a href="#" className="mt-subopener">
-                                          About US
-                                        </a>
-                                      </strong>
-                                      <div className="sub-drop">
-                                        <ul>
-                                          <li>
-                                            <a href="about-us.html">About</a>
-                                          </li>
-                                        </ul>
-                                      </div>
-                                    </div>
-                                    <div className="sub-dropcont">
-                                      <strong className="title">
-                                        <a href="#" className="mt-subopener">
-                                          Contact US
-                                        </a>
-                                      </strong>
-                                      <div className="sub-drop">
-                                        <ul>
-                                          <li>
-                                            <a href="contact-us.html">
-                                              Contact
-                                            </a>
-                                          </li>
-                                          <li>
-                                            <a href="contact-us2.html">
-                                              Contact 2
-                                            </a>
-                                          </li>
-                                        </ul>
-                                      </div>
-                                    </div>
-                                    <div className="sub-dropcont">
-                                      <strong className="title">
-                                        <a href="#" className="mt-subopener">
-                                          Coming Soon
-                                        </a>
-                                      </strong>
-                                      <div className="sub-drop">
-                                        <ul>
-                                          <li>
-                                            <a href="coming-soon.html">
-                                              Coming Soon
-                                            </a>
-                                          </li>
-                                          <li>
-                                            <a href="coming-soon2.html">
-                                              Coming Soon2
+                                            <a href="#">
+                                              Dining Tables and Chairs
                                             </a>
                                           </li>
                                         </ul>
@@ -164,48 +110,101 @@ class Menu extends React.Component {
 
                                   <div className="mt-col-3">
                                     <div className="sub-dropcont">
-                                      <strong className="title">
-                                        <a href="#" className="mt-subopener">
-                                          KITCHEN FURNITURE
-                                        </a>
-                                      </strong>
+                                      <a href="#" className="mt-subopener">
+                                        <strong className="title">
+                                          Bedroom
+                                        </strong>
+                                      </a>
                                       <div className="sub-drop">
                                         <ul>
                                           <li>
-                                            <a href="#">Kitchen Taps</a>
+                                            <a href="#">Lamps</a>
                                           </li>
                                           <li>
-                                            <a href="#">Breakfast time</a>
-                                          </li>
-                                          <li>
-                                            <a href="#">Cooking</a>
-                                          </li>
-                                          <li>
-                                            <a href="#">Food Storage Boxes</a>
-                                          </li>
-                                          <li>
-                                            <a href="#">Spice Jars</a>
-                                          </li>
-                                          <li>
-                                            <a href="#">Napskins</a>
-                                          </li>
-                                          <li>
-                                            <a href="#">Oven Gloves</a>
-                                          </li>
-                                          <li>
-                                            <a href="#">Placemats</a>
-                                          </li>
-                                          <li>
-                                            <a href="#">Cooking</a>
-                                          </li>
-                                          <li>
-                                            <a href="#">Food Storage Boxes</a>
-                                          </li>
-                                          <li>
-                                            <a href="#">Spice Jars</a>
+                                            <a href="#">Bedside Tables</a>
                                           </li>
                                         </ul>
                                       </div>
+                                    </div>
+                                    <div className="sub-dropcont">
+                                      <a href="#" className="mt-subopener">
+                                        <strong className="title">
+                                          Garden
+                                        </strong>
+                                      </a>
+                                      <div className="sub-drop">
+                                        <ul>
+                                          <li>
+                                            <a href="#">Pots</a>
+                                          </li>
+                                          <li>
+                                            <a href="#">Garden Lamps</a>
+                                          </li>
+                                          <li>
+                                            <a href="#">
+                                              Garden Tables and Chairs
+                                            </a>
+                                          </li>
+                                          <li>
+                                            <a href="#">Water Feature</a>
+                                          </li>
+                                        </ul>
+                                      </div>
+                                    </div>
+                                  </div>
+
+                                  <div className="mt-col-3">
+                                    <div className="sub-dropcont">
+                                      <a href="#" className="mt-subopener">
+                                        <strong className="title">
+                                          Bathroom
+                                        </strong>
+                                      </a>
+                                      <div className="sub-drop">
+                                        <ul>
+                                          <li>
+                                            <a href="#">Accessories</a>
+                                          </li>
+                                          <li>
+                                            <a href="#">Bathtubs</a>
+                                          </li>
+                                          <li>
+                                            <a href="#">Wash Basins</a>
+                                          </li>
+                                          <li>
+                                            <a href="#">Free-Standing Basins</a>
+                                          </li>
+                                        </ul>
+                                      </div>
+                                    </div>
+                                  </div>
+
+                                  <div className="mt-col-3">
+                                    <div className="sub-dropcont">
+                                      <a href="#" className="mt-subopener">
+                                        <strong className="title">
+                                          Mosaic
+                                        </strong>
+                                      </a>
+                                    </div>
+                                    <div className="sub-dropcont">
+                                      <a href="#" className="mt-subopener">
+                                        <strong className="title">
+                                          Statue
+                                        </strong>
+                                      </a>
+                                    </div>
+                                    <div className="sub-dropcont">
+                                      <a href="#" className="mt-subopener">
+                                        <strong className="title">Slab</strong>
+                                      </a>
+                                    </div>
+                                    <div className="sub-dropcont">
+                                      <a href="#" className="mt-subopener">
+                                        <strong className="title">
+                                          Collection
+                                        </strong>
+                                      </a>
                                     </div>
                                   </div>
                                 </div>
@@ -216,7 +215,13 @@ class Menu extends React.Component {
                           </li>
 
                           <li>
+                            <a href="about-us.html">PROJECTS</a>
+                          </li>
+                          <li>
                             <a href="about-us.html">ABOUT</a>
+                          </li>
+                          <li>
+                            <a href="about-us.html">CONTACT</a>
                           </li>
                         </ul>
                       </nav>
