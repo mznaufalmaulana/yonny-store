@@ -1,6 +1,7 @@
 import React from "react";
 import logo from "../assets/images/mt-logo.png";
-// import "../assets/css/main.css";
+import getUnicodeFlagIcon from "country-flag-icons/unicode";
+import Flags from "country-flag-icons/react/1x1";
 
 class Menu extends React.Component {
   render() {
@@ -21,13 +22,10 @@ class Menu extends React.Component {
                   <div className="mt-nav-box">
                     <ul className="mt-top-list hidden-sm hidden-xs">
                       <li>
-                        <a href="#">My Account</a>
-                      </li>
-                      <li>
-                        <a href="#">Checkout</a>
-                      </li>
-                      <li>
-                        <a href="#">Wishlist</a>
+                        <a href="#">
+                          <i class="fa fa-whatsapp" aria-hidden="true"></i>
+                          &nbsp; +62 82 123 123 123
+                        </a>
                       </li>
                     </ul>
 
@@ -41,7 +39,7 @@ class Menu extends React.Component {
                           </li>
 
                           <li className="drop">
-                            <a href="product-grid-view.html">
+                            <a href="#">
                               PRODUCTS &nbsp;
                               <i
                                 className="fa fa-angle-down"
@@ -222,6 +220,30 @@ class Menu extends React.Component {
                           </li>
                           <li>
                             <a href="about-us.html">CONTACT</a>
+                          </li>
+
+                          <li>
+                            <a class="drop-link" href="#">
+                              {getUnicodeFlagIcon("GB")} &nbsp;
+                              <i
+                                className="fa fa-angle-down"
+                                aria-hidden="true"
+                              ></i>
+                            </a>
+                            <div class="s-drop">
+                              <ul>
+                                <li>
+                                  <a href="#">
+                                    {getUnicodeFlagIcon("GB")}&nbsp;English
+                                  </a>
+                                </li>
+                                <li>
+                                  <a href="#">
+                                    {getUnicodeFlagIcon("ID")}&nbsp;Bahasa
+                                  </a>
+                                </li>
+                              </ul>
+                            </div>
                           </li>
                         </ul>
                       </nav>
