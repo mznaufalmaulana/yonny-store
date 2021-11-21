@@ -2,21 +2,24 @@ import React from "react";
 import logo from "../assets/images/mt-logo.png";
 import getUnicodeFlagIcon from "country-flag-icons/unicode";
 import Flags from "country-flag-icons/react/1x1";
+import { NavLink } from "react-router-dom";
+import { Button } from "bootstrap";
 
 class Menu extends React.Component {
   render() {
     return (
       <>
         <header className="style5" id="mt-header">
-          <div className="mt-bottom-bar">
+          <div className="mt-bottom-bar mb-5">
             <div className="container">
               <div className="row">
                 <div className="col-xs-12">
                   <div className="mt-logo">
-                    <a href="#">
-                      {/* <img alt="schon" src="images/mt-logo.png"> */}
+                    {/* <NavLink to="/"> */}
+                    <a href="/">
                       <img src={logo} />
                     </a>
+                    {/* </NavLink> */}
                   </div>
 
                   <div className="mt-nav-box">
@@ -33,13 +36,11 @@ class Menu extends React.Component {
                       <nav id="nav">
                         <ul>
                           <li>
-                            <a className="drop-link" href="homepage1.html">
-                              HOME
-                            </a>
+                            <a href="/">HOME</a>
                           </li>
 
                           <li className="drop">
-                            <a href="#">
+                            <a href="/product">
                               PRODUCTS &nbsp;
                               <i
                                 className="fa fa-angle-down"
@@ -53,7 +54,7 @@ class Menu extends React.Component {
                                   <div className="mt-col-3">
                                     <div className="sub-dropcont">
                                       <a
-                                        href="product-grid-view.html"
+                                        href="/product"
                                         className="mt-subopener"
                                       >
                                         <strong className="title">
@@ -63,30 +64,33 @@ class Menu extends React.Component {
                                       <div className="sub-drop">
                                         <ul>
                                           <li>
-                                            <a href="product-grid-view.html">
-                                              Accessories
+                                            <a href="/product">Accessories</a>
+                                          </li>
+                                          <li>
+                                            <a href="/product">TV Stands</a>
+                                          </li>
+                                          <li>
+                                            <a href="/product">
+                                              Console Tables
                                             </a>
                                           </li>
                                           <li>
-                                            <a href="#">TV Stands</a>
+                                            <a href="/product">Coffee Tables</a>
                                           </li>
                                           <li>
-                                            <a href="#">Console Tables</a>
+                                            <a href="/product">Side Tables</a>
                                           </li>
                                           <li>
-                                            <a href="#">Coffee Tables</a>
-                                          </li>
-                                          <li>
-                                            <a href="#">Side Tables</a>
-                                          </li>
-                                          <li>
-                                            <a href="#">Mirrors</a>
+                                            <a href="/product">Mirrors</a>
                                           </li>
                                         </ul>
                                       </div>
                                     </div>
                                     <div className="sub-dropcont">
-                                      <a href="#" className="mt-subopener">
+                                      <a
+                                        href="/product"
+                                        className="mt-subopener"
+                                      >
                                         <strong className="title">
                                           Dining Room
                                         </strong>
@@ -94,10 +98,10 @@ class Menu extends React.Component {
                                       <div className="sub-drop">
                                         <ul>
                                           <li>
-                                            <a href="#">Accessoriese</a>
+                                            <a href="/product">Accessoriese</a>
                                           </li>
                                           <li>
-                                            <a href="#">
+                                            <a href="/product">
                                               Dining Tables and Chairs
                                             </a>
                                           </li>
@@ -108,7 +112,10 @@ class Menu extends React.Component {
 
                                   <div className="mt-col-3">
                                     <div className="sub-dropcont">
-                                      <a href="#" className="mt-subopener">
+                                      <a
+                                        href="/product"
+                                        className="mt-subopener"
+                                      >
                                         <strong className="title">
                                           Bedroom
                                         </strong>
@@ -116,16 +123,21 @@ class Menu extends React.Component {
                                       <div className="sub-drop">
                                         <ul>
                                           <li>
-                                            <a href="#">Lamps</a>
+                                            <a href="/product">Lamps</a>
                                           </li>
                                           <li>
-                                            <a href="#">Bedside Tables</a>
+                                            <a href="/product">
+                                              Bedside Tables
+                                            </a>
                                           </li>
                                         </ul>
                                       </div>
                                     </div>
                                     <div className="sub-dropcont">
-                                      <a href="#" className="mt-subopener">
+                                      <a
+                                        href="/product"
+                                        className="mt-subopener"
+                                      >
                                         <strong className="title">
                                           Garden
                                         </strong>
@@ -133,18 +145,18 @@ class Menu extends React.Component {
                                       <div className="sub-drop">
                                         <ul>
                                           <li>
-                                            <a href="#">Pots</a>
+                                            <a href="/product">Pots</a>
                                           </li>
                                           <li>
-                                            <a href="#">Garden Lamps</a>
+                                            <a href="/product">Garden Lamps</a>
                                           </li>
                                           <li>
-                                            <a href="#">
+                                            <a href="/product">
                                               Garden Tables and Chairs
                                             </a>
                                           </li>
                                           <li>
-                                            <a href="#">Water Feature</a>
+                                            <a href="/product">Water Feature</a>
                                           </li>
                                         </ul>
                                       </div>
@@ -153,7 +165,10 @@ class Menu extends React.Component {
 
                                   <div className="mt-col-3">
                                     <div className="sub-dropcont">
-                                      <a href="#" className="mt-subopener">
+                                      <a
+                                        href="/product"
+                                        className="mt-subopener"
+                                      >
                                         <strong className="title">
                                           Bathroom
                                         </strong>
@@ -161,16 +176,18 @@ class Menu extends React.Component {
                                       <div className="sub-drop">
                                         <ul>
                                           <li>
-                                            <a href="#">Accessories</a>
+                                            <a href="/product">Accessories</a>
                                           </li>
                                           <li>
-                                            <a href="#">Bathtubs</a>
+                                            <a href="/product">Bathtubs</a>
                                           </li>
                                           <li>
-                                            <a href="#">Wash Basins</a>
+                                            <a href="/product">Wash Basins</a>
                                           </li>
                                           <li>
-                                            <a href="#">Free-Standing Basins</a>
+                                            <a href="/product">
+                                              Free-Standing Basins
+                                            </a>
                                           </li>
                                         </ul>
                                       </div>
@@ -179,26 +196,38 @@ class Menu extends React.Component {
 
                                   <div className="mt-col-3">
                                     <div className="sub-dropcont">
-                                      <a href="#" className="mt-subopener">
+                                      <a
+                                        href="/product"
+                                        className="mt-subopener"
+                                      >
                                         <strong className="title">
                                           Mosaic
                                         </strong>
                                       </a>
                                     </div>
                                     <div className="sub-dropcont">
-                                      <a href="#" className="mt-subopener">
+                                      <a
+                                        href="/product"
+                                        className="mt-subopener"
+                                      >
                                         <strong className="title">
                                           Statue
                                         </strong>
                                       </a>
                                     </div>
                                     <div className="sub-dropcont">
-                                      <a href="#" className="mt-subopener">
+                                      <a
+                                        href="/product"
+                                        className="mt-subopener"
+                                      >
                                         <strong className="title">Slab</strong>
                                       </a>
                                     </div>
                                     <div className="sub-dropcont">
-                                      <a href="#" className="mt-subopener">
+                                      <a
+                                        href="/product"
+                                        className="mt-subopener"
+                                      >
                                         <strong className="title">
                                           Collection
                                         </strong>
@@ -213,13 +242,13 @@ class Menu extends React.Component {
                           </li>
 
                           <li>
-                            <a href="about-us.html">PROJECTS</a>
+                            <a href="/project">PROJECTS</a>
                           </li>
                           <li>
-                            <a href="about-us.html">ABOUT</a>
+                            <a href="/about">ABOUT</a>
                           </li>
                           <li>
-                            <a href="about-us.html">CONTACT</a>
+                            <a href="/contact">CONTACT</a>
                           </li>
 
                           <li>
