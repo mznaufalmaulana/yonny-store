@@ -172,10 +172,11 @@ class Index extends React.Component {
                   </div>
                 </div>
               </div>
-              <div
+              {/* <div
                 class="mt-producttabs style5 wow fadeInUp"
                 data-wow-delay="0.4s"
-              ></div>
+              ></div> */}
+              <br />
             </div>
           </div>
         </div>
