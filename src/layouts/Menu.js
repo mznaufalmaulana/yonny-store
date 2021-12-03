@@ -1,9 +1,6 @@
 import React from "react";
-import logo from "../assets/images/mt-logo.png";
+import logo from "../assets/images/logo-yonny.png";
 import getUnicodeFlagIcon from "country-flag-icons/unicode";
-import Flags from "country-flag-icons/react/1x1";
-import { NavLink } from "react-router-dom";
-import { Button } from "bootstrap";
 
 class Menu extends React.Component {
   render() {
@@ -17,7 +14,7 @@ class Menu extends React.Component {
                   <div className="mt-logo">
                     {/* <NavLink to="/"> */}
                     <a href="/">
-                      <img src={logo} />
+                      <img src={logo} width="10px" className="topbar-logo" />
                     </a>
                     {/* </NavLink> */}
                   </div>

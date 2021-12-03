@@ -19,7 +19,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy": "scp -r ./build/* batuyonny@178.128.99.51:/home/batuyonny/yonny-store"
   },
   "eslintConfig": {
     "extends": [

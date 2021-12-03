@@ -1,7 +1,5 @@
 import React from "react";
-import logo from "../assets/images/mt-logo.png";
-// import { useEffect, useState } from "react";
-// import API from "../services";
+import logo from "../assets/images/logo-yonny.png";
 // import "../assets/css/main.css";
 
 class Footer extends React.Component {
@@ -19,7 +17,7 @@ class Footer extends React.Component {
                 <div class="col-xs-12 col-sm-4 mt-paddingbottomsm">                  
                   <div class="f-widget-about">       
                     <a href="index.html">                      
-                      {/* <img src={logo} alt="batuYonny" /> */}
+                      <img src={logo} alt="batuYonny" />
                     </a>
                     <p>Exercitation ullamco laboris nisi ut aliquip ex<br/> commodo consequat. Duis aute irure </p>
                     <ul class="list-unstyled address-list">
