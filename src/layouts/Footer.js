@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../assets/images/mt-logo.png";
+import logo from "../assets/images/logo-yonny.png";
 // import "../assets/css/main.css";
 
 class Footer extends React.Component {
