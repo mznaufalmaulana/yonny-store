@@ -11,15 +11,15 @@ class Index extends React.Component {
     return (
       <main id="mt-main">
         <Banner title="Contact" />        
-        <section class="mt-contact-detail content-info wow fadeInUp" data-wow-delay="0.4s">
-          <div class="container-fluid">           
-            <div class="row">
-              <div class="col-xs-12 col-sm-8">
-                <div class="txt-wrap">
+        <section className="mt-contact-detail content-info wow fadeInUp" data-wow-delay="0.4s">
+          <div className="container-fluid">           
+            <div className="row">
+              <div className="col-xs-12 col-sm-8">
+                <div className="txt-wrap">
                   <h1>Lorem. chair maker</h1>
                   <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut <br/>enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut <br/>aliquip ex ea commodo consequat. </p>
                 </div>
-                <ul class="list-unstyled contact-txt">
+                <ul className="list-unstyled contact-txt">
                   <li>
                     <strong>Address</strong>
                     <address>Suite 18B, 148 Connaught Road <br/>Central <br/>New Yankee</address>
@@ -48,14 +48,14 @@ class Index extends React.Component {
                   </li>
                 </ul>
               </div>
-              <div class="col-xs-12 col-sm-4">
+              <div className="col-xs-12 col-sm-4">
                 <h2>Have a question?</h2>
-                <form action="#" class="contact-form">
+                <form action="#" className="contact-form">
                   <fieldset>
-                    <input type="text" class="form-control" placeholder="Name"/>
-                    <input type="email" class="form-control" placeholder="E-Mail"/>                    
-                    <textarea class="form-control" placeholder="Message"></textarea>
-                    <button class="btn-type3" type="submit">Send</button>
+                    <input type="text" className="form-control" placeholder="Name"/>
+                    <input type="email" className="form-control" placeholder="E-Mail"/>                    
+                    <textarea className="form-control" placeholder="Message"></textarea>
+                    <button className="btn-type3" type="submit">Send</button>
                   </fieldset>
                 </form>                
               </div>

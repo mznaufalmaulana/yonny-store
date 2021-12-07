@@ -11,9 +11,9 @@ class Index extends React.Component {
     return (
       <main id="mt-main">
         <Banner title="Product" />
-        <div class="container">
-          <div class="row">
-            <div class="col-xs-12"></div>
+        <div className="container">
+          <div className="row">
+            <div className="col-xs-12"></div>
           </div>
         </div>
       </main>

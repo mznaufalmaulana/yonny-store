@@ -2970,7 +2970,7 @@ a:hover {
 }
 
 #mt-footer .logo {
-  width: 112px;
+  width: 182px;
   margin: 0 0 23px;
   display: inline-block;
   vertical-align: top;
@@ -12633,4 +12633,8 @@ a:focus {
 
 .changer-active #style-changer {
   margin: 0;
+}
+
+.topbar-logo {
+  width: 200px !important;
 }

@@ -1,8 +1,22 @@
 import React from "react";
+import {Link} from "react-router-dom";
 import logo from "../assets/images/logo-yonny.png";
 import getUnicodeFlagIcon from "country-flag-icons/unicode";
+import API from "../services";
 
 class Menu extends React.Component {
+  state = {
+    productCategory: [],
+  }
+
+  componentDidMount() {
+    API.get('menu/product-category').then((result) => {
+      if (result.message === "success") {
+        this.setState({ productCategory: result.data });
+      }
+    });
+  }
+
   render() {
     return (
       <>
@@ -33,78 +47,126 @@ class Menu extends React.Component {
                       <nav id="nav">
                         <ul>
                           <li>
+                            {/*<Link to="/">HOME</Link>*/}
                             <a href="/">HOME</a>
                           </li>
 
                           <li className="drop">
-                            <a href="/product">
+                            <Link to="/product">
                               PRODUCTS &nbsp;
                               <i
                                 className="fa fa-angle-down"
                                 aria-hidden="true"
                               ></i>
-                            </a>
+                            </Link>
 
                             <div className="mt-dropmenu text-left">
                               <div className="mt-frame">
                                 <div className="mt-f-box">
                                   <div className="mt-col-3">
-                                    <div className="sub-dropcont">
-                                      <a
-                                        href="/product"
-                                        className="mt-subopener"
-                                      >
-                                        <strong className="title">
-                                          Living Room
-                                        </strong>
-                                      </a>
-                                      <div className="sub-drop">
-                                        <ul>
-                                          <li>
-                                            <a href="/product">Accessories</a>
-                                          </li>
-                                          <li>
-                                            <a href="/product">TV Stands</a>
-                                          </li>
-                                          <li>
-                                            <a href="/product">
-                                              Console Tables
+                                    { this.state.productCategory.map((prodCat, index) => {
+                                      // if(index%3==0){
+                                      //   return index%3==0 ?(
+                                      //     <div className="mt-col-3">
+                                      //
+                                      //     </div>
+                                      //   ):null;
+                                      if(typeof prodCat.child === 'undefined')
+                                      {
+                                        return (
+                                          <div className="sub-dropcont" key={prodCat.id}>
+                                            <a
+                                              href="/product"
+                                              className="mt-subopener"
+                                            >
+                                              <strong className="title">
+                                                {prodCat.category_name}
+                                              </strong>
                                             </a>
-                                          </li>
-                                          <li>
-                                            <a href="/product">Coffee Tables</a>
-                                          </li>
-                                          <li>
-                                            <a href="/product">Side Tables</a>
-                                          </li>
-                                          <li>
-                                            <a href="/product">Mirrors</a>
-                                          </li>
-                                        </ul>
-                                      </div>
-                                    </div>
-                                    <div className="sub-dropcont">
-                                      <a
-                                        href="/product"
-                                        className="mt-subopener"
-                                      >
-                                        <strong className="title">
-                                          Dining Room
-                                        </strong>
-                                      </a>
-                                      <div className="sub-drop">
-                                        <ul>
-                                          <li>
-                                            <a href="/product">Accessoriese</a>
-                                          </li>
-                                          <li>
-                                            <a href="/product">
-                                              Dining Tables and Chairs
+                                          </div>
+                                        )
+                                      }else{
+                                        return (
+                                          <div className="sub-dropcont" key={prodCat.id}>
+                                            <a
+                                              href="/product"
+                                              className="mt-subopener"
+                                            >
+                                              <strong className="title">
+                                                {prodCat.category_name}
+                                              </strong>
                                             </a>
-                                          </li>
-                                        </ul>
-                                      </div>
-                                    </div>
+                                            <div className="sub-drop">
+                                              <ul>
+                                                {
+                                                  prodCat.child.map( ch => {
+                                                    return (
+                                                      <li key={ch.id}><a href="/product">{ch.category_name}</a></li>
+                                                    )
+                                                  })
+                                                }
+                                              </ul>
+                                            </div>
+                                          </div>
+                                        )
+                                      }
+                                    }) }
+                                    {/*<div className="sub-dropcont">*/}
+                                    {/*  <a*/}
+                                    {/*    href="/product"*/}
+                                    {/*    className="mt-subopener"*/}
+                                    {/*  >*/}
+                                    {/*    <strong className="title">*/}
+                                    {/*      Living Room*/}
+                                    {/*    </strong>*/}
+                                    {/*  </a>*/}
+                                    {/*  <div className="sub-drop">*/}
+                                    {/*    <ul>*/}
+                                    {/*      <li>*/}
+                                    {/*        <a href="/product">Accessories</a>*/}
+                                    {/*      </li>*/}
+                                    {/*      <li>*/}
+                                    {/*        <a href="/product">TV Stands</a>*/}
+                                    {/*      </li>*/}
+                                    {/*      <li>*/}
+                                    {/*        <a href="/product">*/}
+                                    {/*          Console Tables*/}
+                                    {/*        </a>*/}
+                                    {/*      </li>*/}
+                                    {/*      <li>*/}
+                                    {/*        <a href="/product">Coffee Tables</a>*/}
+                                    {/*      </li>*/}
+                                    {/*      <li>*/}
+                                    {/*        <a href="/product">Side Tables</a>*/}
+                                    {/*      </li>*/}
+                                    {/*      <li>*/}
+                                    {/*        <a href="/product">Mirrors</a>*/}
+                                    {/*      </li>*/}
+                                    {/*    </ul>*/}
+                                    {/*  </div>*/}
+                                    {/*</div>*/}
+                                    {/*<div className="sub-dropcont">*/}
+                                    {/*  <a*/}
+                                    {/*    href="/product"*/}
+                                    {/*    className="mt-subopener"*/}
+                                    {/*  >*/}
+                                    {/*    <strong className="title">*/}
+                                    {/*      Dining Room*/}
+                                    {/*    </strong>*/}
+                                    {/*  </a>*/}
+                                    {/*  <div className="sub-drop">*/}
+                                    {/*    <ul>*/}
+                                    {/*      <li>*/}
+                                    {/*        <a href="/product">Accessoriese</a>*/}
+                                    {/*      </li>*/}
+                                    {/*      <li>*/}
+                                    {/*        <a href="/product">*/}
+                                    {/*          Dining Tables and Chairs*/}
+                                    {/*        </a>*/}
+                                    {/*      </li>*/}
+                                    {/*    </ul>*/}
+                                    {/*  </div>*/}
+                                    {/*</div>*/}
                                   </div>
 
                                   <div className="mt-col-3">
@@ -239,13 +301,13 @@ class Menu extends React.Component {
                           </li>
 
                           <li>
-                            <a href="/project">PROJECTS</a>
+                            <Link to="/project">PROJECTS</Link>
                           </li>
                           <li>
-                            <a href="/about">ABOUT</a>
+                            <Link to="/about">ABOUT</Link>
                           </li>
                           <li>
-                            <a href="/contact">CONTACT</a>
+                            <Link to="/contact">CONTACT</Link>
                           </li>
 
                           <li>

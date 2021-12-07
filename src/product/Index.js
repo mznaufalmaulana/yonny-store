@@ -12,23 +12,23 @@ class Index extends React.Component {
     return (
       <main id="mt-main">
         <Banner title="Product" />
-        <div class="container">
-          <div class="row">
+        <div className="container">
+          <div className="row">
             <Category />
             <div
-              class="col-xs-12 col-sm-8 col-md-9 wow fadeInRight"
+              className="col-xs-12 col-sm-8 col-md-9 wow fadeInRight"
               data-wow-delay="0.4s"
             >
-              <header class="mt-shoplist-header">
-                <div class="btn-box">
-                  <ul class="list-inline">
+              <header className="mt-shoplist-header">
+                <div className="btn-box">
+                  <ul className="list-inline">
                     <li>
-                      <a href="#" class="drop-link">
+                      <a href="#" className="drop-link">
                         Default Sorting{" "}
-                        <i aria-hidden="true" class="fa fa-angle-down"></i>
+                        <i aria-hidden="true" className="fa fa-angle-down"></i>
                       </a>
-                      <div class="drop">
-                        <ul class="list-unstyled">
+                      <div className="drop">
+                        <ul className="list-unstyled">
                           <li>
                             <a href="#">ASC</a>
                           </li>
@@ -41,7 +41,7 @@ class Index extends React.Component {
                   </ul>
                 </div>
 
-                <div class="mt-textbox">
+                <div className="mt-textbox">
                   <p>
                     Showing <strong>1–9</strong> of <strong>65</strong> results
                   </p>
@@ -52,63 +52,63 @@ class Index extends React.Component {
                 </div>
               </header>
 
-              <ul class="mt-productlisthold list-inline">
+              <ul className="mt-productlisthold list-inline">
                 <li>
-                  <div class="mt-product1 large">
-                    <div class="box">
-                      <div class="b1">
-                        <div class="b2">
+                  <div className="mt-product1 large">
+                    <div className="box">
+                      <div className="b1">
+                        <div className="b2">
                           <a href="product-detail.html">
                             <img src="images/demo/img22.jpg" />
                           </a>
 
-                          <ul class="links">
+                          <ul className="links">
                             <li>
                               <a href="#">
-                                <i class="icomoon icon-eye"></i>
+                                <i className="icomoon icon-eye"></i>
                               </a>
                             </li>
                             <li>
                               <a href="#">
-                                <i class="icomoon icon-heart-empty"></i>
+                                <i className="icomoon icon-heart-empty"></i>
                               </a>
                             </li>
                           </ul>
                         </div>
                       </div>
                     </div>
-                    <div class="txt">
-                      <strong class="title">
+                    <div className="txt">
+                      <strong className="title">
                         <a href="product-detail.html">Bombi Chair</a>
                       </strong>
                     </div>
                   </div>
                 </li>
                 <li>
-                  <div class="mt-product1 large">
-                    <div class="box">
-                      <div class="b1">
-                        <div class="b2">
+                  <div className="mt-product1 large">
+                    <div className="box">
+                      <div className="b1">
+                        <div className="b2">
                           <a href="product-detail.html">
                             <img src="images/demo/img23.jpg" />
                           </a>
-                          <ul class="links">
+                          <ul className="links">
                             <li>
                               <a href="#">
-                                <i class="icomoon icon-eye"></i>
+                                <i className="icomoon icon-eye"></i>
                               </a>
                             </li>
                             <li>
                               <a href="#">
-                                <i class="icomoon icon-heart-empty"></i>
+                                <i className="icomoon icon-heart-empty"></i>
                               </a>
                             </li>
                           </ul>
                         </div>
                       </div>
                     </div>
-                    <div class="txt">
-                      <strong class="title">
+                    <div className="txt">
+                      <strong className="title">
                         <a href="product-detail.html">
                           Marvelous Modern 3 Seater
                         </a>
@@ -117,186 +117,186 @@ class Index extends React.Component {
                   </div>
                 </li>
                 <li>
-                  <div class="mt-product1 large">
-                    <div class="box">
-                      <div class="b1">
-                        <div class="b2">
+                  <div className="mt-product1 large">
+                    <div className="box">
+                      <div className="b1">
+                        <div className="b2">
                           <a href="product-detail.html">
                             <img src="images/demo/img24.jpg" />
                           </a>
 
-                          <ul class="links">
+                          <ul className="links">
                             <li>
                               <a href="#">
-                                <i class="icomoon icon-eye"></i>
+                                <i className="icomoon icon-eye"></i>
                               </a>
                             </li>
                             <li>
                               <a href="#">
-                                <i class="icomoon icon-heart-empty"></i>
+                                <i className="icomoon icon-heart-empty"></i>
                               </a>
                             </li>
                           </ul>
                         </div>
                       </div>
                     </div>
-                    <div class="txt">
-                      <strong class="title">
+                    <div className="txt">
+                      <strong className="title">
                         <a href="product-detail.html">Chair with armrests</a>
                       </strong>
                     </div>
                   </div>
                 </li>
                 <li>
-                  <div class="mt-product1 large">
-                    <div class="box">
-                      <div class="b1">
-                        <div class="b2">
+                  <div className="mt-product1 large">
+                    <div className="box">
+                      <div className="b1">
+                        <div className="b2">
                           <a href="product-detail.html">
                             <img src="images/demo/img67.jpg" />
                           </a>
 
-                          <ul class="links">
+                          <ul className="links">
                             <li>
                               <a href="#">
-                                <i class="icomoon icon-eye"></i>
+                                <i className="icomoon icon-eye"></i>
                               </a>
                             </li>
                             <li>
                               <a href="#">
-                                <i class="icomoon icon-heart-empty"></i>
+                                <i className="icomoon icon-heart-empty"></i>
                               </a>
                             </li>
                           </ul>
                         </div>
                       </div>
                     </div>
-                    <div class="txt">
-                      <strong class="title">
+                    <div className="txt">
+                      <strong className="title">
                         <a href="product-detail.html">Pouf Chair</a>
                       </strong>
                     </div>
                   </div>
                 </li>
                 <li>
-                  <div class="mt-product1 large">
-                    <div class="box">
-                      <div class="b1">
-                        <div class="b2">
+                  <div className="mt-product1 large">
+                    <div className="box">
+                      <div className="b1">
+                        <div className="b2">
                           <a href="product-detail.html">
                             <img src="images/demo/img71.jpg" />
                           </a>
 
-                          <ul class="links">
+                          <ul className="links">
                             <li>
                               <a href="#">
-                                <i class="icomoon icon-eye"></i>
+                                <i className="icomoon icon-eye"></i>
                               </a>
                             </li>
                             <li>
                               <a href="#">
-                                <i class="icomoon icon-heart-empty"></i>
+                                <i className="icomoon icon-heart-empty"></i>
                               </a>
                             </li>
                           </ul>
                         </div>
                       </div>
                     </div>
-                    <div class="txt">
-                      <strong class="title">
+                    <div className="txt">
+                      <strong className="title">
                         <a href="product-detail.html">Jalis Counter stool</a>
                       </strong>
                     </div>
                   </div>
                 </li>
                 <li>
-                  <div class="mt-product1 large">
-                    <div class="box">
-                      <div class="b1">
-                        <div class="b2">
+                  <div className="mt-product1 large">
+                    <div className="box">
+                      <div className="b1">
+                        <div className="b2">
                           <a href="product-detail.html">
                             <img src="images/demo/img68.jpg" />
                           </a>
 
-                          <ul class="links">
+                          <ul className="links">
                             <li>
                               <a href="#">
-                                <i class="icomoon icon-eye"></i>
+                                <i className="icomoon icon-eye"></i>
                               </a>
                             </li>
                             <li>
                               <a href="#">
-                                <i class="icomoon icon-heart-empty"></i>
+                                <i className="icomoon icon-heart-empty"></i>
                               </a>
                             </li>
                           </ul>
                         </div>
                       </div>
                     </div>
-                    <div class="txt">
-                      <strong class="title">
+                    <div className="txt">
+                      <strong className="title">
                         <a href="product-detail.html">Bombi Chair</a>
                       </strong>
                     </div>
                   </div>
                 </li>
                 <li>
-                  <div class="mt-product1 large">
-                    <div class="box">
-                      <div class="b1">
-                        <div class="b2">
+                  <div className="mt-product1 large">
+                    <div className="box">
+                      <div className="b1">
+                        <div className="b2">
                           <a href="product-detail.html">
                             <img src="images/demo/img67.jpg" />
                           </a>
 
-                          <ul class="links">
+                          <ul className="links">
                             <li>
                               <a href="#">
-                                <i class="icomoon icon-eye"></i>
+                                <i className="icomoon icon-eye"></i>
                               </a>
                             </li>
                             <li>
                               <a href="#">
-                                <i class="icomoon icon-heart-empty"></i>
+                                <i className="icomoon icon-heart-empty"></i>
                               </a>
                             </li>
                           </ul>
                         </div>
                       </div>
                     </div>
-                    <div class="txt">
-                      <strong class="title">
+                    <div className="txt">
+                      <strong className="title">
                         <a href="product-detail.html">Lucky Chair</a>
                       </strong>
                     </div>
                   </div>
                 </li>
                 <li>
-                  <div class="mt-product1 large">
-                    <div class="box">
-                      <div class="b1">
-                        <div class="b2">
+                  <div className="mt-product1 large">
+                    <div className="box">
+                      <div className="b1">
+                        <div className="b2">
                           <a href="product-detail.html">
                             <img src="images/demo/img68.jpg" />
                           </a>
 
-                          <ul class="links">
+                          <ul className="links">
                             <li>
                               <a href="#">
-                                <i class="icomoon icon-eye"></i>
+                                <i className="icomoon icon-eye"></i>
                               </a>
                             </li>
                             <li>
                               <a href="#">
-                                <i class="icomoon icon-heart-empty"></i>
+                                <i className="icomoon icon-heart-empty"></i>
                               </a>
                             </li>
                           </ul>
                         </div>
                       </div>
                     </div>
-                    <div class="txt">
-                      <strong class="title">
+                    <div className="txt">
+                      <strong className="title">
                         <a href="product-detail.html">
                           Cut Chair with 4 Spoke Base
                         </a>
@@ -305,31 +305,31 @@ class Index extends React.Component {
                   </div>
                 </li>
                 <li>
-                  <div class="mt-product1 large">
-                    <div class="box">
-                      <div class="b1">
-                        <div class="b2">
+                  <div className="mt-product1 large">
+                    <div className="box">
+                      <div className="b1">
+                        <div className="b2">
                           <a href="product-detail.html">
                             <img src="images/demo/img69.jpg" />
                           </a>
 
-                          <ul class="links">
+                          <ul className="links">
                             <li>
                               <a href="#">
-                                <i class="icomoon icon-eye"></i>
+                                <i className="icomoon icon-eye"></i>
                               </a>
                             </li>
                             <li>
                               <a href="#">
-                                <i class="icomoon icon-heart-empty"></i>
+                                <i className="icomoon icon-heart-empty"></i>
                               </a>
                             </li>
                           </ul>
                         </div>
                       </div>
                     </div>
-                    <div class="txt">
-                      <strong class="title">
+                    <div className="txt">
+                      <strong className="title">
                         <a href="product-detail.html">Yard SeChair</a>
                       </strong>
                     </div>
@@ -337,8 +337,8 @@ class Index extends React.Component {
                 </li>
               </ul>
 
-              <nav class="mt-pagination">
-                <ul class="list-inline">
+              <nav className="mt-pagination">
+                <ul className="list-inline">
                   <li>
                     <a href="#">1</a>
                   </li>

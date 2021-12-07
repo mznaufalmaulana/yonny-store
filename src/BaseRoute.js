@@ -9,7 +9,7 @@ import Contact from "./contact/Index";
 
 export default function BaseRoute() {
   return (
-    <BrowserRouter>
+    // <BrowserRouter>
       <Switch>
         <Route path="/product" component={Product} />
         <Route path="/about" component={About} />
@@ -17,6 +17,6 @@ export default function BaseRoute() {
         <Route path="/contact" component={Contact} />
         <Route path="/" component={Home} />
       </Switch>
-    </BrowserRouter>
+    // </BrowserRouter>
   );
 }
