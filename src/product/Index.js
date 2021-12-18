@@ -1,20 +1,86 @@
 import React from "react";
-import logo from "../assets/images/mt-logo.png";
-import img from "../assets/images/demo/img07.jpg";
-import img2 from "../assets/images/demo/img12.jpg";
-import img3 from "../assets/images/demo/img13.jpg";
 import Banner from "../component/Banner";
 import Category from "../component/Category";
+import API from "../services";
+import { Pagination } from "@material-ui/lab";
 // import "../assets/css/main.css";
 
 class Index extends React.Component {
+  constructor(props) {
+    super(props);
+    this.url = new URLSearchParams(this.props.location.search);
+    this.state = {
+      list: [],
+      data: {
+        from: 0,
+        to: 0,
+        total: 0,
+        last_page: 0,
+      },
+      param: {
+        cat: this.url.get("category") ? this.url.get("category") : "",
+        page: this.url.get("page") ? parseInt(this.url.get("page"), 10) : 1,
+        sort: this.url.get("sort") ? this.url.get("sort") : "",
+        type: this.url.get("type") ? this.url.get("type") : "",
+      },
+    };
+    this.onChangePage = this.onChangePage.bind(this);
+    this.onChangeParams = this.onChangeParams.bind(this);
+  }
+
+  componentDidMount() {
+    this.getList();
+  }
+
+  getList() {
+    const param = this.state.param;
+    API.get(
+      `product/list?page=${param.page}&sort=${param.sort}&category=${param.cat}&type=${param.type}`
+    ).then((result) => {
+      this.setState({
+        list: result.data.data,
+        data: {
+          from: result.data.from,
+          to: result.data.to,
+          total: result.data.total,
+          last_page: result.data.last_page,
+        },
+      });
+    });
+  }
+
+  onChangePage(e, val) {
+    const param = this.state.param;
+    let url = "";
+    param.sort ? (url += `&sort=${param.sort}`) : (url = `${url}`);
+    param.type ? (url += `&type=${param.type}`) : (url = `${url}`);
+    param.cat ? (url += `&category=${param.cat}`) : (url = `${url}`);
+    window.location.href = `?page=${val ? val : param.page}${url}`;
+  }
+
+  onChangeParams(id, val) {
+    if (id === "cat")
+      this.setState({ param: { ...this.state.param, cat: val } }, function () {
+        this.onChangePage();
+      });
+    else if (id === "type")
+      this.setState({ param: { ...this.state.param, type: val } }, function () {
+        this.onChangePage();
+      });
+    else if (id === "sort")
+      this.setState({ param: { ...this.state.param, sort: val } }, function () {
+        this.onChangePage();
+      });
+  }
+
   render() {
+    const { data, param } = this.state;
     return (
       <main id="mt-main">
         <Banner title="Product" />
         <div className="container">
           <div className="row">
-            <Category />
+            <Category onChange={(id, val) => this.onChangeParams(id, val)} />
             <div
               className="col-xs-12 col-sm-8 col-md-9 wow fadeInRight"
               data-wow-delay="0.4s"
@@ -30,10 +96,22 @@ class Index extends React.Component {
                       <div className="drop">
                         <ul className="list-unstyled">
                           <li>
-                            <a href="#">ASC</a>
+                            <a
+                              href="#"
+                              onClick={() => this.onChangeParams("sort", "asc")}
+                            >
+                              ASC
+                            </a>
                           </li>
                           <li>
-                            <a href="#">DSC</a>
+                            <a
+                              href="#"
+                              onClick={() =>
+                                this.onChangeParams("sort", "desc")
+                              }
+                            >
+                              DESC
+                            </a>
                           </li>
                         </ul>
                       </div>
@@ -43,315 +121,63 @@ class Index extends React.Component {
 
                 <div className="mt-textbox">
                   <p>
-                    Showing <strong>1–9</strong> of <strong>65</strong> results
-                  </p>
-                  <p>
-                    View <a href="#">9</a> / <a href="#">18</a> /{" "}
-                    <a href="#">27</a> / <a href="#">All</a>
+                    Showing{" "}
+                    <strong>
+                      {data.from}–{data.to}
+                    </strong>{" "}
+                    of <strong>{data.total}</strong> results
                   </p>
                 </div>
               </header>
 
               <ul className="mt-productlisthold list-inline">
-                <li>
-                  <div className="mt-product1 large">
-                    <div className="box">
-                      <div className="b1">
-                        <div className="b2">
-                          <a href="product-detail.html">
-                            <img src="images/demo/img22.jpg" />
-                          </a>
+                {this.state.list.length === 0 && (
+                  <div>
+                    <p className="text-center">
+                      Sorry, We Couldn't Find What You Want :(
+                    </p>
+                  </div>
+                )}
+                {this.state.list.map((item) => (
+                  <li>
+                    <div className="mt-product1 large">
+                      <div className="box">
+                        <div className="b1">
+                          <div className="b2">
+                            <a href="product-detail.html">
+                              <img
+                                className="img-product-list"
+                                src={`${API.urlStorage}/${item.photo_name}`}
+                                alt={item.product_name}
+                              />
+                            </a>
 
-                          <ul className="links">
-                            <li>
-                              <a href="#">
-                                <i className="icomoon icon-eye"></i>
-                              </a>
-                            </li>
-                            <li>
-                              <a href="#">
-                                <i className="icomoon icon-heart-empty"></i>
-                              </a>
-                            </li>
-                          </ul>
+                            <ul className="links">
+                              <li>
+                                <a href={`/product/detail?product=${item.id}`}>
+                                  <i className="icomoon icon-eye"></i>
+                                </a>
+                              </li>
+                            </ul>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                    <div className="txt">
-                      <strong className="title">
-                        <a href="product-detail.html">Bombi Chair</a>
-                      </strong>
-                    </div>
-                  </div>
-                </li>
-                <li>
-                  <div className="mt-product1 large">
-                    <div className="box">
-                      <div className="b1">
-                        <div className="b2">
-                          <a href="product-detail.html">
-                            <img src="images/demo/img23.jpg" />
-                          </a>
-                          <ul className="links">
-                            <li>
-                              <a href="#">
-                                <i className="icomoon icon-eye"></i>
-                              </a>
-                            </li>
-                            <li>
-                              <a href="#">
-                                <i className="icomoon icon-heart-empty"></i>
-                              </a>
-                            </li>
-                          </ul>
-                        </div>
+                      <div className="txt">
+                        <strong className="title">
+                          <a href="product-detail.html">{item.product_name}</a>
+                        </strong>
                       </div>
                     </div>
-                    <div className="txt">
-                      <strong className="title">
-                        <a href="product-detail.html">
-                          Marvelous Modern 3 Seater
-                        </a>
-                      </strong>
-                    </div>
-                  </div>
-                </li>
-                <li>
-                  <div className="mt-product1 large">
-                    <div className="box">
-                      <div className="b1">
-                        <div className="b2">
-                          <a href="product-detail.html">
-                            <img src="images/demo/img24.jpg" />
-                          </a>
-
-                          <ul className="links">
-                            <li>
-                              <a href="#">
-                                <i className="icomoon icon-eye"></i>
-                              </a>
-                            </li>
-                            <li>
-                              <a href="#">
-                                <i className="icomoon icon-heart-empty"></i>
-                              </a>
-                            </li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="txt">
-                      <strong className="title">
-                        <a href="product-detail.html">Chair with armrests</a>
-                      </strong>
-                    </div>
-                  </div>
-                </li>
-                <li>
-                  <div className="mt-product1 large">
-                    <div className="box">
-                      <div className="b1">
-                        <div className="b2">
-                          <a href="product-detail.html">
-                            <img src="images/demo/img67.jpg" />
-                          </a>
-
-                          <ul className="links">
-                            <li>
-                              <a href="#">
-                                <i className="icomoon icon-eye"></i>
-                              </a>
-                            </li>
-                            <li>
-                              <a href="#">
-                                <i className="icomoon icon-heart-empty"></i>
-                              </a>
-                            </li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="txt">
-                      <strong className="title">
-                        <a href="product-detail.html">Pouf Chair</a>
-                      </strong>
-                    </div>
-                  </div>
-                </li>
-                <li>
-                  <div className="mt-product1 large">
-                    <div className="box">
-                      <div className="b1">
-                        <div className="b2">
-                          <a href="product-detail.html">
-                            <img src="images/demo/img71.jpg" />
-                          </a>
-
-                          <ul className="links">
-                            <li>
-                              <a href="#">
-                                <i className="icomoon icon-eye"></i>
-                              </a>
-                            </li>
-                            <li>
-                              <a href="#">
-                                <i className="icomoon icon-heart-empty"></i>
-                              </a>
-                            </li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="txt">
-                      <strong className="title">
-                        <a href="product-detail.html">Jalis Counter stool</a>
-                      </strong>
-                    </div>
-                  </div>
-                </li>
-                <li>
-                  <div className="mt-product1 large">
-                    <div className="box">
-                      <div className="b1">
-                        <div className="b2">
-                          <a href="product-detail.html">
-                            <img src="images/demo/img68.jpg" />
-                          </a>
-
-                          <ul className="links">
-                            <li>
-                              <a href="#">
-                                <i className="icomoon icon-eye"></i>
-                              </a>
-                            </li>
-                            <li>
-                              <a href="#">
-                                <i className="icomoon icon-heart-empty"></i>
-                              </a>
-                            </li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="txt">
-                      <strong className="title">
-                        <a href="product-detail.html">Bombi Chair</a>
-                      </strong>
-                    </div>
-                  </div>
-                </li>
-                <li>
-                  <div className="mt-product1 large">
-                    <div className="box">
-                      <div className="b1">
-                        <div className="b2">
-                          <a href="product-detail.html">
-                            <img src="images/demo/img67.jpg" />
-                          </a>
-
-                          <ul className="links">
-                            <li>
-                              <a href="#">
-                                <i className="icomoon icon-eye"></i>
-                              </a>
-                            </li>
-                            <li>
-                              <a href="#">
-                                <i className="icomoon icon-heart-empty"></i>
-                              </a>
-                            </li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="txt">
-                      <strong className="title">
-                        <a href="product-detail.html">Lucky Chair</a>
-                      </strong>
-                    </div>
-                  </div>
-                </li>
-                <li>
-                  <div className="mt-product1 large">
-                    <div className="box">
-                      <div className="b1">
-                        <div className="b2">
-                          <a href="product-detail.html">
-                            <img src="images/demo/img68.jpg" />
-                          </a>
-
-                          <ul className="links">
-                            <li>
-                              <a href="#">
-                                <i className="icomoon icon-eye"></i>
-                              </a>
-                            </li>
-                            <li>
-                              <a href="#">
-                                <i className="icomoon icon-heart-empty"></i>
-                              </a>
-                            </li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="txt">
-                      <strong className="title">
-                        <a href="product-detail.html">
-                          Cut Chair with 4 Spoke Base
-                        </a>
-                      </strong>
-                    </div>
-                  </div>
-                </li>
-                <li>
-                  <div className="mt-product1 large">
-                    <div className="box">
-                      <div className="b1">
-                        <div className="b2">
-                          <a href="product-detail.html">
-                            <img src="images/demo/img69.jpg" />
-                          </a>
-
-                          <ul className="links">
-                            <li>
-                              <a href="#">
-                                <i className="icomoon icon-eye"></i>
-                              </a>
-                            </li>
-                            <li>
-                              <a href="#">
-                                <i className="icomoon icon-heart-empty"></i>
-                              </a>
-                            </li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="txt">
-                      <strong className="title">
-                        <a href="product-detail.html">Yard SeChair</a>
-                      </strong>
-                    </div>
-                  </div>
-                </li>
+                  </li>
+                ))}
               </ul>
 
-              <nav className="mt-pagination">
-                <ul className="list-inline">
-                  <li>
-                    <a href="#">1</a>
-                  </li>
-                  <li>
-                    <a href="#">2</a>
-                  </li>
-                  <li>
-                    <a href="#">3</a>
-                  </li>
-                  <li>
-                    <a href="#">4</a>
-                  </li>
-                </ul>
+              <nav className="mt-pagination text-center">
+                <Pagination
+                  count={data.last_page}
+                  page={param.page}
+                  onChange={this.onChangePage}
+                />
               </nav>
             </div>
           </div>

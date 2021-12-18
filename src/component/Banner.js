@@ -25,7 +25,7 @@ class Banner extends React.Component {
                       Home <i className="fa fa-angle-right"></i>
                     </a>
                   </li>
-                  <li>Product</li>
+                  <li>{this.props.title}</li>
                 </ul>
               </nav>
             </div>

@@ -1,127 +1,161 @@
 import React from "react";
-import logo from "../assets/images/mt-logo.png";
-import img from "../assets/images/demo/img07.jpg";
-import img2 from "../assets/images/demo/img12.jpg";
-import img3 from "../assets/images/demo/img13.jpg";
 import Banner from "../component/Banner";
+import { Pagination } from "@material-ui/lab";
+import API from "../services";
+import moment from "moment";
 // import "../assets/css/main.css";
 
 class Index extends React.Component {
+  constructor(props) {
+    super(props);
+    this.url = new URLSearchParams(this.props.location.search);
+    this.state = {
+      list: [],
+      newest: [],
+      data: {
+        from: 0,
+        to: 0,
+        total: 0,
+        last_page: 0,
+      },
+      param: {
+        page: this.url.get("page") ? parseInt(this.url.get("page"), 10) : 1,
+      },
+    };
+    this.onChangePage = this.onChangePage.bind(this);
+  }
+
+  componentDidMount() {
+    this.getList();
+    this.getNew();
+  }
+
+  getList() {
+    const param = this.state.param;
+    API.get(`project/list?page=${param.page}`).then((result) => {
+      this.setState({
+        list: result.data.data,
+        data: {
+          from: result.data.from,
+          to: result.data.to,
+          total: result.data.total,
+          last_page: result.data.last_page,
+        },
+        param: {
+          page: this.url.get("page") ? parseInt(this.url.get("page"), 10) : 1,
+        },
+      });
+    });
+  }
+
+  getNew() {
+    API.get(`project/list/popular`).then((result) => {
+      this.setState({
+        newest: result.data,
+      });
+    });
+  }
+
+  onChangePage(e, val) {
+    window.location.href = `?page=${val}`;
+  }
   render() {
-    return (     
-      <main id="mt-main">               
+    const { data, param, newest, list } = this.state;
+    return (
+      <main id="mt-main">
         <Banner title="Project" />
         <div className="mt-blog-detail style1">
           <div className="container">
             <div className="row">
-              <div className="col-xs-12 col-sm-8 wow fadeInLeft" data-wow-delay="0.4s">                
-                <article className="blog-post style2">
-                  <div className="img-holder">                    
-                    <a href="blog-post-detail-sidebar.html"><img src="images/demo/imgProject1.jpg" alt="image description" /></a>
-                    <ul className="list-unstyled comment-nav">                      
-                      <li><a href="#"><i className="fa fa-share-alt"></i>14</a></li>
-                    </ul>
-                  </div>
-                  <div className="blog-txt">
-                    <h2><a href="blog-post-detail-sidebar.html">IDEAS FOR LIVING ROOMS</a></h2>
-                    <ul className="list-unstyled blog-nav">
-                      <li> <a href="#"><i className="fa fa-clock-o"></i>20 April 2015</a></li>                                            
-                    </ul>
-                    <p>Fusce mattis nunc lacus, vulputate facilisis dui efficitur ut. Vestibulum sit amet metus euismod, condimentum lectus id, ultrices sem. </p>
-                    <a href="blog-post-detail-sidebar.html" className="btn-more">Read More</a>
-                  </div>
-                </article>       
-                <article className="blog-post style2">
-                  <div className="img-holder">
-                    <a href="blog-post-detail-sidebar.html"><img src="images/demo/imgProject2.jpg" alt="image description" /></a>
-                    <ul className="list-unstyled comment-nav">                      
-                      <li><a href="#"><i className="fa fa-share-alt"></i>14</a></li>
-                    </ul>
-                  </div>
-                  <div className="blog-txt">
-                    <h2><a href="blog-post-detail-sidebar.html">IDEAS FOR LIVING ROOMS</a></h2>
-                    <ul className="list-unstyled blog-nav">
-                      <li> <a href="#"><i className="fa fa-clock-o"></i>20 April 2015</a></li>                      
-                    </ul>
-                    <p>Fusce mattis nunc lacus, vulputate facilisis dui efficitur ut. Vestibulum sit amet metus euismod, condimentum lectus id, ultrices sem. </p>
-                    <a href="blog-post-detail-sidebar.html" className="btn-more">Read More</a>
-                  </div>
-                </article>               
-                <article className="blog-post style2">
-                  <div className="img-holder">
-                    <a href="blog-post-detail-sidebar.html"><img src="images/demo/imgProject3.jpg" alt="image description" /></a>
-                    <ul className="list-unstyled comment-nav">                      
-                      <li><a href="#"><i className="fa fa-share-alt"></i>14</a></li>
-                    </ul>
-                  </div>
-                  <div className="blog-txt">
-                    <h2><a href="blog-post-detail-sidebar.html">IDEAS FOR LIVING ROOMS</a></h2>
-                    <ul className="list-unstyled blog-nav">
-                      <li> <a href="#"><i className="fa fa-clock-o"></i>20 April 2015</a></li>                      
-                    </ul>
-                    <p>Fusce mattis nunc lacus, vulputate facilisis dui efficitur ut. Vestibulum sit amet metus euismod, condimentum lectus id, ultrices sem. </p>
-                    <a href="blog-post-detail-sidebar.html" className="btn-more">Read More</a>
-                  </div>
-                </article>                                
+              <div
+                className="col-xs-12 col-sm-8 wow fadeInLeft"
+                data-wow-delay="0.4s"
+              >
+                {list.map((item) => (
+                  <article className="blog-post style2">
+                    <div className="img-holder">
+                      <a href="blog-post-detail-sidebar.html">
+                        <img
+                          src={`${API.urlStorage}/${item.photo_name}`}
+                          alt="image description"
+                        />
+                      </a>
+                      <ul className="list-unstyled comment-nav">
+                        <li>
+                          <a href="#">
+                            <i className="fa fa-share-alt"></i>
+                            {item.share_count}
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                    <div className="blog-txt">
+                      <h2>
+                        <a href="blog-post-detail-sidebar.html">
+                          {item.project_name}
+                        </a>
+                      </h2>
+                      <ul className="list-unstyled blog-nav">
+                        <li>
+                          {" "}
+                          <a href="#">
+                            <i className="fa fa-clock-o"></i>{" "}
+                            {moment(item.project_due).format("LL")}
+                          </a>
+                        </li>
+                      </ul>
+                      <div
+                        dangerouslySetInnerHTML={{
+                          __html: `${item.description.substring(0, 200)}`,
+                        }}
+                      />
+                      <a
+                        href={`/project/detail?project=${item.id}`}
+                        className="btn-more"
+                      >
+                        Read More
+                      </a>
+                    </div>
+                  </article>
+                ))}
+
                 <div className="btn-holder">
-                  <ul className="list-unstyled pagination">
-                    <li className="active"><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">5</a></li>
-                    <li><a href="#">6</a></li>
-                    <li><a href="#">7</a></li>
-                    <li><a href="#">Next</a></li>
-                  </ul>
-                </div>                
+                  <Pagination
+                    count={data.last_page}
+                    page={param.page}
+                    onChange={this.onChangePage}
+                  />
+                </div>
               </div>
-              <div className="col-xs-12 col-sm-4 text-right sidebar wow fadeInRight" data-wow-delay="0.4s">                                                
+              <div
+                className="col-xs-12 col-sm-4 text-right sidebar wow fadeInRight"
+                data-wow-delay="0.4s"
+              >
                 <section className="widget popular-widget">
                   <h3>POPULAR POST</h3>
                   <ul className="list-unstyled text-right popular-post">
-                    <li>
-                      <div className="img-post">                        
-                        <a href="#"><img src="images/demo/imgSmProject1.jpg" alt="image description" /></a>
-                      </div>
-                      <div className="info-dscrp">
-                        <p>Vestibulum sit amet metus euismod amet metus euismod</p>
-                        <time datetime="2016-02-03 20:00">24.09.2015</time>
-                      </div>
-                    </li>
-                    <li>
-                      <div className="img-post">
-                        <a href="#"><img src="images/demo/imgSmProject2.jpg" alt="image description" /></a>
-                      </div>
-                      <div className="info-dscrp">
-                        <p>Luctus id risus vel, ultricies dignissim lacus etiam dolor sem</p>
-                        <time datetime="2016-02-03 20:00">24.09.2015</time>
-                      </div>
-                    </li>
-                    <li>
-                      <div className="img-post">
-                        <a href="#"><img src="images/demo/imgSmProject3.jpg" alt="image description" /></a>
-                      </div>
-                      <div className="info-dscrp">
-                        <p>Aenean lacus mi, porttitor quis <br/>dapibustincidunt</p>
-                        <time datetime="2016-02-03 20:00">24.09.2015</time>
-                      </div>
-                    </li>
-                    <li>
-                      <div className="img-post">
-                        <a href="#"><img src="images/demo/imgSmProject4.jpg" alt="image description" /></a>
-                      </div>
-                      <div className="info-dscrp">
-                        <p>Fusce mattis nunc lacus, vulputate facilisis dui efficitur ut</p>
-                        <time datetime="2016-02-03 20:00">24.09.2015</time>
-                      </div>
-                    </li>
+                    {newest.map((item) => (
+                      <li>
+                        <div className="img-post">
+                          <a href="#">
+                            <img
+                              src={`${API.urlStorage}/${item.photo_name}`}
+                              alt="image description"
+                            />
+                          </a>
+                        </div>
+                        <div className="info-dscrp">
+                          <p>{item.project_name}</p>
+                          <time>{moment(item.project_due).format("LL")}</time>
+                        </div>
+                      </li>
+                    ))}
                   </ul>
-                </section>                              
+                </section>
               </div>
             </div>
           </div>
-        </div>        
+        </div>
       </main>
     );
   }

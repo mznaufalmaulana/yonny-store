@@ -12638,3 +12638,7 @@ a:focus {
 .topbar-logo {
   width: 200px !important;
 }
+
+.img-product-list {
+  width: 280px;
+}
