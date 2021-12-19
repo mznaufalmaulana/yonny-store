@@ -44,15 +44,7 @@ class Detail extends React.Component {
             <div className="row">
               <div className="col-xs-12">
                 <div className="slider">
-                  <ul className="list-unstyled comment-list">
-                    <li>
-                      <a href="#">
-                        <i className="fa fa-share-alt"></i>
-                        {data.share_count}
-                      </a>
-                    </li>
-                  </ul>
-
+                  <ul className="list-unstyled comment-list"></ul>
                   <div className="slide-container">
                     {photo.map((item) => (
                       <Slide>
@@ -94,7 +86,14 @@ class Detail extends React.Component {
                   <ul className="list-unstyled list">
                     <li>
                       <a href="#">
-                        <i className="fa fa-share-alt"></i>SHARE
+                        <i className="fa fa-share-alt"></i>
+                        {data.share_count}
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <i class="fa fa-eye"></i>
+                        {data.seen_count}
                       </a>
                     </li>
                   </ul>
