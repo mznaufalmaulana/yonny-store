@@ -10,6 +10,7 @@ class Menu extends React.Component {
     this.state = {
       productCategory: [],
     };
+    this.renderMenu = this.renderMenu.bind(this);
   }
 
   componentDidMount() {
@@ -21,15 +22,31 @@ class Menu extends React.Component {
           list.push(result.data[i]);
           seq++;
           if (seq === 3) {
-            this.setState({
-              productCategory: [...this.state.productCategory, [list]],
-            });
+            this.setState(
+              {
+                productCategory: [...this.state.productCategory, list],
+              },
+              function () {
+                // this.renderMenu();
+              }
+            );
             list = [];
             seq = 0;
           }
         }
       }
     });
+  }
+
+  renderMenu() {
+    const { productCategory } = this.state;
+    let html = [];
+    for (let i = 0; i < productCategory.length; i++) {
+      for (let j = 0; j < productCategory[i].length; j++) {
+        console.log(productCategory[i][j]);
+      }
+      html.push(<div className="mt-col-3"></div>);
+    }
   }
 
   render() {
@@ -81,47 +98,48 @@ class Menu extends React.Component {
                                   {this.state.productCategory.map(
                                     (val, idx) => (
                                       <div className="mt-col-3" key={idx}>
-                                        {this.state.productCategory[idx].map(
-                                          (item) => console.log(item)
-                                          // item.child ? (
-                                          //   <div className="sub-dropcont">
-                                          //     {console.log(item)}
-                                          //     <a
-                                          //       href={`product?page=1&category=${item.id}`}
-                                          //       className="mt-subopener"
-                                          //     >
-                                          //       <strong className="title">
-                                          //         {item.category_name}
-                                          //       </strong>
-                                          //     </a>
-                                          //     <div className="sub-drop">
-                                          //       <ul>
-                                          //         {item.child.map((ch) => {
-                                          //           return (
-                                          //             <li key={ch.id}>
-                                          //               <a
-                                          //                 href={`product?page=1&category=${item.id}`}
-                                          //               >
-                                          //                 {ch.category_name}
-                                          //               </a>
-                                          //             </li>
-                                          //           );
-                                          //         })}
-                                          //       </ul>
-                                          //     </div>
-                                          //   </div>
-                                          // ) : (
-                                          //   <div className="sub-dropcont">
-                                          //     <a
-                                          //       href={`product?page=1&category=${item.id}`}
-                                          //       className="mt-subopener"
-                                          //     >
-                                          //       <strong className="title">
-                                          //         {item.category_name}
-                                          //       </strong>
-                                          //     </a>
-                                          //   </div>
-                                          // )
+                                        {val.map((item, index) =>
+                                          // console.log(item)
+                                          item.child ? (
+                                            <div className="sub-dropcont">
+                                              {console.log(item)}
+                                              <a
+                                                href={`product?page=1&category=${item.id}`}
+                                                className="mt-subopener"
+                                              >
+                                                <strong className="title">
+                                                  {item.category_name}
+                                                </strong>
+                                              </a>
+                                              <div className="sub-drop">
+                                                <ul>
+                                                  {item.child.map((ch) => {
+                                                    return (
+                                                      <li key={ch.id}>
+                                                        <a
+                                                          href={`product?page=1&category=${item.id}`}
+                                                        >
+                                                          {ch.category_name}
+                                                        </a>
+                                                      </li>
+                                                    );
+                                                  })}
+                                                </ul>
+                                              </div>
+                                            </div>
+                                          ) : (
+                                            <div className="sub-dropcont">
+                                              <a
+                                                href={`product?page=1&category=${item.id}`}
+                                                className="mt-subopener"
+                                                key={index}
+                                              >
+                                                <strong className="title">
+                                                  {item.category_name}
+                                                </strong>
+                                              </a>
+                                            </div>
+                                          )
                                         )}
                                       </div>
                                     )

@@ -37,7 +37,7 @@ class Detail extends React.Component {
     return (
       <main id="mt-main">
         <section
-          className="mt-product-detial wow fadeInUp"
+          className="mt-product-detial wow fadeInUp mb-5"
           data-wow-delay="0.4s"
         >
           <div className="container">

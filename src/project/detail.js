@@ -27,11 +27,6 @@ class Detail extends React.Component {
         photo: result.data[0].photo,
       });
     });
-    API.get(`project/related/${param.project}`).then((result) => {
-      this.setState({
-        related: result.data,
-      });
-    });
   }
   render() {
     const { data, photo } = this.state;
