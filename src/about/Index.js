@@ -1,8 +1,4 @@
 import React from "react";
-import logo from "../assets/images/mt-logo.png";
-import img from "../assets/images/demo/img07.jpg";
-import img2 from "../assets/images/demo/img12.jpg";
-import img3 from "../assets/images/demo/img13.jpg";
 import Banner from "../component/Banner";
 // import "../assets/css/main.css";
 

@@ -51,17 +51,16 @@ class Detail extends React.Component {
                       ))}
                     </Slide>
                   </div>
+                  <br />
                   <div class="blog-txt">
                     <h2>
                       <a href="blog-right-sidebar.html">{data.project_name}</a>
                     </h2>
                     <ul class="list-unstyled blog-nav">
                       <li>
-                        {" "}
-                        <a href="#">
-                          <i class="fa fa-clock-o"></i>
-                          {moment(data.project_due).format("LL")}
-                        </a>
+                        {" "}                        
+                        <i class="fa fa-clock-o"></i>
+                        {moment(data.project_due).format("LL")}                        
                       </li>
                     </ul>
                     <div

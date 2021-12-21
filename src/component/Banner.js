@@ -21,11 +21,14 @@ class Banner extends React.Component {
               <nav className="breadcrumbs">
                 <ul className="list-unstyled">
                   <li>
-                    <a href="index.html">
+                    <a href="/">
                       Home <i className="fa fa-angle-right"></i>
                     </a>
                   </li>
-                  <li>{this.props.title}</li>
+                  <li>{this.props.title}
+                    {/* <i className="fa fa-angle-right"></i>                     */}
+                  </li>
+                  {/* <li>{this.props.category}</li> */}
                 </ul>
               </nav>
             </div>

@@ -32,6 +32,14 @@
   width: 200px;
 }
 
+.paging{
+  align-content: center;
+}
+
+.form-question{
+  margin-top: 25px;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

@@ -1832,7 +1832,8 @@ a:hover {
 }
 
 #nav > ul > li.dark .title a:hover {
-  color: #ff6060;
+  /* color: #ff6060; */
+  color: #E6951A;
 }
 
 #nav > ul > li.dark .title:after {
@@ -1844,7 +1845,8 @@ a:hover {
 }
 
 #nav > ul > li.dark .mt-dropmenu a:hover {
-  color: #ff6060;
+  /* color: #ff6060; */
+  color: #E6951A;
 }
 
 #nav .mt-dropmenu {
@@ -1882,7 +1884,8 @@ a:hover {
 }
 
 #nav .mt-dropmenu .title a:hover {
-  color: #ff6060;
+  /* color: #ff6060; */
+  color: #E6951A;
 }
 
 #nav .mt-dropmenu .title:after {
@@ -2683,6 +2686,7 @@ a:hover {
 .btn-type3 {
   outline: none;
   color: #fff;
+  width: 100px;
   padding: 9px 20px;
   background: #000;
   border-radius: 21px;
@@ -5819,7 +5823,8 @@ a:hover {
 }
 
 .mt-product1 .title a:hover {
-  color: #ff6060;
+  /* color: #ff6060; */
+  color: #E6951A;
 }
 
 .mt-product1 .price {

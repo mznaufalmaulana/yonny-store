@@ -67,10 +67,10 @@ class Footer extends React.Component {
               <div className="row">
                 <div className="col-xs-12 col-sm-4 mt-paddingbottomsm">                  
                   <div className="f-widget-about">       
-                    <a href="index.html">                      
+                    <a href="/">                      
                       <img src={logo} className="footer-logo" width="10px" alt="batuYonny" />
                     </a>
-                    <p>Exercitation ullamco laboris nisi ut aliquip ex<br/> commodo consequat. Duis aute irure </p>
+                    {/* <p>Exercitation ullamco laboris nisi ut aliquip ex<br/> commodo consequat. Duis aute irure </p> */}
                     <ul className="list-unstyled address-list">
                       <li><i className="fa fa-map-marker"></i><address>Connaugt Road Central Suite 18B, 148 <br/>New Yankee</address></li>
                       <li><i className="fa fa-phone"></i><a href="tel:15553332211">+1 (555) 333 22 11</a></li>
@@ -83,12 +83,10 @@ class Footer extends React.Component {
                   <div className="nav-widget-1">
                     <h3 className="f-widget-heading">Information</h3>
                     <ul className="list-unstyled f-widget-nav">
-                      <li><a href="#">About Us</a></li>
-                      <li><a href="#">Contact Us</a></li>
+                      <li><a href="/about">About Us</a></li>
+                      <li><a href="/contact">Contact Us</a></li>
                       <li><a href="#">Terms &amp; Conditions</a></li>
                       <li><a href="#">Privacy Policy</a></li>
-                      <li><a href="#">Customer Service</a></li>
-                      <li><a href="#">FAQs</a></li>
                     </ul>
                   </div>       
                 </nav>

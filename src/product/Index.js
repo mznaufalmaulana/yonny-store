@@ -3,7 +3,6 @@ import Banner from "../component/Banner";
 import Category from "../component/Category";
 import API from "../services";
 import { Pagination } from "@material-ui/lab";
-// import "../assets/css/main.css";
 
 class Index extends React.Component {
   constructor(props) {
@@ -77,7 +76,7 @@ class Index extends React.Component {
     const { data, param } = this.state;
     return (
       <main id="mt-main">
-        <Banner title="Product" />
+        <Banner title="Product" category={this.state.param.cat} />
         <div className="container">
           <div className="row">
             <Category onChange={(id, val) => this.onChangeParams(id, val)} />
@@ -144,7 +143,7 @@ class Index extends React.Component {
                       <div className="box">
                         <div className="b1">
                           <div className="b2">
-                            <a href="product-detail.html">
+                            <a href={`/product/detail?product=${item.id}&category=${this.state.param.cat}`}>
                               <img
                                 className="img-product-list"
                                 src={`${API.urlStorage}/${item.photo_name}`}
@@ -152,19 +151,19 @@ class Index extends React.Component {
                               />
                             </a>
 
-                            <ul className="links">
+                            {/* <ul className="links">
                               <li>
                                 <a href={`/product/detail?product=${item.id}`}>
                                   <i className="icomoon icon-eye"></i>
                                 </a>
                               </li>
-                            </ul>
+                            </ul> */}
                           </div>
                         </div>
                       </div>
                       <div className="txt">
                         <strong className="title">
-                          <a href="product-detail.html">{item.product_name}</a>
+                          <a href={`/product/detail?product=${item.id}&category=${this.state.param.cat}`}>{item.product_name}</a>
                         </strong>
                       </div>
                     </div>
@@ -172,7 +171,7 @@ class Index extends React.Component {
                 ))}
               </ul>
 
-              <nav className="mt-pagination text-center">
+              <nav className="mt-pagination paging">
                 <Pagination
                   count={data.last_page}
                   page={param.page}

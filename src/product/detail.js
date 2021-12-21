@@ -13,6 +13,7 @@ class Detail extends React.Component {
       related: [],
       param: {
         product: this.url.get("product"),
+        category: this.url.get("category"),
       },
     };
   }
@@ -25,7 +26,8 @@ class Detail extends React.Component {
         photo: result.data[0].photo,
       });
     });
-    API.get(`product/related/${param.product}`).then((result) => {
+    console.log(param.category);
+    API.get(`product/related/${param.category}`).then((result) => {
       this.setState({
         related: result.data,
       });
@@ -44,14 +46,14 @@ class Detail extends React.Component {
             <div className="row">
               <div className="col-xs-12">
                 <div className="slider">
-                  <ul className="list-unstyled comment-list">
+                  {/* <ul className="list-unstyled comment-list">
                     <li>
                       <a href="#">
                         <i className="fa fa-share-alt"></i>
                         {data.share_count}
                       </a>
                     </li>
-                  </ul>
+                  </ul> */}
 
                   <div className="slide-container">
                     {photo.map((item) => (
@@ -94,7 +96,12 @@ class Detail extends React.Component {
                   <ul className="list-unstyled list">
                     <li>
                       <a href="#">
-                        <i className="fa fa-share-alt"></i>SHARE
+                        <i className="fa fa-share-alt"></i>{data.share_count}
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <i class="fa fa-heart"></i>{data.seen_count}
                       </a>
                     </li>
                   </ul>
@@ -109,41 +116,30 @@ class Detail extends React.Component {
             </div>
           </div>
         </section>
+        <br />
+        <br />
 
         <div className="related-products wow fadeInUp" data-wow-delay="0.4s">
           <div className="container">
             <div className="row">
               <div className="col-xs-12">
                 <h2>RELATED PRODUCTS</h2>
+                <br />
                 <div className="row">
                   <div className="col-xs-12">
                     {related.map((item) => (
-                      <div className="mt-product1 mt-paddingbottom20">
-                        <div className="box">
-                          <div className="b1">
-                            <div className="b2">
-                              <a href="product-detail.html">
-                                <img
-                                  src={`${API.urlStorage}/${item.photo_name}`}
-                                  alt="image description"
-                                />
-                              </a>
-
-                              <ul className="links">
-                                <li>
-                                  <a
-                                    href={`/product/detail?product=${item.id}`}
-                                  >
-                                    <i className="icomoon icon-eye"></i>
-                                  </a>
-                                </li>
-                              </ul>
-                            </div>
-                          </div>
+                      <div className="mt-product1">
+                        <div className="box">                          
+                          <a href={`/product/detail?product=${item.id}&category=${this.state.param.category}`}>
+                            <img
+                              src={`${API.urlStorage}/${item.photo_name}`}
+                              alt="image description"
+                            />
+                          </a>
                         </div>
                         <div className="txt">
                           <strong className="title">
-                            <a href="product-detail.html">
+                            <a href={`/product/detail?product=${item.id}&category=${this.state.param.category}`}>
                               {item.product_name}
                             </a>
                           </strong>

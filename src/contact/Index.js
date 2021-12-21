@@ -16,8 +16,8 @@ class Index extends React.Component {
             <div className="row">
               <div className="col-xs-12 col-sm-8">
                 <div className="txt-wrap">
-                  <h1>Lorem. chair maker</h1>
-                  <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut <br/>enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut <br/>aliquip ex ea commodo consequat. </p>
+                  <h1>Contact Address</h1>
+                  {/* <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut <br/>enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut <br/>aliquip ex ea commodo consequat. </p> */}
                 </div>
                 <ul className="list-unstyled contact-txt">
                   <li>
@@ -48,7 +48,7 @@ class Index extends React.Component {
                   </li>
                 </ul>
               </div>
-              <div className="col-xs-12 col-sm-4">
+              <div className="col-xs-12 col-sm-4 form-question">
                 <h2>Have a question?</h2>
                 <form action="#" className="contact-form">
                   <fieldset>

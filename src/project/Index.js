@@ -74,7 +74,7 @@ class Index extends React.Component {
                 {list.map((item) => (
                   <article className="blog-post style2">
                     <div className="img-holder">
-                      <a href="blog-post-detail-sidebar.html">
+                      <a href={`/project/detail?project=${item.id}`}>
                         <img
                           src={`${API.urlStorage}/${item.photo_name}`}
                           alt="image description"
@@ -91,17 +91,15 @@ class Index extends React.Component {
                     </div>
                     <div className="blog-txt">
                       <h2>
-                        <a href="blog-post-detail-sidebar.html">
+                        <a href={`/project/detail?project=${item.id}`}>
                           {item.project_name}
                         </a>
                       </h2>
                       <ul className="list-unstyled blog-nav">
                         <li>
-                          {" "}
-                          <a href="#">
-                            <i className="fa fa-clock-o"></i>{" "}
-                            {moment(item.project_due).format("LL")}
-                          </a>
+                          {" "}                          
+                          <i className="fa fa-clock-o"></i>{" "}
+                          {moment(item.project_due).format("LL")}                          
                         </li>
                       </ul>
                       <div
@@ -137,7 +135,7 @@ class Index extends React.Component {
                     {newest.map((item) => (
                       <li>
                         <div className="img-post">
-                          <a href="#">
+                          <a href={`/project/detail?project=${item.id}`}>
                             <img
                               src={`${API.urlStorage}/${item.photo_name}`}
                               alt="image description"

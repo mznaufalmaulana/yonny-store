@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import logo from "../assets/images/logo-yonny.png";
 import getUnicodeFlagIcon from "country-flag-icons/unicode";
 import API from "../services";
@@ -9,6 +8,7 @@ class Menu extends React.Component {
     super(props);
     this.state = {
       productCategory: [],
+      promo: [],
     };
     this.renderMenu = this.renderMenu.bind(this);
   }
@@ -36,6 +36,12 @@ class Menu extends React.Component {
         }
       }
     });
+
+    API.get('promo/list').then((result) => {
+      if (result.message === "success") {
+        this.setState({ promo: result.data });
+      }
+    });
   }
 
   renderMenu() {
@@ -43,7 +49,7 @@ class Menu extends React.Component {
     let html = [];
     for (let i = 0; i < productCategory.length; i++) {
       for (let j = 0; j < productCategory[i].length; j++) {
-        console.log(productCategory[i][j]);
+        // console.log(productCategory[i][j]);
       }
       html.push(<div className="mt-col-3"></div>);
     }
@@ -57,12 +63,10 @@ class Menu extends React.Component {
             <div className="container">
               <div className="row">
                 <div className="col-xs-12">
-                  <div className="mt-logo">
-                    {/* <NavLink to="/"> */}
+                  <div className="mt-logo">                    
                     <a href="/">
                       <img src={logo} width="10px" className="topbar-logo" />
                     </a>
-                    {/* </NavLink> */}
                   </div>
 
                   <div className="mt-nav-box">
@@ -79,19 +83,17 @@ class Menu extends React.Component {
                       <nav id="nav">
                         <ul>
                           <li>
-                            {/*<Link to="/">HOME</Link>*/}
                             <a href="/">HOME</a>
                           </li>
 
                           <li className="drop">
-                            <Link to="/product">
+                            <a href="/">
                               PRODUCTS &nbsp;
                               <i
                                 className="fa fa-angle-down"
                                 aria-hidden="true"
                               ></i>
-                            </Link>
-
+                            </a>                            
                             <div className="mt-dropmenu text-left">
                               <div className="mt-frame">
                                 <div className="mt-f-box">
@@ -101,8 +103,7 @@ class Menu extends React.Component {
                                         {val.map((item, index) =>
                                           // console.log(item)
                                           item.child ? (
-                                            <div className="sub-dropcont">
-                                              {console.log(item)}
+                                            <div className="sub-dropcont">                                              
                                               <a
                                                 href={`product?page=1&category=${item.id}`}
                                                 className="mt-subopener"
@@ -117,7 +118,7 @@ class Menu extends React.Component {
                                                     return (
                                                       <li key={ch.id}>
                                                         <a
-                                                          href={`product?page=1&category=${item.id}`}
+                                                          href={`product?page=1&category=${ch.id}`}
                                                         >
                                                           {ch.category_name}
                                                         </a>
@@ -144,6 +145,18 @@ class Menu extends React.Component {
                                       </div>
                                     )
                                   )}
+                                  <div class="mt-col-3 promo">
+                                    <div class="mt-promobox">
+                                      { this.state.promo.map((promo, index) => {
+                                        const order = [5];
+                                        return order.includes(index) ? (                      
+                                          <a href={promo.link}>                                            
+                                            <img src={API.urlStorage+promo.photo_name}/>                                                                
+                                          </a>
+                                        ):null;
+                                      })}                                                       
+                                    </div>
+                                  </div>
                                 </div>
                               </div>
                             </div>
@@ -151,14 +164,14 @@ class Menu extends React.Component {
                             <span className="mt-mdropover"></span>
                           </li>
 
-                          <li>
-                            <Link to="/project">PROJECTS</Link>
+                          <li>                            
+                            <a href="/project">PROJECTS</a>
                           </li>
                           <li>
-                            <Link to="/about">ABOUT</Link>
+                            <a href="/about">ABOUT</a>                            
                           </li>
                           <li>
-                            <Link to="/contact">CONTACT</Link>
+                            <a href="/contact">CONTACT</a>                            
                           </li>
 
                           <li>
