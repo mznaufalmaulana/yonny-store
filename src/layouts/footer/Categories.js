@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 
 const Categpries = ({categories}) => {
     return (
@@ -27,7 +27,6 @@ const Categpries = ({categories}) => {
             </ul>
         </div>
         </>
-        
     )
 };
 

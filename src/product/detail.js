@@ -46,15 +46,7 @@ class Detail extends React.Component {
             <div className="row">
               <div className="col-xs-12">
                 <div className="slider">
-                  {/* <ul className="list-unstyled comment-list">
-                    <li>
-                      <a href="#">
-                        <i className="fa fa-share-alt"></i>
-                        {data.share_count}
-                      </a>
-                    </li>
-                  </ul> */}
-
+                  <ul className="list-unstyled comment-list"></ul>
                   <div className="slide-container">
                     {photo.map((item) => (
                       <Slide>

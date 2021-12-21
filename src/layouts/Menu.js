@@ -10,7 +10,6 @@ class Menu extends React.Component {
       productCategory: [],
       promo: [],
     };
-    this.renderMenu = this.renderMenu.bind(this);
   }
 
   componentDidMount() {
@@ -22,14 +21,9 @@ class Menu extends React.Component {
           list.push(result.data[i]);
           seq++;
           if (seq === 3) {
-            this.setState(
-              {
-                productCategory: [...this.state.productCategory, list],
-              },
-              function () {
-                // this.renderMenu();
-              }
-            );
+            this.setState({
+              productCategory: [...this.state.productCategory, list],
+            });
             list = [];
             seq = 0;
           }
@@ -42,17 +36,6 @@ class Menu extends React.Component {
         this.setState({ promo: result.data });
       }
     });
-  }
-
-  renderMenu() {
-    const { productCategory } = this.state;
-    let html = [];
-    for (let i = 0; i < productCategory.length; i++) {
-      for (let j = 0; j < productCategory[i].length; j++) {
-        // console.log(productCategory[i][j]);
-      }
-      html.push(<div className="mt-col-3"></div>);
-    }
   }
 
   render() {
@@ -72,7 +55,7 @@ class Menu extends React.Component {
                   <div className="mt-nav-box">
                     <ul className="mt-top-list hidden-sm hidden-xs">
                       <li>
-                        <a href="#">
+                        <a href="https://wa.me/6282123123123" target="_blank">
                           <i className="fa fa-whatsapp" aria-hidden="true"></i>
                           &nbsp; +62 82 123 123 123
                         </a>
@@ -101,7 +84,6 @@ class Menu extends React.Component {
                                     (val, idx) => (
                                       <div className="mt-col-3" key={idx}>
                                         {val.map((item, index) =>
-                                          // console.log(item)
                                           item.child ? (
                                             <div className="sub-dropcont">                                              
                                               <a
@@ -130,15 +112,15 @@ class Menu extends React.Component {
                                             </div>
                                           ) : (
                                             <div className="sub-dropcont">
-                                              <a
-                                                href={`product?page=1&category=${item.id}`}
+                                              <Link
+                                                to={`/product?page=1&category=${item.id}`}
                                                 className="mt-subopener"
                                                 key={index}
                                               >
                                                 <strong className="title">
                                                   {item.category_name}
                                                 </strong>
-                                              </a>
+                                              </Link>
                                             </div>
                                           )
                                         )}

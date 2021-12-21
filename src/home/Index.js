@@ -2,19 +2,19 @@ import React from "react";
 import API from "../services";
 
 class Index extends React.Component {
-  state ={
+  state = {
     promoHeadline: [],
     promo: [],
-  }
+  };
 
   componentDidMount() {
-    API.get('promo/headline/list').then((result) => {
+    API.get("promo/headline/list").then((result) => {
       if (result.message === "success") {
         this.setState({ promoHeadline: result.data });
       }
     });
 
-    API.get('promo/list').then((result) => {
+    API.get("promo/list").then((result) => {
       if (result.message === "success") {
         this.setState({ promo: result.data });
       }
@@ -40,7 +40,7 @@ class Index extends React.Component {
                       return(
                         <a href={promoHead.link}>
                           <div className="s-holder" key={promoHead.id}>
-                            <img src={API.urlStorage+promoHead.photo_name}/>
+                            <img src={`${API.urlStorage}${promoHead.photo_name}`}/>
                             <div className="s-box">                           
                             </div>
                           </div>
@@ -63,7 +63,7 @@ class Index extends React.Component {
                           data-wow-delay="0.4s"
                           key={promo.id}
                         >
-                          <img src={API.urlStorage+promo.photo_name}/>                    
+                          <img src={`${API.urlStorage}${promo.photo_name}`}/>                    
                         </div>
                       </a>
                     ):null;
@@ -75,8 +75,8 @@ class Index extends React.Component {
                 className="banner-frame nospace wow fadeInUp"
                 data-wow-delay="0.4s"
               >
-                { this.state.promo.map((promo, index) => {
-                  const order = [2,3,4];
+                {this.state.promo.map((promo, index) => {
+                  const order = [2, 3, 4];
                   return order.includes(index) ? (
                     <a href={promo.link}>
                       <div
@@ -84,7 +84,7 @@ class Index extends React.Component {
                         data-wow-delay="0.4s"
                         key={promo.id}
                       >
-                        <img src={API.urlStorage + promo.photo_name}/>                     
+                        <img src={`${API.urlStorage}${promo.photo_name}`}/>                     
                       </div>
                     </a>
                   ) : null;

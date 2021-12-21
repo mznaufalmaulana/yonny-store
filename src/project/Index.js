@@ -143,7 +143,10 @@ class Index extends React.Component {
                           </a>
                         </div>
                         <div className="info-dscrp">
-                          <p>{item.project_name}</p>
+                          <a href={`/project/detail?project=${item.id}`}>
+                            {item.project_name}
+                          </a>
+                          <br />
                           <time>{moment(item.project_due).format("LL")}</time>
                         </div>
                       </li>
