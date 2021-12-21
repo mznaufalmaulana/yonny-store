@@ -80,19 +80,19 @@ class Category extends React.Component {
           </section>
 
           <section className="shop-widget">
-            <h2>NEW COLLECTION</h2>
+            <h2>NEW PRODUCT</h2>
 
             {this.state.new.map((item) => (
               <div className="mt-product4 mt-paddingbottom20">
                 <div className="img">
-                  <a href="product-detail.html">
+                  <a href={`/product/detail?product=${item.id}`}>
                     <img src={`${API.urlStorage}/${item.photo_name}`} />
                   </a>
                 </div>
                 <div className="text">
                   <div className="frame">
                     <strong>
-                      <a href="product-detail.html">{item.product_name}</a>
+                      <a href={`/product/detail?product=${item.id}`}>{item.product_name}</a>
                     </strong>
                   </div>
                 </div>

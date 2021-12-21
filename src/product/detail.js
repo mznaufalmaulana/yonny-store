@@ -1,5 +1,5 @@
 import React from "react";
-import img from "../assets/images/demo/img07.jpg";
+// import img from "../assets/images/demo/img07.jpg";
 import API from "../services";
 import { Slide } from "react-slideshow-image";
 
@@ -26,7 +26,6 @@ class Detail extends React.Component {
         photo: result.data[0].photo,
       });
     });
-    console.log(param.category);
     API.get(`product/related/${param.category}`).then((result) => {
       this.setState({
         related: result.data,
@@ -93,7 +92,7 @@ class Detail extends React.Component {
                     </li>
                     <li>
                       <a href="#">
-                        <i class="fa fa-heart"></i>{data.seen_count}
+                        <i class="fa fa-eye"></i>{data.seen_count}
                       </a>
                     </li>
                   </ul>

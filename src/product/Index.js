@@ -150,14 +150,6 @@ class Index extends React.Component {
                                 alt={item.product_name}
                               />
                             </a>
-
-                            {/* <ul className="links">
-                              <li>
-                                <a href={`/product/detail?product=${item.id}`}>
-                                  <i className="icomoon icon-eye"></i>
-                                </a>
-                              </li>
-                            </ul> */}
                           </div>
                         </div>
                       </div>

@@ -63,17 +63,11 @@ class Detail extends React.Component {
                         {moment(data.project_due).format("LL")}                        
                       </li>
                       <li>
-                        <a href="#">
-                          <i class="fa fa-share-alt"></i>&nbsp;
+                        <a href="#" className="list-share">
+                          <i class="fa fa-share-alt icon-share"></i>&nbsp;
                           {data.share_count}
                         </a>
-                      </li>
-                      <li>
-                        <a href="#">
-                          <i class="fa fa-eye"></i>&nbsp;
-                          {data.seen_count}
-                        </a>
-                      </li>
+                      </li>                      
                     </ul>
                     <div
                       className="txt-wrap"

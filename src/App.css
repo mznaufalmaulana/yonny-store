@@ -40,6 +40,34 @@
   margin-top: 25px;
 }
 
+.tabcustom{
+  /* background-color: red; */
+  max-width: 500px;
+}
+
+.tabcontent{
+  max-width: 175px;
+}
+
+.contact-address{
+  margin-bottom: 20px;
+}
+
+.list-share{
+  margin: 0;
+  color: #b6b6b6;
+  font-weight: 400;
+  overflow: hidden;
+  padding: 53px 0 0;
+  font: 16px/20px "Montserrat", sans-serif;
+}
+
+.icon-share{
+  font-size: 16px;
+  line-height: 18px;
+  margin: 0 10px 0 0;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

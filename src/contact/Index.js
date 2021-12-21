@@ -8,8 +8,6 @@ import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import API from "../services";
 
-// import "../assets/css/main.css";
-
 class Index extends React.Component {
   constructor(props) {
     super(props);
@@ -35,31 +33,29 @@ class Index extends React.Component {
           <div className="container-fluid">
             <div className="row">
               <div className="col-xs-12 col-sm-8">
-                <div className="txt-wrap">
-                  <h1>Contact Address</h1>
-                  {/* <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut <br/>enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut <br/>aliquip ex ea commodo consequat. </p> */}
+                <div className="contact-address">
+                  <h1>Contact Address</h1>                  
                 </div>
-                <Tabs>
+                <Tabs className="tabcustom">
                   <TabList>
                     {list.map((item) => (
                       <Tab>{item.region}</Tab>
                     ))}
                   </TabList>
-
                   {list.map((item) => (
                     <TabPanel>
                       <ul className="list-unstyled contact-txt">
                         <li>
                           <strong>Address</strong>
-                          <address>{item.contact[0].address}</address>
+                          <p className="tabcontent">{item.contact[0].address}</p>
                         </li>
                         <li>
                           <strong>Phone</strong>
-                          <a href="#">{item.contact[0].phone}</a>
+                          <a href={`tal:${item.contact[0].phone}`} className="tabcontent">{item.contact[0].phone}</a>
                         </li>
                         <li>
-                          <strong>E_mail</strong>
-                          <a href="#">{item.contact[0].email}</a>
+                          <strong>Email</strong>
+                          <a href={`mailto:${item.contact[0].email}`} className="tabcontent">{item.contact[0].email}</a>
                         </li>
                       </ul>
                     </TabPanel>

@@ -112,15 +112,15 @@ class Menu extends React.Component {
                                             </div>
                                           ) : (
                                             <div className="sub-dropcont">
-                                              <Link
-                                                to={`/product?page=1&category=${item.id}`}
+                                              <a
+                                                href={`/product?page=1&category=${item.id}`}
                                                 className="mt-subopener"
                                                 key={index}
                                               >
                                                 <strong className="title">
                                                   {item.category_name}
                                                 </strong>
-                                              </Link>
+                                              </a>
                                             </div>
                                           )
                                         )}
