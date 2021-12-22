@@ -12157,9 +12157,9 @@ a:hover {
 
 .nice-form {
   overflow: hidden;
-  margin: 0 0 20px;
-  padding: 0 0 18px 5px;
-  border-bottom: 1px solid #494949;
+  /* margin: 0 0 20px; */
+  padding: 0 0 0px 5px;
+  /* border-bottom: 1px solid #494949; */
 }
 
 .nice-form .num {

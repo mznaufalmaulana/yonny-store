@@ -1,5 +1,4 @@
 import React from "react";
-// import img from "../assets/images/demo/img07.jpg";
 import API from "../services";
 import { Slide } from "react-slideshow-image";
 
@@ -47,28 +46,16 @@ class Detail extends React.Component {
                 <div className="slider">
                   <ul className="list-unstyled comment-list"></ul>
                   <div className="slide-container">
-                    {photo.map((item) => (
-                      <Slide>
+                    <Slide>
+                      {photo.map((item) => (
                         <div className="slide">
                           <img
                             src={`${API.urlStorage}/${item.photo_name}`}
                             alt="image descrption"
                           />
-                        </div>
-                        <div className="slide">
-                          <img
-                            src={`${API.urlStorage}/${item.photo_name}`}
-                            alt="image descrption"
-                          />
-                        </div>
-                        <div className="slide">
-                          <img
-                            src={`${API.urlStorage}/${item.photo_name}`}
-                            alt="image descrption"
-                          />
-                        </div>
-                      </Slide>
-                    ))}
+                        </div>                
+                      ))}
+                    </Slide>
                   </div>
                 </div>
 
@@ -86,8 +73,8 @@ class Detail extends React.Component {
 
                   <ul className="list-unstyled list">
                     <li>
-                      <a href="#">
-                        <i className="fa fa-share-alt"></i>{data.share_count}
+                      <a href="#" id="modal-buttton" data-toggle="modal" data-target="#my-modal">                        
+                        <i className="fa fa-share-alt"></i>{data.share_count}                       
                       </a>
                     </li>
                     <li>

@@ -72,6 +72,10 @@ class Index extends React.Component {
       });
   }
 
+  incremetSeen(id){        
+    API.get(`product/detail/seen-count/${id}`);
+  }
+
   render() {
     const { data, param } = this.state;
     return (
@@ -168,6 +172,7 @@ class Index extends React.Component {
                   count={data.last_page}
                   page={param.page}
                   onChange={this.onChangePage}
+                  className="paging"
                 />
               </nav>
             </div>

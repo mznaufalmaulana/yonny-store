@@ -1,4 +1,5 @@
 import React from "react";
+import { Slide } from "react-slideshow-image";
 import API from "../services";
 
 class Index extends React.Component {
@@ -35,18 +36,37 @@ class Index extends React.Component {
                   className="slider-7 mt-paddingbottomsm wow fadeInLeft"
                   data-wow-delay="0.4s"
                 >
-                  <div className="slider banner-slider">
-                    { this.state.promoHeadline.map(promoHead => {
-                      return(
+                  <div className="slide-container">
+                    {/* <div class="s-holder">
+											<img src="http://placehold.it/765x580" alt="image description" />											
+											<div class="s-box">													
+											</div>
+										</div>										
+										<div class="s-holder">
+											<img src="http://placehold.it/765x580" alt="image description" />											
+											<div class="s-box">													
+											</div>
+										</div> */}
+                     <Slide>
+                      { this.state.promoHeadline.map(promoHead => (                        
                         <a href={promoHead.link}>
+                          <div className="s-holder" key={promoHead.id}>
+                            <img src={`${API.urlStorage}${promoHead.photo_name}`}/>                            
+                          </div>
+                        </a>                      
+                      ))}
+                    </Slide>
+                    {/* { this.state.promoHeadline.map(promoHead => {
+                      return(
+                        // <a href={promoHead.link}>
                           <div className="s-holder" key={promoHead.id}>
                             <img src={`${API.urlStorage}${promoHead.photo_name}`}/>
                             <div className="s-box">                           
                             </div>
                           </div>
-                        </a>
+                        // </a>
                       )
-                    })}                    
+                    })}                     */}
                   </div>
                 </div>
 
@@ -59,7 +79,7 @@ class Index extends React.Component {
                     return order.includes(index) ? (                      
                       <a href={promo.link}>
                         <div
-                          className="banner-12 right white wow fadeInUp"
+                          className={`banner-${12+index} right white wow fadeInUp`}
                           data-wow-delay="0.4s"
                           key={promo.id}
                         >
@@ -80,7 +100,7 @@ class Index extends React.Component {
                   return order.includes(index) ? (
                     <a href={promo.link}>
                       <div
-                        className="banner-9 right white wow fadeInUp"
+                        className={`banner-${7+index} right white wow fadeInUp`}
                         data-wow-delay="0.4s"
                         key={promo.id}
                       >
@@ -90,7 +110,8 @@ class Index extends React.Component {
                   ) : null;
                 })}
               </div>             
-              <br />
+              <br /><br />
+              <br /><br />              
             </div>
           </div>
         </div>

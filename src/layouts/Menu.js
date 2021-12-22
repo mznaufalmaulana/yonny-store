@@ -85,7 +85,7 @@ class Menu extends React.Component {
                                       <div className="mt-col-3" key={idx}>
                                         {val.map((item, index) =>
                                           item.child ? (
-                                            <div className="sub-dropcont">                                              
+                                            <div className="sub-dropcont" key={item.id}>                                              
                                               <a
                                                 href={`product?page=1&category=${item.id}`}
                                                 className="mt-subopener"
@@ -111,7 +111,7 @@ class Menu extends React.Component {
                                               </div>
                                             </div>
                                           ) : (
-                                            <div className="sub-dropcont">
+                                            <div className="sub-dropcont" key={item.id}>
                                               <a
                                                 href={`/product?page=1&category=${item.id}`}
                                                 className="mt-subopener"
@@ -132,7 +132,7 @@ class Menu extends React.Component {
                                       { this.state.promo.map((promo, index) => {
                                         const order = [5];
                                         return order.includes(index) ? (                      
-                                          <a href={promo.link}>                                            
+                                          <a href={promo.link} key={promo.id}>                                            
                                             <img src={API.urlStorage+promo.photo_name}/>                                                                
                                           </a>
                                         ):null;

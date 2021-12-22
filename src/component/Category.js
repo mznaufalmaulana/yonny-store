@@ -32,6 +32,11 @@ class Category extends React.Component {
     console.log(e);
   }
 
+  handleChange(e) {
+    let isChecked = e.target.value;
+    console.log(isChecked);
+  }
+
   render() {
     const { url } = window.location.href;
     return (
@@ -47,10 +52,10 @@ class Category extends React.Component {
 
             <ul className="list-unstyled nice-form">
               {this.state.type.length === 0 ? "Loading..." : ""}
-              {this.state.type.map((item) => (
-                <li>
-                  <label for="check-1">
-                    <input id="check-1" type="checkbox" value={item.id} />
+              {this.state.type.map((item, index) => (
+                <li key={item.id}>
+                  <label for={`check-${index}`}>
+                    <input id={`check-${index}`} type="checkbox" onChange={e => this.handleChange(e)} value={item.id} />
                     <span className="fake-input"></span>
                     <span className="fake-label">{item.type_name}</span>
                   </label>
@@ -66,7 +71,7 @@ class Category extends React.Component {
             <ul className="list-unstyled category-list">
               {this.state.type.length === 0 ? "Loading..." : ""}
               {this.state.cat.map((item) => (
-                <li>
+                <li key={item.id}>
                   <a
                     href="#"
                     onClick={() => this.props.onChange("cat", item.id)}
@@ -83,7 +88,7 @@ class Category extends React.Component {
             <h2>NEW PRODUCT</h2>
 
             {this.state.new.map((item) => (
-              <div className="mt-product4 mt-paddingbottom20">
+              <div className="mt-product4 mt-paddingbottom20" key={item.id}>
                 <div className="img">
                   <a href={`/product/detail?product=${item.id}`}>
                     <img src={`${API.urlStorage}/${item.photo_name}`} />
