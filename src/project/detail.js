@@ -54,7 +54,7 @@ class Detail extends React.Component {
                   <br />
                   <div class="blog-txt">
                     <h2>
-                      <a href="blog-right-sidebar.html">{data.project_name}</a>
+                      {data.project_name}
                     </h2>
                     <ul class="list-unstyled blog-nav">
                       <li>

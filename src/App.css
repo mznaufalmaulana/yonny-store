@@ -29,7 +29,13 @@
 }
 
 .footer-logo{
-  width: 200px;
+  width: 300px;
+  margin: -15px 0px 10px -22px;
+}
+
+.topbar-logo{
+  width: 300px;
+  margin: 0px 0px 0px -15px;
 }
 
 .paging{
