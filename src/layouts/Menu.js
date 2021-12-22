@@ -1,4 +1,5 @@
 import React from "react";
+import  { Redirect } from 'react-router-dom';
 import logo from "../assets/images/logo-yonny.png";
 import getUnicodeFlagIcon from "country-flag-icons/unicode";
 import API from "../services";
@@ -9,6 +10,8 @@ class Menu extends React.Component {
     this.state = {
       productCategory: [],
       promo: [],
+      search: [],
+      redirect:true,
     };
   }
 
@@ -36,6 +39,18 @@ class Menu extends React.Component {
         this.setState({ promo: result.data });
       }
     });
+  }
+
+  handleChange = (e) => {
+    this.setState({
+     search: e.target.value
+    })
+    // console.log(this.state.search);
+  }
+
+  handleSubmit = () => {    
+    console.log(this.state.search);
+    // return <Redirect to="/product" />
   }
 
   render() {
@@ -70,7 +85,7 @@ class Menu extends React.Component {
                           </li>
 
                           <li className="drop">
-                            <a href="/">
+                            <a href="/product">
                               PRODUCTS &nbsp;
                               <i
                                 className="fa fa-angle-down"
@@ -87,7 +102,7 @@ class Menu extends React.Component {
                                           item.child ? (
                                             <div className="sub-dropcont" key={item.id}>                                              
                                               <a
-                                                href={`product?page=1&category=${item.id}`}
+                                                href={`/product?page=1&category=${item.id}`}
                                                 className="mt-subopener"
                                               >
                                                 <strong className="title">
@@ -100,7 +115,7 @@ class Menu extends React.Component {
                                                     return (
                                                       <li key={ch.id}>
                                                         <a
-                                                          href={`product?page=1&category=${ch.id}`}
+                                                          href={`/product?page=1&category=${ch.id}`}
                                                         >
                                                           {ch.category_name}
                                                         </a>
@@ -180,8 +195,7 @@ class Menu extends React.Component {
                             </div>
                           </li>
                         </ul>
-                      </nav>
-
+                      </nav>         
                       <ul className="mt-icon-list">
                         <li className="hidden-lg hidden-md">
                           <a href="#" className="bar-opener mobile-toggle">
@@ -189,10 +203,8 @@ class Menu extends React.Component {
                             <span className="bar small"></span>
                             <span className="bar"></span>
                           </a>
-                        </li>
-                        {/* <li>
-                          <a className="icon-magnifier" href="#"></a>
-                        </li> */}
+                        </li>  
+                        <li><a className="icon-magnifier" href="#"></a></li>           
                       </ul>
                     </div>
                   </div>
@@ -200,8 +212,7 @@ class Menu extends React.Component {
               </div>
             </div>
           </div>
-        </header>
-
+        </header>      
         <div className="mt-search-popup">
           <div className="mt-holder">
             <a href="#" className="search-close">
@@ -209,10 +220,10 @@ class Menu extends React.Component {
               <span></span>
             </a>
             <div className="mt-frame">
-              <form action="#">
+              <form action="#" onSubmit={this.handleSubmit}>
                 <fieldset>
-                  <span className="icon-microphone"></span>
-                  <button className="icon-magnifier" type="submit"></button>
+                  <input type="text" placeholder="Search..." onChange={this.handleChange}/>                  
+                  <button type="submit" className="icon-magnifier"></button>
                 </fieldset>
               </form>
             </div>

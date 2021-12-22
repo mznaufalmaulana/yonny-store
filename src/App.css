@@ -52,12 +52,14 @@
 }
 
 .tabcontent{
-  max-width: 175px;
+  max-width: 175px;  
 }
 
-.contact-address{
-  margin-bottom: 20px;
+.content-tab{
+  margin-top: 20px;
 }
+
+
 
 .list-share{
   margin: 0;

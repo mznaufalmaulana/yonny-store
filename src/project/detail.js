@@ -39,14 +39,15 @@ class Detail extends React.Component {
               <div
                 class="col-xs-12 col-sm-12 wow fadeInUp"
                 data-wow-delay="0.4s"
-              >
-                <article class="blog-post detail">
-                  <div class="slide-container">
+              >                
+                <article class="blog-post detail">                
+                  <div class="slide-container">                    
                     <Slide>
                       {photo.map((item) => (
                         <img
                           src={`${API.urlStorage}/${item.photo_name}`}
                           alt="image description"
+                          key={item.id}
                         />
                       ))}
                     </Slide>
@@ -70,11 +71,14 @@ class Detail extends React.Component {
                       </li>                      
                     </ul>
                     <div
-                      className="txt-wrap"
+                      className="txt-wrap txt-desc"
                       dangerouslySetInnerHTML={{
                         __html: `${data.description}`,
                       }}
                     />
+                    {/* <p>
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum inventore impedit omnis tenetur deleniti, provident nulla vel reprehenderit ab sit illo officiis numquam et optio blanditiis atque! Placeat repudiandae distinctio est vitae. Tempore molestias, cum repudiandae dolores totam quae reprehenderit quaerat sed maiores iusto vitae. Laboriosam pariatur modi animi minima nam! Quibusdam maxime earum atque molestias nulla nihil a iusto ratione ea alias magni dolorum distinctio quidem unde laudantium possimus minima cumque, ut culpa itaque vero provident vitae. Facere numquam quae dignissimos nam ipsam doloremque quo fuga quisquam corrupti itaque? Ipsa nobis reprehenderit illo deleniti, architecto necessitatibus voluptate dolorem omnis.
+                    </p> */}
                   </div>
                 </article>
               </div>

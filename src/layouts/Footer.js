@@ -45,8 +45,7 @@ class Footer extends React.Component {
       if (result.message === "success") {
         console.log(result.message)
       }
-    });
-    // console.log(payload.get('email_address'));
+    });    
   }
 
   componentDidUpdate(prevProps, prevState) {

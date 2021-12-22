@@ -1,8 +1,4 @@
 import React from "react";
-import logo from "../assets/images/mt-logo.png";
-import img from "../assets/images/demo/img07.jpg";
-import img2 from "../assets/images/demo/img12.jpg";
-import img3 from "../assets/images/demo/img13.jpg";
 import Banner from "../component/Banner";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
@@ -23,6 +19,7 @@ class Index extends React.Component {
   }
   render() {
     const { list } = this.state;
+    console.log(list);
     return (
       <main id="mt-main">
         <Banner title="Contact" />
@@ -44,14 +41,14 @@ class Index extends React.Component {
                   </TabList>
                   {list.map((item) => (
                     <TabPanel>
-                      <ul className="list-unstyled contact-txt">
+                      <ul className="list-unstyled contact-txt content-tab">
                         <li>
                           <strong>Address</strong>
                           <p className="tabcontent">{item.contact[0].address}</p>
                         </li>
                         <li>
                           <strong>Phone</strong>
-                          <a href={`tal:${item.contact[0].phone}`} className="tabcontent">{item.contact[0].phone}</a>
+                          <a href={`tel:${item.contact[0].phone}`} className="tabcontent">{item.contact[0].phone}</a>
                         </li>
                         <li>
                           <strong>Email</strong>

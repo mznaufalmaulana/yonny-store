@@ -48,7 +48,7 @@ class Detail extends React.Component {
                   <div className="slide-container">
                     <Slide>
                       {photo.map((item) => (
-                        <div className="slide">
+                        <div className="slide" key={item.id}>
                           <img
                             src={`${API.urlStorage}/${item.photo_name}`}
                             alt="image descrption"
@@ -62,7 +62,7 @@ class Detail extends React.Component {
                 <div className="detial-holder">
                   <ul className="list-unstyled breadcrumbs">
                     <li>
-                      <a href="#">
+                      <a href="/product">
                         Product <i className="fa fa-angle-right"></i>
                       </a>
                     </li>
@@ -88,12 +88,63 @@ class Detail extends React.Component {
                     dangerouslySetInnerHTML={{
                       __html: `${data.description}`,
                     }}
-                  />
-                </div>
+                  />          
+                  {/* <div className="product-comment">
+                    <form action="#" class="p-commentform">
+											<fieldset>													
+												<div class="mt-row">
+													<label>Name</label>
+													<input type="text" class="form-control" />
+												</div>
+												<div class="mt-row">
+													<label>E-Mail</label>
+													<input type="text" class="form-control" />
+												</div>
+												<div class="mt-row">
+													<label>Review</label>
+													<textarea class="form-control"></textarea>
+												</div>
+												<button type="submit" class="btn-type1">ADD REVIEW</button>
+											</fieldset>
+										</form>
+                  </div>         */}
+                </div>                
               </div>
             </div>
           </div>
         </section>
+        {/* <div class="product-detail-tab wow fadeInUp" data-wow-delay="0.4s">
+					<div class="container">
+						<div class="row">
+							<div class="col-xs-12">					
+								<div class="tab-content">									
+									<div id="tab3">
+										<div class="product-comment">										
+											<form action="#" class="p-commentform">
+												<fieldset>
+													<h2>Add  Comment</h2>													
+													<div class="mt-row">
+														<label>Name</label>
+														<input type="text" class="form-control"/>
+													</div>
+													<div class="mt-row">
+														<label>E-Mail</label>
+														<input type="text" class="form-control"/>
+													</div>
+													<div class="mt-row">
+														<label>Review</label>
+														<textarea class="form-control"></textarea>
+													</div>
+													<button type="submit" class="btn-type4">ADD REVIEW</button>
+												</fieldset>
+											</form>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div> */}
         <br />
         <br />
 
