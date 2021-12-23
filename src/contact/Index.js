@@ -59,42 +59,6 @@ class Index extends React.Component {
                           ))}
                         </tbody>
                       </table>
-                      {/* <ul className="list-unstyled contact-txt content-tab">
-                        <li>
-                          <strong>Address</strong>
-                          {item.contact.map((addr) => (
-                            <p className="tabcontent mb-5">{addr.address}</p>
-                          ))}
-                        </li>
-                        <li>
-                          <strong>Phone</strong>
-                          {item.contact.map((tel) => (
-                            <>
-                              <a
-                                href={`tel:${tel.phone}`}
-                                className="tabcontent"
-                              >
-                                {tel.phone}
-                              </a>
-                              <br />
-                            </>
-                          ))}
-                        </li>
-                        <li>
-                          <strong>Email</strong>
-                          {item.contact.map((email) => (
-                            <>
-                              <a
-                                href={`mailto:${email.email}`}
-                                className="tabcontent"
-                              >
-                                {email.email}
-                              </a>
-                              <br />
-                            </>
-                          ))}
-                        </li>
-                      </ul> */}
                     </TabPanel>
                   ))}
                 </Tabs>
