@@ -11,6 +11,7 @@ class Category extends React.Component {
       cat: [],
       type: [],
       new: [],
+      typeSelected: [],
     };
     // console.log(JSON.parse(localStorage.getItem("cat")));
     // console.log(localStorage.getItem("cat"));
@@ -33,8 +34,19 @@ class Category extends React.Component {
   }
 
   handleChange(e) {
-    let isChecked = e.target.value;
-    console.log(isChecked);
+    let isChecked = e.target.checked;
+    if (isChecked) {
+      this.setState({
+        typeSelected: [...this.state.typeSelected, e.target.value],
+      });
+    } else {
+      const items = this.state.typeSelected.filter(
+        (item) => item !== e.target.value
+      );
+      this.setState({
+        typeSelected: items,
+      });
+    }
   }
 
   render() {
@@ -51,11 +63,16 @@ class Category extends React.Component {
             <span className="sub-title">Filter by Type</span>
 
             <ul className="list-unstyled nice-form">
-              {this.state.type.length === 0 ? "Loading..." : ""}
+              {this.state.type.length === 0 ? <p>Loading...</p> : ""}
               {this.state.type.map((item, index) => (
                 <li key={item.id}>
                   <label for={`check-${index}`}>
-                    <input id={`check-${index}`} type="checkbox" onChange={e => this.handleChange(e)} value={item.id} />
+                    <input
+                      id={`check-${index}`}
+                      type="checkbox"
+                      onChange={(e) => this.handleChange(e)}
+                      value={item.id}
+                    />
                     <span className="fake-input"></span>
                     <span className="fake-label">{item.type_name}</span>
                   </label>
@@ -63,6 +80,15 @@ class Category extends React.Component {
                 </li>
               ))}
             </ul>
+            <button
+              className="btn btn-secondary mt-2"
+              disabled={this.state.type.length === 0}
+              onClick={() =>
+                this.props.onChange("type", this.state.typeSelected)
+              }
+            >
+              Apply
+            </button>
           </section>
 
           <section className="shop-widget">
@@ -97,7 +123,9 @@ class Category extends React.Component {
                 <div className="text">
                   <div className="frame">
                     <strong>
-                      <a href={`/product/detail?product=${item.id}`}>{item.product_name}</a>
+                      <a href={`/product/detail?product=${item.id}`}>
+                        {item.product_name}
+                      </a>
                     </strong>
                   </div>
                 </div>

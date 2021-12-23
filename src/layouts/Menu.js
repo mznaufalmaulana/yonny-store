@@ -1,5 +1,5 @@
 import React from "react";
-import  { Redirect } from 'react-router-dom';
+import { Redirect } from "react-router-dom";
 import logo from "../assets/images/logo-yonny.png";
 import getUnicodeFlagIcon from "country-flag-icons/unicode";
 import API from "../services";
@@ -11,8 +11,9 @@ class Menu extends React.Component {
       productCategory: [],
       promo: [],
       search: [],
-      redirect:true,
+      redirect: true,
     };
+    this.handleChange = this.handleChange.bind(this);
   }
 
   componentDidMount() {
@@ -34,7 +35,7 @@ class Menu extends React.Component {
       }
     });
 
-    API.get('promo/list').then((result) => {
+    API.get("promo/list").then((result) => {
       if (result.message === "success") {
         this.setState({ promo: result.data });
       }
@@ -42,16 +43,10 @@ class Menu extends React.Component {
   }
 
   handleChange = (e) => {
-    this.setState({
-     search: e.target.value
-    })
-    // console.log(this.state.search);
-  }
-
-  handleSubmit = () => {    
-    console.log(this.state.search);
-    // return <Redirect to="/product" />
-  }
+    if (e.key === "Enter") {
+      window.location.href = `/product?page=1&search=${this.state.search}`;
+    }
+  };
 
   render() {
     return (
@@ -61,7 +56,7 @@ class Menu extends React.Component {
             <div className="container">
               <div className="row">
                 <div className="col-xs-12">
-                  <div className="mt-logo">                    
+                  <div className="mt-logo">
                     <a href="/">
                       <img src={logo} width="10px" className="topbar-logo" />
                     </a>
@@ -91,7 +86,7 @@ class Menu extends React.Component {
                                 className="fa fa-angle-down"
                                 aria-hidden="true"
                               ></i>
-                            </a>                            
+                            </a>
                             <div className="mt-dropmenu text-left">
                               <div className="mt-frame">
                                 <div className="mt-f-box">
@@ -100,7 +95,10 @@ class Menu extends React.Component {
                                       <div className="mt-col-3" key={idx}>
                                         {val.map((item, index) =>
                                           item.child ? (
-                                            <div className="sub-dropcont" key={item.id}>                                              
+                                            <div
+                                              className="sub-dropcont"
+                                              key={item.id}
+                                            >
                                               <a
                                                 href={`/product?page=1&category=${item.id}`}
                                                 className="mt-subopener"
@@ -126,7 +124,10 @@ class Menu extends React.Component {
                                               </div>
                                             </div>
                                           ) : (
-                                            <div className="sub-dropcont" key={item.id}>
+                                            <div
+                                              className="sub-dropcont"
+                                              key={item.id}
+                                            >
                                               <a
                                                 href={`/product?page=1&category=${item.id}`}
                                                 className="mt-subopener"
@@ -144,14 +145,19 @@ class Menu extends React.Component {
                                   )}
                                   <div class="mt-col-3 promo">
                                     <div class="mt-promobox">
-                                      { this.state.promo.map((promo, index) => {
+                                      {this.state.promo.map((promo, index) => {
                                         const order = [5];
-                                        return order.includes(index) ? (                      
-                                          <a href={promo.link} key={promo.id}>                                            
-                                            <img src={API.urlStorage+promo.photo_name}/>                                                                
+                                        return order.includes(index) ? (
+                                          <a href={promo.link} key={promo.id}>
+                                            <img
+                                              src={
+                                                API.urlStorage +
+                                                promo.photo_name
+                                              }
+                                            />
                                           </a>
-                                        ):null;
-                                      })}                                                       
+                                        ) : null;
+                                      })}
                                     </div>
                                   </div>
                                 </div>
@@ -161,14 +167,14 @@ class Menu extends React.Component {
                             <span className="mt-mdropover"></span>
                           </li>
 
-                          <li>                            
+                          <li>
                             <a href="/project">PROJECTS</a>
                           </li>
                           <li>
-                            <a href="/about">ABOUT</a>                            
+                            <a href="/about">ABOUT</a>
                           </li>
                           <li>
-                            <a href="/contact">CONTACT</a>                            
+                            <a href="/contact">CONTACT</a>
                           </li>
 
                           <li>
@@ -195,7 +201,7 @@ class Menu extends React.Component {
                             </div>
                           </li>
                         </ul>
-                      </nav>         
+                      </nav>
                       <ul className="mt-icon-list">
                         <li className="hidden-lg hidden-md">
                           <a href="#" className="bar-opener mobile-toggle">
@@ -203,8 +209,10 @@ class Menu extends React.Component {
                             <span className="bar small"></span>
                             <span className="bar"></span>
                           </a>
-                        </li>  
-                        <li><a className="icon-magnifier" href="#"></a></li>           
+                        </li>
+                        <li>
+                          <a className="icon-magnifier" href="#"></a>
+                        </li>
                       </ul>
                     </div>
                   </div>
@@ -212,7 +220,7 @@ class Menu extends React.Component {
               </div>
             </div>
           </div>
-        </header>      
+        </header>
         <div className="mt-search-popup">
           <div className="mt-holder">
             <a href="#" className="search-close">
@@ -220,12 +228,18 @@ class Menu extends React.Component {
               <span></span>
             </a>
             <div className="mt-frame">
-              <form action="#" onSubmit={this.handleSubmit}>
-                <fieldset>
-                  <input type="text" placeholder="Search..." onChange={this.handleChange}/>                  
-                  <button type="submit" className="icon-magnifier"></button>
-                </fieldset>
-              </form>
+              <fieldset>
+                <input
+                  type="text"
+                  placeholder="Search..."
+                  onChange={(e) =>
+                    this.setState({
+                      search: e.target.value,
+                    })
+                  }
+                  onKeyDown={(e) => this.handleChange(e)}
+                />
+              </fieldset>
             </div>
           </div>
         </div>
