@@ -50,7 +50,6 @@ class Category extends React.Component {
   }
 
   render() {
-    const { url } = window.location.href;
     const { typeSelected, type, cat, newest } = this.state;
     return (
       <>
@@ -67,7 +66,6 @@ class Category extends React.Component {
               {type.length === 0 ? <p>Loading...</p> : ""}
               {type.map((item, index) => (
                 <li key={index}>
-                  {console.log(typeSelected.indexOf(item.id.toString()) > -1)}
                   <label for={`check-${index}`}>
                     {typeSelected.indexOf(item.id.toString()) > -1 ? (
                       <input
