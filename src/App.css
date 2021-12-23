@@ -38,8 +38,12 @@
   margin: 0px 0px 0px -15px;
 }
 
-.paging{
-  color: red;
+/* .paging{
+  
+} */
+
+.MuiPagination-ul{
+  justify-content: center;    
 }
 
 .form-question{
@@ -58,8 +62,6 @@
 .content-tab{
   margin-top: 20px;
 }
-
-
 
 .list-share{
   margin: 0;

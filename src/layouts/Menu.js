@@ -44,12 +44,12 @@ class Menu extends React.Component {
   handleChange = (e) => {
     this.setState({
      search: e.target.value
-    })
-    // console.log(this.state.search);
+    })    
   }
 
-  handleSubmit = () => {    
-    console.log(this.state.search);
+  handleSubmit = (e) => {    
+    e.preventDefault();
+    console.log(e);
     // return <Redirect to="/product" />
   }
 
