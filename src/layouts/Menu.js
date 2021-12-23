@@ -1,5 +1,4 @@
 import React from "react";
-import { Redirect } from "react-router-dom";
 import logo from "../assets/images/logo-yonny.png";
 import getUnicodeFlagIcon from "country-flag-icons/unicode";
 import API from "../services";
@@ -221,25 +220,23 @@ class Menu extends React.Component {
             </div>
           </div>
         </header>
+
         <div className="mt-search-popup">
           <div className="mt-holder">
-            <a href="#" className="search-close">
-              <span></span>
-              <span></span>
-            </a>
+            <a href="#" className="search-close"><span></span><span></span></a>
             <div className="mt-frame">
-              <fieldset>
-                <input
-                  type="text"
-                  placeholder="Search..."
-                  onChange={(e) =>
+              <form onSubmit={(e) => this.handleChange(e)}>
+                <fieldset>
+                  <input type="text" placeholder="Search..." onChange={(e) =>
                     this.setState({
                       search: e.target.value,
                     })
                   }
                   onKeyDown={(e) => this.handleChange(e)}
-                />
-              </fieldset>
+                  />                  
+                  <button className="icon-magnifier" type="submit" disabled></button>
+                </fieldset>
+              </form>
             </div>
           </div>
         </div>

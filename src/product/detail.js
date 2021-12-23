@@ -25,10 +25,17 @@ class Detail extends React.Component {
         photo: result.data[0].photo,
       });
     });
-    API.get(`product/related/${param.category}`).then((result) => {
-      this.setState({
-        related: result.data,
-      });
+    API.get(`product/related/${param.category}`).then((result) => {      
+      if(result.data.length>5)
+      {
+        this.setState({
+          related: result.data.slice(0,5),
+        });  
+      }else{
+        this.setState({
+          related: result.data.slice(0, result.data.length),
+        });
+      }            
     });
   }
 
@@ -151,11 +158,11 @@ class Detail extends React.Component {
         <div className="related-products wow fadeInUp" data-wow-delay="0.4s">
           <div className="container">
             <div className="row">
-              <div className="col-xs-12">
+              <div className="col-xs-12 mar-top-3">
                 <h2>RELATED PRODUCTS</h2>
                 <br />
                 <div className="row">
-                  <div className="col-xs-12">
+                  <div className="col-xs-12 mar-top-1">
                     {related.map((item) => (
                       <div className="mt-product1">
                         <div className="box">                          

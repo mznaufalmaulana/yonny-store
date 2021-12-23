@@ -34,8 +34,7 @@ class Index extends React.Component {
 
   getList() {
     const param = this.state.param;
-    let type = "";
-    console.log(param.type);
+    let type = "";    
     if (param.type) {
       for (let i = 0; i < param.type.length; i++) {
         type += `&type=${param.type[i]}`;
