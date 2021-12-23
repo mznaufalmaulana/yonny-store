@@ -31,7 +31,7 @@ class Index extends React.Component {
             <div className="row">
               <div className="col-xs-12 col-sm-8">
                 <div className="contact-address">
-                  <h1>Contact Address</h1>                  
+                  <h1>Contact Address</h1>
                 </div>
                 <Tabs className="tabcustom">
                   <TabList>
@@ -41,20 +41,60 @@ class Index extends React.Component {
                   </TabList>
                   {list.map((item) => (
                     <TabPanel>
-                      <ul className="list-unstyled contact-txt content-tab">
+                      <table className="table table-borderless">
+                        <thead>
+                          <tr>
+                            <th>Address</th>
+                            <th>Phone</th>
+                            <th>Email</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {item.contact.map((addr) => (
+                            <tr>
+                              <td>{addr.address}</td>
+                              <td>{addr.phone}</td>
+                              <td>{addr.email}</td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                      {/* <ul className="list-unstyled contact-txt content-tab">
                         <li>
                           <strong>Address</strong>
-                          <p className="tabcontent">{item.contact[0].address}</p>
+                          {item.contact.map((addr) => (
+                            <p className="tabcontent mb-5">{addr.address}</p>
+                          ))}
                         </li>
                         <li>
                           <strong>Phone</strong>
-                          <a href={`tel:${item.contact[0].phone}`} className="tabcontent">{item.contact[0].phone}</a>
+                          {item.contact.map((tel) => (
+                            <>
+                              <a
+                                href={`tel:${tel.phone}`}
+                                className="tabcontent"
+                              >
+                                {tel.phone}
+                              </a>
+                              <br />
+                            </>
+                          ))}
                         </li>
                         <li>
                           <strong>Email</strong>
-                          <a href={`mailto:${item.contact[0].email}`} className="tabcontent">{item.contact[0].email}</a>
+                          {item.contact.map((email) => (
+                            <>
+                              <a
+                                href={`mailto:${email.email}`}
+                                className="tabcontent"
+                              >
+                                {email.email}
+                              </a>
+                              <br />
+                            </>
+                          ))}
                         </li>
-                      </ul>
+                      </ul> */}
                     </TabPanel>
                   ))}
                 </Tabs>

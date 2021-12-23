@@ -20,7 +20,8 @@ class Index extends React.Component {
         cat: this.url.get("category") ? this.url.get("category") : "",
         page: this.url.get("page") ? parseInt(this.url.get("page"), 10) : 1,
         sort: this.url.get("sort") ? this.url.get("sort") : "",
-        type: this.url.get("type") ? this.url.get("type") : "",
+        type: this.url.get("type") ? this.url.getAll("type") : "",
+        name: this.url.get("search") ? this.url.get("search") : "",
       },
     };
     this.onChangePage = this.onChangePage.bind(this);
@@ -33,8 +34,15 @@ class Index extends React.Component {
 
   getList() {
     const param = this.state.param;
+    let type = "";
+    console.log(param.type);
+    if (param.type) {
+      for (let i = 0; i < param.type.length; i++) {
+        type += `&type=${param.type[i]}`;
+      }
+    }
     API.get(
-      `product/list?page=${param.page}&sort=${param.sort}&category=${param.cat}&type=${param.type}`
+      `product/list?page=${param.page}&sort=${param.sort}&category=${param.cat}&name=${param.name}${type}`
     ).then((result) => {
       this.setState({
         list: result.data.data,
@@ -52,27 +60,42 @@ class Index extends React.Component {
     const param = this.state.param;
     let url = "";
     param.sort ? (url += `&sort=${param.sort}`) : (url = `${url}`);
-    param.type ? (url += `&type=${param.type}`) : (url = `${url}`);
     param.cat ? (url += `&category=${param.cat}`) : (url = `${url}`);
+
+    if (param.type) {
+      for (let i = 0; i < param.type.length; i++) {
+        url += `&type=${param.type[i]}`;
+      }
+    }
+
     window.location.href = `?page=${val ? val : param.page}${url}`;
   }
 
   onChangeParams(id, val) {
     if (id === "cat")
-      this.setState({ param: { ...this.state.param, cat: val } }, function () {
-        this.onChangePage();
-      });
+      this.setState(
+        { param: { ...this.state.param, cat: val, page: 1 } },
+        function () {
+          this.onChangePage();
+        }
+      );
     else if (id === "type")
-      this.setState({ param: { ...this.state.param, type: val } }, function () {
-        this.onChangePage();
-      });
+      this.setState(
+        { param: { ...this.state.param, type: val, page: 1 } },
+        function () {
+          this.onChangePage();
+        }
+      );
     else if (id === "sort")
-      this.setState({ param: { ...this.state.param, sort: val } }, function () {
-        this.onChangePage();
-      });
+      this.setState(
+        { param: { ...this.state.param, sort: val, page: 1 } },
+        function () {
+          this.onChangePage();
+        }
+      );
   }
 
-  incremetSeen(id){        
+  incremetSeen(id) {
     API.get(`product/detail/seen-count/${id}`);
   }
 
@@ -134,7 +157,7 @@ class Index extends React.Component {
               </header>
 
               <ul className="mt-productlisthold list-inline">
-                {this.state.list.length === 0 && (
+                {this.state.list.length <= 0 && (
                   <div>
                     <p className="text-center">
                       Sorry, We Couldn't Find What You Want :(
@@ -147,7 +170,9 @@ class Index extends React.Component {
                       <div className="box">
                         <div className="b1">
                           <div className="b2">
-                            <a href={`/product/detail?product=${item.id}&category=${this.state.param.cat}`}>
+                            <a
+                              href={`/product/detail?product=${item.id}&category=${this.state.param.cat}`}
+                            >
                               <img
                                 className="img-product-list"
                                 src={`${API.urlStorage}/${item.photo_name}`}
@@ -159,7 +184,11 @@ class Index extends React.Component {
                       </div>
                       <div className="txt">
                         <strong className="title">
-                          <a href={`/product/detail?product=${item.id}&category=${this.state.param.cat}`}>{item.product_name}</a>
+                          <a
+                            href={`/product/detail?product=${item.id}&category=${this.state.param.cat}`}
+                          >
+                            {item.product_name}
+                          </a>
                         </strong>
                       </div>
                     </div>
