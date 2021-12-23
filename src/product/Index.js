@@ -106,7 +106,10 @@ class Index extends React.Component {
         <Banner title="Product" category={this.state.param.cat} />
         <div className="container">
           <div className="row">
-            <Category onChange={(id, val) => this.onChangeParams(id, val)} />
+            <Category
+              onChange={(id, val) => this.onChangeParams(id, val)}
+              paramType={param.type}
+            />
             <div
               className="col-xs-12 col-sm-8 col-md-9 wow fadeInRight"
               data-wow-delay="0.4s"

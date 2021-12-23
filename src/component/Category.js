@@ -10,8 +10,8 @@ class Category extends React.Component {
     this.state = {
       cat: [],
       type: [],
-      new: [],
-      typeSelected: [],
+      newest: [],
+      typeSelected: props.paramType,
     };
     // console.log(JSON.parse(localStorage.getItem("cat")));
     // console.log(localStorage.getItem("cat"));
@@ -50,7 +50,7 @@ class Category extends React.Component {
   }
 
   render() {
-    const { url } = window.location.href;
+    const { typeSelected, type, cat, newest } = this.state;
     return (
       <>
         <aside
@@ -63,16 +63,26 @@ class Category extends React.Component {
             <span className="sub-title">Filter by Type</span>
 
             <ul className="list-unstyled nice-form">
-              {this.state.type.length === 0 ? <p>Loading...</p> : ""}
-              {this.state.type.map((item, index) => (
-                <li key={item.id}>
+              {type.length === 0 ? <p>Loading...</p> : ""}
+              {type.map((item, index) => (
+                <li key={index}>
                   <label for={`check-${index}`}>
-                    <input
-                      id={`check-${index}`}
-                      type="checkbox"
-                      onChange={(e) => this.handleChange(e)}
-                      value={item.id}
-                    />
+                    {typeSelected.indexOf(item.id.toString()) > -1 ? (
+                      <input
+                        id={`check-${index}`}
+                        type="checkbox"
+                        onChange={(e) => this.handleChange(e)}
+                        value={item.id}
+                        checked
+                      />
+                    ) : (
+                      <input
+                        id={`check-${index}`}
+                        type="checkbox"
+                        onChange={(e) => this.handleChange(e)}
+                        value={item.id}
+                      />
+                    )}
                     <span className="fake-input"></span>
                     <span className="fake-label">{item.type_name}</span>
                   </label>
@@ -82,10 +92,8 @@ class Category extends React.Component {
             </ul>
             <button
               className="btn btn-secondary mt-2"
-              disabled={this.state.type.length === 0}
-              onClick={() =>
-                this.props.onChange("type", this.state.typeSelected)
-              }
+              disabled={type.length === 0}
+              onClick={() => this.props.onChange("type", typeSelected)}
             >
               Apply
             </button>
@@ -95,8 +103,8 @@ class Category extends React.Component {
             <h2>CATEGORIES</h2>
 
             <ul className="list-unstyled category-list">
-              {this.state.type.length === 0 ? "Loading..." : ""}
-              {this.state.cat.map((item) => (
+              {cat.length === 0 ? "Loading..." : ""}
+              {cat.map((item) => (
                 <li key={item.id}>
                   <a
                     href="#"
@@ -113,7 +121,7 @@ class Category extends React.Component {
           <section className="shop-widget">
             <h2>NEW PRODUCT</h2>
 
-            {this.state.new.map((item) => (
+            {newest.map((item) => (
               <div className="mt-product4 mt-paddingbottom20" key={item.id}>
                 <div className="img">
                   <a href={`/product/detail?product=${item.id}`}>
