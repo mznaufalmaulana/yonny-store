@@ -111,7 +111,7 @@ class Index extends React.Component {
             />
             <div
               className="col-xs-12 col-sm-8 col-md-9 wow fadeInRight"
-              data-wow-delay="0.4s"
+              data-wow-delay="0.3s"
             >
               <header className="mt-shoplist-header">
                 <div className="btn-box">
@@ -168,12 +168,12 @@ class Index extends React.Component {
                 )}
                 {this.state.list.map((item) => (
                   <li key={item.id}>
-                    <div className="mt-product1 large">
+                    <div className="mt-product1 large wow fadeInRight" data-wow-delay="0.2s">
                       <div className="box">
                         <div className="b1">
                           <div className="b2">
                             <a
-                              href={`/product/detail?product=${item.id}&category=${this.state.param.cat}`}
+                              href={`/product/detail?product=${item.id}`}
                             >
                               <img
                                 className="img-product-list"

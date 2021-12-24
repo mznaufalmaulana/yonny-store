@@ -41,7 +41,7 @@ class Index extends React.Component {
                   </TabList>
                   {list.map((item) => (
                     <TabPanel>
-                      <table className="table table-borderless">
+                      <table className="table table-borderless wow fadeInUp" data-wow-delay="0.2s">
                         <thead>
                           <tr>
                             <th>Address</th>

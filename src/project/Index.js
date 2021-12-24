@@ -69,10 +69,10 @@ class Index extends React.Component {
             <div className="row">
               <div
                 className="col-xs-12 col-sm-8 wow fadeInLeft"
-                data-wow-delay="0.4s"
+                data-wow-delay="1s"
               >
                 {list.map((item) => (
-                  <article className="blog-post style2">
+                  <article className="blog-post style2" key={item.id}>
                     <div className="img-holder">
                       <a href={`/project/detail?project=${item.id}`}>
                         <img
@@ -133,7 +133,7 @@ class Index extends React.Component {
                   <h3>POPULAR POST</h3>
                   <ul className="list-unstyled text-right popular-post">
                     {newest.map((item) => (
-                      <li>
+                      <li key={item.id} className="wow fadeInUp" data-wow-delay="0.2s">
                         <div className="img-post">
                           <a href={`/project/detail?project=${item.id}`}>
                             <img

@@ -50,7 +50,7 @@ class Index extends React.Component {
                      <Slide>
                       { this.state.promoHeadline.map(promoHead => (                        
                         <a href={promoHead.link}>
-                          <div className="s-holder" key={promoHead.id}>
+                          <div className="s-holder wow fadeInLeft" data-wow-delay="0.2s" key={promoHead.id}>
                             <img src={`${API.urlStorage}${promoHead.photo_name}`}/>                            
                           </div>
                         </a>                      

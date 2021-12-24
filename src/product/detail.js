@@ -17,19 +17,27 @@ class Detail extends React.Component {
       },
       openModal: false,
     };
+
+    this.showModal = this.showModal.bind(this);
+    this.hideModal = this.hideModal.bind(this);
   }
 
   componentDidMount() {
     const param = this.state.param;
 
     API.get(`product/detail/${param.product}`).then((result) => {
-      this.setState({
-        data: result.data[0],
-        photo: result.data[0].photo,
-      });
+      if (result.message === "success") {
+        this.setState({
+          data: result.data[0],
+          photo: result.data[0].photo,
+        });
+        this.realatedProduct(result.data[0].product_category[0].id);        
+      }
     });
+  }
 
-    API.get(`product/related/${param.category}`).then((result) => {      
+  realatedProduct(idCategory) {
+    API.get(`product/related/${idCategory}`).then((result) => {      
       if(result.data.length>5)
       {
         this.setState({
@@ -43,21 +51,27 @@ class Detail extends React.Component {
     });
   }
 
+  showModal = () => {
+    this.setState({ openModal: true });
+  };
+
+  hideModal = () => {
+    this.setState({ openModal: false });
+  };
+
   sendMail()
   {
     console.log('masuk sini');
   }
 
-  
-
   render() {
-    const { data, photo, related, openModal } = this.state;
+    const { data, photo, related } = this.state;
     return (      
       <main id="mt-main">
         <ModalSendEmail
-          open={openModal}
+          open={this.state.openModal}
           data={data}
-          onHide={() => this.setState({openModal: false})}
+          onHide={this.hideModal}
           onSend={() => this.sendMail}
         />
         <section
@@ -72,7 +86,7 @@ class Detail extends React.Component {
                   <div className="slide-container">
                     <Slide>
                       {photo.map((item) => (
-                        <div className="slide" key={item.id}>
+                        <div className="slide wow fadeInUp" data-wow-delay="0.5s" key={item.id}>
                           <img
                             src={`${API.urlStorage}/${item.photo_name}`}
                             alt="image descrption"
@@ -83,7 +97,7 @@ class Detail extends React.Component {
                   </div>
                 </div>
 
-                <div className="detial-holder">
+                <div className="detial-holder wow fadeInRight" data-wow-delay="1s">
                   <ul className="list-unstyled breadcrumbs">
                     <li>
                       <a href="/product">
@@ -114,7 +128,7 @@ class Detail extends React.Component {
                     }}
                   />    
                   <form action="#" class="product-form">																					
-										<button onClick={() => this.setState({openModal: true})} type="button">Ask Question</button>						
+										<button onClick={this.showModal} type="button">Ask Question</button>						
 									</form>                       
                 </div>                
               </div>
@@ -133,9 +147,9 @@ class Detail extends React.Component {
                 <div className="row">
                   <div className="col-xs-12 mar-top-1">
                     {related.map((item) => (
-                      <div className="mt-product1">
+                      <div className="mt-product1 wow fadeInUp" data-wow-delay="0.2s" key={item.id}>
                         <div className="box">                          
-                          <a href={`/product/detail?product=${item.id}&category=${this.state.param.category}`}>
+                          <a href={`/product/detail?product=${item.id}`}>
                             <img
                               src={`${API.urlStorage}/${item.photo_name}`}
                               alt="image description"
@@ -144,7 +158,7 @@ class Detail extends React.Component {
                         </div>
                         <div className="txt">
                           <strong className="title">
-                            <a href={`/product/detail?product=${item.id}&category=${this.state.param.category}`}>
+                            <a href={`/product/detail?product=${item.id}`}>
                               {item.product_name}
                             </a>
                           </strong>

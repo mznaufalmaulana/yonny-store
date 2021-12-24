@@ -41,7 +41,7 @@ class Detail extends React.Component {
                 data-wow-delay="0.4s"
               >                
                 <article class="blog-post detail">                
-                  <div class="slide-container">                    
+                  <div class="slide-container wow fadeInUp" data-wow-delay="1s">                    
                     <Slide>
                       {photo.map((item) => (
                         <img
