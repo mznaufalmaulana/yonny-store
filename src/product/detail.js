@@ -17,9 +17,6 @@ class Detail extends React.Component {
       },
       openModal: false,
     };
-
-    this.showModal = this.showModal.bind(this);
-    this.hideModal = this.hideModal.bind(this);
   }
 
   componentDidMount() {
