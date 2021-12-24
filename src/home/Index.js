@@ -29,28 +29,16 @@ class Index extends React.Component {
           <div className="row">
             <div className="col-xs-12">
               <div
-                className="banner-frame mt-paddingsmzero wow fadeInUp"
-                data-wow-delay="0.4s"
+                className="banner-frame mt-paddingsmzero"
               >
                 <div
-                  className="slider-7 mt-paddingbottomsm wow fadeInLeft"
-                  data-wow-delay="0.4s"
+                  className="slider-7 mt-paddingbottomsm"
                 >
-                  <div className="slide-container">
-                    {/* <div class="s-holder">
-											<img src="http://placehold.it/765x580" alt="image description" />											
-											<div class="s-box">													
-											</div>
-										</div>										
-										<div class="s-holder">
-											<img src="http://placehold.it/765x580" alt="image description" />											
-											<div class="s-box">													
-											</div>
-										</div> */}
+                  <div className="slide-container">                    
                      <Slide>
                       { this.state.promoHeadline.map(promoHead => (                        
                         <a href={promoHead.link}>
-                          <div className="s-holder wow fadeInLeft" data-wow-delay="0.2s" key={promoHead.id}>
+                          <div className="s-holder wow fadeInLeft" data-wow-delay="0.5s" key={promoHead.id}>
                             <img src={`${API.urlStorage}${promoHead.photo_name}`}/>                            
                           </div>
                         </a>                      
@@ -79,8 +67,8 @@ class Index extends React.Component {
                     return order.includes(index) ? (                      
                       <a href={promo.link}>
                         <div
-                          className={`banner-${12+index} right white wow fadeInUp`}
-                          data-wow-delay="0.4s"
+                          className={`banner-${12+index} right white wow fadeInRight`}
+                          data-wow-delay="0.5s"
                           key={promo.id}
                         >
                           <img src={`${API.urlStorage}${promo.photo_name}`}/>                    
@@ -93,7 +81,7 @@ class Index extends React.Component {
 
               <div
                 className="banner-frame nospace wow fadeInUp"
-                data-wow-delay="0.4s"
+                data-wow-delay="0.5s"
               >
                 {this.state.promo.map((promo, index) => {
                   const order = [2, 3, 4];

@@ -74,7 +74,7 @@ class Detail extends React.Component {
                   <div className="slide-container">
                     <Slide>
                       {photo.map((item) => (
-                        <div className="slide wow fadeInUp" data-wow-delay="0.5s" key={item.id}>
+                        <div className="slide wow fadeInUp" data-wow-delay="1s" key={item.id}>
                           <img
                             src={`${API.urlStorage}/${item.photo_name}`}
                             alt="image descrption"
@@ -85,7 +85,7 @@ class Detail extends React.Component {
                   </div>
                 </div>
 
-                <div className="detial-holder wow fadeInRight" data-wow-delay="1s">
+                <div className="detial-holder wow fadeInRight" data-wow-delay="0.5s">
                   <ul className="list-unstyled breadcrumbs">
                     <li>
                       <a href="/product">
@@ -138,7 +138,7 @@ class Detail extends React.Component {
         <br />
         <br />
 
-        <div className="related-products wow fadeInUp" data-wow-delay="0.4s">
+        <div className="related-products wow fadeInUp" data-wow-delay="0.5s">
           <div className="container">
             <div className="row">
               <div className="col-xs-12 mar-top-3">

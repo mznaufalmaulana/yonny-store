@@ -33,7 +33,7 @@ class Index extends React.Component {
                 <div className="contact-address">
                   <h1>Contact Address</h1>
                 </div>
-                <Tabs className="tabcustom">
+                <Tabs className="tabcustom wow fadeInUp" data-wow-delay="0.5s">
                   <TabList>
                     {list.map((item) => (
                       <Tab>{item.region}</Tab>
@@ -41,7 +41,7 @@ class Index extends React.Component {
                   </TabList>
                   {list.map((item) => (
                     <TabPanel>
-                      <table className="table table-borderless wow fadeInUp" data-wow-delay="0.2s">
+                      <table className="table table-borderless">
                         <thead>
                           <tr>
                             <th>Address</th>
