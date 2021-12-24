@@ -53,7 +53,7 @@ class Detail extends React.Component {
                             src={`${API.urlStorage}/${item.photo_name}`}
                             alt="image descrption"
                           />
-                        </div>                
+                        </div>
                       ))}
                     </Slide>
                   </div>
@@ -73,13 +73,20 @@ class Detail extends React.Component {
 
                   <ul className="list-unstyled list">
                     <li>
-                      <a href="#" id="modal-buttton" data-toggle="modal" data-target="#my-modal">                        
-                        <i className="fa fa-share-alt"></i>{data.share_count}                       
+                      <a
+                        href="#"
+                        id="modal-buttton"
+                        data-toggle="modal"
+                        data-target="#my-modal"
+                      >
+                        <i className="fa fa-share-alt"></i>
+                        {data.share_count}
                       </a>
                     </li>
                     <li>
                       <a href="#">
-                        <i class="fa fa-eye"></i>{data.seen_count}
+                        <i class="fa fa-eye"></i>
+                        {data.seen_count}
                       </a>
                     </li>
                   </ul>
@@ -88,7 +95,7 @@ class Detail extends React.Component {
                     dangerouslySetInnerHTML={{
                       __html: `${data.description}`,
                     }}
-                  />          
+                  />
                   {/* <div className="product-comment">
                     <form action="#" class="p-commentform">
 											<fieldset>													
@@ -108,7 +115,7 @@ class Detail extends React.Component {
 											</fieldset>
 										</form>
                   </div>         */}
-                </div>                
+                </div>
               </div>
             </div>
           </div>
@@ -158,8 +165,10 @@ class Detail extends React.Component {
                   <div className="col-xs-12">
                     {related.map((item) => (
                       <div className="mt-product1">
-                        <div className="box">                          
-                          <a href={`/product/detail?product=${item.id}&category=${this.state.param.category}`}>
+                        <div className="box">
+                          <a
+                            href={`/product/detail?product=${item.id}&category=${this.state.param.category}`}
+                          >
                             <img
                               src={`${API.urlStorage}/${item.photo_name}`}
                               alt="image description"
@@ -168,7 +177,9 @@ class Detail extends React.Component {
                         </div>
                         <div className="txt">
                           <strong className="title">
-                            <a href={`/product/detail?product=${item.id}&category=${this.state.param.category}`}>
+                            <a
+                              href={`/product/detail?product=${item.id}&category=${this.state.param.category}`}
+                            >
                               {item.product_name}
                             </a>
                           </strong>
