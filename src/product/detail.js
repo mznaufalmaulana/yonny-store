@@ -41,37 +41,28 @@ class Detail extends React.Component {
       if(result.data.length>5)
       {
         this.setState({
-          related: result.data.slice(0,5),
-        });  
-      }else{
+          related: result.data.slice(0, 5),
+        });
+      } else {
         this.setState({
           related: result.data.slice(0, result.data.length),
         });
-      }            
+      }
     });
   }
 
-  showModal = () => {
-    this.setState({ openModal: true });
-  };
-
-  hideModal = () => {
-    this.setState({ openModal: false });
-  };
-
-  sendMail()
-  {
-    console.log('masuk sini');
+  sendMail() {
+    console.log("masuk sini");
   }
 
   render() {
-    const { data, photo, related } = this.state;
-    return (      
+    const { data, photo, related, openModal } = this.state;
+    return (
       <main id="mt-main">
         <ModalSendEmail
           open={this.state.openModal}
           data={data}
-          onHide={this.hideModal}
+          onHide={() => this.setState({ openModal: false })}
           onSend={() => this.sendMail}
         />
         <section
@@ -91,7 +82,7 @@ class Detail extends React.Component {
                             src={`${API.urlStorage}/${item.photo_name}`}
                             alt="image descrption"
                           />
-                        </div>                
+                        </div>
                       ))}
                     </Slide>
                   </div>
@@ -111,13 +102,20 @@ class Detail extends React.Component {
 
                   <ul className="list-unstyled list">
                     <li>
-                      <a href="#" id="modal-buttton" data-toggle="modal" data-target="#my-modal">                        
-                        <i className="fa fa-share-alt"></i>{data.share_count}                       
+                      <a
+                        href="#"
+                        id="modal-buttton"
+                        data-toggle="modal"
+                        data-target="#my-modal"
+                      >
+                        <i className="fa fa-share-alt"></i>
+                        {data.share_count}
                       </a>
                     </li>
                     <li>
                       <a href="#">
-                        <i class="fa fa-eye"></i>{data.seen_count}
+                        <i class="fa fa-eye"></i>
+                        {data.seen_count}
                       </a>
                     </li>
                   </ul>
@@ -126,15 +124,20 @@ class Detail extends React.Component {
                     dangerouslySetInnerHTML={{
                       __html: `${data.description}`,
                     }}
-                  />    
-                  <form action="#" class="product-form">																					
-										<button onClick={this.showModal} type="button">Ask Question</button>						
-									</form>                       
-                </div>                
+                  />
+                  <form action="#" class="product-form">
+                    <button
+                      onClick={() => this.setState({ openModal: true })}
+                      type="button"
+                    >
+                      Ask Question
+                    </button>
+                  </form>
+                </div>
               </div>
             </div>
           </div>
-        </section>        
+        </section>
         <br />
         <br />
 
@@ -170,7 +173,7 @@ class Detail extends React.Component {
               </div>
             </div>
           </div>
-        </div>        
+        </div>
       </main>
     );
   }
