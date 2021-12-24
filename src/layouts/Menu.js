@@ -10,6 +10,7 @@ class Menu extends React.Component {
       productCategory: [],
       promo: [],
       search: [],
+      contact: "",
       redirect: true,
     };
     this.handleChange = this.handleChange.bind(this);
@@ -39,6 +40,12 @@ class Menu extends React.Component {
         this.setState({ promo: result.data });
       }
     });
+
+    API.get('contact/onfooter').then((result) => {
+      if (result.message === "success") {
+        this.setState({ contact: result.data[0] });
+      }
+    });
   }
 
   handleChange = (e) => {
@@ -64,9 +71,9 @@ class Menu extends React.Component {
                   <div className="mt-nav-box">
                     <ul className="mt-top-list hidden-sm hidden-xs">
                       <li>
-                        <a href="https://wa.me/6282123123123" target="_blank">
+                        <a href={`https://wa.me/+62${this.state.contact.phone}`} target="_blank">
                           <i className="fa fa-whatsapp" aria-hidden="true"></i>
-                          &nbsp; +62 82 123 123 123
+                          &nbsp; +62{this.state.contact.phone}
                         </a>
                       </li>
                     </ul>

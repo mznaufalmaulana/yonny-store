@@ -8,9 +8,10 @@ class Footer extends React.Component {
   state = {
     media: [],
     categoriesParent: [],
+    contact: "",
     subscribeEmail: {
       emailAddress : null
-    },
+    },    
   }
 
   componentDidMount() {
@@ -26,6 +27,11 @@ class Footer extends React.Component {
       }
     });
 
+    API.get('contact/onfooter').then((result) => {
+      if (result.message === "success") {
+        this.setState({ contact: result.data[0] });
+      }
+    });
   }
 
   handleChange = (e) => {
@@ -54,6 +60,7 @@ class Footer extends React.Component {
   }
 
   render() {
+    const { contact } = this.state;    
     return (
       <>
         <footer
@@ -68,12 +75,12 @@ class Footer extends React.Component {
                   <div className="f-widget-about">       
                     <a href="/">                      
                       <img src={logo} className="footer-logo" width="10px" alt="batuYonny" />
-                    </a>
-                    {/* <p>Exercitation ullamco laboris nisi ut aliquip ex<br/> commodo consequat. Duis aute irure </p> */}
+                    </a>                    
                     <ul className="list-unstyled address-list">
-                      <li><i className="fa fa-map-marker"></i><address>Connaugt Road Central Suite 18B, 148 <br/>New Yankee</address></li>
-                      <li><i className="fa fa-phone"></i><a href="tel:15553332211">+1 (555) 333 22 11</a></li>
-                      <li><i className="fa fa-envelope-o"></i><a href="#">batuYonny@mail.com</a></li>
+                      {/* <li><i className="fa fa-map-marker"></i><address>Connaugt Road Central Suite 18B, 148 <br/>New Yankee</address></li> */}
+                      <li><i className="fa fa-map-marker"></i><address>{contact.address}</address></li>
+                      <li><i className="fa fa-phone"></i><a href={`tel:+62${contact.phone}`}>+62{contact.phone}</a></li>
+                      <li><i className="fa fa-envelope-o"></i><a href={`mailto:${contact.email}`}>{contact.email}</a></li>
                     </ul>
                   </div>                  
                 </div>
