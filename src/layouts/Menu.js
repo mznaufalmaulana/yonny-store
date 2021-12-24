@@ -1,5 +1,4 @@
 import React from "react";
-import { Redirect } from "react-router-dom";
 import logo from "../assets/images/logo-yonny.png";
 import getUnicodeFlagIcon from "country-flag-icons/unicode";
 import API from "../services";
@@ -11,6 +10,7 @@ class Menu extends React.Component {
       productCategory: [],
       promo: [],
       search: [],
+      contact: "",
       redirect: true,
     };
     this.handleChange = this.handleChange.bind(this);
@@ -40,6 +40,12 @@ class Menu extends React.Component {
         this.setState({ promo: result.data });
       }
     });
+
+    API.get('contact/onfooter').then((result) => {
+      if (result.message === "success") {
+        this.setState({ contact: result.data[0] });
+      }
+    });
   }
 
   handleChange = (e) => {
@@ -65,9 +71,9 @@ class Menu extends React.Component {
                   <div className="mt-nav-box">
                     <ul className="mt-top-list hidden-sm hidden-xs">
                       <li>
-                        <a href="https://wa.me/6282123123123" target="_blank">
+                        <a href={`https://wa.me/+62${this.state.contact.phone}`} target="_blank">
                           <i className="fa fa-whatsapp" aria-hidden="true"></i>
-                          &nbsp; +62 82 123 123 123
+                          &nbsp; +62{this.state.contact.phone}
                         </a>
                       </li>
                     </ul>
@@ -221,25 +227,23 @@ class Menu extends React.Component {
             </div>
           </div>
         </header>
+
         <div className="mt-search-popup">
           <div className="mt-holder">
-            <a href="#" className="search-close">
-              <span></span>
-              <span></span>
-            </a>
+            <a href="#" className="search-close"><span></span><span></span></a>
             <div className="mt-frame">
-              <fieldset>
-                <input
-                  type="text"
-                  placeholder="Search..."
-                  onChange={(e) =>
+              <form onSubmit={(e) => this.handleChange(e)}>
+                <fieldset>
+                  <input type="text" placeholder="Search..." onChange={(e) =>
                     this.setState({
                       search: e.target.value,
                     })
                   }
                   onKeyDown={(e) => this.handleChange(e)}
-                />
-              </fieldset>
+                  />                  
+                  <button className="icon-magnifier" type="submit" disabled></button>
+                </fieldset>
+              </form>
             </div>
           </div>
         </div>

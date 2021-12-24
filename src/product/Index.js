@@ -34,11 +34,10 @@ class Index extends React.Component {
 
   getList() {
     const param = this.state.param;
-    let type = "";
-    console.log(param.type);
+    let type = "";    
     if (param.type) {
       for (let i = 0; i < param.type.length; i++) {
-        type += `&type=${param.type[i]}`;
+        type += `&type[]=${param.type[i]}`;
       }
     }
     API.get(
@@ -64,7 +63,7 @@ class Index extends React.Component {
 
     if (param.type) {
       for (let i = 0; i < param.type.length; i++) {
-        url += `&type=${param.type[i]}`;
+        url += `&type[]=${param.type[i]}`;
       }
     }
 
@@ -168,7 +167,7 @@ class Index extends React.Component {
                   </div>
                 )}
                 {this.state.list.map((item) => (
-                  <li>
+                  <li key={item.id}>
                     <div className="mt-product1 large">
                       <div className="box">
                         <div className="b1">

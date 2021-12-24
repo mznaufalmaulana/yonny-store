@@ -12158,7 +12158,7 @@ a:hover {
 .nice-form {
   overflow: hidden;
   /* margin: 0 0 20px; */
-  padding: 0 0 0px 5px;
+  padding:  0 0px 5px;
   /* border-bottom: 1px solid #494949; */
 }
 
@@ -12648,4 +12648,13 @@ a:focus {
 
 .img-product-list {
   width: 280px;
+}
+
+.table-borderless > tbody > tr > td,
+.table-borderless > tbody > tr > th,
+.table-borderless > tfoot > tr > td,
+.table-borderless > tfoot > tr > th,
+.table-borderless > thead > tr > td,
+.table-borderless > thead > tr > th {
+    border: none;
 }

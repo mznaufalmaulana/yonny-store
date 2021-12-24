@@ -19,6 +19,7 @@
     "react-scripts": "4.0.3",
     "react-slideshow-image": "^3.6.0",
     "react-tabs": "^3.2.3",
+    "reactstrap": "^9.0.1",
     "web-vitals": "^1.1.2"
   },
   "scripts": {

@@ -7398,7 +7398,7 @@ a:hover {
   border-radius: 25px;
   -webkit-transition: all 0.25s linear;
   transition: all 0.25s linear;
-  background: #ff8283;
+  background: #E6951B;
   color: #fff;
 }
 
@@ -12158,7 +12158,7 @@ a:hover {
 .nice-form {
   overflow: hidden;
   /* margin: 0 0 20px; */
-  padding: 0 0 0px 5px;
+  padding:  0 0px 5px;
   /* border-bottom: 1px solid #494949; */
 }
 

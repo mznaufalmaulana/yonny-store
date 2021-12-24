@@ -25,7 +25,7 @@ class Category extends React.Component {
       this.setState({ type: result.data })
     );
     API.get(`product/latest`).then((result) =>
-      this.setState({ new: result.data })
+      this.setState({ newest: result.data })
     );
   }
 
@@ -50,7 +50,7 @@ class Category extends React.Component {
   }
 
   render() {
-    const { typeSelected, type, cat, newest } = this.state;
+    const { typeSelected, type, cat, newest } = this.state;    
     return (
       <>
         <aside
@@ -90,6 +90,7 @@ class Category extends React.Component {
                 </li>
               ))}
             </ul>
+            <br />
             <button
               className="btn btn-secondary mt-2"
               disabled={type.length === 0}
