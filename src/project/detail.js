@@ -39,9 +39,9 @@ class Detail extends React.Component {
               <div
                 class="col-xs-12 col-sm-12 wow fadeInUp"
                 data-wow-delay="0.4s"
-              >                
-                <article class="blog-post detail">                
-                  <div class="img-holder wow fadeInUp" data-wow-delay="1s">                    
+              >
+                <article class="blog-post detail">
+                  <div class="img-holder wow fadeInUp" data-wow-delay="1s">
                     <Slide>
                       {photo.map((item) => (
                         <img
@@ -51,26 +51,27 @@ class Detail extends React.Component {
                         />
                       ))}
                     </Slide>
-                  </div>                  
-                  <time class="time" datetime="2016-02-03 20:00"><strong>25</strong>April</time>
+                  </div>
+                  <time class="time" datetime="2016-02-03 20:00">
+                    <strong>{moment(data.project_due).format("DD")}</strong>
+                    {moment(data.project_due).format("MMM")}
+                  </time>
                   <div class="blog-txt">
-                    <h2>
-                      {data.project_name}
-                    </h2>
+                    <h2>{data.project_name}</h2>
                     <ul class="list-unstyled blog-nav">
                       <li>
-                        {" "}                        
+                        {" "}
                         <i class="fa fa-clock-o"></i>
-                        {moment(data.project_due).format("LL")}                        
+                        {moment(data.project_due).format("LL")}
                       </li>
                       <li>
                         <a href="#" className="list-share">
                           <i class="fa fa-share-alt icon-share"></i>&nbsp;
                           {data.share_count}
                         </a>
-                      </li>                      
+                      </li>
                     </ul>
-                    <div                
+                    <div
                       dangerouslySetInnerHTML={{
                         __html: `${data.description}`,
                       }}
