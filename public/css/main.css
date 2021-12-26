@@ -9120,7 +9120,16 @@ a:hover {
   margin: 0 0 33px;
 }
 
+.mt-blog-detail.style1 .blog-post.styleWithoutBorder {
+  margin: 0 0 33px;
+}
+
 .mt-blog-detail.style1 .blog-post.style2 .blog-txt {
+  padding: 5px 0 0;
+  width: 59%;
+}
+
+.mt-blog-detail.style1 .blog-post.styleWithoutBorder .blog-txt {
   padding: 5px 0 0;
   width: 59%;
 }
@@ -9129,7 +9138,15 @@ a:hover {
   margin: 0 0 30px;
 }
 
+.mt-blog-detail.style1 .blog-post.styleWithoutBorder .blog-txt p {
+  margin: 0 0 30px;
+}
+
 .mt-blog-detail.style1 .blog-post.style2 .blog-nav {
+  margin: 0 0 13px;
+}
+
+.mt-blog-detail.style1 .blog-post.styleWithoutBorder .blog-nav {
   margin: 0 0 13px;
 }
 
@@ -9379,7 +9396,21 @@ a:hover {
   border-color: #e7e7e7;
 }
 
+.blog-post.styleWithoutBorder {
+  line-height: 23px;
+  padding: 0 0 35px;
+  margin: 0 0 33px;
+  border-style: solid;
+  border-width: 0 0 0px;
+}
+
 .blog-post.style2 .img-holder {
+  width: 35%;
+  float: left;
+  margin: 0 42px 0 0;
+}
+
+.blog-post.styleWithoutBorder .img-holder {
   width: 35%;
   float: left;
   margin: 0 42px 0 0;
@@ -9393,7 +9424,19 @@ a:hover {
   line-height: 15px;
 }
 
+.blog-post.styleWithoutBorder .comment-nav {
+  right: 6px;
+  bottom: 19px;
+  top: auto;
+  font-size: 13px;
+  line-height: 15px;
+}
+
 .blog-post.style2 .blog-txt {
+  width: 56%;
+}
+
+.blog-post.styleWithoutBorder .blog-txt {
   width: 56%;
 }
 
@@ -9401,7 +9444,17 @@ a:hover {
   margin: 0 0 32px;
 }
 
+.blog-post.styleWithoutBorder .blog-txt p {
+  margin: 0 0 32px;
+}
+
 .blog-post.style2 h2 {
+  font-size: 20px;
+  line-height: 22px;
+  margin: 0 0 7px;
+}
+
+.blog-post.styleWithoutBorder h2 {
   font-size: 20px;
   line-height: 22px;
   margin: 0 0 7px;
@@ -9413,7 +9466,19 @@ a:hover {
   line-height: 16px;
 }
 
+.blog-post.styleWithoutBorder .blog-nav {
+  margin: 0 0 12px;
+  font-size: 13px;
+  line-height: 16px;
+}
+
 .blog-post.style2 .blog-nav li {
+  margin: 0 30px 0 0;
+  position: relative;
+  z-index: 1;
+}
+
+.blog-post.styleWithoutBorder .blog-nav li {
   margin: 0 30px 0 0;
   position: relative;
   z-index: 1;
@@ -9432,7 +9497,24 @@ a:hover {
   background: #494949;
 }
 
+.blog-post.styleWithoutBorder .blog-nav li:before {
+  position: absolute;
+  content: "";
+  z-index: -1;
+  left: -16px;
+  top: 0;
+  bottom: auto;
+  right: auto;
+  height: 14px;
+  width: 1px;
+  background: #494949;
+}
+
 .blog-post.style2 .blog-nav li:first-child:before {
+  display: none;
+}
+
+.blog-post.styleWithoutBorder .blog-nav li:first-child:before {
   display: none;
 }
 

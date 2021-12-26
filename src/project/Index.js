@@ -71,51 +71,102 @@ class Index extends React.Component {
                 className="col-xs-12 col-sm-8 wow fadeInLeft"
                 data-wow-delay="1s"
               >
-                {list.map((item) => (
-                  <article className="blog-post style2" key={item.id}>
-                    <div className="img-holder">
-                      <a href={`/project/detail?project=${item.id}`}>
-                        <img
-                          src={`${API.urlStorage}/${item.photo_name}`}
-                          alt="image description"
-                        />
-                      </a>
-                      <ul className="list-unstyled comment-nav">
-                        <li>
-                          <a href="#">
-                            <i className="fa fa-share-alt"></i>
-                            {item.share_count}
+                {list.map((item, index) => {                
+                  const tail = list.length;
+                  if((tail-1) === index) {
+                    return (
+                      <article className="blog-post styleWithoutBorder" key={item.id}>
+                        <div className="img-holder">
+                          <a href={`/project/detail?project=${item.id}`}>
+                            <img
+                              src={`${API.urlStorage}/${item.photo_name}`}
+                              alt="image description"
+                            />
                           </a>
-                        </li>
-                      </ul>
-                    </div>
-                    <div className="blog-txt">
-                      <h2>
-                        <a href={`/project/detail?project=${item.id}`}>
-                          {item.project_name}
-                        </a>
-                      </h2>
-                      <ul className="list-unstyled blog-nav">
-                        <li>
-                          {" "}                          
-                          <i className="fa fa-clock-o"></i>{" "}
-                          {moment(item.project_due).format("LL")}                          
-                        </li>
-                      </ul>
-                      <div
-                        dangerouslySetInnerHTML={{
-                          __html: `${item.description.substring(0, 200)}`,
-                        }}
-                      />
-                      <a
-                        href={`/project/detail?project=${item.id}`}
-                        className="btn-more"
-                      >
-                        Read More
-                      </a>
-                    </div>
-                  </article>
-                ))}
+                          <ul className="list-unstyled comment-nav">
+                            <li>
+                              <a href="#">
+                                <i className="fa fa-share-alt"></i>
+                                {item.share_count}
+                              </a>
+                            </li>
+                          </ul>
+                        </div>
+                        <div className="blog-txt">
+                          <h2>
+                            <a href={`/project/detail?project=${item.id}`}>
+                              {item.project_name}
+                            </a>
+                          </h2>
+                          <ul className="list-unstyled blog-nav">
+                            <li>
+                              {" "}                          
+                              <i className="fa fa-clock-o"></i>{" "}
+                              {moment(item.project_due).format("LL")}                          
+                            </li>
+                          </ul>
+                          <div
+                            dangerouslySetInnerHTML={{
+                              __html: `${item.description.substring(0, 200)}`,
+                            }}
+                          />
+                          <a
+                            href={`/project/detail?project=${item.id}`}
+                            className="btn-more"
+                          >
+                            Read More
+                          </a>
+                        </div>
+                      </article>
+                    );
+                  } else {
+                    return (
+                      <article className="blog-post style2" key={item.id}>
+                        <div className="img-holder">
+                          <a href={`/project/detail?project=${item.id}`}>
+                            <img
+                              src={`${API.urlStorage}/${item.photo_name}`}
+                              alt="image description"
+                            />
+                          </a>
+                          <ul className="list-unstyled comment-nav">
+                            <li>
+                              <a href="#">
+                                <i className="fa fa-share-alt"></i>
+                                {item.share_count}
+                              </a>
+                            </li>
+                          </ul>
+                        </div>
+                        <div className="blog-txt">
+                          <h2>
+                            <a href={`/project/detail?project=${item.id}`}>
+                              {item.project_name}
+                            </a>
+                          </h2>
+                          <ul className="list-unstyled blog-nav">
+                            <li>
+                              {" "}                          
+                              <i className="fa fa-clock-o"></i>{" "}
+                              {moment(item.project_due).format("LL")}                          
+                            </li>
+                          </ul>
+                          <div
+                            dangerouslySetInnerHTML={{
+                              __html: `${item.description.substring(0, 200)}`,
+                            }}
+                          />
+                          <a
+                            href={`/project/detail?project=${item.id}`}
+                            className="btn-more"
+                          >
+                            Read More
+                          </a>
+                        </div>
+                      </article>
+                    );
+                  }                                                 
+                })}
 
                 <div className="btn-holder">
                   <Pagination
