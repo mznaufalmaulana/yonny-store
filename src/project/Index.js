@@ -181,7 +181,7 @@ class Index extends React.Component {
                 data-wow-delay="0.4s"
               >
                 <section className="widget popular-widget">
-                  <h3>POPULAR POST</h3>
+                  <h3>POPULAR PROJECT</h3>
                   <ul className="list-unstyled text-right popular-post">
                     {newest.map((item) => (
                       <li key={item.id} className="wow fadeInUp" data-wow-delay="0.2s">
