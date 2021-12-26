@@ -41,7 +41,7 @@ class Detail extends React.Component {
                 data-wow-delay="0.4s"
               >                
                 <article class="blog-post detail">                
-                  <div class="slide-container wow fadeInUp" data-wow-delay="1s">                    
+                  <div class="img-holder wow fadeInUp" data-wow-delay="1s">                    
                     <Slide>
                       {photo.map((item) => (
                         <img
@@ -51,8 +51,8 @@ class Detail extends React.Component {
                         />
                       ))}
                     </Slide>
-                  </div>
-                  <br />
+                  </div>                  
+                  <time class="time" datetime="2016-02-03 20:00"><strong>25</strong>April</time>
                   <div class="blog-txt">
                     <h2>
                       {data.project_name}
@@ -70,8 +70,7 @@ class Detail extends React.Component {
                         </a>
                       </li>                      
                     </ul>
-                    <div
-                      className="txt-wrap txt-desc"
+                    <div                
                       dangerouslySetInnerHTML={{
                         __html: `${data.description}`,
                       }}
