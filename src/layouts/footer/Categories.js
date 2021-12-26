@@ -9,7 +9,7 @@ const Categpries = ({categories}) => {
                 {categories.map((category, index) => {                    
                     const order = [...Array(6).keys()].map(i => i+0);
                     return order.includes(index) ? (
-                        <li key={category.id}><a href={`product?page=1&category=${category.id}`}>{category.category_name}</a></li>
+                        <li key={category.id}><a href={`/product?page=1&category=${category.id}`}>{category.category_name}</a></li>
                     ): null;
                 })}
             </ul>
@@ -21,7 +21,7 @@ const Categpries = ({categories}) => {
                 {categories.map((category, index) => {                    
                     const order = [...Array(6).keys()].map(i => i+6);
                     return order.includes(index) ? (
-                        <li key={category.id}><a href={`product?page=1&category=${category.id}`}>{category.category_name}</a></li>
+                        <li key={category.id}><a href={`/product?page=1&category=${category.id}`}>{category.category_name}</a></li>
                     ): null;
                 })}
             </ul>

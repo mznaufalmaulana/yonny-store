@@ -74,7 +74,7 @@ class Detail extends React.Component {
                   <div className="slide-container">
                     <Slide>
                       {photo.map((item) => (
-                        <div className="slide wow fadeInUp" data-wow-delay="1s" key={item.id}>
+                        <div className="slide wow fadeInUp" data-wow-delay="0.2s" key={item.id}>
                           <img
                             src={`${API.urlStorage}/${item.photo_name}`}
                             alt="image descrption"
@@ -121,14 +121,13 @@ class Detail extends React.Component {
                     dangerouslySetInnerHTML={{
                       __html: `${data.description}`,
                     }}
-                  />
-                  <form action="#" class="product-form">
-                    <button
-                      onClick={() => this.setState({ openModal: true })}
-                      type="button"
-                    >
-                      Ask Question
-                    </button>
+                  />                  
+                  <form action="#" class="product-form">                    
+                    <a id="newsletter-hiddenlink" href="#popup">
+                      <button type="button">
+                        Ask Question
+                      </button>
+                    </a>
                   </form>
                 </div>
               </div>
@@ -171,6 +170,59 @@ class Detail extends React.Component {
             </div>
           </div>
         </div>
+
+        <div className="popup-holder">		
+					<div id="popup" className="lightbox">					
+						<section className="mt-product-detial">
+							<div className="container">
+								<div className="row">
+									<div className="col-xs-12">									
+										<div className="slider">										
+											<ul className="list-unstyled comment-list">													
+											</ul>
+											<div className="product-slider">
+                        <div class="slide">       
+                          {photo.map((item, index) => {
+                            const order = [0];
+                            return order.includes(index) ? (                              
+                              <div className="slide wow fadeInUp" data-wow-delay="0.2s" key={item.id}>
+                                <img
+                                  src={`${API.urlStorage}/${item.photo_name}`}
+                                  alt="image descrption"
+                                />
+                              </div>
+                            ):null;
+                          })}                   
+                        </div>                       
+											</div>																				
+										</div>								
+										<div className="detial-holder">											
+											<h2>{data.product_name}</h2>                      																				
+                      <div class="product-comment">
+                        <form action="#" class="p-commentform">
+                          <fieldset>                              
+                            <div className="mt-row">
+                              <label>Name</label>
+                              <input type="text" className="form-control"/>
+                            </div>
+                            <div className="mt-row">
+                              <label>E-Mail</label>
+                              <input type="text" className="form-control"/>
+                            </div>
+                            <div className="mt-row">
+                              <label>Message</label>
+                              <textarea className="form-control"></textarea>
+                            </div>                            
+                            <button type="button" className="btn-type1">SEND EMAIL</button>                            </fieldset>
+                          </form>
+                        </div>												
+										</div>
+									</div>
+								</div>
+							</div>
+						</section>
+					</div>
+				</div>
       </main>
     );
   }

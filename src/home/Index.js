@@ -32,13 +32,13 @@ class Index extends React.Component {
                 className="banner-frame mt-paddingsmzero"
               >
                 <div
-                  className="slider-7 mt-paddingbottomsm"
+                  className="slider-7 mt-paddingbottomsm wow fadeInLeft" data-wow-delay="0.4s"
                 >
                   <div className="slide-container">                    
                      <Slide>
                       { this.state.promoHeadline.map(promoHead => (                        
                         <a href={promoHead.link}>
-                          <div className="s-holder wow fadeInLeft" data-wow-delay="0.5s" key={promoHead.id}>
+                          <div className="s-holder wow fadeInLeft" data-wow-delay="0.4s" key={promoHead.id}>
                             <img src={`${API.urlStorage}${promoHead.photo_name}`}/>                            
                           </div>
                         </a>                      
@@ -59,7 +59,7 @@ class Index extends React.Component {
                 </div>
 
                 <div
-                  className="banner-box third wow fadeInRight"
+                  className="banner-box third"
                   data-wow-delay="0.4s"
                 >
                   { this.state.promo.map((promo, index) => {
@@ -68,7 +68,7 @@ class Index extends React.Component {
                       <a href={promo.link}>
                         <div
                           className={`banner-${12+index} right white wow fadeInRight`}
-                          data-wow-delay="0.5s"
+                          data-wow-delay="0.4s"
                           key={promo.id}
                         >
                           <img src={`${API.urlStorage}${promo.photo_name}`}/>                    
@@ -81,7 +81,7 @@ class Index extends React.Component {
 
               <div
                 className="banner-frame nospace wow fadeInUp"
-                data-wow-delay="0.5s"
+                data-wow-delay="0.4s"
               >
                 {this.state.promo.map((promo, index) => {
                   const order = [2, 3, 4];

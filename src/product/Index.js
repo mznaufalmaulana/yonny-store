@@ -20,7 +20,7 @@ class Index extends React.Component {
         cat: this.url.get("category") ? this.url.get("category") : "",
         page: this.url.get("page") ? parseInt(this.url.get("page"), 10) : 1,
         sort: this.url.get("sort") ? this.url.get("sort") : "",
-        type: this.url.get("type") ? this.url.getAll("type") : "",
+        type: this.url.get("type[]") ? this.url.getAll("type[]") : "",
         name: this.url.get("search") ? this.url.get("search") : "",
       },
     };

@@ -7398,12 +7398,12 @@ a:hover {
   border-radius: 25px;
   -webkit-transition: all 0.25s linear;
   transition: all 0.25s linear;
-  background: #E6951B;
+  background: #808080;
   color: #fff;
 }
 
 .mt-product-detial .product-form button:hover {
-  background: #000;
+  background: #E6951B;
 }
 
 .lightbox .mt-product-detial {
@@ -8010,10 +8010,10 @@ a:hover {
 }
 
 .product-comment .p-commentform {
-  margin: 0 0 10px;
+  margin: 10px 0 10px;
   overflow: hidden;
-  padding: 3px 0 104px 6px;
-  border-bottom: 1px solid #e1e1e1;
+  padding: 3px 0 50px 6px;  
+  /* border-bottom: 1px solid #e1e1e1; */
 }
 
 .product-comment h2 {
