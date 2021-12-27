@@ -155,6 +155,7 @@
 .btn-type4 {
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
+  margin-top: 15px;
 }
 
 /* // justify nav
@@ -12739,4 +12740,20 @@ a:focus {
 .table-borderless > thead > tr > td,
 .table-borderless > thead > tr > th {
   border: none;
+}
+
+.alert.alert-success {
+  background-color: #d4edda;
+  padding: 15px;
+  border-radius: 5px;
+  color: #155724;
+  margin: 5px 0;
+}
+
+.alert.alert-danger {
+  background-color: #f8d7da;
+  padding: 15px;
+  border-radius: 5px;
+  color: #721c24;
+  margin: 5px 0;
 }

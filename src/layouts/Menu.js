@@ -41,7 +41,7 @@ class Menu extends React.Component {
       }
     });
 
-    API.get('contact/onfooter').then((result) => {
+    API.get("contact/onfooter").then((result) => {
       if (result.message === "success") {
         this.setState({ contact: result.data[0] });
       }
@@ -71,7 +71,10 @@ class Menu extends React.Component {
                   <div className="mt-nav-box">
                     <ul className="mt-top-list hidden-sm hidden-xs">
                       <li>
-                        <a href={`https://wa.me/+62${this.state.contact.phone}`} target="_blank">
+                        <a
+                          href={`https://wa.me/+62${this.state.contact.phone}`}
+                          target="_blank"
+                        >
                           <i className="fa fa-whatsapp" aria-hidden="true"></i>
                           &nbsp; +62{this.state.contact.phone}
                         </a>
@@ -230,18 +233,28 @@ class Menu extends React.Component {
 
         <div className="mt-search-popup">
           <div className="mt-holder">
-            <a href="#" className="search-close"><span></span><span></span></a>
+            <a href="#" className="search-close">
+              <span></span>
+              <span></span>
+            </a>
             <div className="mt-frame">
               <form onSubmit={(e) => this.handleChange(e)}>
                 <fieldset>
-                  <input type="text" placeholder="Search..." onChange={(e) =>
-                    this.setState({
-                      search: e.target.value,
-                    })
-                  }
-                  onKeyDown={(e) => this.handleChange(e)}
-                  />                  
-                  <button className="icon-magnifier" type="submit" disabled></button>
+                  <input
+                    type="text"
+                    placeholder="Search..."
+                    onChange={(e) =>
+                      this.setState({
+                        search: e.target.value,
+                      })
+                    }
+                    onKeyDown={(e) => this.handleChange(e)}
+                  />
+                  <button
+                    className="icon-magnifier"
+                    type="submit"
+                    disabled
+                  ></button>
                 </fieldset>
               </form>
             </div>
