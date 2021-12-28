@@ -15,6 +15,11 @@ class Detail extends React.Component {
         product: this.url.get("product"),
         category: this.url.get("category"),
       },
+      question: {
+        name: "",
+        email: "",
+        message: "",
+      },
       openModal: false,
     };
   }
@@ -48,19 +53,13 @@ class Detail extends React.Component {
   }
 
   sendMail() {
-    console.log("masuk sini");
+    console.log(this.state.question);
   }
 
   render() {
-    const { data, photo, related, openModal } = this.state;
+    const { data, photo, related, openModal, question, param } = this.state;
     return (
       <main id="mt-main">
-        <ModalSendEmail
-          open={this.state.openModal}
-          data={data}
-          onHide={() => this.setState({ openModal: false })}
-          onSend={() => this.sendMail}
-        />
         <section
           className="mt-product-detial wow fadeInUp mb-5"
           data-wow-delay="0.4s"
@@ -117,28 +116,29 @@ class Detail extends React.Component {
                     </li>
                     <li>
                       <a href="#">
-                        <i class="fa fa-eye"></i>
+                        <i className="fa fa-eye"></i>
                         {data.seen_count}
                       </a>
                     </li>
                   </ul>
                   <div
-                    className="txt-wrap"
+                    // className="txt-wrap"
                     dangerouslySetInnerHTML={{
                       __html: `${data.description}`,
                     }}
                   />
-                  <form action="#" class="product-form">
+                  {/* <form action="#" className="product-form">
                     <a id="newsletter-hiddenlink" href="#popup">
                       <button type="button">Ask Question</button>
                     </a>
-                  </form>
+                  </form> */}
                 </div>
               </div>
             </div>
           </div>
         </section>
         <br />
+        <ModalSendEmail product_id={param.product} />
         <br />
 
         <div className="related-products wow fadeInUp" data-wow-delay="0.5s">
@@ -179,7 +179,7 @@ class Detail extends React.Component {
           </div>
         </div>
 
-        <div className="popup-holder">
+        {/* <div className="popup-holder">
           <div id="popup" className="lightbox">
             <section className="mt-product-detial">
               <div className="container">
@@ -188,7 +188,7 @@ class Detail extends React.Component {
                     <div className="slider">
                       <ul className="list-unstyled comment-list"></ul>
                       <div className="product-slider">
-                        <div class="slide">
+                        <div className="slide">
                           {photo.map((item, index) => {
                             const order = [0];
                             return order.includes(index) ? (
@@ -209,16 +209,38 @@ class Detail extends React.Component {
                     </div>
                     <div className="detial-holder">
                       <h2>{data.product_name}</h2>
-                      <div class="product-comment">
-                        <form action="#" class="p-commentform">
+                      <div className="product-comment">
+                        <form action="#" className="p-commentform">
                           <fieldset>
                             <div className="mt-row">
                               <label>Name</label>
-                              <input type="text" className="form-control" />
+                              <input
+                                type="text"
+                                className="form-control"
+                                onChange={(e) =>
+                                  this.setState({
+                                    question: {
+                                      ...question,
+                                      name: e.target.value,
+                                    },
+                                  })
+                                }
+                              />
                             </div>
                             <div className="mt-row">
                               <label>E-Mail</label>
-                              <input type="text" className="form-control" />
+                              <input
+                                type="text"
+                                className="form-control"
+                                onChange={(e) =>
+                                  this.setState({
+                                    question: {
+                                      ...question,
+                                      email: e.target.value,
+                                    },
+                                  })
+                                }
+                              />
                             </div>
                             <div className="mt-row">
                               <label>Message</label>
@@ -229,6 +251,13 @@ class Detail extends React.Component {
                             </button>
                           </fieldset>
                         </form>
+                        <a
+                          href="#"
+                          className="btn-type1"
+                          onClick={() => this.sendMail()}
+                        >
+                          SEND EMAIL
+                        </a>
                       </div>
                     </div>
                   </div>
@@ -236,7 +265,7 @@ class Detail extends React.Component {
               </div>
             </section>
           </div>
-        </div>
+        </div> */}
       </main>
     );
   }

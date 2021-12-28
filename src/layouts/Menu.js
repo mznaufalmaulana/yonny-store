@@ -41,7 +41,7 @@ class Menu extends React.Component {
       }
     });
 
-    API.get('contact/onfooter').then((result) => {
+    API.get("contact/onfooter").then((result) => {
       if (result.message === "success") {
         this.setState({ contact: result.data[0] });
       }
@@ -230,18 +230,28 @@ class Menu extends React.Component {
 
         <div className="mt-search-popup">
           <div className="mt-holder">
-            <a href="#" className="search-close"><span></span><span></span></a>
+            <a href="#" className="search-close">
+              <span></span>
+              <span></span>
+            </a>
             <div className="mt-frame">
               <form onSubmit={(e) => this.handleChange(e)}>
                 <fieldset>
-                  <input type="text" placeholder="Search..." onChange={(e) =>
-                    this.setState({
-                      search: e.target.value,
-                    })
-                  }
-                  onKeyDown={(e) => this.handleChange(e)}
-                  />                  
-                  <button className="icon-magnifier" type="submit" disabled></button>
+                  <input
+                    type="text"
+                    placeholder="Search..."
+                    onChange={(e) =>
+                      this.setState({
+                        search: e.target.value,
+                      })
+                    }
+                    onKeyDown={(e) => this.handleChange(e)}
+                  />
+                  <button
+                    className="icon-magnifier"
+                    type="submit"
+                    disabled
+                  ></button>
                 </fieldset>
               </form>
             </div>

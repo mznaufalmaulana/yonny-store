@@ -1,85 +1,142 @@
 import React from "react";
-import { Button, Modal, ModalBody} from "reactstrap";
-
-class SendEmailProductModal extends React.Component{
-	constructor(props) {
+import { Button, Modal, ModalBody } from "reactstrap";
+import API from "../../services";
+import swal from "@sweetalert/with-react";
+class SendEmailProductModal extends React.Component {
+  constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      question: {
+        name: "",
+        email: "",
+        message: "",
+      },
+      alert: {
+        greetings: "",
+        message: "",
+        status: "",
+        show: false,
+      },
+    };
   }
-	
-	render() {
-		return (					
-			<Modal isOpen={this.props.open} toggle={this.props.onHide}>       
-        <ModalBody>
-					<div className="popup-holder">		
-						<div id="popup1" className="lightbox">					
-							<section className="mt-product-detial">
-								<div className="container">
-									<div className="row">
-										<div className="col-xs-12">									
-											<div className="slider">										
-												<ul className="list-unstyled comment-list">
-													<li><a href="#"><i className="fa fa-heart"></i>27</a></li>
-													<li><a href="#"><i className="fa fa-comments"></i>12</a></li>
-													<li><a href="#"><i className="fa fa-share-alt"></i>14</a></li>
-												</ul>
-												<div className="product-slider">
-													<div className="slide">
-														<img src="http://placehold.it/500x450" alt="image descrption" />
-													</div>											
-												</div>																				
-											</div>								
-											<div className="detial-holder">										
-												<ul className="list-unstyled breadcrumbs">
-													<li><a href="#">Chairs <i className="fa fa-angle-right"></i></a></li>
-													<li>Products</li>
-												</ul>										
-												<h2>KAILA FABRIC CHAIR</h2>										
-												<div className="rank-rating">
-													<ul className="list-unstyled rating-list">
-														<li><a href="#"><i className="fa fa-star"></i></a></li>
-														<li><a href="#"><i className="fa fa-star"></i></a></li>
-														<li><a href="#"><i className="fa fa-star"></i></a></li>
-														<li><a href="#"><i className="fa fa-star-o"></i></a></li>
-													</ul>
-													<span className="total-price">Reviews (12)</span>
-												</div>
-												<ul className="list-unstyled list">
-													<li><a href="#"><i className="fa fa-share-alt"></i>SHARE</a></li>
-													<li><a href="#"><i className="fa fa-exchange"></i>COMPARE</a></li>
-													<li><a href="#"><i className="fa fa-heart"></i>ADD TO WISHLIST</a></li>
-												</ul>
-												<div className="txt-wrap">
-													<p>Koila is a chair designed for restaurants and food lovers in general. Designed in collaboration with restaurant professionals, it ensures comfort and an ideal posture, as there are armrests on both sides of the chair.</p>
-													<p>Koila is a seat designed for restaurants and gastronomic places in general. Designed in collaboration with professional of restaurants and hotels field, this armchair is composed of a curved shell with a base in oak who has pinched the back upholstered in fabric or leather. It provides comfort and holds for ideal sitting position,the arms may rest on the sides ofthe armchair.</p>
-												</div>
-												<div className="text-holder">
-													<span className="price">$ 79.00 <del>399,00</del></span>
-												</div>
-												<form action="#" className="product-form">
-													<fieldset>
-														<div className="row-val">
-															<label for="qty">qty</label>
-															<select id="clr">
-																<option>1</option>
-															</select>
-														</div>
-														<div className="row-val">
-															<button type="submit">ADD TO CART</button>
-														</div>
-													</fieldset>
-												</form>
-											</div>
-										</div>
-									</div>
-								</div>
-							</section>
-						</div>
-					</div>
-        </ModalBody>
-      </Modal>			
-		);
-	}	
+
+  sendMail() {
+    const { question } = this.state;
+    let param = new FormData();
+    param.append("name", question.name);
+    param.append("email_address", question.email);
+    param.append("message", question.message);
+    param.append("product_id", this.props.product_id);
+
+    API.post(`email/receive`, param).then((result) => {
+      if (result.status === 200) {
+        this.setState({
+          alert: {
+            show: true,
+            status: "success",
+            greetings: "Congratulations!",
+            message: "Your Email Has Been Sent",
+          },
+        });
+      } else {
+        this.setState({
+          alert: {
+            show: true,
+            status: "danger",
+            greetings: "Sorry!",
+            message: result.message,
+          },
+        });
+      }
+    });
+
+    setTimeout(
+      function () {
+        this.setState({
+          alert: {
+            show: false,
+            status: "",
+            greetings: "",
+            message: "",
+          },
+        });
+      }.bind(this),
+      5000
+    );
+  }
+
+  render() {
+    const { alert } = this.state;
+    return (
+      <div className="product-detail-tab wow fadeInUp" data-wow-delay="0.4s">
+        <div className="container">
+          <div className="row">
+            <div className="col-xs-12">
+              <div id="tab3">
+                <form action="#" className="p-commentform">
+                  <fieldset>
+                    <h2>Any Question?</h2>
+                    {alert.show && (
+                      <div className={`alert alert-${alert.status}`}>
+                        <strong>{alert.greetings}</strong> {alert.message}
+                      </div>
+                    )}
+                    <div className="mt-row">
+                      <label>Name</label>
+                      <input
+                        type="text"
+                        className="form-control"
+                        onChange={(e) =>
+                          this.setState({
+                            question: {
+                              ...this.state.question,
+                              name: e.target.value,
+                            },
+                          })
+                        }
+                      />
+                    </div>
+                    <div className="mt-row">
+                      <label>E-Mail</label>
+                      <input
+                        type="text"
+                        className="form-control"
+                        onChange={(e) =>
+                          this.setState({
+                            question: {
+                              ...this.state.question,
+                              email: e.target.value,
+                            },
+                          })
+                        }
+                      />
+                    </div>
+                    <div className="mt-row">
+                      <label>Question</label>
+                      <textarea
+                        className="form-control"
+                        onChange={(e) =>
+                          this.setState({
+                            question: {
+                              ...this.state.question,
+                              message: e.target.value,
+                            },
+                          })
+                        }
+                      />
+                    </div>
+                  </fieldset>
+                </form>
+                <button className="btn-type3" onClick={() => this.sendMail()}>
+                  Send
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
 }
 
 export default SendEmailProductModal;
