@@ -3,12 +3,25 @@ import Banner from "../component/Banner";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import API from "../services";
+import { Spinner } from "reactstrap";
 
 class Index extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      isLoading: false,
       list: [],
+      question: {
+        name: "",
+        email: "",
+        message: "",
+      },
+      alert: {
+        greetings: "",
+        message: "",
+        status: "",
+        show: false,
+      },
     };
   }
 
@@ -17,9 +30,56 @@ class Index extends React.Component {
       this.setState({ list: result.data });
     });
   }
+
+  sendMail() {
+    const { question } = this.state;
+    let param = new FormData();
+    param.append("name", question.name);
+    param.append("email_address", question.email);
+    param.append("message", question.message);
+    this.setState({ isLoading: true });
+
+    API.post(`email/receive`, param).then((result) => {
+      if (result.status === 200) {
+        this.setState({
+          alert: {
+            show: true,
+            status: "success",
+            greetings: "Congratulations! ",
+            message: "Your Email Has Been Sent",
+          },
+          isLoading: false,
+        });
+      } else {
+        this.setState({
+          alert: {
+            show: true,
+            status: "danger",
+            greetings: "Sorry! ",
+            message: result.message,
+          },
+          isLoading: false,
+        });
+      }
+    });
+
+    setTimeout(
+      function () {
+        this.setState({
+          alert: {
+            show: false,
+            status: "",
+            greetings: "",
+            message: "",
+          },
+        });
+      }.bind(this),
+      5000
+    );
+  }
+
   render() {
-    const { list } = this.state;
-    console.log(list);
+    const { list, question, isLoading, alert } = this.state;
     return (
       <main id="mt-main">
         <Banner title="Contact" />
@@ -65,27 +125,60 @@ class Index extends React.Component {
               </div>
               <div className="col-xs-12 col-sm-4 form-question">
                 <h2>Have a question?</h2>
+                {alert.show && (
+                  <div className={`alert alert-${alert.status}`}>
+                    <strong>{alert.greetings}</strong> {alert.message}
+                  </div>
+                )}
                 <form action="#" className="contact-form">
                   <fieldset>
                     <input
                       type="text"
                       className="form-control"
                       placeholder="Name"
+                      onChange={(e) =>
+                        this.setState({
+                          question: {
+                            ...question,
+                            name: e.target.value,
+                          },
+                        })
+                      }
                     />
                     <input
                       type="email"
                       className="form-control"
                       placeholder="E-Mail"
+                      onChange={(e) =>
+                        this.setState({
+                          question: {
+                            ...question,
+                            email: e.target.value,
+                          },
+                        })
+                      }
                     />
                     <textarea
                       className="form-control"
                       placeholder="Message"
+                      onChange={(e) =>
+                        this.setState({
+                          question: {
+                            ...question,
+                            message: e.target.value,
+                          },
+                        })
+                      }
                     ></textarea>
-                    <button className="btn-type3" type="submit">
-                      Send
-                    </button>
                   </fieldset>
                 </form>
+                <button
+                  className="btn-type3"
+                  type="submit"
+                  onClick={() => this.sendMail()}
+                >
+                  {isLoading ? <Spinner /> : "Send"}
+                </button>
               </div>
             </div>
           </div>

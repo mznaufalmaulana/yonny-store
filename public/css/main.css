@@ -155,7 +155,6 @@
 .btn-type4 {
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
-  margin-top: 15px;
 }
 
 /* // justify nav
@@ -2696,6 +2695,7 @@ a:hover {
   border: 1px solid #000;
   text-transform: uppercase;
   font: 300 14px/20px "Source Sans Pro", sans-serif;
+  margin-top: 15px;
 }
 
 .btn-type3:focus,
