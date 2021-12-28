@@ -223,7 +223,7 @@ class Detail extends React.Component {
                             <div className="mt-row">
                               <label>Message</label>
                               <textarea className="form-control"></textarea>
-                            </div>
+                            </div>                            
                             <button type="button" className="btn-type1">
                               SEND EMAIL
                             </button>

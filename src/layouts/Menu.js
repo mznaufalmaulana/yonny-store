@@ -71,9 +71,9 @@ class Menu extends React.Component {
                   <div className="mt-nav-box">
                     <ul className="mt-top-list hidden-sm hidden-xs">
                       <li>
-                        <a href={`https://wa.me/+62${this.state.contact.phone}`} target="_blank">
+                        <a href={`https://wa.me/${ this.state.contact ? this.state.contact.phone : null}`} target="_blank">
                           <i className="fa fa-whatsapp" aria-hidden="true"></i>
-                          &nbsp; +62{this.state.contact.phone}
+                          &nbsp; {this.state.contact ? this.state.contact.phone : null}
                         </a>
                       </li>
                     </ul>

@@ -75,7 +75,7 @@ class Index extends React.Component {
                   const tail = list.length;
                   if((tail-1) === index) {
                     return (
-                      <article className="blog-post styleWithoutBorder" key={item.id}>
+                      <article className="blog-post style2" key={item.id}>
                         <div className="img-holder">
                           <a href={`/project/detail?project=${item.id}`}>
                             <img

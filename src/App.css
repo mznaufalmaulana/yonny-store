@@ -38,10 +38,6 @@
   margin: 0px 0px 0px -15px;
 }
 
-/* .paging{
-  
-} */
-
 .MuiPagination-ul{
   justify-content: center;    
 }
@@ -50,17 +46,20 @@
   margin-top: 25px;
 }
 
-.tabcustom{
-  /* background-color: red; */
-  max-width: 500px;
+.tab-custom{
+  max-width: 600px;
 }
 
-.tabcontent{
-  max-width: 175px;  
+.tab-content{
+  max-width: 600px;  
 }
 
-.content-tab{
-  margin-top: 20px;
+.tab-column{
+  width: 150px;
+}
+
+.txt-size{
+  font-size: 11pt;
 }
 
 .list-share{

@@ -1791,7 +1791,8 @@ a:hover {
 
 #nav > ul > li.drop:hover > a {
   z-index: 5;
-  color: #fff;
+  /* color: #fff; */
+  color: #e6951a;
 }
 
 #nav > ul > li.drop:hover > a:after {
@@ -4262,7 +4263,7 @@ a:hover {
   font-size: 14px;
   line-height: 16px;
   display: inline-block;
-  vertical-align: middle;
+  /* vertical-align: middle; */
 }
 
 .slider-1 .slider .title span {
@@ -5202,7 +5203,7 @@ a:hover {
   display: block;
   color: #9f9f9f;
   display: inline-block;
-  vertical-align: middle;
+  /* vertical-align: middle; */
   font-size: 18px;
   line-height: 20px;
   position: relative;
@@ -9168,7 +9169,17 @@ a:hover {
   margin: 0 0 102px;
 }
 
+.mt-blog-detail.styleWithoutBorder {
+  padding: 46px 0 0;
+  margin: 0 0 112px;
+}
+
 .mt-blog-detail.style2 {
+  padding: 46px 0 0;
+  margin: 0 0 112px;
+}
+
+.mt-blog-detail.styleWithoutBorder {
   padding: 46px 0 0;
   margin: 0 0 112px;
 }
@@ -9178,7 +9189,16 @@ a:hover {
   margin: 0 0 71px;
 }
 
+.mt-blog-detail.styleWithoutBorder .blog-post {
+  font-size: 16px;
+  margin: 0 0 71px;
+}
+
 .mt-blog-detail.style2 .blog-post.detail .blog-txt p {
+  margin: 0 0 32px;
+}
+
+.mt-blog-detail.styleWithoutBorder .blog-post.detail .blog-txt p {
   margin: 0 0 32px;
 }
 
@@ -9186,7 +9206,15 @@ a:hover {
   margin: 0 0 37px;
 }
 
+.mt-blog-detail.styleWithoutBorder .blog-post .img-holder {
+  margin: 0 0 37px;
+}
+
 .mt-blog-detail.style2 .blog-post .time {
+  margin: -38px 35px 0 0;
+}
+
+.mt-blog-detail.styleWithoutBorder .blog-post .time {
   margin: -38px 35px 0 0;
 }
 
@@ -9194,7 +9222,15 @@ a:hover {
   padding: 0 70px 0 0;
 }
 
+.mt-blog-detail.styleWithoutBorder .blog-post .blog-txt {
+  padding: 0 70px 0 0;
+}
+
 .mt-blog-detail.style2 .blog-post .blog-nav {
+  margin: 0 0 34px;
+}
+
+.mt-blog-detail.styleWithoutBorder .blog-post .blog-nav {
   margin: 0 0 34px;
 }
 
@@ -9203,7 +9239,16 @@ a:hover {
   margin: 0 0 102px;
 }
 
+.mt-blog-detail.styleWithoutBorder .blog-post .img-block {
+  padding: 114px 0 0;
+  margin: 0 0 102px;
+}
+
 .mt-blog-detail.style2 .btn-holder {
+  padding: 70px 0 0;
+}
+
+.mt-blog-detail.styleWithoutBorder .btn-holder {
   padding: 70px 0 0;
 }
 
@@ -12581,7 +12626,7 @@ a:hover {
   font-family: "fontello";
   font-style: normal;
   font-weight: normal;
-  speak: none;
+  speak-as: none;
   display: inline-block;
   text-decoration: inherit;
   width: 1em;

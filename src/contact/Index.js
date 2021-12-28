@@ -18,8 +18,7 @@ class Index extends React.Component {
     });
   }
   render() {
-    const { list } = this.state;
-    console.log(list);
+    const { list } = this.state;  
     return (
       <main id="mt-main">
         <Banner title="Contact" />
@@ -33,15 +32,15 @@ class Index extends React.Component {
                 <div className="contact-address">
                   <h1>Contact Address</h1>
                 </div>
-                <Tabs className="tabcustom wow fadeInUp" data-wow-delay="0.5s">
+                <Tabs className="tab-custom wow fadeInUp" data-wow-delay="0.5s">
                   <TabList>
                     {list.map((item) => (
-                      <Tab>{item.region}</Tab>
+                      <Tab key={item.id}>{item.region}</Tab>
                     ))}
                   </TabList>
                   {list.map((item) => (
-                    <TabPanel>
-                      <table className="table table-borderless">
+                    <TabPanel className="tab-content">
+                      <table className="table table-borderless" key={item.id}>
                         <thead>
                           <tr>
                             <th>Address</th>
@@ -49,12 +48,12 @@ class Index extends React.Component {
                             <th>Email</th>
                           </tr>
                         </thead>
-                        <tbody>
+                        <tbody className="txt-size">
                           {item.contact.map((addr) => (
-                            <tr>
-                              <td>{addr.address}</td>
-                              <td>{addr.phone}</td>
-                              <td>{addr.email}</td>
+                            <tr key={addr.id}>
+                              <td className="tab-column">{addr.first_address}{addr.second_address}</td>
+                              <td className="tab-column"><a href={`tel:${addr.phone}`}>{addr.phone}</a></td>
+                              <td className="tab-column"><a href={`mailto:${addr.email}`}>{addr.email}</a></td>
                             </tr>
                           ))}
                         </tbody>
