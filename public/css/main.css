@@ -155,7 +155,7 @@
 .btn-type4 {
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
-  margin-top: 15px;
+  /* margin-top: 15px; */
 }
 
 /* // justify nav
@@ -312,7 +312,7 @@ a:hover {
 }
 
 #mt-header.style5 .mt-icon-list li {
-  margin: 13px 27px 0 0;
+  margin: 10px 27px 0 0;
 }
 
 #mt-header.style5 .icon-magnifier {

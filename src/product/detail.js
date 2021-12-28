@@ -121,8 +121,7 @@ class Detail extends React.Component {
                       </a>
                     </li>
                   </ul>
-                  <div
-                    // className="txt-wrap"
+                  <div                    
                     dangerouslySetInnerHTML={{
                       __html: `${data.description}`,
                     }}
@@ -179,7 +178,7 @@ class Detail extends React.Component {
           </div>
         </div>
 
-        {/* <div className="popup-holder">
+        <div className="popup-holder">
           <div id="popup" className="lightbox">
             <section className="mt-product-detial">
               <div className="container">
@@ -246,18 +245,18 @@ class Detail extends React.Component {
                               <label>Message</label>
                               <textarea className="form-control"></textarea>
                             </div>                            
-                            <button type="button" className="btn-type1">
+                            <button type="button" className="btn-type1"  onClick={() => this.sendMail()}>
                               SEND EMAIL
                             </button>
                           </fieldset>
                         </form>
-                        <a
+                        {/* <a
                           href="#"
                           className="btn-type1"
                           onClick={() => this.sendMail()}
                         >
                           SEND EMAIL
-                        </a>
+                        </a> */}
                       </div>
                     </div>
                   </div>
@@ -265,7 +264,7 @@ class Detail extends React.Component {
               </div>
             </section>
           </div>
-        </div> */}
+        </div>
       </main>
     );
   }
