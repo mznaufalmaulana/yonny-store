@@ -155,6 +155,7 @@
 .btn-type4 {
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
+  /* margin-top: 15px; */
 }
 
 /* // justify nav
@@ -311,7 +312,7 @@ a:hover {
 }
 
 #mt-header.style5 .mt-icon-list li {
-  margin: 13px 27px 0 0;
+  margin: 10px 27px 0 0;
 }
 
 #mt-header.style5 .icon-magnifier {
@@ -1791,7 +1792,8 @@ a:hover {
 
 #nav > ul > li.drop:hover > a {
   z-index: 5;
-  color: #fff;
+  /* color: #fff; */
+  color: #e6951a;
 }
 
 #nav > ul > li.drop:hover > a:after {
@@ -2695,6 +2697,7 @@ a:hover {
   border: 1px solid #000;
   text-transform: uppercase;
   font: 300 14px/20px "Source Sans Pro", sans-serif;
+  margin-top: 15px;
 }
 
 .btn-type3:focus,
@@ -7908,7 +7911,7 @@ a:hover {
 .product-detail-tab {
   color: #aaa;
   overflow: hidden;
-  padding: 74px 0 85px;
+  padding: 55px 0 40px;
   font: 300 16px/21px "Source Sans Pro", sans-serif;
 }
 
@@ -11302,7 +11305,7 @@ a:hover {
   background-size: cover;
   text-transform: capitalize;
   background-position: 50% 50%;
-  background-image: url(../images/demo/img11.jpeg);
+  background-image: url(../images/banner.png);
 }
 
 .mt-contact-banner.style4 {
@@ -12783,4 +12786,20 @@ a:focus {
 .table-borderless > thead > tr > td,
 .table-borderless > thead > tr > th {
   border: none;
+}
+
+.alert.alert-success {
+  background-color: #d4edda;
+  padding: 15px;
+  border-radius: 5px;
+  color: #155724;
+  margin: 5px 0;
+}
+
+.alert.alert-danger {
+  background-color: #f8d7da;
+  padding: 15px;
+  border-radius: 5px;
+  color: #721c24;
+  margin: 5px 0;
 }

@@ -83,8 +83,8 @@ class Footer extends React.Component {
                   <div className="nav-widget-1">
                     <h3 className="f-widget-heading">Information</h3>
                     <ul className="list-unstyled f-widget-nav">
-                      <li><a href="/about">About Us</a></li>
-                      <li><a href="/contact">Contact Us</a></li>
+                      <li><a href="/about">About</a></li>
+                      <li><a href="/contact">Contact</a></li>
                       <li><a href="#">Terms &amp; Conditions</a></li>
                       <li><a href="#">Privacy Policy</a></li>
                     </ul>

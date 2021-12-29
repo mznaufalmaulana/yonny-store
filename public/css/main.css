@@ -7911,7 +7911,7 @@ a:hover {
 .product-detail-tab {
   color: #aaa;
   overflow: hidden;
-  padding: 74px 0 85px;
+  padding: 55px 0 40px;
   font: 300 16px/21px "Source Sans Pro", sans-serif;
 }
 
@@ -11305,7 +11305,7 @@ a:hover {
   background-size: cover;
   text-transform: capitalize;
   background-position: 50% 50%;
-  background-image: url(../images/demo/img11.jpeg);
+  background-image: url(../images/banner.png);
 }
 
 .mt-contact-banner.style4 {

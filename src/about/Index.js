@@ -1,6 +1,5 @@
 import React from "react";
 import Banner from "../component/Banner";
-// import "../assets/css/main.css";
 
 class Index extends React.Component {
   render() {

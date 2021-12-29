@@ -3,7 +3,6 @@ import Banner from "../component/Banner";
 import { Pagination } from "@material-ui/lab";
 import API from "../services";
 import moment from "moment";
-// import "../assets/css/main.css";
 
 class Index extends React.Component {
   constructor(props) {
@@ -109,7 +108,7 @@ class Index extends React.Component {
                             dangerouslySetInnerHTML={{
                               __html: `${item.description.substring(0, 200)}`,
                             }}
-                          />
+                          />                          
                           <a
                             href={`/project/detail?project=${item.id}`}
                             className="btn-more"
@@ -155,7 +154,7 @@ class Index extends React.Component {
                             dangerouslySetInnerHTML={{
                               __html: `${item.description.substring(0, 200)}`,
                             }}
-                          />
+                          />                          
                           <a
                             href={`/project/detail?project=${item.id}`}
                             className="btn-more"

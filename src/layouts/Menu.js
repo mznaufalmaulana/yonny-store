@@ -183,7 +183,7 @@ class Menu extends React.Component {
                             <a href="/contact">CONTACT</a>
                           </li>
 
-                          <li>
+                          {/* <li>
                             <a className="drop-link" href="#">
                               {getUnicodeFlagIcon("GB")} &nbsp;
                               <i
@@ -205,7 +205,7 @@ class Menu extends React.Component {
                                 </li>
                               </ul>
                             </div>
-                          </li>
+                          </li> */}
                         </ul>
                       </nav>
                       <ul className="mt-icon-list">
