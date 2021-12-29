@@ -2,6 +2,8 @@ import React from "react";
 import API from "../services";
 import { Slide } from "react-slideshow-image";
 import ModalSendEmail from "./modal/SendEmailProductModal";
+import { CopyToClipboard } from "react-copy-to-clipboard";
+import Toast from "../component/Toast";
 
 class Detail extends React.Component {
   constructor(props) {
@@ -13,19 +15,21 @@ class Detail extends React.Component {
       related: [],
       param: {
         product: this.url.get("product"),
-        category: this.url.get("category"),
       },
       question: {
         name: "",
         email: "",
         message: "",
       },
+      copied: false,
       openModal: false,
     };
   }
 
   componentDidMount() {
-    const param = this.state.param;
+    const { param } = this.state;
+
+    API.get(`product/detail/seen-count/${param.product}`);
 
     API.get(`product/detail/${param.product}`).then((result) => {
       if (result.message === "success") {
@@ -52,14 +56,36 @@ class Detail extends React.Component {
     });
   }
 
-  sendMail() {
-    console.log(this.state.question);
+  copy() {
+    const { param } = this.state;
+    this.setState({ copied: true });
+    API.get(`product/detail/share-count/${param.product}`).then((result) => {
+      if (result.message === "success") {
+        this.getshareCount();
+      }
+    });
+  }
+
+  getshareCount() {
+    const { param, data } = this.state;
+    API.get(`product/detail/${param.product}`).then((result) => {
+      if (result.message === "success") {
+        this.setState({
+          data: {
+            ...data,
+            share_count: result.data[0].share_count,
+          },
+          copied: false,
+        });
+      }
+    });
   }
 
   render() {
-    const { data, photo, related, openModal, question, param } = this.state;
+    const { data, photo, related, param, copied } = this.state;
     return (
       <main id="mt-main">
+        {copied && <Toast text="Your Link was Copied" />}
         <section
           className="mt-product-detial wow fadeInUp mb-5"
           data-wow-delay="0.4s"
@@ -104,15 +130,20 @@ class Detail extends React.Component {
 
                   <ul className="list-unstyled list">
                     <li>
-                      <a
-                        href="#"
-                        id="modal-buttton"
-                        data-toggle="modal"
-                        data-target="#my-modal"
+                      <CopyToClipboard
+                        text={window.location.href}
+                        onCopy={() => this.copy()}
                       >
-                        <i className="fa fa-share-alt"></i>
-                        {data.share_count}
-                      </a>
+                        <a
+                          href="#"
+                          id="modal-buttton"
+                          data-toggle="modal"
+                          data-target="#my-modal"
+                        >
+                          <i className="fa fa-share-alt"></i>
+                          {data.share_count}
+                        </a>
+                      </CopyToClipboard>
                     </li>
                     <li>
                       <a href="#">

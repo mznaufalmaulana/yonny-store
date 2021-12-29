@@ -34,7 +34,7 @@ class Index extends React.Component {
 
   getList() {
     const param = this.state.param;
-    let type = "";    
+    let type = "";
     if (param.type) {
       for (let i = 0; i < param.type.length; i++) {
         type += `&type[]=${param.type[i]}`;
@@ -169,13 +169,14 @@ class Index extends React.Component {
 
                 {this.state.list ? this.state.list.map((item) => (
                   <li key={item.id}>
-                    <div className="mt-product1 large wow fadeInRight" data-wow-delay="0.2s">
+                    <div
+                      className="mt-product1 large wow fadeInRight"
+                      data-wow-delay="0.2s"
+                    >
                       <div className="box">
                         <div className="b1">
                           <div className="b2">
-                            <a
-                              href={`/product/detail?product=${item.id}`}
-                            >
+                            <a href={`/product/detail?product=${item.id}`}>
                               <img
                                 className="img-product-list"
                                 src={`${API.urlStorage}/${item.photo_name}`}
@@ -187,9 +188,7 @@ class Index extends React.Component {
                       </div>
                       <div className="txt">
                         <strong className="title">
-                          <a
-                            href={`/product/detail?product=${item.id}&category=${this.state.param.cat}`}
-                          >
+                          <a href={`/product/detail?product=${item.id}`}>
                             {item.product_name}
                           </a>
                         </strong>
