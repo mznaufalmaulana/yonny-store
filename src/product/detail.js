@@ -13,7 +13,6 @@ class Detail extends React.Component {
       related: [],
       param: {
         product: this.url.get("product"),
-        category: this.url.get("category"),
       },
       question: {
         name: "",
@@ -25,7 +24,9 @@ class Detail extends React.Component {
   }
 
   componentDidMount() {
-    const param = this.state.param;
+    const { param } = this.state;
+
+    API.get(`product/detail/seen-count/${param.product}`);
 
     API.get(`product/detail/${param.product}`).then((result) => {
       if (result.message === "success") {
@@ -52,12 +53,8 @@ class Detail extends React.Component {
     });
   }
 
-  sendMail() {
-    console.log(this.state.question);
-  }
-
   render() {
-    const { data, photo, related, openModal, question, param } = this.state;
+    const { data, photo, related, param } = this.state;
     return (
       <main id="mt-main">
         <section
@@ -178,91 +175,6 @@ class Detail extends React.Component {
             </div>
           </div>
         </div>
-
-        {/* <div className="popup-holder">
-          <div id="popup" className="lightbox">
-            <section className="mt-product-detial">
-              <div className="container">
-                <div className="row">
-                  <div className="col-xs-12">
-                    <div className="slider">
-                      <ul className="list-unstyled comment-list"></ul>
-                      <div className="product-slider">
-                        <div className="slide">
-                          {photo.map((item, index) => {
-                            const order = [0];
-                            return order.includes(index) ? (
-                              <div
-                                className="slide wow fadeInUp"
-                                data-wow-delay="0.2s"
-                                key={item.id}
-                              >
-                                <img
-                                  src={`${API.urlStorage}/${item.photo_name}`}
-                                  alt="image descrption"
-                                />
-                              </div>
-                            ) : null;
-                          })}
-                        </div>
-                      </div>
-                    </div>
-                    <div className="detial-holder">
-                      <h2>{data.product_name}</h2>
-                      <div className="product-comment">
-                        <form action="#" className="p-commentform">
-                          <fieldset>
-                            <div className="mt-row">
-                              <label>Name</label>
-                              <input
-                                type="text"
-                                className="form-control"
-                                onChange={(e) =>
-                                  this.setState({
-                                    question: {
-                                      ...question,
-                                      name: e.target.value,
-                                    },
-                                  })
-                                }
-                              />
-                            </div>
-                            <div className="mt-row">
-                              <label>E-Mail</label>
-                              <input
-                                type="text"
-                                className="form-control"
-                                onChange={(e) =>
-                                  this.setState({
-                                    question: {
-                                      ...question,
-                                      email: e.target.value,
-                                    },
-                                  })
-                                }
-                              />
-                            </div>
-                            <div className="mt-row">
-                              <label>Message</label>
-                              <textarea className="form-control"></textarea>
-                            </div>
-                          </fieldset>
-                        </form>
-                        <a
-                          href="#"
-                          className="btn-type1"
-                          onClick={() => this.sendMail()}
-                        >
-                          SEND EMAIL
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </section>
-          </div>
-        </div> */}
       </main>
     );
   }
