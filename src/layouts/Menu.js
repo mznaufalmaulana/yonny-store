@@ -149,8 +149,8 @@ class Menu extends React.Component {
                                       </div>
                                     )
                                   )}
-                                  <div class="mt-col-3 promo">
-                                    <div class="mt-promobox">
+                                  <div className="mt-col-3 promo">
+                                    <div className="mt-promobox">
                                       {this.state.promo.map((promo, index) => {
                                         const order = [5];
                                         return order.includes(index) ? (

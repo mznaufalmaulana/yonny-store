@@ -104,7 +104,7 @@ class Detail extends React.Component {
                           key={item.id}
                         >
                           <img
-                            src={`${API.urlStorage}/${item.photo_name}`}
+                            src={`${API.urlStorage}${item.photo_name}`}
                             alt="image descrption"
                           />
                         </div>
@@ -169,7 +169,6 @@ class Detail extends React.Component {
             const order = [0];
             return order.includes(index) ? item.photo_name : null;
           })}
-          
           />
         <br />
 
@@ -190,7 +189,7 @@ class Detail extends React.Component {
                         <div className="box">
                           <a href={`/product/detail?product=${item.id}`}>
                             <img
-                              src={`${API.urlStorage}/${item.photo_name}`}
+                              src={`${API.urlStorage}${item.photo_name}`}
                               alt="image description"
                             />
                           </a>
