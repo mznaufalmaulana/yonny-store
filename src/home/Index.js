@@ -1,5 +1,7 @@
 import React from "react";
-import { Slide } from "react-slideshow-image";
+import { Slide, Fade } from "react-slideshow-image";
+// import "react-responsive-carousel/lib/styles/carousel.min.css";
+// import { Carousel } from 'react-responsive-carousel';
 import API from "../services";
 
 class Index extends React.Component {
@@ -19,10 +21,16 @@ class Index extends React.Component {
       if (result.message === "success") {
         this.setState({ promo: result.data });
       }
-    });
+    });    
   }
 
   render() {
+    const properties = {
+      duration: 3000,
+      canSwipe: true,
+      indicators: false,
+    };
+
     return (
       <main id="mt-main">
         <div className="container">
@@ -32,13 +40,13 @@ class Index extends React.Component {
                 className="banner-frame mt-paddingsmzero"
               >
                 <div
-                  className="slider-7 mt-paddingbottomsm wow fadeInLeft" data-wow-delay="0.4s"
+                  className="slider-7 mt-paddingbottomsm" data-wow-delay="0.4s"
                 >
                   <div className="slide-container">                    
-                     <Slide>
+                     <Slide {...properties}>
                       { this.state.promoHeadline.map(promoHead => (                        
                         <a href={promoHead.link}>
-                          <div className="s-holder wow fadeInLeft" data-wow-delay="0.4s" key={promoHead.id}>
+                          <div className="s-holder wow fadeInLeft each-fade" data-wow-delay="0.4s" key={promoHead.id}>
                             <img src={`${API.urlStorage}${promoHead.photo_name}`}/>                            
                           </div>
                         </a>                      
