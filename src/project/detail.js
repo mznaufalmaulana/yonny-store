@@ -4,6 +4,8 @@ import Banner from "../component/Banner";
 import API from "../services";
 import "react-slideshow-image/dist/styles.css";
 import { Slide } from "react-slideshow-image";
+import CopyToClipboard from "react-copy-to-clipboard";
+import Toast from "../component/Toast";
 
 class Detail extends React.Component {
   constructor(props) {
@@ -16,6 +18,7 @@ class Detail extends React.Component {
       param: {
         project: this.url.get("project"),
       },
+      copied: false,
     };
   }
 
@@ -28,10 +31,36 @@ class Detail extends React.Component {
       });
     });
   }
+
+  copy() {
+    const { param } = this.state;
+    this.setState({ copied: true });
+    API.get(`project/detail/share-count/${param.project}`).then((result) => {
+      if (result.message === "success") {
+        this.getshareCount();
+      }
+    });
+  }
+
+  getshareCount() {
+    const { param, data } = this.state;
+    API.get(`project/detail/${param.project}`).then((result) => {
+      if (result.message === "success") {
+        this.setState({
+          data: {
+            ...data,
+            share_count: result.data[0].share_count,
+          },
+          copied: false,
+        });
+      }
+    });
+  }
   render() {
-    const { data, photo } = this.state;
+    const { data, photo, copied } = this.state;
     return (
       <main id="mt-main">
+        {copied && <Toast text="Your Link was Copied" />}
         <Banner title="Project" />
         <div class="mt-blog-detail style1">
           <div class="container">
@@ -65,10 +94,15 @@ class Detail extends React.Component {
                         {moment(data.project_due).format("LL")}
                       </li>
                       <li>
-                        <a href="#" className="list-share">
-                          <i class="fa fa-share-alt icon-share"></i>&nbsp;
-                          {data.share_count}
-                        </a>
+                        <CopyToClipboard
+                          text={window.location.href}
+                          onCopy={() => this.copy()}
+                        >
+                          <a className="list-share">
+                            <i className="fa fa-share-alt icon-share"></i>
+                            {data.share_count}
+                          </a>
+                        </CopyToClipboard>
                       </li>
                     </ul>
                     <div
