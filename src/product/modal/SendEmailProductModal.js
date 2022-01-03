@@ -68,10 +68,10 @@ class SendEmailProductModal extends React.Component {
   render() {
     const { alert } = this.state;
     return (
-      <div className="product-detail-tab wow fadeInUp" data-wow-delay="0.4s">
+      <div className="product-detail-tab wow fadeInUp" data-wow-delay="0.5s">
         <div className="container">
           <div className="row">
-            <div className="col-xs-12">
+            <div className="col-xs-12 col-md-6 wow fadeInUp" data-wow-delay="0.4s">
               <div id="tab3">
                 <form action="#" className="p-commentform">
                   <fieldset>
@@ -81,7 +81,7 @@ class SendEmailProductModal extends React.Component {
                         <strong>{alert.greetings}</strong> {alert.message}
                       </div>
                     )}
-                    <div className="mt-row">
+                    <div className="mt-row mar-top-1">
                       <label>Name</label>
                       <input
                         type="text"
@@ -96,7 +96,7 @@ class SendEmailProductModal extends React.Component {
                         }
                       />
                     </div>
-                    <div className="mt-row">
+                    <div className="mt-row mar-top-1">
                       <label>E-Mail</label>
                       <input
                         type="text"
@@ -111,7 +111,7 @@ class SendEmailProductModal extends React.Component {
                         }
                       />
                     </div>
-                    <div className="mt-row">
+                    <div className="mt-row mar-top-1">
                       <label>Question</label>
                       <textarea
                         className="form-control"
@@ -127,10 +127,17 @@ class SendEmailProductModal extends React.Component {
                     </div>
                   </fieldset>
                 </form>
-                <button className="btn-type3" onClick={() => this.sendMail()}>
-                  Send
+                <button className="btn-type1 mar-top-2" onClick={() => this.sendMail()}>
+                  Send Email
                 </button>
               </div>
+            </div>
+            <div className="col-xs-12 col-md-6" data-wow-delay="0.4s">
+              <img    
+                className="img-size wow fadeInUp"            
+                src={`${API.urlStorage}${this.props.photo_name}`}
+                alt="image descrption"
+              />
             </div>
           </div>
         </div>

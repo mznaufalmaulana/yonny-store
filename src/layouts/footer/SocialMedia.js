@@ -1,7 +1,6 @@
 import React, {useState} from "react";
 
 const SocialMedia = ({socialMedias}) => {
-
     return (
         <div className="social-media">
             <h4 className="f-widget-heading follow">Follow Us</h4>
@@ -9,7 +8,7 @@ const SocialMedia = ({socialMedias}) => {
                 {socialMedias.map(socialMedia => {
                     return (
                         <li className="social-media"  key={socialMedia.id}>
-                            <a href={socialMedia.link} target={"_blank"}>
+                            <a href={`${socialMedia.link}`} target={"_blank"}>
                                 <i className={socialMedia.icon}></i>
                             </a>
                         </li>

@@ -1,9 +1,6 @@
 import React from "react";
-// import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
-// import "react-tabs/style/react-tabs.css";
 import Banner from "../component/Banner";
 import { makeStyles } from "@material-ui/core/styles";
-import { Paper, Tab, Tabs } from "@material-ui/core";
 import IndexTabs from "./components/Tabs";
 
 class Index extends React.Component {

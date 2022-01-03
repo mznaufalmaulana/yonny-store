@@ -104,7 +104,7 @@ class Index extends React.Component {
       <main id="mt-main">
         <Banner title="Product" category={this.state.param.cat} />
         <div className="container">
-          <div className="row">
+          <div className="row">           
             <Category
               onChange={(id, val) => this.onChangeParams(id, val)}
               paramType={param.type}
@@ -159,14 +159,15 @@ class Index extends React.Component {
               </header>
 
               <ul className="mt-productlisthold list-inline">
-                {this.state.list.length <= 0 && (
+                { this.state.list ? this.state.list.length <= 0 && (
                   <div>
                     <p className="text-center">
                       Sorry, We Couldn't Find What You Want :(
                     </p>
                   </div>
-                )}
-                {this.state.list.map((item) => (
+                ):null }
+
+                {this.state.list ? this.state.list.map((item) => (
                   <li key={item.id}>
                     <div
                       className="mt-product1 large wow fadeInRight"
@@ -194,7 +195,7 @@ class Index extends React.Component {
                       </div>
                     </div>
                   </li>
-                ))}
+                )):null}
               </ul>
 
               <nav className="mt-pagination paging">

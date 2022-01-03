@@ -71,12 +71,9 @@ class Menu extends React.Component {
                   <div className="mt-nav-box">
                     <ul className="mt-top-list hidden-sm hidden-xs">
                       <li>
-                        <a
-                          href={`https://wa.me/+62${this.state.contact.phone}`}
-                          target="_blank"
-                        >
+                        <a href={`https://wa.me/${ this.state.contact ? this.state.contact.phone : null}`} target="_blank">
                           <i className="fa fa-whatsapp" aria-hidden="true"></i>
-                          &nbsp; +62{this.state.contact.phone}
+                          &nbsp; {this.state.contact ? this.state.contact.phone : null}
                         </a>
                       </li>
                     </ul>
@@ -152,8 +149,8 @@ class Menu extends React.Component {
                                       </div>
                                     )
                                   )}
-                                  <div class="mt-col-3 promo">
-                                    <div class="mt-promobox">
+                                  <div className="mt-col-3 promo">
+                                    <div className="mt-promobox">
                                       {this.state.promo.map((promo, index) => {
                                         const order = [5];
                                         return order.includes(index) ? (
@@ -186,7 +183,7 @@ class Menu extends React.Component {
                             <a href="/contact">CONTACT</a>
                           </li>
 
-                          <li>
+                          {/* <li>
                             <a className="drop-link" href="#">
                               {getUnicodeFlagIcon("GB")} &nbsp;
                               <i
@@ -208,7 +205,7 @@ class Menu extends React.Component {
                                 </li>
                               </ul>
                             </div>
-                          </li>
+                          </li> */}
                         </ul>
                       </nav>
                       <ul className="mt-icon-list">

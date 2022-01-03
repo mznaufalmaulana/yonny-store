@@ -43,18 +43,7 @@ class Index extends React.Component {
                           </div>
                         </a>                      
                       ))}
-                    </Slide>
-                    {/* { this.state.promoHeadline.map(promoHead => {
-                      return(
-                        // <a href={promoHead.link}>
-                          <div className="s-holder" key={promoHead.id}>
-                            <img src={`${API.urlStorage}${promoHead.photo_name}`}/>
-                            <div className="s-box">                           
-                            </div>
-                          </div>
-                        // </a>
-                      )
-                    })}                     */}
+                    </Slide>                    
                   </div>
                 </div>
 

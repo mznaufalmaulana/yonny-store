@@ -54,11 +54,6 @@ class Footer extends React.Component {
     });    
   }
 
-  componentDidUpdate(prevProps, prevState) {
-    // console.log(this.state);
-    // console.log(prevProps, prevState);
-  }
-
   render() {
     const { contact } = this.state;    
     return (
@@ -76,11 +71,10 @@ class Footer extends React.Component {
                     <a href="/">                      
                       <img src={logo} className="footer-logo" width="10px" alt="batuYonny" />
                     </a>                    
-                    <ul className="list-unstyled address-list">
-                      {/* <li><i className="fa fa-map-marker"></i><address>Connaugt Road Central Suite 18B, 148 <br/>New Yankee</address></li> */}
-                      <li><i className="fa fa-map-marker"></i><address>{contact.address}</address></li>
-                      <li><i className="fa fa-phone"></i><a href={`tel:+62${contact.phone}`}>+62{contact.phone}</a></li>
-                      <li><i className="fa fa-envelope-o"></i><a href={`mailto:${contact.email}`}>{contact.email}</a></li>
+                    <ul className="list-unstyled address-list">                      
+                      <li><i className="fa fa-map-marker"></i><address>{contact ? contact.first_address:null}<br/>{contact ? contact.second_address:null}</address></li>
+                      <li><i className="fa fa-phone"></i><a href={`tel:${contact ? contact.phone:null}`}>{contact ? contact.phone:null}</a></li>
+                      <li><i className="fa fa-envelope-o"></i><a href={`mailto:${contact ? contact.email:null}`}>{contact ? contact.email:null}</a></li>
                     </ul>
                   </div>                  
                 </div>
@@ -89,8 +83,8 @@ class Footer extends React.Component {
                   <div className="nav-widget-1">
                     <h3 className="f-widget-heading">Information</h3>
                     <ul className="list-unstyled f-widget-nav">
-                      <li><a href="/about">About Us</a></li>
-                      <li><a href="/contact">Contact Us</a></li>
+                      <li><a href="/about">About</a></li>
+                      <li><a href="/contact">Contact</a></li>
                       <li><a href="#">Terms &amp; Conditions</a></li>
                       <li><a href="#">Privacy Policy</a></li>
                     </ul>
@@ -99,7 +93,7 @@ class Footer extends React.Component {
                 <div className="col-xs-12 col-md-3 text-right hidden-sm">                  
                   <div className="f-widget-newsletter">
                     <h3 className="f-widget-heading">Sing Up Newsletter</h3>
-                    <p>Subscribe now to get news update <br/>on any product</p>
+                    <p>Subscribe to get news update <br/>on latest product</p>
                     <div className="holder">                      
                       <form className="newsletter-form" onSubmit={ this.handleSubmit }>
                         <fieldset>

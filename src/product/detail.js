@@ -104,7 +104,7 @@ class Detail extends React.Component {
                           key={item.id}
                         >
                           <img
-                            src={`${API.urlStorage}/${item.photo_name}`}
+                            src={`${API.urlStorage}${item.photo_name}`}
                             alt="image descrption"
                           />
                         </div>
@@ -152,24 +152,24 @@ class Detail extends React.Component {
                       </a>
                     </li>
                   </ul>
-                  <div
-                    // className="txt-wrap"
+                  <div                    
                     dangerouslySetInnerHTML={{
                       __html: `${data.description}`,
                     }}
-                  />
-                  {/* <form action="#" className="product-form">
-                    <a id="newsletter-hiddenlink" href="#popup">
-                      <button type="button">Ask Question</button>
-                    </a>
-                  </form> */}
+                  />                 
                 </div>
               </div>
             </div>
           </div>
         </section>
         <br />
-        <ModalSendEmail product_id={param.product} />
+        <ModalSendEmail 
+          product_id={param.product} 
+          photo_name={photo.map((item, index) => {
+            const order = [0];
+            return order.includes(index) ? item.photo_name : null;
+          })}
+          />
         <br />
 
         <div className="related-products wow fadeInUp" data-wow-delay="0.5s">
@@ -189,7 +189,7 @@ class Detail extends React.Component {
                         <div className="box">
                           <a href={`/product/detail?product=${item.id}`}>
                             <img
-                              src={`${API.urlStorage}/${item.photo_name}`}
+                              src={`${API.urlStorage}${item.photo_name}`}
                               alt="image description"
                             />
                           </a>
@@ -208,7 +208,7 @@ class Detail extends React.Component {
               </div>
             </div>
           </div>
-        </div>
+        </div>        
       </main>
     );
   }
