@@ -1,13 +1,52 @@
 import React from "react";
+// import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
+// import "react-tabs/style/react-tabs.css";
 import Banner from "../component/Banner";
-// import "../assets/css/main.css";
+import { makeStyles } from "@material-ui/core/styles";
+import { Paper, Tab, Tabs } from "@material-ui/core";
+import IndexTabs from "./components/Tabs";
 
 class Index extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      value: 0,
+    };
+  }
   render() {
+    const useStyles = makeStyles({
+      root: {
+        flexGrow: 1,
+        backgroundColor: "transparent",
+      },
+    });
+    const { value } = this.state;
     return (
       <main id="mt-main">
         <Banner title="About" />
         <section className="mt-about-sec wow fadeInUp" data-wow-delay="0.4s">
+          <div className="container">
+            <div className="row">
+              <div className="col-xs-12">
+                <IndexTabs />
+              </div>
+            </div>
+          </div>
+        </section>
+        {/* <Paper className={useStyles.root}>
+          <Tabs
+            value={value}
+            onChange={(e, newVal) => this.setState({ value: newVal })}
+            indicatorColor="primary"
+            textColor="primary"
+            centered
+          >
+            <Tab label="Item One" />
+            <Tab label="Item Two" />
+            <Tab label="Item Three" />
+          </Tabs>
+        </Paper> */}
+        {/* <section className="mt-about-sec wow fadeInUp" data-wow-delay="0.4s">
           <div className="container">
             <div className="row">
               <div className="col-xs-12">
@@ -89,7 +128,7 @@ class Index extends React.Component {
               </div>
             </li>
           </ul>          
-        </section>        
+        </section>         */}
       </main>
     );
   }
