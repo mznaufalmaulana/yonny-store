@@ -19,8 +19,8 @@ function TabPanel(props) {
       {...other}
     >
       {value === index && (
-        <Box p={2} style={{ textAlign: "justify" }}>
-          <Typography>{children}</Typography>
+        <Box p={2}>
+          <Typography style={{ textAlign: "justify" }}>{children}</Typography>
         </Box>
       )}
     </div>
@@ -29,9 +29,13 @@ function TabPanel(props) {
 const StyledTabs = styled((props) => (
   <Tabs
     {...props}
-    TabIndicatorProps={{ children: <span className="MuiTabs-indicatorSpan" /> }}
+    TabIndicatorProps={{
+      children: <span className="MuiTabs-indicatorSpan" />,
+    }}
   />
 ))({
+  margin: "auto",
+  maxWidth: 880,
   "& .MuiTabs-indicator": {
     display: "flex",
     justifyContent: "center",
@@ -64,13 +68,14 @@ export default function IndexTabs() {
   };
 
   return (
-    <div>
+    <Box>
       <StyledTabs
         value={value}
         onChange={handleChange}
-        aria-label="icon label tabs example"
-        variant="scrollable"
+        aria-label="scrollable tabs example"
         centered
+        variant="scrollable"
+        // allowScrollButtonsMobile
       >
         <StyledTab label="Our Story" />
         <StyledTab label="Our Adventages" />
@@ -208,6 +213,6 @@ export default function IndexTabs() {
       <TabPanel value={value} index={4}>
         <h3>Masuk Sini</h3>
       </TabPanel>
-    </div>
+    </Box>
   );
 }
