@@ -1,7 +1,7 @@
 const isProd = false;
-const urlDev = "http://178.128.99.51:81/store";
+const urlDev = "https://batuyonny.live:81/store";
 // const urlDev = "http://127.0.0.1:8000/store";
-const urlStorage = "http://178.128.99.51:81/storage/"
+const urlStorage = "https://batuyonny.live:81/storage/"
 // const urlStorage = "http://127.0.0.1:8000/storage/"
 const urlProd = "http://*";
 const root = isProd ? urlProd : urlDev;

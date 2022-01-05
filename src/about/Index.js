@@ -25,7 +25,10 @@ class Index extends React.Component {
           <div className="container">
             <div className="row">
               <div className="col-xs-12">
-                <IndexTabs />
+                {/* <div className="container"> */}
+
+                  <IndexTabs />
+                {/* </div> */}
               </div>
             </div>
           </div>
