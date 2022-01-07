@@ -1,7 +1,7 @@
 import React from "react";
-import { Slide, Fade } from "react-slideshow-image";
-// import "react-responsive-carousel/lib/styles/carousel.min.css";
-// import { Carousel } from 'react-responsive-carousel';
+// import { Slide, Fade } from "react-slideshow-image";
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
+import { Carousel } from 'react-responsive-carousel';
 import API from "../services";
 
 class Index extends React.Component {
@@ -25,10 +25,22 @@ class Index extends React.Component {
   }
 
   render() {
+    const { promoHeadline } = this.state;
     const properties = {
-      duration: 3000,
-      canSwipe: true,
-      indicators: false,
+      showArrows: false,
+      showStatus: false,
+      showIndicators: true,
+      infiniteLoop: true,
+      showThumbs: false,
+      useKeyboardArrows: true,
+      autoPlay: true,
+      stopOnHover: true,
+      swipeable: true,  
+      dynamicHeight: true,
+      emulateTouch: true,
+      selectedItem: promoHeadline.length,
+      interval: 7000,
+      transitionTime: 2000,   
     };
 
     return (
@@ -42,8 +54,29 @@ class Index extends React.Component {
                 <div
                   className="slider-7 mt-paddingbottomsm" data-wow-delay="0.4s"
                 >
-                  <div className="slide-container">                    
-                     <Slide {...properties}>
+                  <div className="slide banner-slider">                    
+                     <Carousel {...properties}
+                      // renderIndicator={(onClickHandler, isSelected, index, label) => {
+                      //   const defStyle = { marginLeft: 20, color: "white", cursor: "pointer" };
+                      //   const style = isSelected
+                      //     ? { ...defStyle, color: "blue" }
+                      //     : { ...defStyle };
+                      //   return (
+                      //     <span
+                      //       style={style}
+                      //       onClick={onClickHandler}
+                      //       onKeyDown={onClickHandler}
+                      //       value={index}
+                      //       key={index}
+                      //       role="button"
+                      //       tabIndex={0}
+                      //       aria-label={`${label} ${index + 1}`}
+                      //     >
+                      //       {"tab " + index}
+                      //     </span>
+                      //   );
+                      // }}
+                     >
                       { this.state.promoHeadline.map(promoHead => (                        
                         <a href={promoHead.link}>
                           <div className="s-holder wow fadeInLeft each-fade" data-wow-delay="0.4s" key={promoHead.id}>
@@ -51,7 +84,7 @@ class Index extends React.Component {
                           </div>
                         </a>                      
                       ))}
-                    </Slide>                    
+                    </Carousel>                    
                   </div>
                 </div>
 

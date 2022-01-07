@@ -1,9 +1,11 @@
 import React from "react";
 import API from "../services";
-import { Slide } from "react-slideshow-image";
+// import { Slide } from "react-slideshow-image";
 import ModalSendEmail from "./modal/SendEmailProductModal";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import Toast from "../component/Toast";
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
+import { Carousel } from 'react-responsive-carousel';
 
 class Detail extends React.Component {
   constructor(props) {
@@ -23,6 +25,7 @@ class Detail extends React.Component {
       },
       copied: false,
       openModal: false,
+      sliderLength: "",
     };
   }
 
@@ -35,9 +38,10 @@ class Detail extends React.Component {
       if (result.message === "success") {
         this.setState({
           data: result.data[0],
-          photo: result.data[0].photo,
+          photo: result.data[0].photo,          
         });
         this.realatedProduct(result.data[0].product_category[0].id);
+
       }
     });
   }
@@ -82,7 +86,24 @@ class Detail extends React.Component {
   }
 
   render() {
-    const { data, photo, related, param, copied } = this.state;
+    const { data, photo, related, param, copied} = this.state;
+    const properties = {
+      showArrows: false,
+      showStatus: false,
+      showIndicators: false,
+      infiniteLoop: true,
+      showThumbs: true,
+      useKeyboardArrows: true,
+      autoPlay: true,
+      stopOnHover: true,
+      swipeable: true,  
+      dynamicHeight: true,
+      emulateTouch: true,  
+      selectedItem: photo.length,    
+      interval: 7000,
+      transitionTime: 2000,      
+    };
+
     return (
       <main id="mt-main">
         {copied && <Toast text="Your Link was Copied" />}
@@ -96,7 +117,7 @@ class Detail extends React.Component {
                 <div className="slider">
                   <ul className="list-unstyled comment-list"></ul>
                   <div className="slide-container">
-                    <Slide>
+                    <Carousel {...properties}>
                       {photo.map((item) => (
                         <div
                           className="slide wow fadeInUp"
@@ -109,7 +130,7 @@ class Detail extends React.Component {
                           />
                         </div>
                       ))}
-                    </Slide>
+                    </Carousel>
                   </div>
                 </div>
 
