@@ -132,13 +132,13 @@ class SendEmailProductModal extends React.Component {
                 </button>
               </div>
             </div>
-            <div className="col-xs-12 col-md-6" data-wow-delay="0.4s">
+            {/* <div className="col-xs-12 col-md-6" data-wow-delay="0.4s">
               <img    
                 className="img-size wow fadeInUp"            
                 src={`${API.urlStorage}${this.props.photo_name}`}
                 alt="image descrption"
               />
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

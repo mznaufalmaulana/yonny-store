@@ -1,11 +1,9 @@
 import React from "react";
-import logo from "../assets/images/mt-logo.png";
-import img from "../assets/images/demo/img11.jpeg";
 
 class Banner extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+  // constructor(props) {
+  //   super(props);
+  // }
 
   render() {
     return (
@@ -24,10 +22,9 @@ class Banner extends React.Component {
                       Home <i className="fa fa-angle-right"></i>
                     </a>
                   </li>
-                  <li>{this.props.title}
-                    {/* <i className="fa fa-angle-right"></i>                     */}
-                  </li>
-                  {/* <li>{this.props.category}</li> */}
+                  <li>
+                    {this.props.title}                    
+                  </li>                  
                 </ul>
               </nav>
             </div>

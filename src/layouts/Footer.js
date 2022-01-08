@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import logo from "../assets/images/logo-yonny.png";
 import API from "../services";
 import SocialMedia from "./footer/SocialMedia";
@@ -85,8 +85,8 @@ class Footer extends React.Component {
                     <ul className="list-unstyled f-widget-nav">
                       <li><a href="/about">About</a></li>
                       <li><a href="/contact">Contact</a></li>
-                      <li><a href="#">Terms &amp; Conditions</a></li>
-                      <li><a href="#">Privacy Policy</a></li>
+                      {/* <li><a href="#">Terms &amp; Conditions</a></li>
+                      <li><a href="#">Privacy Policy</a></li> */}
                     </ul>
                   </div>       
                 </nav>

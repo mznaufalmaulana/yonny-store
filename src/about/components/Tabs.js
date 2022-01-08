@@ -82,9 +82,10 @@ export default function IndexTabs() {
         <StyledTab label="Quarry Stone" />
         <StyledTab label="Production" />
         <StyledTab label="Shipping and Packaging" />
+        <StyledTab label="Term and Condition" />
       </StyledTabs>
       <TabPanel value={value} index={0}>
-        <h3>Masuk Sini</h3>
+        <h3>Our Story</h3>
         <p>
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Autem
           praesentium magnam ipsa laudantium fugiat, iusto doloribus libero
@@ -202,16 +203,19 @@ export default function IndexTabs() {
         </p>
       </TabPanel>
       <TabPanel value={value} index={1}>
-        <h3>Masuk Sini</h3>
+        <h3>Our Adventages</h3>
       </TabPanel>
       <TabPanel value={value} index={2}>
-        <h3>Masuk Sini</h3>
+        <h3>Quarry Stone</h3>
       </TabPanel>
       <TabPanel value={value} index={3}>
-        <h3>Masuk Sini</h3>
+        <h3>Production</h3>
       </TabPanel>
       <TabPanel value={value} index={4}>
-        <h3>Masuk Sini</h3>
+        <h3>Shipping and Packaging</h3>
+      </TabPanel>
+      <TabPanel value={value} index={5}>
+        <h3>Term and Condition</h3>
       </TabPanel>
     </Box>
   );

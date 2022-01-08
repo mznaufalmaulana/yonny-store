@@ -221,7 +221,7 @@ a:hover {
 
 #mt-header .icon-magnifier {
   position: relative;
-  top: 2px;
+  top: 1px;
 }
 
 #mt-header.style2 .mt-logo {
@@ -7101,7 +7101,8 @@ a:hover {
 .mt-product-detial {
   overflow: hidden;
   padding: 0 0 25px;
-  background: #f6f6f6;
+  /* background: #f6f6f6; */
+  background: #fff;
 }
 
 .mt-product-detial .slider {
@@ -7910,6 +7911,7 @@ a:hover {
 
 .product-detail-tab {
   color: #aaa;
+  background: #f6f6f6;
   overflow: hidden;
   padding: 55px 0 40px;
   font: 300 16px/21px "Source Sans Pro", sans-serif;
@@ -10353,10 +10355,10 @@ a:hover {
   color: #e6951a;
 }
 
-#blog-isotops.mt-iso {
+/* #blog-isotops.mt-iso {
   overflow: hidden;
   margin: 0 -50px 95px 0;
-}
+} */
 
 /*------------------------------------------------------------------
 68. Post Blog / .post-blog
@@ -10512,8 +10514,10 @@ a:hover {
 70. Blog Isotops / #blog-isotops
 -------------------------------------------------------------------*/
 
-#blog-isotops {
-  margin: 0 0 90px;
+.blog-isotops {
+  /* margin: 0 0 90px; */
+  overflow: hidden;
+  margin: 0 -50px 90px 0;
 }
 
 /*------------------------------------------------------------------
@@ -11305,7 +11309,7 @@ a:hover {
   background-size: cover;
   text-transform: capitalize;
   background-position: 50% 50%;
-  background-image: url(../images/banner.png);
+  background-image: url(../images/banner3.png);
 }
 
 .mt-contact-banner.style4 {
