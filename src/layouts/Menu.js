@@ -1,6 +1,5 @@
 import React from "react";
 import logo from "../assets/images/logo-yonny.png";
-import getUnicodeFlagIcon from "country-flag-icons/unicode";
 import API from "../services";
 
 class Menu extends React.Component {

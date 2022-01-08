@@ -10355,10 +10355,10 @@ a:hover {
   color: #e6951a;
 }
 
-#blog-isotops.mt-iso {
+/* #blog-isotops.mt-iso {
   overflow: hidden;
   margin: 0 -50px 95px 0;
-}
+} */
 
 /*------------------------------------------------------------------
 68. Post Blog / .post-blog
@@ -10514,8 +10514,10 @@ a:hover {
 70. Blog Isotops / #blog-isotops
 -------------------------------------------------------------------*/
 
-#blog-isotops {
-  margin: 0 0 90px;
+.blog-isotops {
+  /* margin: 0 0 90px; */
+  overflow: hidden;
+  margin: 0 -50px 90px 0;
 }
 
 /*------------------------------------------------------------------

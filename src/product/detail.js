@@ -123,7 +123,7 @@ class Detail extends React.Component {
                           className="slide wow fadeInUp"
                           data-wow-delay="0.2s"
                           key={item.id}
-                        >
+                        >                           
                           <img
                             src={`${API.urlStorage}${item.photo_name}`}
                             alt="image descrption"

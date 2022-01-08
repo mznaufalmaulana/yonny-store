@@ -90,10 +90,31 @@
   margin-top: 30px;
 }
 
+.mar-top-4{
+  margin-top: 40px;
+}
+
+.mar-top-5{
+  margin-top: 50px;
+}
+
 .img-size{
   width: 90%;
 }
 
+.project-name{
+  font-size: 17pt;
+  font-weight: bold;
+  text-transform: uppercase;  
+  font-family: "Montserrat", sans-serif;
+  margin: 0px 0px 12px 0px;  
+}
+
+.project-name a:hover{
+  -webkit-transition: all 0.4s linear;
+  transition: all 0.4s linear;
+  color: #e6951a;
+}
 .each-fade {
   display: flex;
   width: 100%;

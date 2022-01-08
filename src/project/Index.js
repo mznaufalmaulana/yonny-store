@@ -59,150 +59,58 @@ class Index extends React.Component {
     window.location.href = `?page=${val}`;
   }
   render() {
-    const { data, param, newest, list } = this.state;
+    const { data, param, list } = this.state;
     return (
       <main id="mt-main">
         <Banner title="Project" />
-        <div className="mt-blog-detail style1">
-          <div className="container">
+        <div className="mt-blog-detail style4">
+          <div className="container">            
+            <div className="row">              
+              <div className="col-xs-12 mar-top-4">
+                <div className="blog-isotops">
+                  {list.map((item) => (                  
+                    <article className="post-blog wow fadeInLeft" data-wow-delay="0.4s" key={item.id}>
+                      <div className="img-holder">
+                        <a href={`/project/detail?project=${item.id}`}>
+                          <img src={`${API.urlStorage}/${item.photo_name}`} alt="image description"/>
+                        </a>
+                        <ul className="list-unstyled comment-nav">                        
+                          <li>
+                              <a href="#">
+                                <i className="fa fa-share-alt"></i>
+                                {item.share_count}
+                              </a>
+                          </li>
+                        </ul>
+                      </div>               
+                      <time className="time" dateTime="2016-02-03 20:00">
+                        <strong>{moment(item.project_due).format("DD")}</strong>
+                        {moment(item.project_due).format("MMM")}
+                      </time>                      
+                      <div className="txt-holder">
+                        <div className="project-name">                        
+                          <a href={`/project/detail?project=${item.id}`}>
+                            {item.project_name}
+                          </a>                        
+                        </div>                    
+                      </div>
+                      <a href={`/project/detail?project=${item.id}`} className="btn-more">
+                        <i className="fa fa-angle-right"></i> More Detail
+                      </a>
+                    </article>                  
+                  ))}                            
+                </div>
+              </div>
+            </div>
             <div className="row">
-              <div
-                className="col-xs-12 col-sm-8 wow fadeInLeft"
-                data-wow-delay="1s"
-              >
-                {list.map((item, index) => {                
-                  const tail = list.length;
-                  if((tail-1) === index) {
-                    return (
-                      <article className="blog-post style2" key={item.id}>
-                        <div className="img-holder">
-                          <a href={`/project/detail?project=${item.id}`}>
-                            <img
-                              src={`${API.urlStorage}/${item.photo_name}`}
-                              alt="image description"
-                            />
-                          </a>
-                          <ul className="list-unstyled comment-nav">
-                            <li>
-                              <a href="#">
-                                <i className="fa fa-share-alt"></i>
-                                {item.share_count}
-                              </a>
-                            </li>
-                          </ul>
-                        </div>
-                        <div className="blog-txt">
-                          <h2>
-                            <a href={`/project/detail?project=${item.id}`}>
-                              {item.project_name}
-                            </a>
-                          </h2>
-                          <ul className="list-unstyled blog-nav">
-                            <li>
-                              {" "}                          
-                              <i className="fa fa-clock-o"></i>{" "}
-                              {moment(item.project_due).format("LL")}                          
-                            </li>
-                          </ul>
-                          <div
-                            dangerouslySetInnerHTML={{
-                              __html: `${item.description.substring(0, 200)}`,
-                            }}
-                          />                          
-                          <a
-                            href={`/project/detail?project=${item.id}`}
-                            className="btn-more"
-                          >
-                            Read More
-                          </a>
-                        </div>
-                      </article>
-                    );
-                  } else {
-                    return (
-                      <article className="blog-post style2" key={item.id}>
-                        <div className="img-holder">
-                          <a href={`/project/detail?project=${item.id}`}>
-                            <img
-                              src={`${API.urlStorage}/${item.photo_name}`}
-                              alt="image description"
-                            />
-                          </a>
-                          <ul className="list-unstyled comment-nav">
-                            <li>
-                              <a href="#">
-                                <i className="fa fa-share-alt"></i>
-                                {item.share_count}
-                              </a>
-                            </li>
-                          </ul>
-                        </div>
-                        <div className="blog-txt">
-                          <h2>
-                            <a href={`/project/detail?project=${item.id}`}>
-                              {item.project_name}
-                            </a>
-                          </h2>
-                          <ul className="list-unstyled blog-nav">
-                            <li>
-                              {" "}                          
-                              <i className="fa fa-clock-o"></i>{" "}
-                              {moment(item.project_due).format("LL")}                          
-                            </li>
-                          </ul>
-                          <div
-                            dangerouslySetInnerHTML={{
-                              __html: `${item.description.substring(0, 200)}`,
-                            }}
-                          />                          
-                          <a
-                            href={`/project/detail?project=${item.id}`}
-                            className="btn-more"
-                          >
-                            Read More
-                          </a>
-                        </div>
-                      </article>
-                    );
-                  }                                                 
-                })}
-
+              <div className="col-xs-12">
                 <div className="btn-holder">
                   <Pagination
                     count={data.last_page}
                     page={param.page}
                     onChange={this.onChangePage}
-                  />
+                  />                
                 </div>
-              </div>
-              <div
-                className="col-xs-12 col-sm-4 text-right sidebar wow fadeInRight"
-                data-wow-delay="0.4s"
-              >
-                <section className="widget popular-widget">
-                  <h3>POPULAR PROJECT</h3>
-                  <ul className="list-unstyled text-right popular-post">
-                    {newest.map((item) => (
-                      <li key={item.id} className="wow fadeInUp" data-wow-delay="0.2s">
-                        <div className="img-post">
-                          <a href={`/project/detail?project=${item.id}`}>
-                            <img
-                              src={`${API.urlStorage}/${item.photo_name}`}
-                              alt="image description"
-                            />
-                          </a>
-                        </div>
-                        <div className="info-dscrp">
-                          <a href={`/project/detail?project=${item.id}`}>
-                            {item.project_name}
-                          </a>
-                          <br />
-                          <time>{moment(item.project_due).format("LL")}</time>
-                        </div>
-                      </li>
-                    ))}
-                  </ul>
-                </section>
               </div>
             </div>
           </div>

@@ -62,38 +62,28 @@ class Detail extends React.Component {
       <main id="mt-main">
         {copied && <Toast text="Your Link was Copied" />}
         <Banner title="Project" />
-        <div class="mt-blog-detail style1">
-          <div class="container">
-            <div class="row">
-              <div
-                class="col-xs-12 col-sm-12 wow fadeInUp"
-                data-wow-delay="0.4s"
-              >
-                <article class="blog-post detail">
-                  <div class="img-holder wow fadeInUp" data-wow-delay="1s">
-                    <Slide>
-                      {photo.map((item) => (
+        <div className="mt-blog-detail fullwidth wow fadeInUp" data-wow-delay="0.4s">
+          <div className="container">            
+            <div className="row">
+              <div className="col-xs-12 mar-top-5">                
+                <article className="blog-post style3">
+                  <div className="img-holder wow fadeInUp" data-wow-delay="1s">                    
+                    {photo.map((item, index) => {
+                      const order = [0];
+                      return order.includes(index) ? (
                         <img
                           src={`${API.urlStorage}/${item.photo_name}`}
                           alt="image description"
                           key={item.id}
                         />
-                      ))}
-                    </Slide>
-                  </div>
-                  <time class="time" datetime="2016-02-03 20:00">
-                    <strong>{moment(data.project_due).format("DD")}</strong>
-                    {moment(data.project_due).format("MMM")}
-                  </time>
-                  <div class="blog-txt">
-                    <h2>{data.project_name}</h2>
-                    <ul class="list-unstyled blog-nav">
-                      <li>
-                        {" "}
-                        <i class="fa fa-clock-o"></i>
-                        {moment(data.project_due).format("LL")}
-                      </li>
-                      <li>
+                      ): null;
+                    })}
+                     <time className="time" datetime="2016-02-03 20:00">
+                      <strong>{moment(data.project_due).format("DD")}</strong>
+                      {moment(data.project_due).format("MMM")}
+                    </time>
+                    <ul className="list-unstyled comment-nav">                      
+                      <li> 
                         <CopyToClipboard
                           text={window.location.href}
                           onCopy={() => this.copy()}
@@ -105,16 +95,32 @@ class Detail extends React.Component {
                         </CopyToClipboard>
                       </li>
                     </ul>
+                  </div>
+                  <div className="blog-txt">
+                    <h2>{data.project_name}</h2>
+                    <ul className="list-unstyled blog-nav">
+                      <li> 
+                        {" "}
+                        <i className="fa fa-clock-o"></i>
+                        {moment(data.project_due).format("LL")}</li>              
+                    </ul>
                     <div
                       dangerouslySetInnerHTML={{
                         __html: `${data.description}`,
                       }}
                     />
-                    {/* <p>
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum inventore impedit omnis tenetur deleniti, provident nulla vel reprehenderit ab sit illo officiis numquam et optio blanditiis atque! Placeat repudiandae distinctio est vitae. Tempore molestias, cum repudiandae dolores totam quae reprehenderit quaerat sed maiores iusto vitae. Laboriosam pariatur modi animi minima nam! Quibusdam maxime earum atque molestias nulla nihil a iusto ratione ea alias magni dolorum distinctio quidem unde laudantium possimus minima cumque, ut culpa itaque vero provident vitae. Facere numquam quae dignissimos nam ipsam doloremque quo fuga quisquam corrupti itaque? Ipsa nobis reprehenderit illo deleniti, architecto necessitatibus voluptate dolorem omnis.
-                    </p> */}
+                    <div className="img-block fullwidth wow fadeInUp" data-wow-delay="0.4s">
+                      {photo.map((item) => (                          
+                        <div className="img" key={item.id}>
+                          <a href={`${API.urlStorage}/${item.photo_name}`} className="lightbox">
+                            <img src={`${API.urlStorage}/${item.photo_name}`} alt="image description"/>
+                            <i className="fa fa-search-plus"></i>
+                          </a>
+                        </div>
+                      ))}                         
+                    </div>                    
                   </div>
-                </article>
+                </article>                                                                                  
               </div>
             </div>
           </div>
