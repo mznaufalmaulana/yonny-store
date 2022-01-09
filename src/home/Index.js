@@ -2,12 +2,15 @@ import React from "react";
 // import { Slide, Fade } from "react-slideshow-image";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
+import Caro from 'react-multi-carousel';
+import 'react-multi-carousel/lib/styles.css';
 import API from "../services";
 
 class Index extends React.Component {
   state = {
     promoHeadline: [],
     promo: [],
+    latest: []
   };
 
   componentDidMount() {
@@ -22,6 +25,12 @@ class Index extends React.Component {
         this.setState({ promo: result.data });
       }
     });
+
+    API.get(`product/latest`).then((result) => {    
+      if (result.message === "success") {        
+        this.setState({ latest: result.data });
+      }
+    })
   }
 
   render() {
@@ -43,87 +52,43 @@ class Index extends React.Component {
       transitionTime: 2000,
     };
 
-    return (
+    const responsive = {
+      desktop: {
+        breakpoint: { max: 3000, min: 1024 },
+        items: 3,
+        slidesToSlide: 3 // optional, default to 1.
+      },
+      tablet: {
+        breakpoint: { max: 1024, min: 464 },
+        items: 2,
+        slidesToSlide: 2 // optional, default to 1.
+      },
+      mobile: {
+        breakpoint: { max: 464, min: 0 },
+        items: 1,
+        slidesToSlide: 1 // optional, default to 1.
+      }
+    };
+
+    return (      
       <div>
-        <div class="mt-main-slider">
-          <div class="slider banner-slider">
-            <div
-              class="holder text-center"
-              style={{ backgroundImage: "url(http://placehold.it/1920x585)" }}
-            >
-              <div class="container">
-                <div class="row">
-                  <div class="col-xs-12">
-                    <div class="text centerize">
-                      <strong class="title">FURNITURE DESIGNS IDEAS</strong>
-                      <h1>LIGHTING</h1>
-                      <h2>PENDANT LAMPS</h2>
-                      <div class="txt">
-                        <p>
-                          Consectetur adipisicing elit. Beatae accusamus, optio,
-                          repellendus inventore
-                        </p>
-                      </div>
-                      <a href="product-detail.html" class="shop">
-                        shop now
-                      </a>
-                    </div>
+        <div className="mt-main-slider">
+          <div className="slider banner-slider">
+            <Carousel {...properties}>
+              {this.state.promoHeadline.map((promoHead) => (              
+                <a href={promoHead.link} key={promoHead.id}>
+                  <div
+                    className="s-holder wow fadeInLeft each-fade"
+                    data-wow-delay="0.4s"                    
+                  >
+                    <a href={promoHead.link}>
+                      <img src={`${API.urlStorage}${promoHead.photo_name}`}/>
+                    </a>
                   </div>
-                </div>
-              </div>
-            </div>
-
-            <div
-              class="holder text-center"
-              style={{ backgroundImage: "url(http://placehold.it/1920x585)" }}
-            >
-              <div class="container">
-                <div class="row">
-                  <div class="col-xs-12">
-                    <div class="text right">
-                      <strong class="title">FURNITURE DESIGNS IDEAS</strong>
-                      <h1>LOUNGE CHAIRS</h1>
-                      <h2>SW DAYBED</h2>
-                      <div class="txt">
-                        <p>
-                          Consectetur adipisicing elit. Beatae accusamus, optio,
-                          repellendus inventore
-                        </p>
-                      </div>
-                      <a href="product-detail.html" class="shop">
-                        shop now
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div
-              class="holder text-center"
-              style={{ backgroundImage: "url(http://placehold.it/1920x585)" }}
-            >
-              <div class="container">
-                <div class="row">
-                  <div class="col-xs-12">
-                    <div class="text">
-                      <strong class="title">FURNITURE DESIGNS IDEAS</strong>
-                      <h1>CARDBOARD</h1>
-                      <h2> Sofas and Armchairs</h2>
-                      <div class="txt">
-                        <p>
-                          Consectetur adipisicing elit. Beatae accusamus, optio,
-                          repellendus inventore
-                        </p>
-                      </div>
-                      <a href="product-detail.html" class="shop">
-                        shop now
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+                </a>
+                
+              ))}
+            </Carousel>            
           </div>
         </div>
 
@@ -131,81 +96,79 @@ class Index extends React.Component {
           <div className="container">
             <div className="row">
               <div className="col-xs-12">
-                <div className="banner-frame mt-paddingsmzero">
-                  <div
-                    className="slider-7 mt-paddingbottomsm"
-                    data-wow-delay="0.4s"
-                  >
-                    <div className="slide banner-slider">
-                      <Carousel
-                        {...properties}
-                        // renderIndicator={(onClickHandler, isSelected, index, label) => {
-                        //   const defStyle = { marginLeft: 20, color: "white", cursor: "pointer" };
-                        //   const style = isSelected
-                        //     ? { ...defStyle, color: "blue" }
-                        //     : { ...defStyle };
-                        //   return (
-                        //     <span
-                        //       style={style}
-                        //       onClick={onClickHandler}
-                        //       onKeyDown={onClickHandler}
-                        //       value={index}
-                        //       key={index}
-                        //       role="button"
-                        //       tabIndex={0}
-                        //       aria-label={`${label} ${index + 1}`}
-                        //     >
-                        //       {"tab " + index}
-                        //     </span>
-                        //   );
-                        // }}
-                      >
-                        {this.state.promoHeadline.map((promoHead) => (
-                          <a href={promoHead.link}>
-                            <div
-                              className="s-holder wow fadeInLeft each-fade"
-                              data-wow-delay="0.4s"
-                              key={promoHead.id}
-                            >
-                              <img
-                                src={`${API.urlStorage}${promoHead.photo_name}`}
-                              />
-                            </div>
-                          </a>
-                        ))}
-                      </Carousel>
-                    </div>
-                  </div>
-
-                  <div
-                    className="banner-frame nospace wow fadeInUp"
-                    data-wow-delay="0.4s"
-                  >
-                    {this.state.promo.map((promo, index) => {
-                      const order = [2, 3, 4];
-                      return order.includes(index) ? (
+                <div className="banner-frame">
+                  { this.state.promo.map((promo, index) => {
+                    const order = [0];
+                    return order.includes(index) ? (                                           
+                      <div className="banner-1 wow fadeInLeft image-zoom" data-wow-delay="0.4s" key={promo.id}>
                         <a href={promo.link}>
-                          <div
-                            className={`banner-${
-                              7 + index
-                            } right white wow fadeInUp`}
-                            data-wow-delay="0.4s"
-                            key={promo.id}
-                          >
-                            <img src={`${API.urlStorage}${promo.photo_name}`} />
-                          </div>
+                          <img alt="image description" src={`${API.urlStorage}${promo.photo_name}`}/>                        
                         </a>
-                      ) : null;
-                    })}
-                  </div>
-                  <br />
-                  <br />
-                  <br />
-                </div>
+                      </div>   
+                    ):null;
+                  })}                                      
+                  
+                  <div className="banner-box first">   
+                    { this.state.promo.map((promo, index) => {
+                      const order = [1,2];
+                      return order.includes(index) ? (                                           
+                        <div className={`banner-${index+1} wow fadeInUp image-zoom`} data-wow-delay="0.4s" key={promo.id}>
+                          <a href={promo.link}>
+                            <img alt="image description" src={`${API.urlStorage}${promo.photo_name}`}/>                   
+                          </a>
+                        </div>   
+                      ):null;
+                    })}                                              
+                  </div>                  
+                  
+                  { this.state.promo.map((promo, index) => {
+                    const order = [3];
+                    return order.includes(index) ? (                                           
+                      <div className={`banner-${index+1} wow fadeInRight image-zoom`} data-wow-delay="0.4s" key={promo.id}>
+                        <a href={promo.link}>
+                          <img alt="image description" src={`${API.urlStorage}${promo.photo_name}`}/>                        
+                        </a>
+                      </div>   
+                    ):null;
+                  })}                              
+                </div>                    
+                <br /><br />       
               </div>
             </div>
           </div>
-        </main>
+          {/* <div className="mt-bestseller text-center wow fadeInUp" data-wow-delay="0.4s">
+            <div className="container">
+              <div className="row">
+                <div className="col-xs-12 mt-heading text-uppercase">
+                  <h2 className="heading">Collection</h2>
+                  <p>GREAT QUALITY PRODUCT</p>
+                </div>
+              </div>
+              <div className="row">
+                <div className="col-xs-12">
+                  <div className="bestseller-slider wow fadeInUp" data-wow-delay="0.4s">                  
+                    <Caro                                                       
+                      ssr
+                      partialVisbile
+                      deviceType={this.props.deviceType}
+                      itemClass="image-item"
+                      responsive={responsive}
+                    >
+                      {this.state.latest.map((late) => (                    
+                        <a href={`/product/detail?product=${late.id}`}>
+                          <img 
+                            draggable={false}
+                            src={`${API.urlStorage}${late.photo_name}`}
+                          />                         
+                        </a>                      
+                      ))}
+                    </Caro>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div> */}
+        </main>        
       </div>
     );
   }

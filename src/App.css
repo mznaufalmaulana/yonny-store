@@ -52,7 +52,7 @@
 }
 
 .tab-content{
-  max-width: 600px;  
+  max-width: auto;  
 }
 
 .tab-column{
@@ -115,6 +115,15 @@
   transition: all 0.4s linear;
   color: #e6951a;
 }
+
+.image-zoom{
+  transition: transform .5s;
+}
+
+.image-zoom:hover {
+  transform: scale(1.05);
+}
+
 .each-fade {
   display: flex;
   width: 100%;

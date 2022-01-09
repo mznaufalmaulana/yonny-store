@@ -175,7 +175,7 @@ class Index extends React.Component {
                     >
                       <div className="box">
                         <div className="b1">
-                          <div className="b2">
+                          <div className="b2 image-zoom">
                             <a href={`/product/detail?product=${item.id}`}>
                               <img
                                 className="img-product-list"

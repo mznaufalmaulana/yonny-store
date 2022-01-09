@@ -70,7 +70,7 @@ class Index extends React.Component {
                 <div className="blog-isotops">
                   {list.map((item) => (                  
                     <article className="post-blog wow fadeInLeft" data-wow-delay="0.4s" key={item.id}>
-                      <div className="img-holder">
+                      <div className="img-holder image-zoom">
                         <a href={`/project/detail?project=${item.id}`}>
                           <img src={`${API.urlStorage}/${item.photo_name}`} alt="image description"/>
                         </a>
