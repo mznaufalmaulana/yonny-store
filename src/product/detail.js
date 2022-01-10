@@ -1,6 +1,5 @@
 import React from "react";
 import API from "../services";
-// import { Slide } from "react-slideshow-image";
 import ModalSendEmail from "./modal/SendEmailProductModal";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import Toast from "../component/Toast";
@@ -88,19 +87,19 @@ class Detail extends React.Component {
   render() {
     const { data, photo, related, param, copied} = this.state;
     const properties = {
-      showArrows: false,
+      showArrows: true,
       showStatus: false,
       showIndicators: false,
-      infiniteLoop: true,
+      infiniteLoop: false,
       showThumbs: true,
       useKeyboardArrows: true,
-      autoPlay: true,
-      stopOnHover: true,
-      swipeable: true,  
+      autoPlay: false,
+      stopOnHover: false,
+      swipeable: false,  
       dynamicHeight: true,
       emulateTouch: true,  
-      selectedItem: photo.length,    
-      interval: 7000,
+      selectedItem: 0,    
+      interval: 0,
       transitionTime: 2000,      
     };
 
@@ -173,7 +172,7 @@ class Detail extends React.Component {
                       </a>
                     </li>
                   </ul>
-                  <div                    
+                  <div className="product-detail-desc"                   
                     dangerouslySetInnerHTML={{
                       __html: `${data.description}`,
                     }}
@@ -203,7 +202,7 @@ class Detail extends React.Component {
                   <div className="col-xs-12 mar-top-1">
                     {related.map((item) => (
                       <div
-                        className="mt-product1 wow fadeInUp"
+                        className="mt-product1 wow fadeInUp image-zoom"
                         data-wow-delay="0.2s"
                         key={item.id}
                       >

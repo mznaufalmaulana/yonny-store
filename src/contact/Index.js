@@ -4,6 +4,7 @@ import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import API from "../services";
 import { Spinner } from "reactstrap";
+import Notif from "../component/Notification";
 
 class Index extends React.Component {
   constructor(props) {
@@ -93,7 +94,7 @@ class Index extends React.Component {
                 <div className="contact-address">
                   <h1>Contact Address</h1>
                 </div>
-                <Tabs className="tab-custom wow fadeInUp" data-wow-delay="0.5s">
+                <Tabs className="tab-custom wow fadeInUp contact-text" data-wow-delay="0.5s">
                   <TabList>
                     {list.map((item) => (
                       <Tab key={item.id}>{item.region}</Tab>
@@ -129,6 +130,7 @@ class Index extends React.Component {
                   <div className={`alert alert-${alert.status}`}>
                     <strong>{alert.greetings}</strong> {alert.message}
                   </div>
+                  // <Notif/>
                 )}
                 <form action="#" className="contact-form">
                   <fieldset>

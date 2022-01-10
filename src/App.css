@@ -47,7 +47,7 @@
 }
 
 .tab-custom{
-  margin-top: 27px;
+  margin-top: 29px;
   max-width: 600px;
 }
 
@@ -114,6 +114,33 @@
   -webkit-transition: all 0.4s linear;
   transition: all 0.4s linear;
   color: #e6951a;
+}
+
+.product-detail-desc{
+  font-size: 16pt;     
+  /* font-family: "Montserrat", sans-serif; */
+}
+
+.blog-text{
+  font-size: 10pt;     
+  font-family: "Montserrat", sans-serif;
+}
+
+.contact-text{
+  font-size: 10pt;     
+  font-family: "Montserrat", sans-serif;
+}
+
+@media only screen 
+and (min-width: 1400px) 
+and (max-width: 2000px) {
+  .blog-detail {
+    margin-bottom: -300px;
+  }
+}
+
+.reduce-margin{
+  margin-bottom: -50px;
 }
 
 .image-zoom{

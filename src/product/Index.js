@@ -170,12 +170,12 @@ class Index extends React.Component {
                 {this.state.list ? this.state.list.map((item) => (
                   <li key={item.id}>
                     <div
-                      className="mt-product1 large wow fadeInRight"
+                      className="mt-product1 large wow fadeInRight image-zoom"
                       data-wow-delay="0.2s"
                     >
                       <div className="box">
                         <div className="b1">
-                          <div className="b2 image-zoom">
+                          <div className="b2">
                             <a href={`/product/detail?product=${item.id}`}>
                               <img
                                 className="img-product-list"

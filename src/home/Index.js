@@ -2,7 +2,7 @@ import React from "react";
 // import { Slide, Fade } from "react-slideshow-image";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
-import Caro from 'react-multi-carousel';
+import MultiCarousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import API from "../services";
 
@@ -48,7 +48,7 @@ class Index extends React.Component {
       dynamicHeight: true,
       emulateTouch: true,
       selectedItem: promoHeadline.length,
-      interval: 7000,
+      interval: 10000,
       transitionTime: 2000,
     };
 
@@ -93,7 +93,7 @@ class Index extends React.Component {
         </div>
 
         <main id="mt-main">
-          <div className="container">
+          <div className="container reduce-margin">
             <div className="row">
               <div className="col-xs-12">
                 <div className="banner-frame">
@@ -147,9 +147,8 @@ class Index extends React.Component {
               <div className="row">
                 <div className="col-xs-12">
                   <div className="bestseller-slider wow fadeInUp" data-wow-delay="0.4s">                  
-                    <Caro                                                       
-                      ssr
-                      partialVisbile
+                    <MultiCarousel                                                       
+                      ssr={true}                      
                       deviceType={this.props.deviceType}
                       itemClass="image-item"
                       responsive={responsive}
@@ -162,7 +161,7 @@ class Index extends React.Component {
                           />                         
                         </a>                      
                       ))}
-                    </Caro>
+                    </MultiCarousel>
                   </div>
                 </div>
               </div>
