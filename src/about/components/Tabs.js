@@ -75,7 +75,7 @@ export default function IndexTabs() {
         aria-label="scrollable tabs example"
         centered
         variant="scrollable"
-        // allowScrollButtonsMobile
+        // allowScrollButtonsMobile        
       >
         <StyledTab label="Our Story" />
         <StyledTab label="Our Adventages" />
@@ -86,7 +86,7 @@ export default function IndexTabs() {
       </StyledTabs>
       <TabPanel value={value} index={0}>
         <h3>Our Story</h3>
-        <p>
+        <p className="contact-text">
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Autem
           praesentium magnam ipsa laudantium fugiat, iusto doloribus libero
           dignissimos recusandae esse amet quis nisi nostrum ut nulla,

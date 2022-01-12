@@ -10,7 +10,7 @@ class Index extends React.Component {
   state = {
     promoHeadline: [],
     promo: [],
-    latest: []
+    collection: []
   };
 
   componentDidMount() {
@@ -26,11 +26,11 @@ class Index extends React.Component {
       }
     });
 
-    API.get(`product/latest`).then((result) => {    
+    API.get(`product/related/8`).then((result) => {    
       if (result.message === "success") {        
-        this.setState({ latest: result.data });
-      }
-    })
+        this.setState({ collection: result.data });
+      }      
+    })  
   }
 
   render() {
@@ -72,21 +72,18 @@ class Index extends React.Component {
 
     return (      
       <div>
-        <div className="mt-main-slider">
+        <div className="mt-main-slider mar-top-2">
           <div className="slider banner-slider">
             <Carousel {...properties}>
-              {this.state.promoHeadline.map((promoHead) => (              
-                <a href={promoHead.link} key={promoHead.id}>
-                  <div
-                    className="s-holder wow fadeInLeft each-fade"
-                    data-wow-delay="0.4s"                    
-                  >
-                    <a href={promoHead.link}>
-                      <img src={`${API.urlStorage}${promoHead.photo_name}`}/>
-                    </a>
-                  </div>
-                </a>
-                
+              {this.state.promoHeadline.map((promoHead) => (                              
+                <div
+                  className="s-holder wow fadeInLeft each-fade"
+                  data-wow-delay="0.4s"                    
+                >
+                  <a href={promoHead.link}>
+                    <img src={`${API.urlStorage}${promoHead.photo_name}`}/>
+                  </a>
+                </div>                                
               ))}
             </Carousel>            
           </div>
@@ -100,7 +97,7 @@ class Index extends React.Component {
                   { this.state.promo.map((promo, index) => {
                     const order = [0];
                     return order.includes(index) ? (                                           
-                      <div className="banner-1 wow fadeInLeft image-zoom" data-wow-delay="0.4s" key={promo.id}>
+                      <div className="banner-1 wow fadeInLeft image-zoom-promo" data-wow-delay="0.4s" key={promo.id}>
                         <a href={promo.link}>
                           <img alt="image description" src={`${API.urlStorage}${promo.photo_name}`}/>                        
                         </a>
@@ -112,7 +109,7 @@ class Index extends React.Component {
                     { this.state.promo.map((promo, index) => {
                       const order = [1,2];
                       return order.includes(index) ? (                                           
-                        <div className={`banner-${index+1} wow fadeInUp image-zoom`} data-wow-delay="0.4s" key={promo.id}>
+                        <div className={`banner-${index+1} wow fadeInUp image-zoom-promo`} data-wow-delay="0.4s" key={promo.id}>
                           <a href={promo.link}>
                             <img alt="image description" src={`${API.urlStorage}${promo.photo_name}`}/>                   
                           </a>
@@ -124,7 +121,7 @@ class Index extends React.Component {
                   { this.state.promo.map((promo, index) => {
                     const order = [3];
                     return order.includes(index) ? (                                           
-                      <div className={`banner-${index+1} wow fadeInRight image-zoom`} data-wow-delay="0.4s" key={promo.id}>
+                      <div className={`banner-${index+1} wow fadeInRight image-zoom-promo`} data-wow-delay="0.4s" key={promo.id}>
                         <a href={promo.link}>
                           <img alt="image description" src={`${API.urlStorage}${promo.photo_name}`}/>                        
                         </a>
@@ -136,7 +133,7 @@ class Index extends React.Component {
               </div>
             </div>
           </div>
-          {/* <div className="mt-bestseller text-center wow fadeInUp" data-wow-delay="0.4s">
+          <div className="mt-bestseller text-center wow fadeInUp" data-wow-delay="0.4s">
             <div className="container">
               <div className="row">
                 <div className="col-xs-12 mt-heading text-uppercase">
@@ -145,28 +142,34 @@ class Index extends React.Component {
                 </div>
               </div>
               <div className="row">
-                <div className="col-xs-12">
-                  <div className="bestseller-slider wow fadeInUp" data-wow-delay="0.4s">                  
-                    <MultiCarousel                                                       
-                      ssr={true}                      
-                      deviceType={this.props.deviceType}
-                      itemClass="image-item"
-                      responsive={responsive}
-                    >
-                      {this.state.latest.map((late) => (                    
-                        <a href={`/product/detail?product=${late.id}`}>
+                <div className="col-md-12 z-index">                  
+                  <MultiCarousel                                                       
+                    ssr={true}                      
+                    deviceType={this.props.deviceType}
+                    itemClass="image-item"
+                    responsive={responsive}
+                  >
+                    {this.state.collection.map((collection) => (          
+                      <div className="image-zoom-collection collection-name wow fadeInUp" 
+                        data-wow-delay="0.4s" 
+                        key={collection.id}
+                      >
+                        <a href={`/product/detail?product=${collection.id}`}>
                           <img 
                             draggable={false}
-                            src={`${API.urlStorage}${late.photo_name}`}
-                          />                         
-                        </a>                      
-                      ))}
-                    </MultiCarousel>
-                  </div>
+                            src={`${API.urlStorage}${collection.photo_name}`}
+                          />                                                   
+                          <strong>                              
+                            {collection.product_name}                              
+                          </strong>                          
+                        </a> 
+                      </div>
+                    ))}
+                  </MultiCarousel>                  
                 </div>
               </div>
             </div>
-          </div> */}
+          </div>
         </main>        
       </div>
     );

@@ -118,7 +118,7 @@ class Category extends React.Component {
           </section>
 
           <section className="shop-widget">
-            <h2>NEW PRODUCT</h2>
+            <h2>LATEST PRODUCT</h2>
 
             {newest.map((item) => (
               <div className="mt-product4 mt-paddingbottom20 wow fadeInUp" data-wow-delay="0.2s" key={item.id}>
