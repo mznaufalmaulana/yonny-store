@@ -164,11 +164,11 @@ class Index extends React.Component {
                   </ul>
                 </div>
 
-                <div className="mt-textbox">
-                  <h2>
+                <div className="mt-textbox">                  
+                  <div>
                     <strong>Category : </strong>
                     All
-                  </h2>
+                  </div>
                   <p>
                     Showing{" "}
                     <strong>
@@ -190,27 +190,37 @@ class Index extends React.Component {
                     )
                   : null}
 
-                {this.state.list ? this.state.list.map((item) => (
-                  <li key={item.id}>
-                    <div
-                      className="mt-product1 text-center large wow fadeInRight image-zoom"
-                      data-wow-delay="0.2s"
-                    >
-                      <div className="box bg-grey">
-                        <div className="b1">
-                          <div className="b2">
-                            <a href={`/product/detail?product=${item.id}`}>                             
-                              <img
-                                className="img-product-list"
-                                src={`${API.urlStorage}/${item.photo_name}`}
-                                alt={item.product_name}
-                              />
-                            </a>
+                {this.state.list 
+                  ? this.state.list.map((item) => (
+                    <li key={item.id}>
+                      <div
+                        className="mt-product1 text-center large wow fadeInRight image-zoom"
+                        data-wow-delay="0.2s"
+                      >
+                        <div className="box">
+                          <div className="b1">
+                            <div className="b2">
+                              <a href={`/product/detail?product=${item.id}`}>                             
+                                <img
+                                  className="img-product-list"
+                                  src={`${API.urlStorage}/${item.photo_name}`}
+                                  alt={item.product_name}
+                                />
+                              </a>
+                            </div>
                           </div>
                         </div>
-                      </li>
-                    ))
-                  : null}
+                        <div className="txt">
+                          <strong className="title">
+                            <a href={`/product/detail?product=${item.id}`}>
+                              {item.product_name}
+                            </a>
+                          </strong>
+                        </div>
+                      </div>
+                    </li>
+                  )) 
+                : null}
               </ul>
 
               <nav className="mt-pagination paging">

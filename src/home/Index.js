@@ -84,51 +84,27 @@ class Index extends React.Component {
       autoplaySpeed: 10000,
       cssEase: "linear",
       slidesToShow: 1,
-      slidesToScroll: 1,
+      slidesToScroll: 1,      
       fade: true,
-      pauseOnHover: true,
-      responsive: [
-        {
-          breakpoint: 1024,
-          settings: {
-            slidesToShow: 3,
-            slidesToScroll: 3,
-            infinite: true,
-            dots: true
-          }
-        },
-        {
-          breakpoint: 600,
-          settings: {
-            slidesToShow: 2,
-            slidesToScroll: 2,
-            initialSlide: 2
-          }
-        },
-        {
-          breakpoint: 480,
-          settings: {
-            slidesToShow: 1,
-            slidesToScroll: 1
-          }
-        }
-      ],      
+      pauseOnHover: true      
     };
 
     return (      
       <div>
         <div className="mar-top-2">          
             <Slider {...settings} >
-              {this.state.promoHeadline.map((promoHead) => (                              
-                <div
-                  className="s-holder wow fadeInLeft each-fade"
-                  data-wow-delay="0.4s"         
-                  key={promoHead.id}           
-                >
-                  <a href={promoHead.link}>
-                    <img src={`${API.urlStorage}${promoHead.photo_name}`}/>
-                  </a>
-                </div>                                
+              {this.state.promoHeadline.map((promoHead) => (
+                 <a href={promoHead.link} key={promoHead.id}>
+                  <div
+                    className="s-holder wow fadeInLeft each-fade"
+                    data-wow-delay="0.4s"         
+                          
+                  >
+                    {/* <a href={promoHead.link}> */}
+                      <img src={`${API.urlStorage}${promoHead.photo_name}`}/>
+                    {/* </a> */}
+                  </div>                                
+                 </a>                        
               ))}
             </Slider>                      
         </div>
