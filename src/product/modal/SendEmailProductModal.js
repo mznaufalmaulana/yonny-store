@@ -2,6 +2,7 @@ import React from "react";
 import { Button, Modal, ModalBody } from "reactstrap";
 import API from "../../services";
 import swal from "@sweetalert/with-react";
+import Toast from "../../component/Toast";
 class SendEmailProductModal extends React.Component {
   constructor(props) {
     super(props);
@@ -69,18 +70,22 @@ class SendEmailProductModal extends React.Component {
     const { alert } = this.state;
     return (
       <div className="product-detail-tab wow fadeInUp" data-wow-delay="0.5s">
+        {alert.show && <Toast text={alert.message} />}
         <div className="container">
           <div className="row">
-            <div className="col-xs-12 col-md-6 wow fadeInUp" data-wow-delay="0.4s">
+            <div
+              className="col-xs-12 col-md-6 wow fadeInUp"
+              data-wow-delay="0.4s"
+            >
               <div id="tab3">
                 <form action="#" className="p-commentform">
                   <fieldset>
                     <h2>Any Question?</h2>
-                    {alert.show && (
+                    {/* {alert.show && (
                       <div className={`alert alert-${alert.status}`}>
                         <strong>{alert.greetings}</strong> {alert.message}
                       </div>
-                    )}
+                    )} */}
                     <div className="mt-row mar-top-1">
                       <label>Name</label>
                       <input

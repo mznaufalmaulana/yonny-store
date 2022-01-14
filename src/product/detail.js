@@ -3,8 +3,8 @@ import API from "../services";
 import ModalSendEmail from "./modal/SendEmailProductModal";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import Toast from "../component/Toast";
-import 'react-responsive-carousel/lib/styles/carousel.min.css';
-import { Carousel } from 'react-responsive-carousel';
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { Carousel } from "react-responsive-carousel";
 
 class Detail extends React.Component {
   constructor(props) {
@@ -22,7 +22,10 @@ class Detail extends React.Component {
         email: "",
         message: "",
       },
-      copied: false,
+      toast: {
+        show: false,
+        text: "",
+      },
       openModal: false,
       sliderLength: "",
     };
@@ -37,10 +40,9 @@ class Detail extends React.Component {
       if (result.message === "success") {
         this.setState({
           data: result.data[0],
-          photo: result.data[0].photo,          
+          photo: result.data[0].photo,
         });
         this.realatedProduct(result.data[0].product_category[0].id);
-
       }
     });
   }
@@ -60,8 +62,10 @@ class Detail extends React.Component {
   }
 
   copy() {
-    const { param } = this.state;
-    this.setState({ copied: true });
+    const { param, toast } = this.state;
+    this.setState({
+      toast: { ...toast, show: true, text: "Your Link was Copied" },
+    });
     API.get(`product/detail/share-count/${param.product}`).then((result) => {
       if (result.message === "success") {
         this.getshareCount();
@@ -70,7 +74,7 @@ class Detail extends React.Component {
   }
 
   getshareCount() {
-    const { param, data } = this.state;
+    const { param, data, toast } = this.state;
     API.get(`product/detail/${param.product}`).then((result) => {
       if (result.message === "success") {
         this.setState({
@@ -78,14 +82,14 @@ class Detail extends React.Component {
             ...data,
             share_count: result.data[0].share_count,
           },
-          copied: false,
+          toast: { ...toast, show: false, text: "" },
         });
       }
     });
   }
 
   render() {
-    const { data, photo, related, param, copied} = this.state;
+    const { data, photo, related, param, toast } = this.state;
     const properties = {
       showArrows: true,
       showStatus: false,
@@ -95,17 +99,17 @@ class Detail extends React.Component {
       useKeyboardArrows: true,
       autoPlay: false,
       stopOnHover: false,
-      swipeable: false,  
+      swipeable: false,
       dynamicHeight: true,
-      emulateTouch: true,  
-      selectedItem: 0,    
+      emulateTouch: true,
+      selectedItem: 0,
       interval: 0,
-      transitionTime: 2000,      
+      transitionTime: 2000,
     };
 
     return (
       <main id="mt-main">
-        {copied && <Toast text="Your Link was Copied" />}
+        {toast.show && <Toast text={toast.text} />}
         <section
           className="mt-product-detial wow fadeInUp mb-5"
           data-wow-delay="0.4s"
@@ -122,7 +126,7 @@ class Detail extends React.Component {
                           className="slide wow fadeInUp"
                           data-wow-delay="0.2s"
                           key={item.id}
-                        >                           
+                        >
                           <img
                             src={`${API.urlStorage}${item.photo_name}`}
                             alt="image descrption"
@@ -172,24 +176,25 @@ class Detail extends React.Component {
                       </a>
                     </li>
                   </ul>
-                  <div className="product-detail-desc"                   
+                  <div
+                    className="product-detail-desc"
                     dangerouslySetInnerHTML={{
                       __html: `${data.description}`,
                     }}
-                  />                 
+                  />
                 </div>
               </div>
             </div>
           </div>
         </section>
         <br />
-        <ModalSendEmail 
-          product_id={param.product} 
+        <ModalSendEmail
+          product_id={param.product}
           photo_name={photo.map((item, index) => {
             const order = [0];
             return order.includes(index) ? item.photo_name : null;
           })}
-          />
+        />
         <br />
 
         <div className="related-products wow fadeInUp reduce-margin" data-wow-delay="0.5s">
@@ -228,7 +233,7 @@ class Detail extends React.Component {
               </div>
             </div>
           </div>
-        </div>        
+        </div>
       </main>
     );
   }
