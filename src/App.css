@@ -30,12 +30,12 @@
 
 .footer-logo{
   width: 300px;
-  margin: -15px 0px 10px -22px;
+  margin: -5px 0px 13px 0px;
 }
 
 .topbar-logo{
-  width: 300px;
-  margin: 0px 0px 0px -15px;
+  width: 500px;
+  margin: 0px 0px 0px 0px;
 }
 
 .MuiPagination-ul{
@@ -47,7 +47,7 @@
 }
 
 .tab-custom{
-  margin-top: 27px;
+  margin-top: 29px;
   max-width: 600px;
 }
 
@@ -76,6 +76,10 @@
   font-size: 16px;
   line-height: 18px;
   margin: 0 10px 0 0;
+}
+
+.pad-bot-1{
+  padding-bottom: 20px;
 }
 
 .mar-top-1{
@@ -116,11 +120,81 @@
   color: #e6951a;
 }
 
+.product-detail-desc{
+  font-size: 16pt;     
+  /* font-family: "Montserrat", sans-serif; */
+}
+
+.collection-name{
+  font-size: 12pt;
+  font-family: "Montserrat", sans-serif;
+}
+
+.collection-name a:hover{
+  -webkit-transition: all 0.4s linear;
+  transition: all 0.4s linear;
+  color: #e6951a;
+}
+
+.blog-text{
+  font-size: 10pt;     
+  font-family: "Montserrat", sans-serif;
+}
+
+.contact-text{
+  font-size: 10pt;     
+  font-family: "Montserrat", sans-serif;
+}
+
+@media only screen 
+and (min-width: 1400px) 
+and (max-width: 2000px) {
+  .blog-detail {
+    margin-bottom: -300px;
+  }
+
+  .reduce-margin{
+    margin-bottom: -50px;
+    margin-top: 30px;
+  }
+
+}
+
+@media only screen 
+and (min-width: 375px) 
+and (max-width: 800px) {
+  .reduce-margin{
+    margin-bottom: -50px;    
+  }
+
+  .mar-top-2{
+    margin-top: 0px;
+  }
+}
+
 .image-zoom{
-  transition: transform .5s;
+  transition: transform .5s;  
 }
 
 .image-zoom:hover {
+  transform: scale(1.05);
+}
+
+.image-zoom-promo{
+  transition: transform .5s;  
+  padding: 3px;
+}
+
+.image-zoom-promo:hover {
+  transform: scale(1.05);
+}
+
+.image-zoom-collection{
+  transition: transform .5s;  
+  padding: 10px;
+}
+
+.image-zoom-collection:hover {
   transform: scale(1.05);
 }
 
@@ -137,6 +211,19 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.box-shadow{
+  -webkit-box-shadow: 0 0 10px 3px rgba(0, 0, 0, .1);
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, .1);  
+}
+
+.border-image{
+  border-radius: 5px 5px 0px 0px;
+}
+
+.z-index{
+  z-index: 0;  
 }
 
 @keyframes App-logo-spin {

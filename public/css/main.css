@@ -6921,7 +6921,8 @@ a:hover {
 -------------------------------------------------------------------*/
 
 .mt-bestseller {
-  padding: 69px 0 100px;
+  /* padding: 69px 0 100px; */
+  padding: 10px 0 100px;
 }
 
 .mt-bestseller .slick-prev,
@@ -10514,10 +10515,15 @@ a:hover {
 70. Blog Isotops / #blog-isotops
 -------------------------------------------------------------------*/
 
-.blog-isotops {
-  /* margin: 0 0 90px; */
-  overflow: hidden;
-  margin: 0 -50px 90px 0;
+@media only screen 
+and (min-width: 1400px) 
+and (max-width: 2600px) {
+  .blog-isotops {
+    /* margin: 0 0 90px; */
+    overflow: hidden;
+    margin: 0px -65px 90px 0;
+    padding: 10px 0px 0px 15px;
+  }
 }
 
 /*------------------------------------------------------------------
@@ -12776,7 +12782,7 @@ a:focus {
 }
 
 .topbar-logo {
-  width: 200px !important;
+  width: 230px !important;
 }
 
 .img-product-list {

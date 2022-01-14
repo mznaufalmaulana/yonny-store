@@ -129,7 +129,7 @@ class Category extends React.Component {
           </section>
 
           <section className="shop-widget">
-            <h2>NEW PRODUCT</h2>
+            <h2>LATEST PRODUCT</h2>
 
             {newest.map((item) => (
               <div

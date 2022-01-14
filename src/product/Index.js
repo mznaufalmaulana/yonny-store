@@ -194,12 +194,12 @@ class Index extends React.Component {
                   ? this.state.list.map((item) => (
                       <li key={item.id}>
                         <div
-                          className="mt-product1 large wow fadeInRight"
+                          className="mt-product1 large wow fadeInRight image-zoom"
                           data-wow-delay="0.2s"
                         >
                           <div className="box">
                             <div className="b1">
-                              <div className="b2 image-zoom">
+                              <div className="b2">
                                 <a href={`/product/detail?product=${item.id}`}>
                                   <img
                                     className="img-product-list"
@@ -209,13 +209,6 @@ class Index extends React.Component {
                                 </a>
                               </div>
                             </div>
-                          </div>
-                          <div className="txt">
-                            <strong className="title">
-                              <a href={`/product/detail?product=${item.id}`}>
-                                {item.product_name}
-                              </a>
-                            </strong>
                           </div>
                         </div>
                       </li>

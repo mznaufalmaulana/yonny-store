@@ -65,7 +65,7 @@ class Detail extends React.Component {
         <div className="mt-blog-detail fullwidth wow fadeInUp" data-wow-delay="0.4s">
           <div className="container">            
             <div className="row">
-              <div className="col-xs-12 mar-top-5">                
+              <div className="col-xs-12 mar-top-5 blog-detail">                
                 <article className="blog-post style3">
                   <div className="img-holder wow fadeInUp" data-wow-delay="1s">                    
                     {photo.map((item, index) => {
@@ -104,7 +104,7 @@ class Detail extends React.Component {
                         <i className="fa fa-clock-o"></i>
                         {moment(data.project_due).format("LL")}</li>              
                     </ul>
-                    <div
+                    <div className="blog-text"
                       dangerouslySetInnerHTML={{
                         __html: `${data.description}`,
                       }}

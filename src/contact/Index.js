@@ -95,7 +95,10 @@ class Index extends React.Component {
                 <div className="contact-address">
                   <h1>Contact Address</h1>
                 </div>
-                <Tabs className="tab-custom wow fadeInUp" data-wow-delay="0.5s">
+                <Tabs
+                  className="tab-custom wow fadeInUp contact-text"
+                  data-wow-delay="0.5s"
+                >
                   <TabList>
                     {list.map((item) => (
                       <Tab key={item.id}>{item.region}</Tab>
