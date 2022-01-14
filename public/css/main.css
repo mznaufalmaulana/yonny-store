@@ -7290,10 +7290,13 @@ a:hover {
   line-height: 16px;
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
-  padding: 2px 0 34px;
+  /* padding: 2px 0 34px; */
+  padding: 2px 0 20px;
   overflow: hidden;
-  margin: 0 0 23px;
+  /* margin: 0 0 23px; */
+  margin: 0 0 15px;
   border-width: 0 0 1px;
+  /* border-width: 0 0 0px; */
   border-style: solid;
   color: #b6b6b6;
   border-color: #e1e1e1;
@@ -7914,7 +7917,7 @@ a:hover {
   color: #aaa;
   background: #f6f6f6;
   overflow: hidden;
-  padding: 55px 0 40px;
+  padding: 55px 0 55px;
   font: 300 16px/21px "Source Sans Pro", sans-serif;
 }
 

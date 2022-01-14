@@ -1,9 +1,15 @@
 import React from "react";
 // import { Slide, Fade } from "react-slideshow-image";
-import "react-responsive-carousel/lib/styles/carousel.min.css";
-import { Carousel } from "react-responsive-carousel";
+// import { Carousel } from "react-responsive-carousel";
+import Carousel from "react-responsive-carousel/lib/js/components/Carousel/index";
+import "react-responsive-carousel/lib/styles/carousel.css";
 import MultiCarousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
+
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
+
 import API from "../services";
 
 class Index extends React.Component {
@@ -49,7 +55,7 @@ class Index extends React.Component {
       emulateTouch: true,
       selectedItem: promoHeadline.length,
       interval: 10000,
-      transitionTime: 2000,
+      transitionTime: 2000,      
     };
 
     const responsive = {
@@ -70,30 +76,68 @@ class Index extends React.Component {
       }
     };
 
+    const settings = {
+      dots: true,
+      infinite: true,      
+      autoplay: true,
+      speed: 1000,
+      autoplaySpeed: 10000,
+      cssEase: "linear",
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      fade: true,
+      pauseOnHover: true,
+      responsive: [
+        {
+          breakpoint: 1024,
+          settings: {
+            slidesToShow: 3,
+            slidesToScroll: 3,
+            infinite: true,
+            dots: true
+          }
+        },
+        {
+          breakpoint: 600,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 2,
+            initialSlide: 2
+          }
+        },
+        {
+          breakpoint: 480,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1
+          }
+        }
+      ],      
+    };
+
     return (      
       <div>
-        <div className="mt-main-slider mar-top-2">
-          <div className="slider banner-slider">
-            <Carousel {...properties}>
+        <div className="mar-top-2">          
+            <Slider {...settings} >
               {this.state.promoHeadline.map((promoHead) => (                              
                 <div
                   className="s-holder wow fadeInLeft each-fade"
-                  data-wow-delay="0.4s"                    
+                  data-wow-delay="0.4s"         
+                  key={promoHead.id}           
                 >
                   <a href={promoHead.link}>
                     <img src={`${API.urlStorage}${promoHead.photo_name}`}/>
                   </a>
                 </div>                                
               ))}
-            </Carousel>            
-          </div>
+            </Slider>                      
         </div>
 
         <main id="mt-main">
           <div className="container reduce-margin">
             <div className="row">
               <div className="col-xs-12">
-                <div className="banner-frame">
+                <div className="banner-frame pad-bot-1">
                   { this.state.promo.map((promo, index) => {
                     const order = [0];
                     return order.includes(index) ? (                                           
@@ -133,6 +177,7 @@ class Index extends React.Component {
               </div>
             </div>
           </div>
+          
           <div className="mt-bestseller text-center wow fadeInUp" data-wow-delay="0.4s">
             <div className="container">
               <div className="row">

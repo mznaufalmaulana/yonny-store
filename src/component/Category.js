@@ -121,7 +121,7 @@ class Category extends React.Component {
             <h2>LATEST PRODUCT</h2>
 
             {newest.map((item) => (
-              <div className="mt-product4 mt-paddingbottom20 wow fadeInUp" data-wow-delay="0.2s" key={item.id}>
+              <div className="mt-product4 mt-paddingbottom20 wow fadeInUp image-zoom" data-wow-delay="0.2s" key={item.id}>
                 <div className="img">
                   <a href={`/product/detail?product=${item.id}`}>
                     <img src={`${API.urlStorage}/${item.photo_name}`} />

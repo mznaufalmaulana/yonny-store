@@ -6921,7 +6921,8 @@ a:hover {
 -------------------------------------------------------------------*/
 
 .mt-bestseller {
-  padding: 69px 0 100px;
+  /* padding: 69px 0 100px; */
+  padding: 10px 0 100px;
 }
 
 .mt-bestseller .slick-prev,
@@ -7289,10 +7290,13 @@ a:hover {
   line-height: 16px;
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
-  padding: 2px 0 34px;
+  /* padding: 2px 0 34px; */
+  padding: 2px 0 20px;
   overflow: hidden;
-  margin: 0 0 23px;
+  /* margin: 0 0 23px; */
+  margin: 0 0 15px;
   border-width: 0 0 1px;
+  /* border-width: 0 0 0px; */
   border-style: solid;
   color: #b6b6b6;
   border-color: #e1e1e1;
@@ -7913,7 +7917,7 @@ a:hover {
   color: #aaa;
   background: #f6f6f6;
   overflow: hidden;
-  padding: 55px 0 40px;
+  padding: 55px 0 55px;
   font: 300 16px/21px "Source Sans Pro", sans-serif;
 }
 
@@ -10514,10 +10518,15 @@ a:hover {
 70. Blog Isotops / #blog-isotops
 -------------------------------------------------------------------*/
 
-.blog-isotops {
-  /* margin: 0 0 90px; */
-  overflow: hidden;
-  margin: 0 -50px 90px 0;
+@media only screen 
+and (min-width: 1400px) 
+and (max-width: 2600px) {
+  .blog-isotops {
+    /* margin: 0 0 90px; */
+    overflow: hidden;
+    margin: 0px -65px 90px 0;
+    padding: 10px 0px 0px 15px;
+  }
 }
 
 /*------------------------------------------------------------------
@@ -12776,7 +12785,7 @@ a:focus {
 }
 
 .topbar-logo {
-  width: 200px !important;
+  width: 230px !important;
 }
 
 .img-product-list {

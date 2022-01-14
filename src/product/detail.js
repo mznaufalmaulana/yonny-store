@@ -192,7 +192,7 @@ class Detail extends React.Component {
           />
         <br />
 
-        <div className="related-products wow fadeInUp" data-wow-delay="0.5s">
+        <div className="related-products wow fadeInUp reduce-margin" data-wow-delay="0.5s">
           <div className="container">
             <div className="row">
               <div className="col-xs-12 mar-top-3">
@@ -202,7 +202,7 @@ class Detail extends React.Component {
                   <div className="col-xs-12 mar-top-1">
                     {related.map((item) => (
                       <div
-                        className="mt-product1 wow fadeInUp image-zoom"
+                        className="mt-product1 text-center wow fadeInUp image-zoom"
                         data-wow-delay="0.2s"
                         key={item.id}
                       >
@@ -214,7 +214,7 @@ class Detail extends React.Component {
                             />
                           </a>
                         </div>
-                        <div className="txt">
+                        <div>
                           <strong className="title">
                             <a href={`/product/detail?product=${item.id}`}>
                               {item.product_name}

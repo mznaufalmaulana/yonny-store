@@ -127,7 +127,7 @@ class SendEmailProductModal extends React.Component {
                     </div>
                   </fieldset>
                 </form>
-                <button className="btn-type1 mar-top-2" onClick={() => this.sendMail()}>
+                <button className="btn-type1 mar-top-button-2" onClick={() => this.sendMail()}>
                   Send Email
                 </button>
               </div>
