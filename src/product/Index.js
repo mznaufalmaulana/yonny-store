@@ -55,6 +55,23 @@ class Index extends React.Component {
     });
   }
 
+  // getCategory() {
+  //   const param = this.state.param;
+  //   API.get(
+  //     `product/list?page=${param.page}&sort=${param.sort}&category=${param.cat}&name=${param.name}${type}`
+  //   ).then((result) => {
+  //     this.setState({
+  //       list: result.data.data,
+  //       data: {
+  //         from: result.data.from,
+  //         to: result.data.to,
+  //         total: result.data.total,
+  //         last_page: result.data.last_page,
+  //       },
+  //     });
+  //   });
+  // }
+
   onChangePage(e, val) {
     const param = this.state.param;
     let url = "";
@@ -104,7 +121,7 @@ class Index extends React.Component {
       <main id="mt-main">
         <Banner title="Product" category={this.state.param.cat} />
         <div className="container">
-          <div className="row">           
+          <div className="row">
             <Category
               onChange={(id, val) => this.onChangeParams(id, val)}
               paramType={param.type}
@@ -148,6 +165,10 @@ class Index extends React.Component {
                 </div>
 
                 <div className="mt-textbox">
+                  <h2>
+                    <strong>Category : </strong>
+                    All
+                  </h2>
                   <p>
                     Showing{" "}
                     <strong>
@@ -159,43 +180,47 @@ class Index extends React.Component {
               </header>
 
               <ul className="mt-productlisthold list-inline">
-                { this.state.list ? this.state.list.length <= 0 && (
-                  <div>
-                    <p className="text-center">
-                      Sorry, We Couldn't Find What You Want :(
-                    </p>
-                  </div>
-                ):null }
+                {this.state.list
+                  ? this.state.list.length <= 0 && (
+                      <div>
+                        <p className="text-center">
+                          Sorry, We Couldn't Find What You Want :(
+                        </p>
+                      </div>
+                    )
+                  : null}
 
-                {this.state.list ? this.state.list.map((item) => (
-                  <li key={item.id}>
-                    <div
-                      className="mt-product1 large wow fadeInRight"
-                      data-wow-delay="0.2s"
-                    >
-                      <div className="box">
-                        <div className="b1">
-                          <div className="b2 image-zoom">
-                            <a href={`/product/detail?product=${item.id}`}>
-                              <img
-                                className="img-product-list"
-                                src={`${API.urlStorage}/${item.photo_name}`}
-                                alt={item.product_name}
-                              />
-                            </a>
+                {this.state.list
+                  ? this.state.list.map((item) => (
+                      <li key={item.id}>
+                        <div
+                          className="mt-product1 large wow fadeInRight"
+                          data-wow-delay="0.2s"
+                        >
+                          <div className="box">
+                            <div className="b1">
+                              <div className="b2 image-zoom">
+                                <a href={`/product/detail?product=${item.id}`}>
+                                  <img
+                                    className="img-product-list"
+                                    src={`${API.urlStorage}/${item.photo_name}`}
+                                    alt={item.product_name}
+                                  />
+                                </a>
+                              </div>
+                            </div>
+                          </div>
+                          <div className="txt">
+                            <strong className="title">
+                              <a href={`/product/detail?product=${item.id}`}>
+                                {item.product_name}
+                              </a>
+                            </strong>
                           </div>
                         </div>
-                      </div>
-                      <div className="txt">
-                        <strong className="title">
-                          <a href={`/product/detail?product=${item.id}`}>
-                            {item.product_name}
-                          </a>
-                        </strong>
-                      </div>
-                    </div>
-                  </li>
-                )):null}
+                      </li>
+                    ))
+                  : null}
               </ul>
 
               <nav className="mt-pagination paging">

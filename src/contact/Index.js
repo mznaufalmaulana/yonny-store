@@ -4,6 +4,7 @@ import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import API from "../services";
 import { Spinner } from "reactstrap";
+import Toast from "../component/Toast";
 
 class Index extends React.Component {
   constructor(props) {
@@ -82,6 +83,7 @@ class Index extends React.Component {
     const { list, question, isLoading, alert } = this.state;
     return (
       <main id="mt-main">
+        {alert.show && <Toast text={alert.message} />}
         <Banner title="Contact" />
         <section
           className="mt-contact-detail content-info wow fadeInUp"
@@ -112,9 +114,18 @@ class Index extends React.Component {
                         <tbody className="txt-size">
                           {item.contact.map((addr) => (
                             <tr key={addr.id}>
-                              <td className="tab-column">{addr.first_address}{addr.second_address}</td>
-                              <td className="tab-column"><a href={`tel:${addr.phone}`}>{addr.phone}</a></td>
-                              <td className="tab-column"><a href={`mailto:${addr.email}`}>{addr.email}</a></td>
+                              <td className="tab-column">
+                                {addr.first_address}
+                                {addr.second_address}
+                              </td>
+                              <td className="tab-column">
+                                <a href={`tel:${addr.phone}`}>{addr.phone}</a>
+                              </td>
+                              <td className="tab-column">
+                                <a href={`mailto:${addr.email}`}>
+                                  {addr.email}
+                                </a>
+                              </td>
                             </tr>
                           ))}
                         </tbody>
@@ -125,11 +136,6 @@ class Index extends React.Component {
               </div>
               <div className="col-xs-12 col-sm-4 form-question">
                 <h2>Have a question?</h2>
-                {alert.show && (
-                  <div className={`alert alert-${alert.status}`}>
-                    <strong>{alert.greetings}</strong> {alert.message}
-                  </div>
-                )}
                 <form action="#" className="contact-form">
                   <fieldset>
                     <input

@@ -70,9 +70,15 @@ class Menu extends React.Component {
                   <div className="mt-nav-box">
                     <ul className="mt-top-list hidden-sm hidden-xs">
                       <li>
-                        <a href={`https://wa.me/${ this.state.contact ? this.state.contact.phone : null}`} target="_blank">
+                        <a
+                          href={`https://wa.me/${
+                            this.state.contact ? this.state.contact.phone : null
+                          }`}
+                          target="_blank"
+                        >
                           <i className="fa fa-whatsapp" aria-hidden="true"></i>
-                          &nbsp; {this.state.contact ? this.state.contact.phone : null}
+                          &nbsp;{" "}
+                          {this.state.contact ? this.state.contact.phone : null}
                         </a>
                       </li>
                     </ul>
@@ -85,7 +91,7 @@ class Menu extends React.Component {
                           </li>
 
                           <li className="drop">
-                            <a href="/product">
+                            <a href="/product?page=1">
                               PRODUCTS &nbsp;
                               <i
                                 className="fa fa-angle-down"
@@ -145,6 +151,18 @@ class Menu extends React.Component {
                                             </div>
                                           )
                                         )}
+                                        {idx === 2 && (
+                                          <div className="sub-dropcont">
+                                            <a
+                                              href={`/product?page=1`}
+                                              className="mt-subopener"
+                                            >
+                                              <strong className="title">
+                                                All Categories
+                                              </strong>
+                                            </a>
+                                          </div>
+                                        )}
                                       </div>
                                     )
                                   )}
@@ -152,16 +170,18 @@ class Menu extends React.Component {
                                     <div className="mt-promobox">
                                       {this.state.promo.map((promo, index) => {
                                         const order = [5];
-                                        return order.includes(index) ? (
-                                          <a href={promo.link} key={promo.id}>
-                                            <img
-                                              src={
-                                                API.urlStorage +
-                                                promo.photo_name
-                                              }
-                                            />
-                                          </a>
-                                        ) : null;
+                                        return (
+                                          order.includes(index) && (
+                                            <a href={promo.link} key={promo.id}>
+                                              <img
+                                                src={
+                                                  API.urlStorage +
+                                                  promo.photo_name
+                                                }
+                                              />
+                                            </a>
+                                          )
+                                        );
                                       })}
                                     </div>
                                   </div>

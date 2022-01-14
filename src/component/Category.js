@@ -48,7 +48,7 @@ class Category extends React.Component {
   }
 
   render() {
-    const { typeSelected, type, cat, newest } = this.state;    
+    const { typeSelected, type, cat, newest } = this.state;
     return (
       <>
         <aside
@@ -102,7 +102,18 @@ class Category extends React.Component {
             <h2>CATEGORIES</h2>
 
             <ul className="list-unstyled category-list">
-              {cat.length === 0 ? "Loading..." : ""}
+              {cat.length === 0 ? (
+                "Loading..."
+              ) : (
+                <li>
+                  <a href="#" onClick={() => this.props.onChange("cat", 0)}>
+                    <span className="name">All Categories</span>
+                    <span className="num">
+                      {cat.reduce((a, v) => (a = a + v.total_product), 0)}
+                    </span>
+                  </a>
+                </li>
+              )}
               {cat.map((item) => (
                 <li key={item.id}>
                   <a
@@ -121,7 +132,11 @@ class Category extends React.Component {
             <h2>NEW PRODUCT</h2>
 
             {newest.map((item) => (
-              <div className="mt-product4 mt-paddingbottom20 wow fadeInUp" data-wow-delay="0.2s" key={item.id}>
+              <div
+                className="mt-product4 mt-paddingbottom20 wow fadeInUp"
+                data-wow-delay="0.2s"
+                key={item.id}
+              >
                 <div className="img">
                   <a href={`/product/detail?product=${item.id}`}>
                     <img src={`${API.urlStorage}/${item.photo_name}`} />
