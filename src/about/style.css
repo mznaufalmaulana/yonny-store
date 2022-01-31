@@ -1,0 +1,10 @@
+.center-vertical {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.list-client {
+  margin-top: 25px !important;
+}
