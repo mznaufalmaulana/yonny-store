@@ -109,7 +109,7 @@ class Footer extends React.Component {
                       <img
                         src={logo}
                         className="footer-logo"
-                        width="10px"
+                        // width="10px"
                         alt="batuYonny"
                       />
                     </a>
@@ -121,6 +121,17 @@ class Footer extends React.Component {
                           <br />
                           {contact ? contact.second_address : null}
                         </address>
+                      </li>
+                      <li>
+                        <i className="fa fa-whatsapp"></i>
+                        <a
+                          href={`https://wa.me/${
+                            contact ? contact.phone : null
+                          }`}
+                          target="_blank"
+                        >
+                          {contact ? contact.phone : null}
+                        </a>
                       </li>
                       <li>
                         <i className="fa fa-phone"></i>
@@ -153,7 +164,7 @@ class Footer extends React.Component {
                     </ul>
                   </div>
                 </nav>
-                <div className="col-xs-12 col-md-3 text-right hidden-sm">
+                <div className="col-xs-12 col-md-3 col-sm-8 mt-paddingbottomsm text-right hidden-sm">
                   <div className="f-widget-newsletter">
                     <h3 className="f-widget-heading">Sing Up Newsletter</h3>
                     <p>

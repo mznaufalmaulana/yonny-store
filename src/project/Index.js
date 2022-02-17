@@ -64,43 +64,57 @@ class Index extends React.Component {
       <main id="mt-main">
         <Banner title="Project" />
         <div className="mt-blog-detail style4">
-          <div className="container">            
-            <div className="row">              
-              <div className="col-xs-12 mar-top-4">
-                <div className="blog-isotops">
-                  {list.map((item) => (                  
-                    <article className="post-blog wow fadeInLeft image-zoom box-shadow pad-bot-2" data-wow-delay="0.4s" key={item.id}>
-                      <div className="img-holder">
-                        <a href={`/project/detail?project=${item.id}`}>
-                          <img src={`${API.urlStorage}/${item.photo_name}`} alt="image description"/>
-                        </a>
-                        <ul className="list-unstyled comment-nav">                        
-                          <li>
-                              <a href="#">
-                                <i className="fa fa-share-alt"></i>
-                                {item.share_count}
-                              </a>
-                          </li>
-                        </ul>
-                      </div>               
-                      <time className="time" dateTime="2016-02-03 20:00">
-                        <strong>{moment(item.project_due).format("DD")}</strong>
-                        {moment(item.project_due).format("MMM")}
-                      </time>                      
-                      <div className="txt-holder">
-                        <div className="project-name">                        
-                          <a href={`/project/detail?project=${item.id}`}>
-                            {item.project_name}
-                          </a>                        
-                        </div>                    
-                      </div>
-                      <a href={`/project/detail?project=${item.id}`} className="btn-more">
-                        <i className="fa fa-angle-right"></i> More Detail
+          <div className="container mar-top-5">
+            <div className="row pad-bot-2">
+              {list.map((item) => (
+                <div className="col-sm-6 col-md-4">
+                  <article
+                    className="post-blog wow fadeInLeft image-zoom box-shadow pad-bot-2"
+                    data-wow-delay="0.4s"
+                    key={item.id}
+                  >
+                    <div className="img-holder">
+                      <a href={`/project/detail?project=${item.id}`}>
+                        {/* <img
+                          src={`${API.urlStorage}/${item.photo_name}`}
+                          alt="image description"
+                          className="img-responsive"
+                        /> */}
+                        <img
+                          src="https://source.unsplash.com/800x410?hotel-lobby"
+                          alt="image description"
+                          className="img-responsive"
+                        />
                       </a>
-                    </article>                  
-                  ))}                            
+                      <ul className="list-unstyled comment-nav">
+                        <li>
+                          <a href="#">
+                            <i className="fa fa-share-alt"></i>
+                            {item.share_count}
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                    <time className="time" dateTime="2016-02-03 20:00">
+                      <strong>{moment(item.project_due).format("DD")}</strong>
+                      {moment(item.project_due).format("MMM")}
+                    </time>
+                    <div className="txt-holder">
+                      <div className="project-name">
+                        <a href={`/project/detail?project=${item.id}`}>
+                          {item.project_name}
+                        </a>
+                      </div>
+                    </div>
+                    <a
+                      href={`/project/detail?project=${item.id}`}
+                      className="btn-more"
+                    >
+                      <i className="fa fa-angle-right"></i> More Detail
+                    </a>
+                  </article>
                 </div>
-              </div>
+              ))}
             </div>
             <div className="row">
               <div className="col-xs-12">
@@ -109,7 +123,7 @@ class Index extends React.Component {
                     count={data.last_page}
                     page={param.page}
                     onChange={this.onChangePage}
-                  />                
+                  />
                 </div>
               </div>
             </div>

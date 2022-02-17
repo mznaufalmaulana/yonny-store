@@ -26,16 +26,14 @@ class Index extends React.Component {
     return (
       <main id="mt-main">
         <Banner title="About" />
-        <section className="mt-about-sec wow fadeInUp" data-wow-delay="0.4s">
-          <div className="container">
-            <div className="row center-vertical">
-              {/* <div className="col-xs-12">
-                <IndexTabs />
-              </div> */}
-              <div className="col-md-6">
-                <img src={logo} className="" />
+        <section className="mt-about-sec wow fadeInUp about-section" data-wow-delay="0.4s">
+          <div className="container">        
+            <div className="row">
+              <div className="col col-md-6 col-sm-12">
+                <img src={"https://source.unsplash.com/800x450?company"} className="" />
               </div>
-              <div className="col-md-6 text-justify">
+              <div className="col col-md-6 col-sm-12 text-justify">
+                <h2 className="about-title">COMPANY PROFILE</h2>
                 <p>
                   Batu Yonny has been operating in Tulungagung, Indonesia since
                   the 1980s. Since then, we have become one of the largest
@@ -69,51 +67,43 @@ class Index extends React.Component {
                 </p>
               </div>
             </div>
-            <div className="row center-vertical">
-              <div className="col-md-6 text-justify">
+            <br />
+            <div className="row mar-top-5">
+              <div className="col-md-6 col-sm-12 hidden-md hidden-lg">
+                <img src={"https://source.unsplash.com/800x450?company"} className="" />
+              </div>
+              <div className="col-md-6 col-sm-12 text-justify">
+              <h2 className="text-uppercase about-title">PROCESS</h2>
                 <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Dignissimos, reprehenderit? Consequuntur facilis blanditiis
-                  nihil dolores. Impedit amet sunt repudiandae provident quae
-                  dicta nam qui? Inventore quo numquam libero at distinctio.
-                  Autem fugiat eligendi id doloremque nulla! Illo adipisci,
-                  debitis tempora eligendi vero in quasi ullam recusandae
-                  eveniet tenetur nam eum minima voluptatem libero obcaecati,
-                  distinctio dolore at amet maiores repellendus. Eos dicta esse
-                  possimus velit accusantium ducimus optio tempora totam, quam
-                  commodi officiis ex saepe laudantium deserunt aliquam voluptas
-                  vitae excepturi dolorum aliquid unde tenetur animi obcaecati
-                  nam minima. Debitis. Ea, dolorum fugit saepe voluptatem
-                  voluptate reprehenderit. Asperiores ea molestias id inventore
-                  cum quaerat esse dolore corporis, ipsum non. Perspiciatis ut
-                  blanditiis deleniti minima accusamus soluta perferendis at
-                  beatae quae? Vero earum nemo, consequuntur maiores distinctio
-                  deserunt quia tempora fugit ad. Laboriosam praesentium
-                  sapiente in accusamus quas corporis. Aspernatur iste quidem
-                  nemo consequuntur perspiciatis alias repellat eligendi culpa
-                  repellendus odio! Illo enim fuga pariatur consectetur deleniti
-                  ducimus recusandae nisi tempore nam, omnis sapiente sit magni
-                  voluptates dolorum earum corporis beatae ab rem, ea, alias
-                  qui? Natus officiis vel porro facere. Beatae repudiandae
-                  tenetur alias at odit incidunt eum qui voluptatem, sequi quam
-                  maxime possimus similique laboriosam! Vel illum natus eum
-                  debitis, velit quam non fugiat corrupti rerum possimus
-                  laudantium libero. Impedit, nihil delectus animi autem
-                  deleniti iste suscipit cupiditate, et expedita voluptatum
-                  error accusamus fugiat in consectetur harum iusto doloremque
-                  nemo, architecto ipsa maxime incidunt corporis? Ipsam labore
-                  consectetur a?
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quisquam 
+                    accusamus veniam velit distinctio repellat? Tempora, qui. Numquam ab 
+                    sequi illum enim temporibus libero eligendi ex itaque similique, voluptatibus 
+                    doloribus officia est illo sit, totam laborum quidem consectetur eum mollitia 
+                    vitae. Culpa ex consequuntur dolores maxime animi provident vero dolorum id.
                 </p>
+                <p>
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quisquam accusamus 
+                    veniam velit distinctio repellat? Tempora, qui. Numquam ab sequi illum enim temporibus 
+                    libero eligendi ex itaque similique, voluptatibus doloribus officia est illo sit, 
+                    totam laborum quidem consectetur eum mollitia vitae. Culpa ex consequuntur dolores maxime 
+                    animi provident vero dolorum id.
+                </p>          
+                <p>
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quisquam accusamus 
+                    veniam velit distinctio repellat? Tempora, qui. Numquam ab sequi illum enim temporibus 
+                    libero eligendi ex itaque similique, voluptatibus doloribus officia est illo sit, 
+                    totam laborum quidem consectetur eum mollitia vitae. Culpa ex consequuntur dolores maxime 
+                    animi provident vero dolorum id.
+                </p>               
               </div>
-              <div className="col-md-6">
-                <img src={logo} className="" />
+              <div className="col-md-6 col-sm-12 hidden-sm hidden-xs">
+                <img src={"https://source.unsplash.com/800x450?company"} className="" />
               </div>
-            </div>
-            <div>
+            </div>            
+            {/* <div className="mar-top-5">
               <h2 className="text-center text-uppercase list-client">
                 Our Projects
-              </h2>
-              <hr />
+              </h2>              
               <Slider {...settings}>
                 <div>
                   <img src={img} className="" />
@@ -133,46 +123,49 @@ class Index extends React.Component {
                 <div>
                   <img src={img} className="" />
                 </div>
-              </Slider>
-              <hr />
-            </div>
-            <h2 className="text-center text-uppercase list-client">
-              Our Clients
-            </h2>
-            <hr />
-            <div className="row center-vertical list-client">
-              <div className="col-md-3">
-                <img src={logo} className="" />
+              </Slider>              
+            </div> */}
+            
+            <br />
+            <div className="mar-top-5">
+              <h2 className="text-center text-uppercase list-client">
+                Our Clients
+              </h2>
+              {/* <hr /> */}
+              <div className="row center-vertical list-client">
+                <div className="col-md-3">
+                  <img src={logo} className="" />
+                </div>
+                <div className="col-md-3">
+                  <img src={logo} className="" />
+                </div>
+                <div className="col-md-3">
+                  <img src={logo} className="" />
+                </div>
+                <div className="col-md-3">
+                  <img src={logo} className="" />
+                </div>
               </div>
-              <div className="col-md-3">
-                <img src={logo} className="" />
+              <div className="row center-vertical list-client">
+                <div className="col-md-3">
+                  <img src={logo} className="" />
+                </div>
+                <div className="col-md-3">
+                  <img src={logo} className="" />
+                </div>
+                <div className="col-md-3">
+                  <img src={logo} className="" />
+                </div>
               </div>
-              <div className="col-md-3">
-                <img src={logo} className="" />
+              <div className="row center-vertical list-client">
+                <div className="col-md-3">
+                  <img src={logo} className="" />
+                </div>
+                <div className="col-md-3">
+                  <img src={logo} className="" />
+                </div>
               </div>
-              <div className="col-md-3">
-                <img src={logo} className="" />
-              </div>
-            </div>
-            <div className="row center-vertical list-client">
-              <div className="col-md-3">
-                <img src={logo} className="" />
-              </div>
-              <div className="col-md-3">
-                <img src={logo} className="" />
-              </div>
-              <div className="col-md-3">
-                <img src={logo} className="" />
-              </div>
-            </div>
-            <div className="row center-vertical list-client">
-              <div className="col-md-3">
-                <img src={logo} className="" />
-              </div>
-              <div className="col-md-3">
-                <img src={logo} className="" />
-              </div>
-            </div>
+            </div>            
           </div>
         </section>
       </main>

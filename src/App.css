@@ -28,42 +28,42 @@
   color: #61dafb;
 }
 
-.footer-logo{
-  width: 300px;
+.footer-logo {
+  max-width: 300px;
   margin: -5px 0px 13px 0px;
 }
 
-.topbar-logo{
-  width: 500px;
+.topbar-logo {
+  max-width: 200px;
   margin: 0px 0px 0px 0px;
 }
 
-.MuiPagination-ul{
-  justify-content: center;    
+.MuiPagination-ul {
+  justify-content: center;
 }
 
-.form-question{
+.form-question {
   margin-top: 25px;
 }
 
-.tab-custom{
+.tab-custom {
   margin-top: 29px;
   max-width: 600px;
 }
 
-.tab-content{
-  max-width: auto;  
+.tab-content {
+  max-width: auto;
 }
 
-.tab-column{
+.tab-column {
   width: 150px;
 }
 
-.txt-size{
+.txt-size {
   font-size: 11pt;
 }
 
-.list-share{
+.list-share {
   margin: 0;
   color: #b6b6b6;
   font-weight: 400;
@@ -72,136 +72,181 @@
   font: 16px/20px "Montserrat", sans-serif;
 }
 
-.icon-share{
+.icon-share {
   font-size: 16px;
   line-height: 18px;
   margin: 0 10px 0 0;
 }
 
-.pad-bot-1{
+.pad-bot-1 {
   padding-bottom: 10px;
 }
 
-.pad-bot-2{
+.pad-bot-2 {
   padding-bottom: 20px;
 }
 
-.mar-top-1{
+.mar-top-1 {
   margin-top: 10px;
 }
 
-.mar-top-2{
+.mar-top-2 {
   margin-top: 20px;
 }
 
-.mar-top-3{
+.mar-top-3 {
   margin-top: 30px;
 }
 
-.mar-top-4{
+.mar-top-4 {
   margin-top: 40px;
 }
 
-.mar-top-5{
+.mar-top-5 {
   margin-top: 50px;
 }
 
-.mar-bot-1{
+.mar-bot-1 {
   margin-bottom: 10px;
 }
-.mar-top-button-2{
+
+.mar-bot-promo-tengah {
+  margin-bottom: 27px;
+}
+
+.mar-top-button-2 {
   margin-top: 20px;
 }
 
-.img-size{
+.mar-top-promo {
+  margin-top: 50px;
+}
+
+.img-size {
   width: 90%;
 }
 
-.project-name{
-  font-size: 17pt;
+.project-name {
+  font-size: 15pt;
   font-weight: bold;
-  text-transform: uppercase;  
+  text-transform: uppercase;
   font-family: "Montserrat", sans-serif;
-  margin: 0px 0px 12px 0px;  
+  margin: 0px 0px 12px 0px;
 }
 
-.project-name a:hover{
+.project-name a:hover {
   -webkit-transition: all 0.4s linear;
   transition: all 0.4s linear;
   color: #e6951a;
 }
 
-.product-detail-desc{
-  font-size: 16pt;     
+.product-detail-desc {
+  font-size: 16pt;
+  border-width: 0 0 1px;
+  border-style: solid;
+  /* color: #b6b6b6; */
+  color: #808080;
+  border-color: #e1e1e1;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
   /* font-family: "Montserrat", sans-serif; */
 }
 
-.collection-name{
+.collection-name {
   font-size: 12pt;
   font-family: "Montserrat", sans-serif;
 }
 
-.collection-name a:hover{
+.collection-name a:hover {
   -webkit-transition: all 0.4s linear;
   transition: all 0.4s linear;
   color: #e6951a;
 }
 
-.blog-text{
-  font-size: 10pt;     
+.blog-text {
+  font-size: 10pt;
   font-family: "Montserrat", sans-serif;
 }
 
-.contact-text{
-  font-size: 10pt;     
+.contact-text {
+  font-size: 10pt;
   font-family: "Montserrat", sans-serif;
 }
 
-@media only screen 
-and (min-width: 1400px) 
-and (max-width: 2000px) {
+@media only screen and (min-width: 1400px) and (max-width: 2000px) {
   .blog-detail {
     margin-bottom: -300px;
   }
 
-  .reduce-margin{
+  .reduce-margin {
     margin-bottom: -50px;
     margin-top: 20px;
   }
 
-}
-
-@media only screen 
-and (min-width: 375px) 
-and (max-width: 800px) {
-  .reduce-margin{
-    margin-bottom: -50px;    
-  }
-
-  .mar-top-2{
-    margin-top: 0px;
+  .detail-product-desc {
+    padding: 0 50px;
   }
 }
 
-.image-zoom{
-  transition: transform .5s;  
+@media only screen and (min-width: 375px) and (max-width: 915px) {
+  .reduce-margin {
+    margin-bottom: -50px;
+  }
+
+  .mar-top-2 {
+    margin-top: 10px;
+  }
+
+  .topbar-logo {
+    margin: 7px 0px 0px 0px;
+  }
+
+  .pad-bot-1 {
+    padding: 15px 0;
+  }
+
+  .mt-productlisthold .align-center {
+    text-align: center;
+  }
+
+  .about-title {
+    margin-top: 20px !important;
+    margin-bottom: 15px !important;
+  }
+
+  .mar-bot-promo-tengah {
+    margin-bottom: 7%;
+  }
+
+  .detail-product-desc {
+    padding: 0px;
+    margin-bottom: 30px;
+  }
+
+  .mar-top-promo {
+    margin-top: 15px;
+  }
+}
+
+.image-zoom {
+  transition: transform 0.5s;
 }
 
 .image-zoom:hover {
   transform: scale(1.05);
 }
 
-.image-zoom-promo{
-  transition: transform .5s;  
-  padding: 3px;
+.image-zoom-promo {
+  transition: transform 0.5s;
+  /* padding: 3px; */
 }
 
 .image-zoom-promo:hover {
   transform: scale(1.05);
 }
 
-.image-zoom-collection{
-  transition: transform .5s;  
+.image-zoom-collection {
+  transition: transform 0.5s;
   padding: 10px;
 }
 
@@ -224,17 +269,38 @@ and (max-width: 800px) {
   object-fit: cover;
 }
 
-.box-shadow{
-  -webkit-box-shadow: 0 0 10px 3px rgba(0, 0, 0, .1);
-  box-shadow: 0 0 10px 1px rgba(0, 0, 0, .1);  
+.box-shadow {
+  -webkit-box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.1);
 }
 
-.border-image{
+.border-image {
   border-radius: 5px 5px 0px 0px;
 }
 
-.z-index{
-  z-index: 0;  
+.z-index {
+  z-index: 0;
+}
+
+.whatsapp {
+  font-size: 10pt;
+  color: #45ba52 !important;
+}
+
+.about-title {
+  margin-bottom: 15px !important;
+}
+
+.about-section {
+  padding-top: 70px;
+}
+
+.product-list {
+  padding-bottom: 50px;
+}
+
+#icon-size {
+  font-size: 14pt;
 }
 
 @keyframes App-logo-spin {

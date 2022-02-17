@@ -9,6 +9,7 @@ class Index extends React.Component {
     super(props);
     this.url = new URLSearchParams(this.props.location.search);
     this.state = {
+      category: [],
       list: [],
       data: {
         from: 0,
@@ -28,8 +29,9 @@ class Index extends React.Component {
     this.onChangeParams = this.onChangeParams.bind(this);
   }
 
-  componentDidMount() {
+  componentDidMount() {    
     this.getList();
+    this.getCategory();
   }
 
   getList() {
@@ -55,22 +57,22 @@ class Index extends React.Component {
     });
   }
 
-  // getCategory() {
-  //   const param = this.state.param;
-  //   API.get(
-  //     `product/list?page=${param.page}&sort=${param.sort}&category=${param.cat}&name=${param.name}${type}`
-  //   ).then((result) => {
-  //     this.setState({
-  //       list: result.data.data,
-  //       data: {
-  //         from: result.data.from,
-  //         to: result.data.to,
-  //         total: result.data.total,
-  //         last_page: result.data.last_page,
-  //       },
-  //     });
-  //   });
-  // }
+  getCategory(){
+    const param = this.state.param;
+    if(param.cat){
+      API.get(
+        `product-category/${param.cat}`
+      ).then((result) => {
+        this.setState({
+          category: result.data[0],                
+        });              
+      });
+    }else{
+      this.setState({
+        category: {category_name:"All Categories"},                
+      });  
+    }
+  }
 
   onChangePage(e, val) {
     const param = this.state.param;
@@ -116,7 +118,7 @@ class Index extends React.Component {
   }
 
   render() {
-    const { data, param } = this.state;
+    const { data, param, category } = this.state;    
     return (
       <main id="mt-main">
         <Banner title="Product" category={this.state.param.cat} />
@@ -135,11 +137,19 @@ class Index extends React.Component {
                   <ul className="list-inline">
                     <li>
                       <a href="#" className="drop-link">
-                        Default Sorting{" "}
+                        { param.sort ? param.sort.toUpperCase()+' Sorting' : 'Default Sorting' }&nbsp;
                         <i aria-hidden="true" className="fa fa-angle-down"></i>
                       </a>
                       <div className="drop">
                         <ul className="list-unstyled">
+                          <li>
+                            <a
+                              href="#"
+                              onClick={() => this.onChangeParams("sort", "")}
+                            >
+                              DEFAULT
+                            </a>
+                          </li>
                           <li>
                             <a
                               href="#"
@@ -166,8 +176,14 @@ class Index extends React.Component {
 
                 <div className="mt-textbox">                  
                   <div>
-                    <strong>Category : </strong>
-                    All
+                    Category : &nbsp;
+                    <strong>
+                      {
+                        category.category_parent_name?
+                          category.category_parent_name+' - '+category.category_name :
+                          category.category_name
+                        }
+                    </strong>
                   </div>
                   <p>
                     Showing{" "}
@@ -179,7 +195,7 @@ class Index extends React.Component {
                 </div>
               </header>
 
-              <ul className="mt-productlisthold list-inline">
+              <div className="row text-center">
                 {this.state.list
                   ? this.state.list.length <= 0 && (
                       <div>
@@ -192,25 +208,21 @@ class Index extends React.Component {
 
                 {this.state.list 
                   ? this.state.list.map((item) => (
-                    <li key={item.id}>
+                    <div className="col-md-4 col-sm-6 product-list" key={item.id}>
                       <div
                         className="mt-product1 text-center large wow fadeInRight image-zoom"
                         data-wow-delay="0.2s"
                       >
-                        <div className="box">
-                          <div className="b1">
-                            <div className="b2">
+                        <div className="box bg-grey">      
                               <a href={`/product/detail?product=${item.id}`}>                             
                                 <img
-                                  className="img-product-list"
+                                  className="img-product-list img-responsive"
                                   src={`${API.urlStorage}/${item.photo_name}`}
                                   alt={item.product_name}
                                 />
-                              </a>
-                            </div>
-                          </div>
+                              </a>                            
                         </div>
-                        <div className="txt">
+                        <div>
                           <strong className="title">
                             <a href={`/product/detail?product=${item.id}`}>
                               {item.product_name}
@@ -218,10 +230,10 @@ class Index extends React.Component {
                           </strong>
                         </div>
                       </div>
-                    </li>
+                    </div>
                   )) 
                 : null}
-              </ul>
+              </div>
 
               <nav className="mt-pagination paging">
                 <Pagination

@@ -2658,7 +2658,8 @@ a:hover {
   border-radius: 18px;
   vertical-align: top;
   display: inline-block;
-  font: 300 14px/20px "Source Sans Pro", sans-serif;
+  /* font: 300 14px/20px "Source Sans Pro", sans-serif; */
+  font: 300 14px/20px "Montserrat", sans-serif;
 }
 
 .btn-type1:hover {
@@ -3203,6 +3204,7 @@ a:hover {
 
 #mt-footer .f-widget-about .address-list.align-right .fa-map-marker,
 #mt-footer .f-widget-about .address-list.align-right .fa-phone,
+#mt-footer .f-widget-about .address-list.align-right .fa-whatsapp,
 #mt-footer .f-widget-about .address-list.align-right .fa-envelope-o,
 #mt-footer .f-widget-about .address-list.align-right address {
   float: right;
@@ -3213,6 +3215,10 @@ a:hover {
 }
 
 #mt-footer .f-widget-about .address-list.align-right .fa-phone {
+  margin: 1px 0 0 9px;
+}
+
+#mt-footer .f-widget-about .address-list.align-right .fa-whatsapp {
   margin: 1px 0 0 9px;
 }
 
@@ -3246,6 +3252,7 @@ a:hover {
 
 #mt-footer .f-widget-about .address-list .fa-map-marker,
 #mt-footer .f-widget-about .address-list .fa-phone,
+#mt-footer .f-widget-about .address-list .fa-whatsapp,
 #mt-footer .f-widget-about .address-list .fa-envelope-o {
   float: left;
 }
@@ -3255,6 +3262,10 @@ a:hover {
 }
 
 #mt-footer .f-widget-about .address-list .fa-phone {
+  margin: 1px 9px 0 0;
+}
+
+#mt-footer .f-widget-about .address-list .fa-whatsapp {
   margin: 1px 9px 0 0;
 }
 
@@ -7103,7 +7114,7 @@ a:hover {
   overflow: hidden;
   padding: 0 0 25px;
   /* background: #f6f6f6; */
-  background: #fff;
+  /* background: lightbox; */
 }
 
 .mt-product-detial .slider {
@@ -7392,12 +7403,13 @@ a:hover {
 }
 
 .mt-product-detial .product-form button {
-  width: 173px;
+  /* width: 173px; */
+  width: 150px;
   padding: 12px 10px 10px;
   text-align: center;
   text-transform: uppercase;
   display: block;
-  font-size: 14px;
+  font-size: 12px;
   line-height: 20px;
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
@@ -8091,7 +8103,8 @@ a:hover {
 -------------------------------------------------------------------*/
 
 .related-products {
-  padding: 0 0 130px;
+  /* padding: 0 0 130px; */
+  padding: 0 0 50px;
 }
 
 .related-products h2 {
@@ -9112,7 +9125,8 @@ a:hover {
 }
 
 .mt-blog-detail.style4 {
-  margin: 0 0 172px;
+  /* margin: 0 0 172px; */
+  margin: 0 0 60px;
 }
 
 .mt-blog-detail.style1 {
@@ -10371,12 +10385,12 @@ a:hover {
 .post-blog {
   width: 374px;
   float: left;
-  margin: 0 37px 48px 0;
-  padding: 0 40px;
+  margin: 0 37px 37px 0;
+  padding: 0 37px;
 }
 
 .post-blog .img-holder {
-  margin: 0 -40px;
+  margin: 0 -37px;
   overflow: hidden;
   position: relative;
 }
@@ -10518,9 +10532,7 @@ a:hover {
 70. Blog Isotops / #blog-isotops
 -------------------------------------------------------------------*/
 
-@media only screen 
-and (min-width: 1400px) 
-and (max-width: 2600px) {
+@media only screen and (min-width: 1400px) and (max-width: 2600px) {
   .blog-isotops {
     /* margin: 0 0 90px; */
     overflow: hidden;
@@ -11318,7 +11330,7 @@ and (max-width: 2600px) {
   background-size: cover;
   text-transform: capitalize;
   background-position: 50% 50%;
-  background-image: url(../images/banner3.png);
+  background-image: url(../images/banner-default.png);
 }
 
 .mt-contact-banner.style4 {
@@ -12785,7 +12797,7 @@ a:focus {
 }
 
 .topbar-logo {
-  width: 230px !important;
+  width: 250px !important;
 }
 
 .img-product-list {

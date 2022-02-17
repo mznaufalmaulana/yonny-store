@@ -62,12 +62,15 @@ class Detail extends React.Component {
       <main id="mt-main">
         {copied && <Toast text="Your Link was Copied" />}
         <Banner title="Project" />
-        <div className="mt-blog-detail fullwidth wow fadeInUp" data-wow-delay="0.4s">
-          <div className="container">            
+        <div
+          className="mt-blog-detail fullwidth wow fadeInUp"
+          data-wow-delay="0.4s"
+        >
+          <div className="container">
             <div className="row">
-              <div className="col-xs-12 mar-top-5 blog-detail">                
+              <div className="col-xs-12 mar-top-5 blog-detail">
                 <article className="blog-post style3">
-                  <div className="img-holder wow fadeInUp" data-wow-delay="1s">                    
+                  <div className="img-holder wow fadeInUp" data-wow-delay="1s">
                     {photo.map((item, index) => {
                       const order = [0];
                       return order.includes(index) ? (
@@ -76,14 +79,14 @@ class Detail extends React.Component {
                           alt="image description"
                           key={item.id}
                         />
-                      ): null;
+                      ) : null;
                     })}
-                     <time className="time" datetime="2016-02-03 20:00">
+                    <time className="time" datetime="2016-02-03 20:00">
                       <strong>{moment(data.project_due).format("DD")}</strong>
                       {moment(data.project_due).format("MMM")}
                     </time>
-                    <ul className="list-unstyled comment-nav">                      
-                      <li> 
+                    <ul className="list-unstyled comment-nav">
+                      <li>
                         <CopyToClipboard
                           text={window.location.href}
                           onCopy={() => this.copy()}
@@ -99,28 +102,39 @@ class Detail extends React.Component {
                   <div className="blog-txt">
                     <h2>{data.project_name}</h2>
                     <ul className="list-unstyled blog-nav">
-                      <li> 
+                      <li>
                         {" "}
                         <i className="fa fa-clock-o"></i>
-                        {moment(data.project_due).format("LL")}</li>              
+                        {moment(data.project_due).format("LL")}
+                      </li>
                     </ul>
-                    <div className="blog-text"
+                    <div
+                      className="blog-text"
                       dangerouslySetInnerHTML={{
                         __html: `${data.description}`,
                       }}
                     />
-                    <div className="img-block fullwidth wow fadeInUp" data-wow-delay="0.4s">
-                      {photo.map((item) => (                          
+                    <div
+                      className="img-block fullwidth wow fadeInUp"
+                      data-wow-delay="0.4s"
+                    >
+                      {photo.map((item) => (
                         <div className="img" key={item.id}>
-                          <a href={`${API.urlStorage}/${item.photo_name}`} className="lightbox">
-                            <img src={`${API.urlStorage}/${item.photo_name}`} alt="image description"/>
+                          <a
+                            href={`${API.urlStorage}/${item.photo_name}`}
+                            className="lightbox"
+                          >
+                            <img
+                              src={`${API.urlStorage}/${item.photo_name}`}
+                              alt="image description"
+                            />
                             <i className="fa fa-search-plus"></i>
                           </a>
                         </div>
-                      ))}                         
-                    </div>                    
+                      ))}
+                    </div>
                   </div>
-                </article>                                                                                  
+                </article>
               </div>
             </div>
           </div>

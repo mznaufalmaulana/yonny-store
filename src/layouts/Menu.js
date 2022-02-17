@@ -71,12 +71,17 @@ class Menu extends React.Component {
                     <ul className="mt-top-list hidden-sm hidden-xs">
                       <li>
                         <a
+                          className="whatsapp"
                           href={`https://wa.me/${
                             this.state.contact ? this.state.contact.phone : null
                           }`}
                           target="_blank"
                         >
-                          <i className="fa fa-whatsapp" aria-hidden="true"></i>
+                          <i
+                            className="fa fa-whatsapp icon-size"
+                            id="icon-size"
+                            aria-hidden="true"
+                          ></i>
                           &nbsp;{" "}
                           {this.state.contact ? this.state.contact.phone : null}
                         </a>
@@ -169,7 +174,7 @@ class Menu extends React.Component {
                                   <div className="mt-col-3 promo">
                                     <div className="mt-promobox">
                                       {this.state.promo.map((promo, index) => {
-                                        const order = [5];
+                                        const order = [4];
                                         return (
                                           order.includes(index) && (
                                             <a href={promo.link} key={promo.id}>
@@ -201,30 +206,6 @@ class Menu extends React.Component {
                           <li>
                             <a href="/contact">CONTACT</a>
                           </li>
-
-                          {/* <li>
-                            <a className="drop-link" href="#">
-                              {getUnicodeFlagIcon("GB")} &nbsp;
-                              <i
-                                className="fa fa-angle-down"
-                                aria-hidden="true"
-                              ></i>
-                            </a>
-                            <div className="s-drop">
-                              <ul>
-                                <li>
-                                  <a href="#">
-                                    {getUnicodeFlagIcon("GB")}&nbsp;English
-                                  </a>
-                                </li>
-                                <li>
-                                  <a href="#">
-                                    {getUnicodeFlagIcon("ID")}&nbsp;Bahasa
-                                  </a>
-                                </li>
-                              </ul>
-                            </div>
-                          </li> */}
                         </ul>
                       </nav>
                       <ul className="mt-icon-list">

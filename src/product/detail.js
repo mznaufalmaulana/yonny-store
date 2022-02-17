@@ -12,6 +12,7 @@ class Detail extends React.Component {
     this.url = new URLSearchParams(this.props.location.search);
     this.state = {
       data: "",
+      contact: "",
       photo: [],
       related: [],
       param: {
@@ -42,12 +43,18 @@ class Detail extends React.Component {
           data: result.data[0],
           photo: result.data[0].photo,
         });
-        this.realatedProduct(result.data[0].product_category[0].id);
+        this.relatedProduct(result.data[0].product_category[0].id);
+      }
+    });
+
+    API.get("contact/onfooter").then((result) => {
+      if (result.message === "success") {
+        this.setState({ contact: result.data[0] });
       }
     });
   }
 
-  realatedProduct(idCategory) {
+  relatedProduct(idCategory) {
     API.get(`product/related/${idCategory}`).then((result) => {
       if (result.data.length > 5) {
         this.setState({
@@ -89,7 +96,7 @@ class Detail extends React.Component {
   }
 
   render() {
-    const { data, photo, related, param, toast } = this.state;
+    const { data, contact, photo, related, param, toast } = this.state;
     const properties = {
       showArrows: true,
       showStatus: false,
@@ -104,41 +111,39 @@ class Detail extends React.Component {
       emulateTouch: true,
       selectedItem: 0,
       interval: 0,
-      transitionTime: 2000,
+      transitionTime: 1000,
     };
 
     return (
       <main id="mt-main">
         {toast.show && <Toast text={toast.text} />}
         <section
-          className="mt-product-detial wow fadeInUp mb-5"
+          className="mt-product-detial wow fadeInUp"
           data-wow-delay="0.4s"
         >
           <div className="container">
             <div className="row">
-              <div className="col-xs-12">
-                <div className="slider">
-                  <ul className="list-unstyled comment-list"></ul>
-                  <div className="slide-container">
-                    <Carousel {...properties}>
-                      {photo.map((item) => (
-                        <div
-                          className="slide wow fadeInUp"
-                          data-wow-delay="0.2s"
-                          key={item.id}
-                        >
-                          <img
-                            src={`${API.urlStorage}${item.photo_name}`}
-                            alt="image descrption"
-                          />
-                        </div>
-                      ))}
-                    </Carousel>
-                  </div>
+              <div className="col-md-6 mar-top-5">
+                <div className="slide-container">
+                  <Carousel {...properties}>
+                    {photo.map((item) => (
+                      <div
+                        className="slide wow fadeInUp"
+                        data-wow-delay="0.2s"
+                        key={item.id}
+                      >
+                        <img
+                          src={`${API.urlStorage}${item.photo_name}`}
+                          alt="image descrption"
+                        />
+                      </div>
+                    ))}
+                  </Carousel>
                 </div>
-
+              </div>
+              <div className="col-md-6 mar-top-5">
                 <div
-                  className="detial-holder wow fadeInRight"
+                  className="wow fadeInRight detail-product-desc"
                   data-wow-delay="0.5s"
                 >
                   <ul className="list-unstyled breadcrumbs">
@@ -182,54 +187,131 @@ class Detail extends React.Component {
                       __html: `${data.description}`,
                     }}
                   />
+                  <div className="product-form">
+                    <div className="row-val">
+                      <a id="newsletter-hiddenlink" href="#popup">
+                        <button type="button">EMAIL</button>
+                      </a>
+                    </div>
+                    <div className="row-val">
+                      <a
+                        href={`https://wa.me/${
+                          contact ? contact.phone : null
+                        }?text=${window.location.href}%0a%0aAny Question`}
+                        target="_blank"
+                      >
+                        <button>WHATSAPP</button>
+                      </a>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </section>
-        <br />
-        <ModalSendEmail
+
+        <div className="popup-holder">
+          <div id="popup" className="lightbox">
+            <section className="mt-product-detial">
+              <div className="container">
+                <div className="row">
+                  <div className="col-xs-12">
+                    <div className="slider">
+                      <ul className="list-unstyled comment-list"></ul>
+                      <div className="product-slider">
+                        <div className="slide">
+                          {photo.map((item, index) => {
+                            const order = [0];
+                            return order.includes(index) ? (
+                              <div
+                                className="slide wow fadeInUp"
+                                data-wow-delay="0.2s"
+                                key={item.id}
+                              >
+                                <img
+                                  src={`${API.urlStorage}/${item.photo_name}`}
+                                  alt="image descrption"
+                                />
+                              </div>
+                            ) : null;
+                          })}
+                        </div>
+                      </div>
+                    </div>
+                    <div className="detial-holder">
+                      <h2>{data.product_name}</h2>
+                      <div className="product-comment">
+                        <form action="#" className="p-commentform">
+                          <fieldset>
+                            <div className="mt-row">
+                              <label>Name</label>
+                              <input type="text" className="form-control" />
+                            </div>
+                            <div className="mt-row">
+                              <label>E-Mail</label>
+                              <input type="text" className="form-control" />
+                            </div>
+                            <div className="mt-row">
+                              <label>Message</label>
+                              <textarea className="form-control"></textarea>
+                            </div>
+                            <button
+                              type="button"
+                              id="submit"
+                              className="btn-type1"
+                            >
+                              <b>SEND EMAIL</b>
+                            </button>
+                          </fieldset>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+
+        {/* <br /> */}
+        {/* <ModalSendEmail
           product_id={param.product}
           photo_name={photo.map((item, index) => {
             const order = [0];
             return order.includes(index) ? item.photo_name : null;
           })}
-        />
-        <br />
+        /> */}
+        {/* <br /> */}
 
-        <div className="related-products wow fadeInUp reduce-margin" data-wow-delay="0.5s">
+        <div className="related-products wow fadeInUp" data-wow-delay="0.5s">
           <div className="container">
             <div className="row">
               <div className="col-xs-12 mar-top-3">
                 <h2>RELATED PRODUCTS</h2>
                 <br />
-                <div className="row">
-                  <div className="col-xs-12 mar-top-1">
-                    {related.map((item) => (
-                      <div
-                        className="mt-product1 text-center wow fadeInUp image-zoom"
-                        data-wow-delay="0.2s"
-                        key={item.id}
-                      >
-                        <div className="box">
-                          <a href={`/product/detail?product=${item.id}`}>
-                            <img
-                              src={`${API.urlStorage}${item.photo_name}`}
-                              alt="image description"
-                            />
-                          </a>
-                        </div>
-                        <div>
-                          <strong className="title">
-                            <a href={`/product/detail?product=${item.id}`}>
-                              {item.product_name}
-                            </a>
-                          </strong>
-                        </div>
-                      </div>
-                    ))}
+                {related.map((item) => (
+                  <div
+                    className="mt-product1 text-center wow fadeInUp image-zoom"
+                    data-wow-delay="0.2s"
+                    key={item.id}
+                  >
+                    <div className="box">
+                      <a href={`/product/detail?product=${item.id}`}>
+                        <img
+                          src={`${API.urlStorage}${item.photo_name}`}
+                          alt="image description"
+                        />
+                      </a>
+                    </div>
+                    <div>
+                      <strong className="title">
+                        <a href={`/product/detail?product=${item.id}`}>
+                          {item.product_name}
+                        </a>
+                      </strong>
+                    </div>
                   </div>
-                </div>
+                ))}
               </div>
             </div>
           </div>

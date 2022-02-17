@@ -80,12 +80,7 @@ class SendEmailProductModal extends React.Component {
               <div id="tab3">
                 <form action="#" className="p-commentform">
                   <fieldset>
-                    <h2>Any Question?</h2>
-                    {/* {alert.show && (
-                      <div className={`alert alert-${alert.status}`}>
-                        <strong>{alert.greetings}</strong> {alert.message}
-                      </div>
-                    )} */}
+                    <h2>Any Question?</h2>           
                     <div className="mt-row mar-top-1">
                       <label>Name</label>
                       <input
@@ -136,14 +131,7 @@ class SendEmailProductModal extends React.Component {
                   Send Email
                 </button>
               </div>
-            </div>
-            {/* <div className="col-xs-12 col-md-6" data-wow-delay="0.4s">
-              <img    
-                className="img-size wow fadeInUp"            
-                src={`${API.urlStorage}${this.props.photo_name}`}
-                alt="image descrption"
-              />
-            </div> */}
+            </div>            
           </div>
         </div>
       </div>

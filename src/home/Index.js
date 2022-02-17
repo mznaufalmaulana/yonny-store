@@ -82,28 +82,29 @@ class Index extends React.Component {
       dots: true,
       infinite: true,
       autoplay: true,
-      speed: 1000,
-      autoplaySpeed: 10000,
+      speed: 1500,
+      autoplaySpeed: 5000,
       cssEase: "linear",
       slidesToShow: 1,
       slidesToScroll: 1,
       fade: true,
-      pauseOnHover: true,
+      pauseOnHover: false,
     };
 
     return (
       <div>
-        <div className="mar-top-2">
+        <div className="mar-top-1">
           <Slider {...settings}>
             {this.state.promoHeadline.map((promoHead, index) => (
               <a href={promoHead.link} key={index}>
                 <div
-                  className="s-holder wow fadeInLeft each-fade"
+                  className="s-holder wow fadeInLeft each-fade banner-slider"
                   data-wow-delay="0.4s"
                 >
-                  {/* <a href={promoHead.link}> */}
-                  <img src={`${API.urlStorage}${promoHead.photo_name}`} />
-                  {/* </a> */}
+                  <img
+                    src={`${API.urlStorage}${promoHead.photo_name}`}
+                    className="img img-responsive"
+                  />
                 </div>
               </a>
             ))}
@@ -111,78 +112,62 @@ class Index extends React.Component {
         </div>
 
         <main id="mt-main">
-          <div className="container reduce-margin">
+          <div className="container mar-top-promo">
             <div className="row">
-              <div className="col-xs-12">
-                <div className="banner-frame pad-bot-1">
-                  {this.state.promo.map((promo, index) => {
-                    const order = [0];
-                    return order.includes(index) ? (
-                      <div
-                        className="banner-1 wow fadeInLeft image-zoom-promo"
-                        data-wow-delay="0.4s"
-                        key={promo.id}
-                      >
-                        <a href={promo.link}>
-                          <img
-                            alt="image description"
-                            src={`${API.urlStorage}${promo.photo_name}`}
-                          />
-                        </a>
-                      </div>
-                    ) : null;
-                  })}
-
-                  <div className="banner-box first">
-                    {this.state.promo.map((promo, index) => {
-                      const order = [1, 2];
-                      return order.includes(index) ? (
-                        <div
-                          className={`banner-${
-                            index + 1
-                          } wow fadeInUp image-zoom-promo`}
-                          data-wow-delay="0.4s"
-                          key={promo.id}
-                        >
-                          <a href={promo.link}>
-                            <img
-                              alt="image description"
-                              src={`${API.urlStorage}${promo.photo_name}`}
-                            />
-                          </a>
-                        </div>
-                      ) : null;
-                    })}
-                  </div>
-
-                  {this.state.promo.map((promo, index) => {
-                    const order = [3];
-                    return order.includes(index) ? (
-                      <div
-                        className={`banner-${
-                          index + 1
-                        } wow fadeInRight image-zoom-promo`}
-                        data-wow-delay="0.4s"
-                        key={promo.id}
-                      >
-                        <a href={promo.link}>
-                          <img
-                            alt="image description"
-                            src={`${API.urlStorage}${promo.photo_name}`}
-                          />
-                        </a>
-                      </div>
-                    ) : null;
-                  })}
-                </div>
-                <br />
-                <br />
+              <div className="col-sm-4 col-md-4 wow fadeInLeft image-zoom-promo">
+                {this.state.promo.map((promo, index) => {
+                  const order = [0];
+                  return order.includes(index) ? (
+                    <a href={promo.link} key={promo.id}>
+                      <img
+                        alt="image description"
+                        className="img-responsive mar-bot-promo-tengah"
+                        src={`${API.urlStorage}${promo.photo_name}`}
+                      />
+                    </a>
+                  ) : null;
+                })}
               </div>
+              <div className="col-sm-4 col-md-4">
+                {this.state.promo.map((promo, index) => {
+                  const order = [1, 2];
+                  return order.includes(index) ? (
+                    <div
+                      className="mar-bot-promo-tengah wow fadeInLeft image-zoom-promo"
+                      key={promo.id}
+                    >
+                      <a href={promo.link} className="">
+                        <img
+                          alt="image description"
+                          className="img-responsive"
+                          src={`${API.urlStorage}${promo.photo_name}`}
+                        />
+                      </a>
+                    </div>
+                  ) : null;
+                })}
+              </div>
+              <div className="col-sm-4 col-md-4 wow fadeInLeft image-zoom-promo">
+                {this.state.promo.map((promo, index) => {
+                  const order = [3];
+                  return order.includes(index) ? (
+                    <a href={promo.link} key={promo.id}>
+                      <img
+                        alt="image description"
+                        className="img-responsive"
+                        src={`${API.urlStorage}${promo.photo_name}`}
+                      />
+                    </a>
+                  ) : null;
+                })}
+              </div>
+              <br />
+              <br />
             </div>
           </div>
 
           <div
-            className="mt-bestseller text-center wow fadeInUp"
+            className="mt-bestseller mar-top-2 text-center wow fadeInUp"
             data-wow-delay="0.4s"
           >
             <div className="container">
