@@ -281,38 +281,36 @@ class Detail extends React.Component {
             return order.includes(index) ? item.photo_name : null;
           })}
         /> */}
-        {/* <br /> */}
+        <br />
 
         <div className="related-products wow fadeInUp" data-wow-delay="0.5s">
           <div className="container">
+            <h2>RELATED PRODUCTS</h2>
             <div className="row">
-              <div className="col-xs-12 mar-top-3">
-                <h2>RELATED PRODUCTS</h2>
-                <br />
-                {related.map((item) => (
-                  <div
-                    className="mt-product1 text-center wow fadeInUp image-zoom"
-                    data-wow-delay="0.2s"
-                    key={item.id}
-                  >
-                    <div className="box">
-                      <a href={`/product/detail?product=${item.id}`}>
-                        <img
-                          src={`${API.urlStorage}${item.photo_name}`}
-                          alt="image description"
-                        />
-                      </a>
-                    </div>
-                    <div>
-                      <strong className="title">
-                        <a href={`/product/detail?product=${item.id}`}>
-                          {item.product_name}
-                        </a>
-                      </strong>
-                    </div>
+              {related.map((item) => (
+                <div
+                  className="col-md-3 col-sm-6 flex mar-top-2-related text-center wow fadeInUp image-zoom"
+                  data-wow-delay="0.2s"
+                  key={item.id}
+                >
+                  <div className="box">
+                    <a href={`/product/detail?product=${item.id}`}>
+                      <img
+                        className="bg-grey img-responsive"
+                        src={`${API.urlStorage}${item.photo_name}`}
+                        alt="image description"
+                      />
+                    </a>
                   </div>
-                ))}
-              </div>
+                  <div className="mar-top-1">
+                    <strong className="title-product">
+                      <a href={`/product/detail?product=${item.id}`}>
+                        {item.product_name}
+                      </a>
+                    </strong>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>

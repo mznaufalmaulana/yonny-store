@@ -89,9 +89,9 @@ class Index extends React.Component {
           className="mt-contact-detail content-info wow fadeInUp"
           data-wow-delay="0.4s"
         >
-          <div className="container-fluid">
+          <div className="container">
             <div className="row">
-              <div className="col-xs-12 col-sm-8">
+              <div className="col-xs-12 col-md-8">
                 <div className="contact-address">
                   <h1>Contact Address</h1>
                 </div>
@@ -106,38 +106,63 @@ class Index extends React.Component {
                   </TabList>
                   {list.map((item) => (
                     <TabPanel className="tab-content">
-                      <table className="table table-borderless" key={item.id}>
+                      <table
+                        className="table table-borderless txt-size"
+                        key={item.id}
+                      >
                         <thead>
                           <tr>
                             <th>Address</th>
-                            <th>Phone</th>
-                            <th>Email</th>
                           </tr>
                         </thead>
-                        <tbody className="txt-size">
-                          {item.contact.map((addr) => (
-                            <tr key={addr.id}>
-                              <td className="tab-column">
+                        {item.contact.map((addr) => (
+                          <tbody key={item.id + "addres"}>
+                            <tr>
+                              <td>
                                 {addr.first_address}
                                 {addr.second_address}
                               </td>
-                              <td className="tab-column">
+                            </tr>
+                          </tbody>
+                        ))}
+
+                        <thead>
+                          <tr>
+                            <th>Phone</th>
+                          </tr>
+                        </thead>
+                        {item.contact.map((addr) => (
+                          <tbody key={item.id + "phone"}>
+                            <tr>
+                              <td>
                                 <a href={`tel:${addr.phone}`}>{addr.phone}</a>
                               </td>
-                              <td className="tab-column">
+                            </tr>
+                          </tbody>
+                        ))}
+
+                        <thead>
+                          <tr>
+                            <th>Email</th>
+                          </tr>
+                        </thead>
+                        {item.contact.map((addr) => (
+                          <tbody key={item.id + "email"}>
+                            <tr>
+                              <td>
                                 <a href={`mailto:${addr.email}`}>
                                   {addr.email}
                                 </a>
                               </td>
                             </tr>
-                          ))}
-                        </tbody>
+                          </tbody>
+                        ))}
                       </table>
                     </TabPanel>
                   ))}
                 </Tabs>
               </div>
-              <div className="col-xs-12 col-sm-4 form-question">
+              <div className="col-xs-12 col-md-4 form-question">
                 <h2>Have a question?</h2>
                 <form action="#" className="contact-form">
                   <fieldset>

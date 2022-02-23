@@ -106,12 +106,7 @@ class Footer extends React.Component {
                 <div className="col-xs-12 col-sm-4 mt-paddingbottomsm">
                   <div className="f-widget-about">
                     <a href="/">
-                      <img
-                        src={logo}
-                        className="footer-logo"
-                        // width="10px"
-                        alt="batuYonny"
-                      />
+                      <img src={logo} className="footer-logo" alt="batuYonny" />
                     </a>
                     <ul className="list-unstyled address-list">
                       <li>

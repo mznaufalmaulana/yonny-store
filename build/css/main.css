@@ -2658,7 +2658,8 @@ a:hover {
   border-radius: 18px;
   vertical-align: top;
   display: inline-block;
-  font: 300 14px/20px "Source Sans Pro", sans-serif;
+  /* font: 300 14px/20px "Source Sans Pro", sans-serif; */
+  font: 300 14px/20px "Montserrat", sans-serif;
 }
 
 .btn-type1:hover {
@@ -3203,6 +3204,7 @@ a:hover {
 
 #mt-footer .f-widget-about .address-list.align-right .fa-map-marker,
 #mt-footer .f-widget-about .address-list.align-right .fa-phone,
+#mt-footer .f-widget-about .address-list.align-right .fa-whatsapp,
 #mt-footer .f-widget-about .address-list.align-right .fa-envelope-o,
 #mt-footer .f-widget-about .address-list.align-right address {
   float: right;
@@ -3213,6 +3215,10 @@ a:hover {
 }
 
 #mt-footer .f-widget-about .address-list.align-right .fa-phone {
+  margin: 1px 0 0 9px;
+}
+
+#mt-footer .f-widget-about .address-list.align-right .fa-whatsapp {
   margin: 1px 0 0 9px;
 }
 
@@ -3246,6 +3252,7 @@ a:hover {
 
 #mt-footer .f-widget-about .address-list .fa-map-marker,
 #mt-footer .f-widget-about .address-list .fa-phone,
+#mt-footer .f-widget-about .address-list .fa-whatsapp,
 #mt-footer .f-widget-about .address-list .fa-envelope-o {
   float: left;
 }
@@ -3255,6 +3262,10 @@ a:hover {
 }
 
 #mt-footer .f-widget-about .address-list .fa-phone {
+  margin: 1px 9px 0 0;
+}
+
+#mt-footer .f-widget-about .address-list .fa-whatsapp {
   margin: 1px 9px 0 0;
 }
 
@@ -7103,7 +7114,7 @@ a:hover {
   overflow: hidden;
   padding: 0 0 25px;
   /* background: #f6f6f6; */
-  background: #fff;
+  /* background: lightbox; */
 }
 
 .mt-product-detial .slider {
@@ -7392,12 +7403,13 @@ a:hover {
 }
 
 .mt-product-detial .product-form button {
-  width: 173px;
+  /* width: 173px; */
+  width: 150px;
   padding: 12px 10px 10px;
   text-align: center;
   text-transform: uppercase;
   display: block;
-  font-size: 14px;
+  font-size: 12px;
   line-height: 20px;
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
@@ -11108,7 +11120,7 @@ a:hover {
 .mt-contact-detail.content-info {
   margin: 0 auto;
   background: none;
-  max-width: 1059px;
+  /* max-width: 1059px; */
 }
 
 .mt-contact-detail .icon {

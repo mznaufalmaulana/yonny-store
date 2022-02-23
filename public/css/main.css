@@ -11120,7 +11120,7 @@ a:hover {
 .mt-contact-detail.content-info {
   margin: 0 auto;
   background: none;
-  max-width: 1059px;
+  /* max-width: 1059px; */
 }
 
 .mt-contact-detail .icon {

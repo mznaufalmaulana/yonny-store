@@ -44,11 +44,12 @@
 
 .form-question {
   margin-top: 25px;
+  margin-left: -20px;
 }
 
 .tab-custom {
   margin-top: 29px;
-  max-width: 600px;
+  max-width: 700px;
 }
 
 .tab-content {
@@ -91,6 +92,10 @@
 }
 
 .mar-top-2 {
+  margin-top: 20px;
+}
+
+.mar-top-2-related {
   margin-top: 20px;
 }
 
@@ -197,6 +202,10 @@
     margin-top: 10px;
   }
 
+  .mar-top-2-related {
+    margin-top: 20px;
+  }
+
   .topbar-logo {
     margin: 7px 0px 0px 0px;
   }
@@ -225,6 +234,10 @@
 
   .mar-top-promo {
     margin-top: 15px;
+  }
+
+  .form-question {
+    margin-left: 0px;
   }
 }
 
@@ -296,7 +309,15 @@
 }
 
 .product-list {
-  padding-bottom: 50px;
+  padding-bottom: 45px;
+}
+
+.title-product {
+  font-size: 12pt;
+}
+
+.title-product a:hover {
+  color: #e6951a;
 }
 
 #icon-size {

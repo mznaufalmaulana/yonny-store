@@ -29,7 +29,7 @@ class Index extends React.Component {
     this.onChangeParams = this.onChangeParams.bind(this);
   }
 
-  componentDidMount() {    
+  componentDidMount() {
     this.getList();
     this.getCategory();
   }
@@ -57,20 +57,18 @@ class Index extends React.Component {
     });
   }
 
-  getCategory(){
+  getCategory() {
     const param = this.state.param;
-    if(param.cat){
-      API.get(
-        `product-category/${param.cat}`
-      ).then((result) => {
+    if (param.cat) {
+      API.get(`product-category/${param.cat}`).then((result) => {
         this.setState({
-          category: result.data[0],                
-        });              
+          category: result.data[0],
+        });
       });
-    }else{
+    } else {
       this.setState({
-        category: {category_name:"All Categories"},                
-      });  
+        category: { category_name: "All Categories" },
+      });
     }
   }
 
@@ -118,7 +116,7 @@ class Index extends React.Component {
   }
 
   render() {
-    const { data, param, category } = this.state;    
+    const { data, param, category } = this.state;
     return (
       <main id="mt-main">
         <Banner title="Product" category={this.state.param.cat} />
@@ -137,7 +135,10 @@ class Index extends React.Component {
                   <ul className="list-inline">
                     <li>
                       <a href="#" className="drop-link">
-                        { param.sort ? param.sort.toUpperCase()+' Sorting' : 'Default Sorting' }&nbsp;
+                        {param.sort
+                          ? param.sort.toUpperCase() + " Sorting"
+                          : "Default Sorting"}
+                        &nbsp;
                         <i aria-hidden="true" className="fa fa-angle-down"></i>
                       </a>
                       <div className="drop">
@@ -174,15 +175,15 @@ class Index extends React.Component {
                   </ul>
                 </div>
 
-                <div className="mt-textbox">                  
+                <div className="mt-textbox">
                   <div>
                     Category : &nbsp;
                     <strong>
-                      {
-                        category.category_parent_name?
-                          category.category_parent_name+' - '+category.category_name :
+                      {category.category_parent_name
+                        ? category.category_parent_name +
+                          " - " +
                           category.category_name
-                        }
+                        : category.category_name}
                     </strong>
                   </div>
                   <p>
@@ -206,33 +207,37 @@ class Index extends React.Component {
                     )
                   : null}
 
-                {this.state.list 
+                {this.state.list
                   ? this.state.list.map((item) => (
-                    <div className="col-md-4 col-sm-6 product-list" key={item.id}>
                       <div
-                        className="mt-product1 text-center large wow fadeInRight image-zoom"
-                        data-wow-delay="0.2s"
+                        className="col-md-4 col-sm-6 product-list"
+                        key={item.id}
                       >
-                        <div className="box bg-grey">      
-                              <a href={`/product/detail?product=${item.id}`}>                             
-                                <img
-                                  className="img-product-list img-responsive"
-                                  src={`${API.urlStorage}/${item.photo_name}`}
-                                  alt={item.product_name}
-                                />
-                              </a>                            
+                        <div
+                          className="bg-grey text-center large wow fadeInRight image-zoom"
+                          data-wow-delay="0.2s"
+                        >
+                          <a
+                            href={`/product/detail?product=${item.id}`}
+                            className="box"
+                          >
+                            <img
+                              className="img-responsive"
+                              src={`${API.urlStorage}/${item.photo_name}`}
+                              alt={item.product_name}
+                            />
+                          </a>
                         </div>
-                        <div>
-                          <strong className="title">
+                        <div className="mar-top-1">
+                          <strong className="title-product">
                             <a href={`/product/detail?product=${item.id}`}>
                               {item.product_name}
                             </a>
                           </strong>
                         </div>
                       </div>
-                    </div>
-                  )) 
-                : null}
+                    ))
+                  : null}
               </div>
 
               <nav className="mt-pagination paging">
