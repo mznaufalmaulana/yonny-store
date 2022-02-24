@@ -195,7 +195,7 @@ class Footer extends React.Component {
               <div className="row">
                 <div className="col-xs-12 col-sm-6">
                   <p>
-                    © <a href="index.html">BATUYONNY</a> - All rights Reserved
+                    © <a href="/">BATUYONNY</a> - All rights Reserved
                   </p>
                 </div>
               </div>

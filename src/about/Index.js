@@ -1,7 +1,8 @@
 import React from "react";
 import Banner from "../component/Banner";
 import logo from "../assets/images/batuyonny.png";
-import img from "../assets/images/demo/img-70.jpeg";
+import imgCompany from "../assets/images/company.jpeg";
+import imgFactory from "../assets/images/factory.jpeg";
 import Slider from "react-slick";
 require("../about/style.css");
 
@@ -14,7 +15,6 @@ class Index extends React.Component {
   }
   render() {
     const settings = {
-      // dots: true,
       infinite: true,
       slidesToShow: 3,
       slidesToScroll: 1,
@@ -26,11 +26,14 @@ class Index extends React.Component {
     return (
       <main id="mt-main">
         <Banner title="About" />
-        <section className="mt-about-sec wow fadeInUp about-section" data-wow-delay="0.4s">
-          <div className="container">        
+        <section
+          className="mt-about-sec wow fadeInUp about-section"
+          data-wow-delay="0.4s"
+        >
+          <div className="container">
             <div className="row">
               <div className="col col-md-6 col-sm-12">
-                <img src={"https://source.unsplash.com/800x450?company"} className="" />
+                <img src={imgCompany} className="img-responsive" />
               </div>
               <div className="col col-md-6 col-sm-12 text-justify">
                 <h2 className="about-title">COMPANY PROFILE</h2>
@@ -70,36 +73,39 @@ class Index extends React.Component {
             <br />
             <div className="row mar-top-5">
               <div className="col-md-6 col-sm-12 hidden-md hidden-lg">
-                <img src={"https://source.unsplash.com/800x450?company"} className="" />
+                <img src={imgFactory} className="img-responsive" />
               </div>
               <div className="col-md-6 col-sm-12 text-justify">
-              <h2 className="text-uppercase about-title">PROCESS</h2>
+                <h2 className="text-uppercase about-title">PROCESS</h2>
                 <p>
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quisquam 
-                    accusamus veniam velit distinctio repellat? Tempora, qui. Numquam ab 
-                    sequi illum enim temporibus libero eligendi ex itaque similique, voluptatibus 
-                    doloribus officia est illo sit, totam laborum quidem consectetur eum mollitia 
-                    vitae. Culpa ex consequuntur dolores maxime animi provident vero dolorum id.
+                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                  Quisquam accusamus veniam velit distinctio repellat? Tempora,
+                  qui. Numquam ab sequi illum enim temporibus libero eligendi ex
+                  itaque similique, voluptatibus doloribus officia est illo sit,
+                  totam laborum quidem consectetur eum mollitia vitae. Culpa ex
+                  consequuntur dolores maxime animi provident vero dolorum id.
                 </p>
                 <p>
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quisquam accusamus 
-                    veniam velit distinctio repellat? Tempora, qui. Numquam ab sequi illum enim temporibus 
-                    libero eligendi ex itaque similique, voluptatibus doloribus officia est illo sit, 
-                    totam laborum quidem consectetur eum mollitia vitae. Culpa ex consequuntur dolores maxime 
-                    animi provident vero dolorum id.
-                </p>          
+                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                  Quisquam accusamus veniam velit distinctio repellat? Tempora,
+                  qui. Numquam ab sequi illum enim temporibus libero eligendi ex
+                  itaque similique, voluptatibus doloribus officia est illo sit,
+                  totam laborum quidem consectetur eum mollitia vitae. Culpa ex
+                  consequuntur dolores maxime animi provident vero dolorum id.
+                </p>
                 <p>
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quisquam accusamus 
-                    veniam velit distinctio repellat? Tempora, qui. Numquam ab sequi illum enim temporibus 
-                    libero eligendi ex itaque similique, voluptatibus doloribus officia est illo sit, 
-                    totam laborum quidem consectetur eum mollitia vitae. Culpa ex consequuntur dolores maxime 
-                    animi provident vero dolorum id.
-                </p>               
+                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                  Quisquam accusamus veniam velit distinctio repellat? Tempora,
+                  qui. Numquam ab sequi illum enim temporibus libero eligendi ex
+                  itaque similique, voluptatibus doloribus officia est illo sit,
+                  totam laborum quidem consectetur eum mollitia vitae. Culpa ex
+                  consequuntur dolores maxime animi provident vero dolorum id.
+                </p>
               </div>
               <div className="col-md-6 col-sm-12 hidden-sm hidden-xs">
-                <img src={"https://source.unsplash.com/800x450?company"} className="" />
+                <img src={imgFactory} className="img-responsive" />
               </div>
-            </div>            
+            </div>
             {/* <div className="mar-top-5">
               <h2 className="text-center text-uppercase list-client">
                 Our Projects
@@ -125,13 +131,12 @@ class Index extends React.Component {
                 </div>
               </Slider>              
             </div> */}
-            
-            <br />
-            <div className="mar-top-5">
+
+            {/* <br /> */}
+            {/* <div className="mar-top-5">
               <h2 className="text-center text-uppercase list-client">
                 Our Clients
               </h2>
-              {/* <hr /> */}
               <div className="row center-vertical list-client">
                 <div className="col-md-3">
                   <img src={logo} className="" />
@@ -165,7 +170,7 @@ class Index extends React.Component {
                   <img src={logo} className="" />
                 </div>
               </div>
-            </div>            
+            </div> */}
           </div>
         </section>
       </main>

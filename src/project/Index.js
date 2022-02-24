@@ -75,13 +75,8 @@ class Index extends React.Component {
                   >
                     <div className="img-holder">
                       <a href={`/project/detail?project=${item.id}`}>
-                        {/* <img
-                          src={`${API.urlStorage}/${item.photo_name}`}
-                          alt="image description"
-                          className="img-responsive"
-                        /> */}
                         <img
-                          src="https://source.unsplash.com/800x410?hotel-lobby"
+                          src={`${API.urlStorage}/${item.photo_name}`}
                           alt="image description"
                           className="img-responsive"
                         />
@@ -108,9 +103,9 @@ class Index extends React.Component {
                     </div>
                     <a
                       href={`/project/detail?project=${item.id}`}
-                      className="btn-more"
+                      className="btn-more "
                     >
-                      <i className="fa fa-angle-right"></i> More Detail
+                      <i className="fa fa-angle-double-right"></i> More Detail
                     </a>
                   </article>
                 </div>

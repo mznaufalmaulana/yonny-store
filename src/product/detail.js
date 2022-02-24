@@ -56,9 +56,9 @@ class Detail extends React.Component {
 
   relatedProduct(idCategory) {
     API.get(`product/related/${idCategory}`).then((result) => {
-      if (result.data.length > 5) {
+      if (result.data.length > 4) {
         this.setState({
-          related: result.data.slice(0, 5),
+          related: result.data.slice(0, 4),
         });
       } else {
         this.setState({
