@@ -177,6 +177,7 @@ class Footer extends React.Component {
                             placeholder="Your Email"
                             className="form-control"
                             onChange={this.handleChange}
+                            required
                           />
                           <button type="submit">
                             <i className="fa fa-angle-right"></i>

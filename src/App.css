@@ -239,6 +239,10 @@
   .form-question {
     margin-left: 0px;
   }
+
+  .newsletter-form .form-control {
+    margin-top: 5px;
+  }
 }
 
 .image-zoom {
