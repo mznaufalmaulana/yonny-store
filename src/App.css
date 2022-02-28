@@ -43,7 +43,7 @@
 }
 
 .form-question {
-  margin-top: 25px;
+  margin-top: 0px;
   margin-left: -20px;
 }
 
@@ -322,6 +322,34 @@
 
 #icon-size {
   font-size: 14pt;
+}
+
+#mt-footer a {
+  text-decoration: none;
+  color: #868686;
+}
+
+#mt-main a {
+  text-decoration: none;
+  color: #868686;
+}
+
+.modal-footer .btn-modal-email {
+  margin-right: 5px;
+}
+
+.img-modal {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.question-modal {
+  color: #545454 !important;
+}
+
+.border-less td,
+.border-less th {
+  border: none !important;
 }
 
 @keyframes App-logo-spin {

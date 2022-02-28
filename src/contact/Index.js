@@ -107,7 +107,7 @@ class Index extends React.Component {
                   {list.map((item) => (
                     <TabPanel className="tab-content">
                       <table
-                        className="table table-borderless txt-size"
+                        className="table border-less txt-size"
                         key={item.id}
                       >
                         <thead>
@@ -163,7 +163,7 @@ class Index extends React.Component {
                 </Tabs>
               </div>
               <div className="col-xs-12 col-md-4 form-question">
-                <h2>Have a question?</h2>
+                <h1 className="pad-bot-2">Have a question?</h1>
                 <form action="#" className="contact-form">
                   <fieldset>
                     <input

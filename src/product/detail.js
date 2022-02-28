@@ -188,9 +188,20 @@ class Detail extends React.Component {
                     }}
                   />
                   <div className="product-form">
-                    <div className="row-val">
+                    {/* <div className="row-val">
                       <a id="newsletter-hiddenlink" href="#popup">
                         <button type="button">EMAIL</button>
+                      </a>
+                    </div> */}
+                    <div className="row-val">
+                      <a id="" href="#">
+                        <button
+                          type="button"
+                          data-toggle="modal"
+                          data-target="#myModal"
+                        >
+                          EMAIL
+                        </button>
                       </a>
                     </div>
                     <div className="row-val">
@@ -210,7 +221,75 @@ class Detail extends React.Component {
           </div>
         </section>
 
-        <div className="popup-holder">
+        <div id="myModal" className="modal fade" role="dialog">
+          <div className="modal-dialog" role="document">
+            <div className="modal-content">
+              <div className="modal-header">
+                <button type="button" className="close" data-dismiss="modal">
+                  &times;
+                </button>
+                <h4 className="modal-title">
+                  <b>{data.product_name}</b>
+                </h4>
+              </div>
+              <div className="modal-body">
+                <div className="detial-holder">
+                  <h2 className="text-center question-modal">
+                    <b>Any Question Product?</b>
+                  </h2>
+                  {photo.map((item, index) => {
+                    const order = [0];
+                    return order.includes(index) ? (
+                      <div
+                        className="wow fadeInUp"
+                        data-wow-delay="0.2s"
+                        key={item.id}
+                      >
+                        <img
+                          src={`${API.urlStorage}/${item.photo_name}`}
+                          alt="image descrption"
+                          className="img-responsive img-modal"
+                        />
+                      </div>
+                    ) : null;
+                  })}
+                  <div className="product-comment">
+                    <form action="#" className="p-commentform">
+                      <fieldset>
+                        <div className="mt-row center">
+                          <label>Name</label>
+                          <input type="text" className="form-control" />
+                        </div>
+                        <div className="mt-row">
+                          <label>E-Mail</label>
+                          <input type="text" className="form-control" />
+                        </div>
+                        <div className="mt-row">
+                          <label>Message</label>
+                          <textarea className="form-control"></textarea>
+                        </div>
+                      </fieldset>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <div className="modal-footer">
+                <button type="button" className="btn-type1 btn-modal-email">
+                  <b>SEND EMAIL</b>
+                </button>
+                <button
+                  type="button"
+                  className="btn-type1"
+                  data-dismiss="modal"
+                >
+                  <b>CLOSE</b>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* <div className="popup-holder">
           <div id="popup" className="lightbox">
             <section className="mt-product-detial">
               <div className="container">
@@ -271,7 +350,7 @@ class Detail extends React.Component {
               </div>
             </section>
           </div>
-        </div>
+        </div> */}
 
         {/* <br /> */}
         {/* <ModalSendEmail

@@ -210,11 +210,11 @@ class Index extends React.Component {
                 {this.state.list
                   ? this.state.list.map((item) => (
                       <div
-                        className="col-md-4 col-sm-6 product-list"
+                        className="col-md-4 col-sm-6 product-list wow fadeInRight image-zoom"
                         key={item.id}
                       >
                         <div
-                          className="bg-grey text-center large wow fadeInRight image-zoom"
+                          className="bg-grey text-center large"
                           data-wow-delay="0.2s"
                         >
                           <a
