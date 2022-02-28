@@ -224,7 +224,7 @@ class Detail extends React.Component {
         <div id="myModal" className="modal fade" role="dialog">
           <div className="modal-dialog" role="document">
             <div className="modal-content">
-              <div className="modal-header">
+              <div className="modal-header bg-grey">
                 <button type="button" className="close" data-dismiss="modal">
                   &times;
                 </button>
@@ -273,7 +273,7 @@ class Detail extends React.Component {
                   </div>
                 </div>
               </div>
-              <div className="modal-footer">
+              <div className="modal-footer bg-grey">
                 <button type="button" className="btn-type1 btn-modal-email">
                   <b>SEND EMAIL</b>
                 </button>
