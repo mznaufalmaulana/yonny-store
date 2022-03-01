@@ -5,6 +5,7 @@ import { CopyToClipboard } from "react-copy-to-clipboard";
 import Toast from "../component/Toast";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
+import EmailModal from "./modal/emailModal";
 
 class Detail extends React.Component {
   constructor(props) {
@@ -27,7 +28,11 @@ class Detail extends React.Component {
         show: false,
         text: "",
       },
-      openModal: false,
+      modal: {
+        open: false,
+        photo: "",
+        data: "",
+      },
       sliderLength: "",
     };
   }
@@ -95,8 +100,19 @@ class Detail extends React.Component {
     });
   }
 
+  openModal() {
+    this.setState({
+      modal: {
+        ...this.state.modal,
+        open: true,
+        photo: this.state.photo,
+        data: this.state.data,
+      },
+    });
+  }
+
   render() {
-    const { data, contact, photo, related, param, toast } = this.state;
+    const { data, contact, photo, related, param, toast, modal } = this.state;
     const properties = {
       showArrows: true,
       showStatus: false,
@@ -117,6 +133,8 @@ class Detail extends React.Component {
     return (
       <main id="mt-main">
         {toast.show && <Toast text={toast.text} />}
+        {/* {modal.open && <EmailModal photo={modal.photo} data={modal.data} />} */}
+        <EmailModal photo={photo} data={data} />
         <section
           className="mt-product-detial wow fadeInUp"
           data-wow-delay="0.4s"
@@ -189,7 +207,12 @@ class Detail extends React.Component {
                   />
                   <div className="product-form">
                     <div className="row-val">
-                      <a id="newsletter-hiddenlink" href="#popup">
+                      {/* <a id="newsletter-hiddenlink" href="#popup" > */}
+                      <a
+                        id="newsletter-hiddenlink"
+                        href="#popup"
+                        onClick={() => this.openModal()}
+                      >
                         <button type="button">EMAIL</button>
                       </a>
                     </div>
@@ -210,7 +233,7 @@ class Detail extends React.Component {
           </div>
         </section>
 
-        <div className="popup-holder">
+        {/* <div className="popup-holder">
           <div id="popup" className="lightbox">
             <section className="mt-product-detial">
               <div className="container">
@@ -271,7 +294,7 @@ class Detail extends React.Component {
               </div>
             </section>
           </div>
-        </div>
+        </div> */}
 
         {/* <br /> */}
         {/* <ModalSendEmail
