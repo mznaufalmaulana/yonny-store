@@ -240,14 +240,16 @@ class Index extends React.Component {
                   : null}
               </div>
 
-              <nav className="mt-pagination paging">
-                <Pagination
-                  count={data.last_page}
-                  page={param.page}
-                  onChange={this.onChangePage}
-                  className="paging"
-                />
-              </nav>
+              {param.page > 1 && (
+                <nav className="mt-pagination paging">
+                  <Pagination
+                    count={data.last_page}
+                    page={param.page}
+                    onChange={this.onChangePage}
+                    className="paging"
+                  />
+                </nav>
+              )}
             </div>
           </div>
         </div>

@@ -133,8 +133,19 @@ class Detail extends React.Component {
     return (
       <main id="mt-main">
         {toast.show && <Toast text={toast.text} />}
-        {/* {modal.open && <EmailModal photo={modal.photo} data={modal.data} />} */}
-        <EmailModal photo={photo} data={data} />
+        {modal.open && (
+          <EmailModal
+            photo={photo}
+            data={data}
+            product_id={param.product}
+            onHide={() =>
+              this.setState({
+                modal: { ...modal, open: false },
+              })
+            }
+          />
+        )}
+        {/* <EmailModal photo={photo} data={data} product_id={param.product} /> */}
         <section
           className="mt-product-detial wow fadeInUp"
           data-wow-delay="0.4s"
@@ -212,7 +223,15 @@ class Detail extends React.Component {
                       </a>
                     </div> */}
                     <div className="row-val">
-                      <a id="" href="#">
+                      <a
+                        id=""
+                        href="#"
+                        onClick={() =>
+                          this.setState({
+                            modal: { ...modal, open: true },
+                          })
+                        }
+                      >
                         <button
                           type="button"
                           data-toggle="modal"
@@ -239,7 +258,7 @@ class Detail extends React.Component {
           </div>
         </section>
 
-        <div id="myModal" className="modal fade" role="dialog">
+        {/* <div id="myModal" className="modal fade" role="dialog">
           <div className="modal-dialog" role="document">
             <div className="modal-content">
               <div className="modal-header bg-grey">
@@ -305,7 +324,7 @@ class Detail extends React.Component {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
 
         {/* <div className="popup-holder">
           <div id="popup" className="lightbox">
