@@ -32,7 +32,7 @@ class Index extends React.Component {
               </div>
               <div className="col col-md-6 col-sm-12 text-justify">
                 <h2 className="about-title">COMPANY PROFILE</h2>
-                <p>
+                <p className="blog-text">
                   Batu Yonny has been operating in Tulungagung, Indonesia since
                   the 1980s. Since then, we have become one of the largest
                   factories and exporters of natural stone in our region. We are
@@ -43,7 +43,7 @@ class Index extends React.Component {
                   open to discuss with them any time.
                 </p>
 
-                <p>
+                <p className="blog-text">
                   We also have partners with international shipping companies to
                   export our stone products to numerous countries around the
                   globe, including the United States, Italy, India, Turkey,
@@ -51,7 +51,7 @@ class Index extends React.Component {
                   international markets.
                 </p>
 
-                <p>
+                <p className="blog-text">
                   Batu Yonny’s commitment is to ensure customer’s satisfaction
                   by creating projects of the highest quality, durability, and
                   beauty. We have the resources, connections, and knowledge
@@ -59,7 +59,7 @@ class Index extends React.Component {
                   competitive prices.
                 </p>
 
-                <p>
+                <p className="blog-text">
                   We invite you to visit our showroom and factory at Tulungagung
                   location and we look forward to working with you.
                 </p>
@@ -72,7 +72,7 @@ class Index extends React.Component {
               </div>
               <div className="col-md-6 col-sm-12 text-justify">
                 <h2 className="text-uppercase about-title">PROCESS</h2>
-                <p>
+                <p className="blog-text">
                   Lorem ipsum, dolor sit amet consectetur adipisicing elit.
                   Quisquam accusamus veniam velit distinctio repellat? Tempora,
                   qui. Numquam ab sequi illum enim temporibus libero eligendi ex
@@ -80,7 +80,7 @@ class Index extends React.Component {
                   totam laborum quidem consectetur eum mollitia vitae. Culpa ex
                   consequuntur dolores maxime animi provident vero dolorum id.
                 </p>
-                <p>
+                <p className="blog-text">
                   Lorem ipsum, dolor sit amet consectetur adipisicing elit.
                   Quisquam accusamus veniam velit distinctio repellat? Tempora,
                   qui. Numquam ab sequi illum enim temporibus libero eligendi ex
@@ -88,7 +88,7 @@ class Index extends React.Component {
                   totam laborum quidem consectetur eum mollitia vitae. Culpa ex
                   consequuntur dolores maxime animi provident vero dolorum id.
                 </p>
-                <p>
+                <p className="blog-text">
                   Lorem ipsum, dolor sit amet consectetur adipisicing elit.
                   Quisquam accusamus veniam velit distinctio repellat? Tempora,
                   qui. Numquam ab sequi illum enim temporibus libero eligendi ex
