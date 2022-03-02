@@ -8,6 +8,7 @@ import Project from "./project/Index";
 import Contact from "./contact/Index";
 import ProductDetail from "./product/detail";
 import ProjectDetail from "./project/detail";
+import NotFound from "./layouts/NotFound";
 
 export default function BaseRoute() {
   return (
@@ -20,6 +21,7 @@ export default function BaseRoute() {
         <Route exact path="/project/detail" component={ProjectDetail} />
         <Route exact path="/contact" component={Contact} />
         <Route exact path="/" component={Home} />
+        <Route exact path="" component={NotFound} />
       </Switch>
     </BrowserRouter>
   );

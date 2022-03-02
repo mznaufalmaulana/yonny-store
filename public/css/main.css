@@ -10713,6 +10713,7 @@ a:hover {
   padding: 10px 15px;
   font-size: 14px;
   line-height: 16px;
+  text-decoration: none;
 }
 
 .mt-error-sec h1 {
