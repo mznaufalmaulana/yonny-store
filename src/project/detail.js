@@ -1,5 +1,6 @@
 import moment from "moment";
 import React from "react";
+import { Helmet } from "react-helmet";
 import Banner from "../component/Banner";
 import API from "../services";
 import "react-slideshow-image/dist/styles.css";
@@ -58,8 +59,15 @@ class Detail extends React.Component {
   }
   render() {
     const { data, photo, copied } = this.state;
+    const defaultTitle = "Batu Yonny";
+    const title = `Batu Yonny | Project ${data.project_name}`;
     return (
       <main id="mt-main">
+        <Helmet>
+          <title>{data.project_name ? title : defaultTitle}</title>
+          <meta charSet="utf-8" />
+          <meta name="description" content="Batu Yonny Mamer Tulungagung" />
+        </Helmet>
         {copied && <Toast text="Your Link was Copied" />}
         <Banner title="Project" />
         <div
@@ -91,7 +99,7 @@ class Detail extends React.Component {
                           text={window.location.href}
                           onCopy={() => this.copy()}
                         >
-                          <a className="list-share">
+                          <a className="list-share share-project">
                             <i className="fa fa-share-alt icon-share"></i>
                             {data.share_count}
                           </a>

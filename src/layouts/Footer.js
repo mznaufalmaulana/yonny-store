@@ -124,6 +124,7 @@ class Footer extends React.Component {
                             contact ? contact.phone : null
                           }`}
                           target="_blank"
+                          rel="noreferrer"
                         >
                           {contact ? contact.phone : null}
                         </a>

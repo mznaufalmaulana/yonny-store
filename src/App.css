@@ -356,6 +356,10 @@
   border: none !important;
 }
 
+.share-project {
+  color: white !important;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

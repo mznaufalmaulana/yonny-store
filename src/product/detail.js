@@ -1,6 +1,7 @@
 import React from "react";
+import { Helmet } from "react-helmet";
 import API from "../services";
-import ModalSendEmail from "./modal/SendEmailProductModal";
+// import ModalSendEmail from "./modal/SendEmailProductModal";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import Toast from "../component/Toast";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
@@ -113,6 +114,8 @@ class Detail extends React.Component {
 
   render() {
     const { data, contact, photo, related, param, toast, modal } = this.state;
+    const defaultTitle = "Batu Yonny";
+    const title = `Batu Yonny | Product ${data.product_name}`;
     const properties = {
       showArrows: true,
       showStatus: false,
@@ -145,7 +148,11 @@ class Detail extends React.Component {
             }
           />
         )}
-        {/* <EmailModal photo={photo} data={data} product_id={param.product} /> */}
+        <Helmet>
+          <title>{data.product_name ? title : defaultTitle}</title>
+          <meta charSet="utf-8" />
+          <meta name="description" content="Batu Yonny Mamer Tulungagung" />
+        </Helmet>
         <section
           className="mt-product-detial wow fadeInUp"
           data-wow-delay="0.4s"
@@ -217,11 +224,6 @@ class Detail extends React.Component {
                     }}
                   />
                   <div className="product-form">
-                    {/* <div className="row-val">
-                      <a id="newsletter-hiddenlink" href="#popup">
-                        <button type="button">EMAIL</button>
-                      </a>
-                    </div> */}
                     <div className="row-val">
                       <a
                         id=""
@@ -258,145 +260,6 @@ class Detail extends React.Component {
           </div>
         </section>
 
-        {/* <div id="myModal" className="modal fade" role="dialog">
-          <div className="modal-dialog" role="document">
-            <div className="modal-content">
-              <div className="modal-header bg-grey">
-                <button type="button" className="close" data-dismiss="modal">
-                  &times;
-                </button>
-                <h4 className="modal-title">
-                  <b>{data.product_name}</b>
-                </h4>
-              </div>
-              <div className="modal-body">
-                <div className="detial-holder">
-                  <h2 className="text-center question-modal">
-                    <b>Any Question Product?</b>
-                  </h2>
-                  {photo.map((item, index) => {
-                    const order = [0];
-                    return order.includes(index) ? (
-                      <div
-                        className="wow fadeInUp"
-                        data-wow-delay="0.2s"
-                        key={item.id}
-                      >
-                        <img
-                          src={`${API.urlStorage}/${item.photo_name}`}
-                          alt="image descrption"
-                          className="img-responsive img-modal"
-                        />
-                      </div>
-                    ) : null;
-                  })}
-                  <div className="product-comment">
-                    <form action="#" className="p-commentform">
-                      <fieldset>
-                        <div className="mt-row center">
-                          <label>Name</label>
-                          <input type="text" className="form-control" />
-                        </div>
-                        <div className="mt-row">
-                          <label>E-Mail</label>
-                          <input type="text" className="form-control" />
-                        </div>
-                        <div className="mt-row">
-                          <label>Message</label>
-                          <textarea className="form-control"></textarea>
-                        </div>
-                      </fieldset>
-                    </form>
-                  </div>
-                </div>
-              </div>
-              <div className="modal-footer bg-grey">
-                <button type="button" className="btn-type1 btn-modal-email">
-                  <b>SEND EMAIL</b>
-                </button>
-                <button
-                  type="button"
-                  className="btn-type1"
-                  data-dismiss="modal"
-                >
-                  <b>CLOSE</b>
-                </button>
-              </div>
-            </div>
-          </div>
-        </div> */}
-
-        {/* <div className="popup-holder">
-          <div id="popup" className="lightbox">
-            <section className="mt-product-detial">
-              <div className="container">
-                <div className="row">
-                  <div className="col-xs-12">
-                    <div className="slider">
-                      <ul className="list-unstyled comment-list"></ul>
-                      <div className="product-slider">
-                        <div className="slide">
-                          {photo.map((item, index) => {
-                            const order = [0];
-                            return order.includes(index) ? (
-                              <div
-                                className="slide wow fadeInUp"
-                                data-wow-delay="0.2s"
-                                key={item.id}
-                              >
-                                <img
-                                  src={`${API.urlStorage}/${item.photo_name}`}
-                                  alt="image descrption"
-                                />
-                              </div>
-                            ) : null;
-                          })}
-                        </div>
-                      </div>
-                    </div>
-                    <div className="detial-holder">
-                      <h2>{data.product_name}</h2>
-                      <div className="product-comment">
-                        <form action="#" className="p-commentform">
-                          <fieldset>
-                            <div className="mt-row">
-                              <label>Name</label>
-                              <input type="text" className="form-control" />
-                            </div>
-                            <div className="mt-row">
-                              <label>E-Mail</label>
-                              <input type="text" className="form-control" />
-                            </div>
-                            <div className="mt-row">
-                              <label>Message</label>
-                              <textarea className="form-control"></textarea>
-                            </div>
-                            <button
-                              type="button"
-                              id="submit"
-                              className="btn-type1"
-                            >
-                              <b>SEND EMAIL</b>
-                            </button>
-                          </fieldset>
-                        </form>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </section>
-          </div>
-        </div> */}
-
-        {/* <br /> */}
-        {/* <ModalSendEmail
-          product_id={param.product}
-          photo_name={photo.map((item, index) => {
-            const order = [0];
-            return order.includes(index) ? item.photo_name : null;
-          })}
-        /> */}
         <br />
 
         <div className="related-products wow fadeInUp" data-wow-delay="0.5s">

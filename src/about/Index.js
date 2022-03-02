@@ -1,9 +1,8 @@
 import React from "react";
+import { Helmet } from "react-helmet";
 import Banner from "../component/Banner";
-import logo from "../assets/images/batuyonny.png";
 import imgCompany from "../assets/images/company.jpeg";
 import imgFactory from "../assets/images/factory.jpeg";
-import Slider from "react-slick";
 require("../about/style.css");
 
 class Index extends React.Component {
@@ -14,17 +13,13 @@ class Index extends React.Component {
     };
   }
   render() {
-    const settings = {
-      infinite: true,
-      slidesToShow: 3,
-      slidesToScroll: 1,
-      autoplay: true,
-      speed: 5000,
-      autoplaySpeed: 1000,
-      cssEase: "linear",
-    };
     return (
       <main id="mt-main">
+        <Helmet>
+          <title>Batu Yonny | About</title>
+          <meta charSet="utf-8" />
+          <meta name="description" content="Batu Yonny Mamer Tulungagung" />
+        </Helmet>
         <Banner title="About" />
         <section
           className="mt-about-sec wow fadeInUp about-section"

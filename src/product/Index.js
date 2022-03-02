@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet";
 import Banner from "../component/Banner";
 import Category from "../component/Category";
 import API from "../services";
@@ -119,6 +120,11 @@ class Index extends React.Component {
     const { data, param, category } = this.state;
     return (
       <main id="mt-main">
+        <Helmet>
+          <title>Batu Yonny | Product</title>
+          <meta charSet="utf-8" />
+          <meta name="description" content="Batu Yonny Mamer Tulungagung" />
+        </Helmet>
         <Banner title="Product" category={this.state.param.cat} />
         <div className="container">
           <div className="row">
@@ -200,9 +206,7 @@ class Index extends React.Component {
                 {this.state.list
                   ? this.state.list.length <= 0 && (
                       <div>
-                        <p className="text-center">
-                          Sorry, We Couldn't Find What You Want :(
-                        </p>
+                        <p className="text-center">Data Not Found</p>
                       </div>
                     )
                   : null}
@@ -240,7 +244,7 @@ class Index extends React.Component {
                   : null}
               </div>
 
-              {param.page > 1 && (
+              {data.last_page > 1 && (
                 <nav className="mt-pagination paging">
                   <Pagination
                     count={data.last_page}

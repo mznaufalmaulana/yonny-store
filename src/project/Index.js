@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet";
 import Banner from "../component/Banner";
 import { Pagination } from "@material-ui/lab";
 import API from "../services";
@@ -62,16 +63,20 @@ class Index extends React.Component {
     const { data, param, list } = this.state;
     return (
       <main id="mt-main">
+        <Helmet>
+          <meta charSet="utf-8" />
+          <title>Batu Yonny | Project</title>
+          <meta name="description" content="Batu Yonny Mamer Tulungagung" />
+        </Helmet>
         <Banner title="Project" />
         <div className="mt-blog-detail style4">
           <div className="container mar-top-5">
             <div className="row pad-bot-2">
               {list.map((item) => (
-                <div className="col-sm-6 col-md-4">
+                <div className="col-sm-6 col-md-4" key={item.id}>
                   <article
                     className="post-blog wow fadeInLeft image-zoom box-shadow pad-bot-2"
                     data-wow-delay="0.4s"
-                    key={item.id}
                   >
                     <div className="img-holder">
                       <a href={`/project/detail?project=${item.id}`}>
@@ -83,7 +88,7 @@ class Index extends React.Component {
                       </a>
                       <ul className="list-unstyled comment-nav">
                         <li>
-                          <a href="#">
+                          <a href="#" className="share-project">
                             <i className="fa fa-share-alt"></i>
                             {item.share_count}
                           </a>

@@ -1,5 +1,6 @@
 import React from "react";
 import logo from "../assets/images/batuyonny.png";
+import logoText from "../assets/images/logo-yonny.png";
 import API from "../services";
 
 class Menu extends React.Component {
@@ -63,7 +64,7 @@ class Menu extends React.Component {
                 <div className="col-xs-12">
                   <div className="mt-logo">
                     <a href="/">
-                      <img src={logo} className="topbar-logo" />
+                      <img src={logoText} className="topbar-logo" />
                     </a>
                   </div>
 

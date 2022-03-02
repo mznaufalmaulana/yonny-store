@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet";
 import Banner from "../component/Banner";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
@@ -83,6 +84,11 @@ class Index extends React.Component {
     const { list, question, isLoading, alert } = this.state;
     return (
       <main id="mt-main">
+        <Helmet>
+          <title>Batu Yonny | Contact</title>
+          <meta charSet="utf-8" />
+          <meta name="description" content="Batu Yonny Mamer Tulungagung" />
+        </Helmet>
         {alert.show && <Toast text={alert.message} />}
         <Banner title="Contact" />
         <section

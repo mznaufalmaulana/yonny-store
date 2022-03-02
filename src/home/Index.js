@@ -1,7 +1,5 @@
 import React from "react";
-// import { Slide, Fade } from "react-slideshow-image";
-// import { Carousel } from "react-responsive-carousel";
-import Carousel from "react-responsive-carousel/lib/js/components/Carousel/index";
+import { Helmet } from "react-helmet";
 import "react-responsive-carousel/lib/styles/carousel.css";
 import MultiCarousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
@@ -42,24 +40,6 @@ class Index extends React.Component {
   }
 
   render() {
-    const { promoHeadline } = this.state;
-    const properties = {
-      showArrows: false,
-      showStatus: false,
-      showIndicators: true,
-      infiniteLoop: true,
-      showThumbs: false,
-      useKeyboardArrows: true,
-      autoPlay: true,
-      stopOnHover: true,
-      swipeable: true,
-      dynamicHeight: true,
-      emulateTouch: true,
-      selectedItem: promoHeadline.length,
-      interval: 10000,
-      transitionTime: 2000,
-    };
-
     const responsive = {
       desktop: {
         breakpoint: { max: 3000, min: 1024 },
@@ -93,6 +73,11 @@ class Index extends React.Component {
 
     return (
       <div>
+        <Helmet>
+          <title>Batu Yonny | Home</title>
+          <meta charSet="utf-8" />
+          <meta name="description" content="Batu Yonny Mamer Tulungagung" />
+        </Helmet>
         <div className="mar-top-1">
           <Slider {...settings}>
             {this.state.promoHeadline.map((promoHead, index) => (

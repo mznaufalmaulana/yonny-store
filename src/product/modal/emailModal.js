@@ -115,12 +115,12 @@ class emailModal extends React.Component {
                   })}
                   <div className="product-comment">
                     <form className="p-commentform">
-                      {/* <fieldset> */}
                       <div className="mt-row">
                         <label>Name</label>
                         <input
                           type="text"
                           className="form-control"
+                          required
                           onChange={(e) =>
                             this.setState({
                               question: {
@@ -136,6 +136,7 @@ class emailModal extends React.Component {
                         <input
                           type="text"
                           className="form-control"
+                          required
                           onChange={(e) =>
                             this.setState({
                               question: {
@@ -150,6 +151,7 @@ class emailModal extends React.Component {
                         <label>Message</label>
                         <textarea
                           className="form-control"
+                          required
                           onChange={(e) =>
                             this.setState({
                               question: {
@@ -160,7 +162,6 @@ class emailModal extends React.Component {
                           }
                         />
                       </div>
-                      {/* </fieldset> */}
                     </form>
                   </div>
                 </div>

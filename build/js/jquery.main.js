@@ -31,7 +31,7 @@ jQuery(window).on("load", function () {
 }*/
 // PreLoader init
 function initPreLoader() {
-  jQuery("#pre-loader").delay(1200).fadeOut();
+  jQuery("#pre-loader").delay(3000).fadeOut();
 }
 // NavOpener init
 function initNavOpener() {
