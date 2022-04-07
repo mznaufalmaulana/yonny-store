@@ -29,13 +29,13 @@
 }
 
 .footer-logo {
-  max-width: 300px;
-  margin: -5px 0px 13px 0px;
+  max-width: 260px;
+  margin: 0px 0px 17px 0px;
 }
 
 .topbar-logo {
-  max-width: 200px;
-  margin: 0px 0px 0px 0px;
+  max-width: 250px;
+  margin: -2px 0px 0px 0px !important;
 }
 
 .MuiPagination-ul {
@@ -116,7 +116,7 @@
 }
 
 .mar-bot-promo-tengah {
-  margin-bottom: 27px;
+  margin-bottom: 26px;
 }
 
 .mar-top-button-2 {
@@ -142,7 +142,7 @@
 .project-name a:hover {
   -webkit-transition: all 0.4s linear;
   transition: all 0.4s linear;
-  color: #e6951a;
+  color: #c6a954;
 }
 
 .product-detail-desc {
@@ -165,7 +165,7 @@
 .collection-name a:hover {
   -webkit-transition: all 0.4s linear;
   transition: all 0.4s linear;
-  color: #e6951a;
+  color: #c6a954;
 }
 
 .blog-text {
@@ -193,7 +193,7 @@
   }
 }
 
-@media only screen and (min-width: 375px) and (max-width: 915px) {
+@media only screen and (min-width: 375px) and (max-width: 765px) {
   .reduce-margin {
     margin-bottom: -50px;
   }
@@ -206,8 +206,18 @@
     margin-top: 20px;
   }
 
+  .mar-top-4 {
+    margin-top: 15px;
+  }
+
   .topbar-logo {
-    margin: 7px 0px 0px 0px;
+    max-width: 200px !important;
+    margin: 3px 0px 10px 0px !important;
+  }
+
+  .footer-logo {
+    max-width: 240px;
+    margin: -18px 0px 17px 0px;
   }
 
   .pad-bot-1 {
@@ -242,6 +252,39 @@
 
   .newsletter-form .form-control {
     margin-top: 5px;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1180px) {
+  .mar-top-4 {
+    margin-top: 20px;
+  }
+
+  .about-title {
+    margin-top: 20px !important;
+    margin-bottom: 15px !important;
+  }
+
+  .mar-bot-promo-tengah {
+    margin-bottom: 7%;
+  }
+
+  .form-question {
+    margin-left: 0px;
+  }
+
+  .blog-post.style3 .blog-txt {
+    padding: 60px;
+    width: 670px;
+    line-height: 27px;
+    background: #fff;
+    position: relative;
+    margin: -121px 0 0 25px;
+  }
+
+  .mt-product-detial {
+    overflow: hidden;
+    padding: 0 0 60px;
   }
 }
 
@@ -321,7 +364,7 @@
 }
 
 .title-product a:hover {
-  color: #e6951a;
+  color: #c6a954;
 }
 
 #icon-size {
@@ -342,6 +385,10 @@
   margin-right: 5px;
 }
 
+.modal-footer .btn-modal-close {
+  margin-right: 5px;
+}
+
 .img-modal {
   width: 50%;
   margin: 0 auto;
@@ -358,6 +405,15 @@
 
 .share-project {
   color: white !important;
+}
+
+.drop-color {
+  text-decoration: none !important;
+}
+
+.drop-color:focus {
+  text-decoration: none !important;
+  color: #c6a954 !important;
 }
 
 @keyframes App-logo-spin {

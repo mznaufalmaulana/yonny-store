@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../assets/images/logo-yonny.png";
+import logo from "../assets/images/logoHurufFixBY.png";
 import API from "../services";
 import SocialMedia from "./footer/SocialMedia";
 import Categories from "./footer/Categories";
@@ -155,8 +155,6 @@ class Footer extends React.Component {
                       <li>
                         <a href="/contact">Contact</a>
                       </li>
-                      {/* <li><a href="#">Terms &amp; Conditions</a></li>
-                      <li><a href="#">Privacy Policy</a></li> */}
                     </ul>
                   </div>
                 </nav>

@@ -116,17 +116,19 @@ class Index extends React.Component {
                 </div>
               ))}
             </div>
-            <div className="row">
-              <div className="col-xs-12">
-                <div className="btn-holder">
-                  <Pagination
-                    count={data.last_page}
-                    page={param.page}
-                    onChange={this.onChangePage}
-                  />
+            {data.last_page > 1 && (
+              <div className="row">
+                <div className="col-xs-12">
+                  <div className="btn-holder">
+                    <Pagination
+                      count={data.last_page}
+                      page={param.page}
+                      onChange={this.onChangePage}
+                    />
+                  </div>
                 </div>
               </div>
-            </div>
+            )}
           </div>
         </div>
       </main>

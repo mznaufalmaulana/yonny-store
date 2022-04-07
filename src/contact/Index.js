@@ -176,6 +176,7 @@ class Index extends React.Component {
                       type="text"
                       className="form-control"
                       placeholder="Name"
+                      required
                       onChange={(e) =>
                         this.setState({
                           question: {
@@ -187,6 +188,7 @@ class Index extends React.Component {
                     />
                     <input
                       type="email"
+                      required
                       className="form-control"
                       placeholder="E-Mail"
                       onChange={(e) =>
@@ -200,6 +202,7 @@ class Index extends React.Component {
                     />
                     <textarea
                       className="form-control"
+                      required
                       placeholder="Message"
                       onChange={(e) =>
                         this.setState({

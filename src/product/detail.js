@@ -159,7 +159,7 @@ class Detail extends React.Component {
         >
           <div className="container">
             <div className="row">
-              <div className="col-md-6 mar-top-5">
+              <div className="col-md-6 mar-top-4">
                 <div className="slide-container">
                   <Carousel {...properties}>
                     {photo.map((item) => (
@@ -177,7 +177,7 @@ class Detail extends React.Component {
                   </Carousel>
                 </div>
               </div>
-              <div className="col-md-6 mar-top-5">
+              <div className="col-md-6 mar-top-4">
                 <div
                   className="wow fadeInRight detail-product-desc"
                   data-wow-delay="0.5s"

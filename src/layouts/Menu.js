@@ -1,6 +1,5 @@
 import React from "react";
-import logo from "../assets/images/batuyonny.png";
-import logoText from "../assets/images/logo-yonny.png";
+import logoText from "../assets/images/logoFixBY.png";
 import API from "../services";
 
 class Menu extends React.Component {
@@ -97,7 +96,7 @@ class Menu extends React.Component {
                           </li>
 
                           <li className="drop">
-                            <a href="/product?page=1">
+                            <a className="drop-color" href="/product?page=1">
                               PRODUCTS &nbsp;
                               <i
                                 className="fa fa-angle-down"

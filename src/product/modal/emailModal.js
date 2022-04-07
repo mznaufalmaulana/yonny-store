@@ -89,13 +89,13 @@ class emailModal extends React.Component {
                   &times;
                 </button>
                 <h4 className="modal-title">
-                  <b>{this.props.data.product_name}</b>
+                  <b>Any Question of The Product?</b>
                 </h4>
               </div>
               <div className="modal-body">
                 <div className="detial-holder">
                   <h2 className="text-center question-modal">
-                    <b>Any Question Product?</b>
+                    <b>{this.props.data.product_name}</b>
                   </h2>
                   {this.props.photo.map((item, index) => {
                     const order = [0];
@@ -169,19 +169,19 @@ class emailModal extends React.Component {
               <div className="modal-footer bg-grey">
                 <button
                   type="button"
+                  className="btn-type1 btn-modal-close"
+                  data-dismiss="modal"
+                  disabled={loading}
+                >
+                  <b>CLOSE</b>
+                </button>
+                <button
+                  type="button"
                   className="btn-type1 btn-modal-email"
                   onClick={() => this.sendMail()}
                   disabled={loading}
                 >
                   <b>SEND EMAIL</b> {loading && "..."}
-                </button>
-                <button
-                  type="button"
-                  className="btn-type1"
-                  data-dismiss="modal"
-                  disabled={loading}
-                >
-                  <b>CLOSE</b>
                 </button>
               </div>
             </div>
