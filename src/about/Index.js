@@ -1,8 +1,8 @@
 import React from "react";
 import { Helmet } from "react-helmet";
 import Banner from "../component/Banner";
-import imgCompany from "../assets/images/company.jpeg";
-import imgFactory from "../assets/images/factory.jpeg";
+import imgCompany from "../assets/images/showRoom.png";
+import imgFactory from "../assets/images/howWeMade.png";
 require("../about/style.css");
 
 class Index extends React.Component {
@@ -71,30 +71,22 @@ class Index extends React.Component {
                 <img src={imgFactory} className="img-responsive" />
               </div>
               <div className="col-md-6 col-sm-12 text-justify">
-                <h2 className="text-uppercase about-title">PROCESS</h2>
+                <h2 className="text-uppercase about-title">HOW WE MADE</h2>
                 <p className="blog-text">
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                  Quisquam accusamus veniam velit distinctio repellat? Tempora,
-                  qui. Numquam ab sequi illum enim temporibus libero eligendi ex
-                  itaque similique, voluptatibus doloribus officia est illo sit,
-                  totam laborum quidem consectetur eum mollitia vitae. Culpa ex
-                  consequuntur dolores maxime animi provident vero dolorum id.
+                  Batuyonny's products are made by local professionals from
+                  Tulungagung to produce the best quality in the world. All
+                  products are handcrafted with minimal machine assistance to
+                  maintain the quality of the production.
                 </p>
                 <p className="blog-text">
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                  Quisquam accusamus veniam velit distinctio repellat? Tempora,
-                  qui. Numquam ab sequi illum enim temporibus libero eligendi ex
-                  itaque similique, voluptatibus doloribus officia est illo sit,
-                  totam laborum quidem consectetur eum mollitia vitae. Culpa ex
-                  consequuntur dolores maxime animi provident vero dolorum id.
+                  The results of the highest quality products are made carefully
+                  and consistently in every detail of the product. Highly
+                  skilled professionals from Tulungagung are able to produce
+                  quality products on a large scale.
                 </p>
                 <p className="blog-text">
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                  Quisquam accusamus veniam velit distinctio repellat? Tempora,
-                  qui. Numquam ab sequi illum enim temporibus libero eligendi ex
-                  itaque similique, voluptatibus doloribus officia est illo sit,
-                  totam laborum quidem consectetur eum mollitia vitae. Culpa ex
-                  consequuntur dolores maxime animi provident vero dolorum id.
+                  Batuyonny will continue to improvise and innovate in
+                  developing products to produce the best models and quality.
                 </p>
               </div>
               <div className="col-md-6 col-sm-12 hidden-sm hidden-xs">

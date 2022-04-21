@@ -1,5 +1,5 @@
 import React from "react";
-import logoText from "../assets/images/logoFixBY.png";
+import logoText from "../assets/images/logoBatuYonnyFix.png";
 import API from "../services";
 
 class Menu extends React.Component {

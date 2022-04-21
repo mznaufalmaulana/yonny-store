@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../assets/images/logoHurufFixBY.png";
+import logo from "../assets/images/LogoHurufBatuYonnyFix.png";
 import API from "../services";
 import SocialMedia from "./footer/SocialMedia";
 import Categories from "./footer/Categories";
@@ -109,7 +109,7 @@ class Footer extends React.Component {
                       <img src={logo} className="footer-logo" alt="batuYonny" />
                     </a>
                     <ul className="list-unstyled address-list">
-                      <li>
+                      <li className="mar-bot-05">
                         <i className="fa fa-map-marker"></i>
                         <address>
                           {contact ? contact.first_address : null}
@@ -117,7 +117,7 @@ class Footer extends React.Component {
                           {contact ? contact.second_address : null}
                         </address>
                       </li>
-                      <li>
+                      <li className="mar-bot-05">
                         <i className="fa fa-whatsapp"></i>
                         <a
                           href={`https://wa.me/${
@@ -129,13 +129,13 @@ class Footer extends React.Component {
                           {contact ? contact.phone : null}
                         </a>
                       </li>
-                      <li>
+                      <li className="mar-bot-05">
                         <i className="fa fa-phone"></i>
                         <a href={`tel:${contact ? contact.phone : null}`}>
                           {contact ? contact.phone : null}
                         </a>
                       </li>
-                      <li>
+                      <li className="mar-bot-05">
                         <i className="fa fa-envelope-o"></i>
                         <a href={`mailto:${contact ? contact.email : null}`}>
                           {contact ? contact.email : null}
